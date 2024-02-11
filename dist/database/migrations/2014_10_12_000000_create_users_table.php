@@ -15,6 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->bigInteger('steam_id', unsigned: true)->index('steam_id');
             $table->boolean('is_banned')->default(false);
+            $table->boolean('eula_consent')->default(false);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

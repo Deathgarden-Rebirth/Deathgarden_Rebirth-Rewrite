@@ -1,9 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\Auth\SteamAuthController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,7 +11,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('v1')->group(function () {
-    Route::post('auth/provider/steam/login',[SteamAuthController::class, 'login']);
-
+Route::fallback(function () {
+    return response('route not found', 404);
 });

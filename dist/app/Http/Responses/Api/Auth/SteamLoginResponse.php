@@ -3,6 +3,7 @@
 namespace App\Http\Responses\Api\Auth;
 
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Config;
 
 class SteamLoginResponse
 {
@@ -45,6 +46,7 @@ class SteamLoginResponse
         $this->triggerResults = new TriggerResults();
         $this->tokenId = $userId;
         $this->generated = Carbon::now()->getTimestamp();
+        $this->expire = Carbon::now()->addMinutes(Config::get('session.lifetime', 120))->getTimestamp();
         $this->userId = $userId;
     }
 }

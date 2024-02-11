@@ -12,12 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->uuid('id')->primary();
+            $table->bigInteger('steam_id', unsigned: true)->index('steam_id');
+            $table->boolean('is_banned')->default(false);
             $table->timestamps();
         });
     }

@@ -65,9 +65,9 @@ return [
             'replace_placeholders' => true,
         ],
 
-        'access' => [
+        'db_requests' => [
             'driver' => 'single',
-            'path' => storage_path('logs/access.log'),
+            'path' => storage_path('logs/db_requests.log'),
             'level' => 'info',
             'replace_placeholders' => true,
         ],

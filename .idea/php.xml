@@ -256,6 +256,8 @@
       <path value="$PROJECT_DIR$/dist/vendor/nette/schema" />
       <path value="$PROJECT_DIR$/dist/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/dist/vendor/league/config" />
+      <path value="$PROJECT_DIR$/dist/vendor/opcodesio/mail-parser" />
+      <path value="$PROJECT_DIR$/dist/vendor/opcodesio/log-viewer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1">

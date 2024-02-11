@@ -65,6 +65,20 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'access' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/access.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
+        'login' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/login.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),

@@ -23,7 +23,7 @@ class AccessLogger
         $log->queryParams = $request->getQueryString();
         $log->body = $request->all();
 
-        Log::channel('db_requests')->info(json_encode($log));
+        Log::channel('db_requests')->info($log->url."\n".json_encode($log));
 
         return $next($request);
     }

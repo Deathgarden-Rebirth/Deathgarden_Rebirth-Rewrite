@@ -20,12 +20,12 @@ class SteamAuthController extends Controller
         $steamResponse = $steamRequest->authenticateTicket();
 
         if($steamResponse === false) {
-            $log->info('Authenticating session ticket failed: {error}.', ['error' => $steamRequest->getError()]);
+            $log->alert('Authenticating session ticket failed: {error}.', ['error' => $steamRequest->getError()]);
             return response('Error: '.$steamRequest->getError(), 500);
         }
 
         if($steamResponse->isBanned()) {
-            $log->info('User with SteamID "{id}" denied login. User is Banned via Steam', ['id' => $steamResponse->steamId]);
+            $log->notice('User with SteamID "{id}" denied login. User is Banned via Steam', ['id' => $steamResponse->steamId]);
             return response('Unauthorized: You are Steam banned', 401);
         }
 

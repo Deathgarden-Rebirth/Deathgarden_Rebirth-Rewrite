@@ -3,13 +3,23 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Responses\TexResponse;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Str;
 
 class VersionController extends Controller
 {
     public function healthcheck()
     {
         return json_encode(['Health' => 'Alive']);
+    }
+
+    public function tex(\Illuminate\Http\Request $request)
+    {
+        $userAgent = $request->userAgent();
+
+        return json_encode(new TexResponse());
+
     }
 
     public function getLatestClientData()

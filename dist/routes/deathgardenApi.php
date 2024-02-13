@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Auth\SteamAuthController;
 use App\Http\Controllers\Api\Eula\EulaConsentController;
+use App\Http\Controllers\Api\Player\ModifierCenterController;
 use App\Http\Controllers\Api\Player\PlayerController;
 use App\Http\Controllers\Api\VersionController;
 use Illuminate\Support\Facades\Route;
@@ -23,11 +24,13 @@ Route::prefix('v1')->group(function () {
     Route::get('healthcheck', [VersionController::class, 'healthcheck']);
     Route::get('config/VER_LATEST_CLIENT_DATA', [VersionController::class, 'getLatestClientData']);
     Route::get('utils/contentVersion/latest/{version}', [VersionController::class, 'getLatestContentVersion']);
+    Route::get('services/tex', [VersionController::class, 'tex']);
 
     Route::middleware('api.auth')->group(function () {
         Route::get('consent/eula2', [EulaConsentController::class, 'get'])->name(EulaConsentController::class);
         Route::put('consent/eula2', [EulaConsentController::class, 'put'])->name(EulaConsentController::class);
 
         Route::get('players/ban/status', [PlayerController::class, 'getBanStatus']);
+        Route::get('modifierCenter/modifiers/me', [ModifierCenterController::class, 'modifiersMe']);
     });
 });

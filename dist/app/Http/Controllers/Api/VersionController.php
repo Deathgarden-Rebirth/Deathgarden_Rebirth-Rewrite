@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 class VersionController extends Controller
 {
+    public function healthcheck()
+    {
+        return json_encode(['Health' => 'Alive']);
+    }
+
     public function getLatestClientData()
     {
         return json_encode(['LatestSupportedVersion' => 'te-18f25613-36778-ue4-374f864b']);

@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->group(function () {
     Route::post('auth/provider/steam/login',[SteamAuthController::class, 'login']);
 
+    Route::get('healthcheck', [VersionController::class, 'healthcheck']);
     Route::get('config/VER_LATEST_CLIENT_DATA', [VersionController::class, 'getLatestClientData']);
     Route::get('utils/contentVersion/latest/{version}', [VersionController::class, 'getLatestContentVersion']);
 

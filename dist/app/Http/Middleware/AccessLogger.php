@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use stdClass;
@@ -28,8 +29,14 @@ class AccessLogger
         $log->queryParams = $request->getQueryString();
         $log->body = $request->all();
 
+        $response = $next($request);
+
+        $log->response = new stdClass();
+        $log->response->body = json_decode($response->getContent());
         Log::channel('db_requests')->info($log->method.' '.$log->url."\n".json_encode($log));
 
-        return $next($request);
+        return $response;
     }
+
+
 }

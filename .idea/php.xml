@@ -258,6 +258,7 @@
       <path value="$PROJECT_DIR$/dist/vendor/league/config" />
       <path value="$PROJECT_DIR$/dist/vendor/opcodesio/mail-parser" />
       <path value="$PROJECT_DIR$/dist/vendor/opcodesio/log-viewer" />
+      <path value="$PROJECT_DIR$/dist/vendor/ryoluo/sail-ssl" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1">

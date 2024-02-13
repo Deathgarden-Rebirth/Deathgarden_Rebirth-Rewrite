@@ -9,6 +9,14 @@ use Illuminate\Support\Str;
 
 class VersionController extends Controller
 {
+    const ROUTE_HEALTHCHECK = 'healthcheck';
+
+    const ROUTE_TEX = 'tex';
+
+    const ROUTE_LATEST_CLIENT_DATA = 'latest-client-data';
+
+    const ROUTE_LATEST_CONTENT_VERSION = 'latest-content-version';
+
     public function healthcheck()
     {
         return json_encode(['Health' => 'Alive']);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Responses;
 
+use App\Http\Controllers\Api\VersionController;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Config;
 use JsonSerializable;
@@ -22,7 +23,7 @@ class TexResponse implements JsonSerializable
 
     public function __construct()
     {
-        $this->url = Config::get('app.url').'/teeeeest';
+        $this->url = route(VersionController::ROUTE_TEX);
         $this->currentEvent = new Event();
     }
 
@@ -47,9 +48,9 @@ class Event {
 
     public int $timestamp;
 
-    public string $sid = '1234';
+    public string $sid = 'ahdzfnB1Ymxpc2hpbmctc3Rhc2hib2FyZHISCxIFRXZlbnQYgICAgMC1mwoM';
 
-    public string $message = 'up message';
+    public string $message = 'up';
 
     public bool $informational = false;
 
@@ -66,15 +67,15 @@ class Event {
 
 class EventStatus {
 
-    public string $description = 'Event description';
+    public string $description = 'The service is up';
 
-    public string $level = 'Info';
+    public string $level = 'NORMAL';
 
     public bool $default = true;
 
     public string $image = '';
 
-    public string $url;
+    public string $url = '';
 
     public string $id = 'up';
 

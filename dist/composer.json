@@ -9,8 +9,11 @@
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.11",
         "laravel/framework": "^10.10",
+        "laravel/socialite": "^5.12",
         "laravel/tinker": "^2.8",
-        "opcodesio/log-viewer": "^3.1"
+        "opcodesio/log-viewer": "^3.1",
+        "socialiteproviders/steam": "^4.2",
+        "spatie/laravel-permission": "^6.3"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.14",

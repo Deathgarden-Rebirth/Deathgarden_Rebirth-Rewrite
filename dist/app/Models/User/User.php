@@ -4,17 +4,17 @@ namespace App\Models\User;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Foundation\Auth\User as AuthUser;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
  * @mixin \Eloquent
  * @mixin IdeHelperUser
  */
-class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
+class User extends AuthUser
 {
-    use HasUuids, Authenticatable, HasRoles;
+    use HasUuids, HasRoles;
 
     protected $fillable = [
         'steam_id',

@@ -65,9 +65,9 @@ return [
             'replace_placeholders' => true,
         ],
 
-        'db_requests' => [
+        'dg_requests' => [
             'driver' => 'single',
-            'path' => storage_path('logs/db_requests.log'),
+            'path' => storage_path('logs/dgApi.log'),
             'level' => 'info',
             'replace_placeholders' => true,
         ],

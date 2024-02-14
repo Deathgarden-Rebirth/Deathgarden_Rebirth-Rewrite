@@ -33,7 +33,7 @@ class AccessLogger
 
         $log->response = new stdClass();
         $log->response->body = json_decode($response->getContent());
-        Log::channel('db_requests')->info($log->method.' '.$log->url."\n".json_encode($log));
+        Log::channel('dg_requests')->info($log->method.' '.$log->url."\n".json_encode($log));
 
         return $response;
     }

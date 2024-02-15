@@ -26,6 +26,8 @@ Route::get('/auth/logout', function () {
 
 Route::get('/auth/callback', [LoginController::class, 'callback'])->name(LoginController::ROUTE_CALLBACK);
 
+Route::get('{catalogVersion}/catalog', [\App\Http\Controllers\Api\Catalog\CatalogController::class, 'getCatalog']);
+
 Route::get('/', function () {
     return \Inertia\Inertia::render('Dashboard');
 });

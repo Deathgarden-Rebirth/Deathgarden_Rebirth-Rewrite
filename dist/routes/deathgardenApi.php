@@ -36,5 +36,7 @@ Route::prefix('v1')->group(function () {
 
         Route::get('players/ban/status', [PlayerController::class, 'getBanStatus']);
         Route::get('modifierCenter/modifiers/me', [ModifierCenterController::class, 'modifiersMe']);
+
+        Route::post('extensions/progression/initOrGetGroups', [PlayerController::class, 'initOrGetGroups']);
     });
 });

@@ -2,8 +2,9 @@
 
 namespace App\Models\User;
 
-use Illuminate\Auth\Authenticatable;
+use App\Models\PlayerData;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as AuthUser;
 use Spatie\Permission\Traits\HasRoles;
@@ -23,6 +24,11 @@ class User extends AuthUser
     public function ban(): HasOne
     {
         return $this->hasOne(Ban::class);
+    }
+
+    public function playerData(): PlayerData|Model
+    {
+        return $this->hasOne(PlayerData::class)->firstOrCreate();
     }
 
     public static function findBySteamID(int $steamId): User|null

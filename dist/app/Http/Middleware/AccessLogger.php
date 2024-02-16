@@ -4,13 +4,11 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use stdClass;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 class AccessLogger
 {
@@ -23,6 +21,20 @@ class AccessLogger
     {
         if(!Str::contains($request->userAgent(), 'TheExit'))
             return $next($request);
+
+        if(!Session::has('sessionLogConfig')) {
+            $logConfig = [
+                'driver' => 'single',
+                'path' => storage_path('logs/sessions/'.Str::substr(Session::getId(), 0, 12).'.log')
+            ];
+            Session::put('sessionLogConfig', $logConfig);
+        }
+        else
+            $logConfig = Session::get('sessionLogConfig');
+
+        $logChannel = Log::build($logConfig);
+
+        $channels = ['dg_requests', $logChannel];
 
         $log = new stdClass();
         $log->method = $request->method();
@@ -40,9 +52,9 @@ class AccessLogger
             $logMessage = $log->method.' '.$log->url."\n".json_encode($log);
 
             if($response->isSuccessful())
-                Log::channel('dg_requests')->info($logMessage);
+                Log::stack($channels)->info($logMessage);
             else
-                Log::channel('dg_requests')->warning($logMessage);
+                Log::stack($channels)->warning($logMessage);
 
             return $response;
         } catch (\Exception $e) {
@@ -52,7 +64,7 @@ class AccessLogger
             $log->exception->trace = $e->getTrace();
 
             $logMessage = $log->method.' '.$log->url."\n".json_encode($log);
-            Log::channel('dg_requests')->error($logMessage);
+            Log::stack($channels)->error($logMessage);
             throw $e;
         }
     }

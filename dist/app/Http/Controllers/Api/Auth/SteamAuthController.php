@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
+use App\APIClients\SteamAPIClient\ISteamUser\GetPlayerSummaries\GetPlayerSummariesRequest;
 use App\APIClients\SteamAPIClient\ISteamUserAuth\AuthenticateTicket\AuthenticateTicketRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Auth\SteamLoginRequest;
@@ -29,13 +30,32 @@ class SteamAuthController extends Controller
             return response('Unauthorized: You are Steam banned', 401);
         }
 
+
         $foundUser = User::firstOrCreate(['steam_id' => $steamResponse->steamId], ['source' => 'GAME']);
         Auth::login($foundUser);
 
-        $log->info('User with SteamID "{id}" successfully logged in.', ['id' => $steamResponse->steamId]);
+        $name = static::getPlayerName($steamResponse->steamId);
+        if($name !== false) {
+            $foundUser->last_known_username = $name;
+            $foundUser->save();
+        }
+
+        $log->info('User with SteamID "{id}" ({name}) successfully logged in.', ['id' => $steamResponse->steamId]);
 
         $response = new SteamLoginResponse($foundUser->id, $steamResponse->steamId);
 
         return json_encode($response);
+    }
+
+    protected function getPlayerName(int $steamId): string|false
+    {
+        $steamUserRequest = new GetPlayerSummariesRequest([$steamId]);
+
+        $result = $steamUserRequest->getPlayerSummaries();
+
+        if($result === false)
+            return false;
+
+        return $result->getPlayer($steamId)->personName;
     }
 }

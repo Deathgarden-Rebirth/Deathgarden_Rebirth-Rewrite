@@ -16,8 +16,6 @@ class AuthenticateTicketRequest extends SteamApiClient
 
     protected bool $useKey = true;
 
-    protected ?string $error = null;
-
     public function __construct(
         public string $ticket,
         public ?string $identity = null,

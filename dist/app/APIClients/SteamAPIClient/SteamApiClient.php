@@ -12,6 +12,8 @@ abstract class SteamApiClient extends BaseApiClient
 
     protected string $endpoint;
 
+    protected ?string $error = null;
+
     public function __construct()
     {
         parent::__construct();

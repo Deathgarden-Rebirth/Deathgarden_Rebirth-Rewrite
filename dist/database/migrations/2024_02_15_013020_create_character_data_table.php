@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('character_data', function (Blueprint $table) {
-            $table->foreignId('player_data_id')->constrained('player_data');
+            $table->foreignId('player_data_id')->constrained('player_data')->onDelete('cascade');
             $table->enum('character', array_column([...\App\Enums\Game\Hunter::cases(), ...\App\Enums\Game\Runner::cases()], 'value'));
 
             $table->timestamps();

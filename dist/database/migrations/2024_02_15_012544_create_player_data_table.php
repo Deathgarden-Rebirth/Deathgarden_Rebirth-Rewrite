@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('player_data', function (Blueprint $table) {
             $table->id();
-            $table->foreignUuid('user_id')->constrained();
+            $table->foreignUuid('user_id')->constrained()->onDelete('cascade');
 
             $table->enum('last_faction', array_column(Faction::cases(), 'value'));
             $table->enum('last_hunter', array_column(Hunter::cases(), 'value'));

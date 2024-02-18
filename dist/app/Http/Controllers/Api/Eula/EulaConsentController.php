@@ -11,7 +11,7 @@ class EulaConsentController extends Controller
     public function get(\Request $request)
     {
         $user = Auth::user();
-        $response = new EulaConsentResponse($user->eula_consent, $user->id);
+        $response = new EulaConsentResponse($user->id, $user->eula_consent);
 
         return json_encode($response);
     }
@@ -22,6 +22,6 @@ class EulaConsentController extends Controller
         $user->eula_consent = true;
         $user->save();
 
-        return json_encode(new EulaConsentResponse(true, $user->id));
+        return json_encode(new EulaConsentResponse($user->id, true));
     }
 }

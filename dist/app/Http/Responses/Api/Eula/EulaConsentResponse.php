@@ -16,7 +16,7 @@ class EulaConsentResponse
 
     public string $UserId;
 
-    public function __construct(bool $isGiven = false, string $userId)
+    public function __construct(string $userId, bool $isGiven = false)
     {
         $this->IsGiven = $isGiven;
         $this->UserId = $userId;

@@ -30,8 +30,7 @@ class SteamAuthController extends Controller
             return response('Unauthorized: You are Steam banned', 401);
         }
 
-
-        $foundUser = User::firstOrCreate(['steam_id' => $steamResponse->steamId], ['source' => 'GAME']);
+        $foundUser = User::firstOrCreate(['steam_id' => $steamResponse->steamId], ['source' => 'GAME', 'steam_id' => $steamResponse->steamId]);
         Auth::login($foundUser);
 
         $name = static::getPlayerName($steamResponse->steamId);
@@ -40,7 +39,7 @@ class SteamAuthController extends Controller
             $foundUser->save();
         }
 
-        $log->info('User with SteamID "{id}" ({name}) successfully logged in.', ['id' => $steamResponse->steamId]);
+        $log->info('User with SteamID "{id}" ({name}) successfully logged in.', ['id' => $steamResponse->steamId, 'name' => $foundUser->last_known_username]);
 
         $response = new SteamLoginResponse($foundUser->id, $steamResponse->steamId);
 

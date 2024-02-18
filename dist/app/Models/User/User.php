@@ -19,6 +19,8 @@ class User extends AuthUser
 
     protected $fillable = [
         'steam_id',
+        'source',
+        'last_known_username',
     ];
 
     public function ban(): HasOne

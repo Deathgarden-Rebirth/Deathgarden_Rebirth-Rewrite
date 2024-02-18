@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Game;
 
 use App\Enums\Game\Characters;
-use App\Enums\Game\Hunter;
+use App\Models\IdeHelperCharacterData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

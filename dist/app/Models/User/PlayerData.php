@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\User;
 
 use App\Enums\Game\Faction;
 use App\Enums\Game\Hunter;
 use App\Enums\Game\Runner;
+use App\Models\Game\CharacterData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;

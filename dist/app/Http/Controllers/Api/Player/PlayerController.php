@@ -77,6 +77,8 @@ class PlayerController extends Controller
             $response->MetadataGroups = [$runnerMetadata, $hunterMetadata, $playerMetadata];
         }
 
+
+
         return json_encode($response);
     }
 }

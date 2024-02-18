@@ -4,7 +4,7 @@ namespace App\Http\Responses\Api\Player;
 
 use App\Classes\Unreal\GameplayTag;
 use App\Enums\Game\Faction;
-use App\Models\CharacterData as CharacterDataModel;
+use App\Models\Game\CharacterData as CharacterDataModel;
 
 class InitOrGetGroupsResponse
 {
@@ -67,7 +67,7 @@ class PlayerData {
 
     public bool $hasPlayedDeathGarden1;
 
-    public function __construct(\App\Models\PlayerData $playerData)
+    public function __construct(\App\Models\User\PlayerData $playerData)
     {
         $this->LastPlayedFaction = $playerData->last_faction;
         $this->LastPlayedRunnerId = new GameplayTag($playerData->last_runner->getTag());

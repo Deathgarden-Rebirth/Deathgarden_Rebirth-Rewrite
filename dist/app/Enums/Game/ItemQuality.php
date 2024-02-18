@@ -14,7 +14,7 @@ enum ItemQuality: string
     case Prestige = 'Prestige';
 
     // Not used in catalog, but in game struct
-    case Standard = 'Standart';
+    case Standard = 'Standard';
     case Rare = 'Rare';
     case Ultra = 'Ultra';
 }

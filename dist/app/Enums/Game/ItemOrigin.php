@@ -8,7 +8,7 @@ enum ItemOrigin: string
     case Alienware = 'Alienware';
     case Deluxe = 'Deluxe';
     case DeadByDaylight = 'DeadByDaylight';
-    case HeartsAndMinds = 'HeartsAndMinds';
+    case HeartsAndMinds = 'HeartAndMinds';
     case DeathGarden1 = 'DeathGarden1';
     case Event = 'Event';
     case DlcT800 = 'DlcT800';

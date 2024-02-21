@@ -1,0 +1,24 @@
+_id: req_c82cb808e85c4d7e9df0a7f0ff7e80f6
+type: Request
+parentId: fld_33cc51787dcf4b57b85e8ce8dbfabedb
+modified: 1708470872318
+created: 1708470843171
+url: "{{ _.base_url }}/api/files/patch/sig"
+name: Download Sig
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: insomnium/0.2.3-a
+authentication: {}
+metaSortKey: -1708470113577
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

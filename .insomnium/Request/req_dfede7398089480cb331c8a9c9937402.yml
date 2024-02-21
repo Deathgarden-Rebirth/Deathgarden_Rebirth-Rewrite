@@ -1,0 +1,24 @@
+_id: req_dfede7398089480cb331c8a9c9937402
+type: Request
+parentId: fld_33cc51787dcf4b57b85e8ce8dbfabedb
+modified: 1708470898679
+created: 1708470885196
+url: "{{ _.base_url }}/api/files/patch/battleye"
+name: Downlaod Dll
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: insomnium/0.2.3-a
+authentication: {}
+metaSortKey: -1708250993633.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

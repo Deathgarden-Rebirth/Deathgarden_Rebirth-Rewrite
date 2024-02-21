@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Player;
 
+use App\Enums\Game\ItemGroupType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Player\InitOrGetGroupsRequest;
 use App\Http\Responses\Api\Player\GetBanStatusResponse;
@@ -13,12 +14,6 @@ use Illuminate\Support\Facades\Auth;
 
 class PlayerController extends Controller
 {
-    const PROGRESSIONS_GROUPS = [
-        'RunnerProgression',
-        'HunterProgression',
-        'PlayerProgression',
-    ];
-
     public function getBanStatus()
     {
         $user = Auth::user();
@@ -32,53 +27,21 @@ class PlayerController extends Controller
     public function initOrGetGroups(InitOrGetGroupsRequest $request)
     {
         $response = new InitOrGetGroupsResponse();
+        $user = Auth::user();
 
-        if (!$request->skipProgressionGroups) {
-            $groups = [];
-            foreach (static::PROGRESSIONS_GROUPS as $group) {
-                $RunnerMetadataGroup = new SplinteredState();
-                $RunnerMetadataGroup->ObjectId = $group;
-                $RunnerMetadataGroup->Version = 2.11;
-                $RunnerMetadataGroup->SchemaVersion = 2.11;
+        foreach (ItemGroupType::cases() as $group) {
+            if ($group == ItemGroupType::None)
+                continue;
 
-                // TODO: Make into model
-                $data = new \stdClass();
-                $data->Level = 1;
-                $data->CurrentExperience = 10;
-                $data->ExperienceToReach = 30;
-                $RunnerMetadataGroup->Data = $data;
-
-                $groups[] = $RunnerMetadataGroup;
+            if (!$request->skipProgressionGroups) {
+                if ($group->getCharacter() !== false)
+                    $response->addCharacterProgressionGroup($group->getCharacter(), $user);
+                else
+                    $response->addFactionProgression($group, $user);
             }
-            $response->ProgressionGroups = $groups;
         }
-
-        if (!$request->skipMetadataGroups) {
-            $user = Auth::user();
-
-            $runnerMetadata = new SplinteredState();
-            $runnerMetadata->ObjectId = 'RunnerMetadata';
-            $runnerMetadata->Version = 2.11;
-            $runnerMetadata->SchemaVersion = 2.11;
-            $runnerMetadata->setDataFromCharacterData($user->playerData()->lastRunnerCharacterData());
-
-            $hunterMetadata = new SplinteredState();
-            $hunterMetadata->ObjectId = 'RunnerMetadata';
-            $hunterMetadata->Version = 2.11;
-            $hunterMetadata->SchemaVersion = 2.11;
-            $hunterMetadata->setDataFromCharacterData($user->playerData()->lastRunnerCharacterData());
-
-            $playerMetadata = new SplinteredState();
-            $playerMetadata->ObjectId = 'RunnerMetadata';
-            $playerMetadata->Version = 2.11;
-            $playerMetadata->SchemaVersion = 2.11;
-            $playerMetadata->Data = new PlayerData($user->playerData());
-
-            $response->MetadataGroups = [$runnerMetadata, $hunterMetadata, $playerMetadata];
-        }
-
-
 
         return json_encode($response);
     }
+
 }

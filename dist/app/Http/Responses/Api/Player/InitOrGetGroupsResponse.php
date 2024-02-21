@@ -2,9 +2,12 @@
 
 namespace App\Http\Responses\Api\Player;
 
-use App\Classes\Unreal\GameplayTag;
-use App\Enums\Game\Faction;
-use App\Models\Game\CharacterData as CharacterDataModel;
+use App\Enums\Game\Characters;
+use App\Enums\Game\ItemGroupType;
+use App\Models\Game\CharacterData;
+use App\Models\User\PlayerData;
+use App\Models\User\User;
+use JsonSerializable;
 
 class InitOrGetGroupsResponse
 {
@@ -17,62 +20,90 @@ class InitOrGetGroupsResponse
         $this->ProgressionGroups = $progressionGroups;
         $this->MetadataGroups = $metadataGroups;
     }
+
+    public function addCharacterMetadataGroup(Characters $character, User $user): void
+    {
+
+    }
+
+    public function addCharacterProgressionGroup(Characters $character, User $user): void
+    {
+        /** @var CharacterData $characterData */
+        $characterData = $user->playerData()->characterData()->firstWhere('character', $character->value);
+        $group = new ProgressionGroup();
+
+        $group->version = $characterData->readout_version;
+        $group->objectId = $characterData->character->getgroup();
+        $group->level = $characterData->level;
+        $group->currentExperience = $characterData->experience;
+        $group->experienceToReach = CharacterData::getExperienceForLevel($group->level);
+        $this->ProgressionGroups[] = $group;
+    }
+
+    public function addFactionProgression(ItemGroupType $groupType, User $user): void {
+        $playerData = $user->playerData();
+
+        $group = new ProgressionGroup();
+
+        $group->version = $playerData->readout_version;
+        $group->objectId = $groupType;
+
+        $group->level = match($groupType) {
+            ItemGroupType::RunnerProgression => $playerData->runner_faction_level,
+            ItemGroupType::HunterProgression => $playerData->hunter_faction_level,
+            default => 1,
+        };
+
+        $group->currentExperience = match($groupType) {
+            ItemGroupType::RunnerProgression => $playerData->runner_faction_experience,
+            ItemGroupType::HunterProgression => $playerData->hunter_faction_experience,
+            default => 0,
+        };
+        $group->experienceToReach = PlayerData::getRemainingFactionExperience($group->level);
+        $this->ProgressionGroups[] = $group;
+    }
 }
 
-class SplinteredState
+class MetadataGroup
 {
-    public string $ObjectId;
-
     public float $Version;
+
+    public string $ObjectId;
 
     public float $SchemaVersion;
 
     public object $Data;
 
-    public function setDataFromCharacterData(CharacterDataModel $characterData): static
-    {
-        $this->Data = new CharacterData($characterData->character->getTag());
-
-        return $this;
-    }
-
-}
-class CharacterData {
-    public GameplayTag $CharacterId;
-
-    public array $Equipment = [];
-
-    public array $EquippedPerks = [];
-
-    public array $EquippedPowers = [];
-
-    public array $EquippedWeapons = [];
-
-    public array $EquippedBonuses = [];
-
-    public function __construct(string $characterGameplayTag)
-    {
-        $this->CharacterId = new GameplayTag($characterGameplayTag);
-    }
 }
 
-class PlayerData {
-    public Faction $LastPlayedFaction;
+class ProgressionGroup implements JsonSerializable
+{
+    public int $version;
 
-    public GameplayTag $LastPlayedRunnerId;
+    public ItemGroupType $objectId;
 
-    public GameplayTag $LastPlayedHunterId;
+    public int $level;
 
-    public bool $shouldPlayWithoutContextualHelp;
+    public int $currentExperience;
 
-    public bool $hasPlayedDeathGarden1;
+    public int $experienceToReach;
 
-    public function __construct(\App\Models\User\PlayerData $playerData)
+    public function jsonSerialize(): mixed
     {
-        $this->LastPlayedFaction = $playerData->last_faction;
-        $this->LastPlayedRunnerId = new GameplayTag($playerData->last_runner->getTag());
-        $this->LastPlayedHunterId = new GameplayTag($playerData->last_hunter->getTag());
-        $this->shouldPlayWithoutContextualHelp = $playerData->has_played_tutorial;
-        $this->hasPlayedDeathGarden1 = $playerData->has_played_dg_1;
+        $response = collect([
+            'version' => $this->version,
+            'objectId' => $this->objectId,
+            'schemaVersion' => 1,
+            'data' => [
+                'experience' => [
+                    'level' => $this->level,
+                    'experienceToReach' => $this->experienceToReach,
+                    'currentExperience' => $this->currentExperience,
+                ],
+                'metadata' => [],
+            ]
+        ]);
+
+        return $response;
     }
 }

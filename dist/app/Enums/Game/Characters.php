@@ -34,4 +34,11 @@ enum Characters: string
     {
         return Runner::tryFrom($this->value) !== null;
     }
+
+    public function getgroup(): ItemGroupType
+    {
+        $group = Runner::tryFrom($this->value)?->getGroupType() ?? Hunter::tryFrom($this->value)->getGroupType();
+
+        return $group;
+    }
 }

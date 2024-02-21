@@ -15,4 +15,16 @@ enum Runner: string
     {
         return 'Runner.'.$this->value;
     }
+
+    public function getGroupType(): ItemGroupType
+    {
+        return match ($this) {
+            Runner::Smoke => ItemGroupType::RunnerFog,
+            Runner::Ink => ItemGroupType::RunnerInked,
+            Runner::Ghost => ItemGroupType::RunnerGhost,
+            Runner::Sawbones => ItemGroupType::RunnerSawbones,
+            Runner::Switch => ItemGroupType::RunnerSwitch,
+            Runner::Dash => ItemGroupType::RunnerDash,
+        };
+    }
 }

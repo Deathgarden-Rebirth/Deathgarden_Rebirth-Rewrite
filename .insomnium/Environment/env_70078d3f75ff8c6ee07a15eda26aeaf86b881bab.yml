@@ -1,0 +1,16 @@
+_id: env_70078d3f75ff8c6ee07a15eda26aeaf86b881bab
+type: Environment
+parentId: wrk_adbfd4a031fa45edbd063e7fe12d6333
+modified: 1708031854265
+created: 1707625393259
+name: Base Environment
+data:
+  base_url: http://localhost
+  user_agent: TheExit/++UE4+Release-4.21-CL-0 Windows/10.0.22631.1.768.64bit
+dataPropertyOrder:
+  "&":
+    - base_url
+    - user_agent
+color: null
+isPrivate: false
+metaSortKey: 1707625393259

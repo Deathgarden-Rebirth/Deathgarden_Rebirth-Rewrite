@@ -1,0 +1,25 @@
+_id: req_e3f28d678b284ef089148036ff8df1b7
+type: Request
+parentId: fld_66ea5df0e93347619f5519bf6bf77ed4
+modified: 1708112996065
+created: 1707857452737
+url: "{{ _.base_url }}/api/v1/modifierCenter/modifiers/me"
+name: Modifier Me
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: "{{ _.base_url }}"
+    id: pair_0b6ec6a1031b47438f6e07ef4583baa0
+authentication: {}
+metaSortKey: -1707785002041.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

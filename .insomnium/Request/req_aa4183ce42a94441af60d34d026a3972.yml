@@ -1,0 +1,24 @@
+_id: req_aa4183ce42a94441af60d34d026a3972
+type: Request
+parentId: fld_6b71314154f54ad5b4c6f2f890e493e7
+modified: 1707852897754
+created: 1707852893172
+url: "{{ _.base_url }}/api/v1/healthcheck"
+name: Healthcheck
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: insomnium/0.2.3-a
+authentication: {}
+metaSortKey: -1707758711674.25
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

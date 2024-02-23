@@ -7,8 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Player\InitOrGetGroupsRequest;
 use App\Http\Responses\Api\Player\GetBanStatusResponse;
 use App\Http\Responses\Api\Player\InitOrGetGroupsResponse;
-use App\Http\Responses\Api\Player\PlayerData;
-use App\Http\Responses\Api\Player\SplinteredState;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

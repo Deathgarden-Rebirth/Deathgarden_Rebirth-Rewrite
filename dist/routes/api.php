@@ -19,6 +19,7 @@ Route::prefix('files')->group(function () {
     Route::get('patch/battleye', [PatchController::class, 'getBattleyePatch']);
 });
 
+
 Route::fallback(function () {
     return response('route not found', 404);
-});
+})->middleware('api.session');

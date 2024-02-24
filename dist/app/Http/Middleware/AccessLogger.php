@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use Psr\Log\LoggerInterface;
 use stdClass;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -33,18 +34,7 @@ class AccessLogger
 
         $channels = ['dg_requests'];
 
-        if (!Session::has('sessionLogConfig')) {
-            $user = Auth::user();
-            $username = $user?->last_known_username ?? '';
-            $logConfig = [
-                'driver' => 'single',
-                'path' => storage_path('logs/sessions/' . $username . '_' . Str::substr(Session::getId(), 0, 12) . '.log')
-            ];
-            Session::put('sessionLogConfig', $logConfig);
-        } else
-            $logConfig = Session::get('sessionLogConfig');
-
-        $logChannel = Log::build($logConfig);
+        $logChannel = static::getSessionLogConfig();
 
         $channels[] = $logChannel;
 
@@ -60,5 +50,21 @@ class AccessLogger
             Log::stack($channels)->warning($logMessage);
 
         return $response;
+    }
+
+    public static function getSessionLogConfig(): LoggerInterface
+    {
+        if (!Session::has('sessionLogConfig')) {
+            $user = Auth::user();
+            $username = $user?->last_known_username ?? '';
+            $logConfig = [
+                'driver' => 'single',
+                'path' => storage_path('logs/sessions/' . $username . '_' . Str::substr(Session::getId(), 0, 12) . '.log')
+            ];
+            Session::put('sessionLogConfig', $logConfig);
+        } else
+            $logConfig = Session::get('sessionLogConfig');
+
+        return Log::build($logConfig);
     }
 }

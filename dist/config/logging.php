@@ -72,6 +72,13 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'dg_requests_errors' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/dgApi_errors.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
         'login' => [
             'driver' => 'single',
             'path' => storage_path('logs/login.log'),

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Auth\SteamAuthController;
 use App\Http\Controllers\Api\Eula\EulaConsentController;
+use App\Http\Controllers\Api\Player\CurrencyController;
 use App\Http\Controllers\Api\Player\ModifierCenterController;
 use App\Http\Controllers\Api\Player\PlayerController;
 use App\Http\Controllers\Api\VersionController;
@@ -38,5 +39,7 @@ Route::prefix('v1')->group(function () {
         Route::get('modifierCenter/modifiers/me', [ModifierCenterController::class, 'modifiersMe']);
 
         Route::post('extensions/progression/initOrGetGroups', [PlayerController::class, 'initOrGetGroups']);
+
+        Route::get('wallet/currencies', [CurrencyController::class, 'getCurrencies']);
     });
 });

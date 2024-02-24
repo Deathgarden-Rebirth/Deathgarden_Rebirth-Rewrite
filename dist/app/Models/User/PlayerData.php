@@ -22,6 +22,9 @@ class PlayerData extends Model
     protected $attributes = [
         'has_played_tutorial' => false,
         'has_played_dg_1' => true,
+        'currency_a' => 0,
+        'currency_b' => 0,
+        'currency_c' => 0,
         'last_faction' => Faction::Runner,
         'last_hunter' => Hunter::Poacher,
         'last_runner' => Runner::Smoke,

@@ -30,13 +30,20 @@ class PoacherItemConfig extends CharacterItemConfig
         '6BE28177483A89CF00B2FD839726ACE1',
     ];
 
-    protected static array $defaultAdditionalPerks = [
+    protected static array $defaultEquippedPowers = [
         'D14477DA4ED69E001DC36ABCEA0B42BC',
         '08DC38B6470A7A5B0BA025B96279DAA8',
         '5159591743CBF0B57EC6FEB3341960D6',
     ];
 
-    protected static array $defaultAdditionalWeapons = [
+    protected static array $additionalPerks = [
+        '3D3C4F024308BA7C67306783902EECAB',
+        '47FCA62C449C01963D2293A422A41CF3',
+        '7899428947342326CE6B3B83021529E8',
+        'BFC78D3E4DEFDB5C6369A7B0EF5260C9',
+    ];
+
+    protected static array $additionalWeapons = [
         'F7B0756043C628036D038BBED754E89A',
     ];
 }

@@ -27,14 +27,18 @@ class DashItemConfig extends CharacterItemConfig
         'E13EA0CF46EE94F27F75BFAAD48D29D1',
     ];
 
-    protected static array $defaultAdditionalPerks = [
+    protected static array $additionalPerks = [
         '105AE7CE41DBBBE92EEBFBB32FDFEC20',
         '60542B19472C7AACEABFAA83D8112ACA',
         'FD1F569B450C253D3EC750A68A9A177A',
         '25BF0927456349471A1C77A852342246',
     ];
 
-    protected static array $defaultAdditionalWeapons = [
+    protected static array $additionalWeapons = [
         'F42C5B4148F22D29DA976BA8667964F4',
+    ];
+
+    protected static array $defaultEquippedPowers = [
+        'C8AF3D534973F82FADBB40BDA96F9DCD'
     ];
 }

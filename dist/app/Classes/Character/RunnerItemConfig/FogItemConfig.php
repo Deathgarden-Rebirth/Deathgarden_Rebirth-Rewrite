@@ -27,14 +27,18 @@ class FogItemConfig extends CharacterItemConfig
         '1F5CD9004224C56746D81991AA40448A',
     ];
 
-    protected static array $defaultAdditionalPerks = [
+    protected static array $additionalPerks = [
         '38E5F7F241E2BA1177419BB312FC1ACE',
         '1A09DB19434DA733AAD3D9B5B1929CD4',
         '19FB62054E644ECDC831E29FC5B9E501',
         '320652184E1A719DEF1D3C9395EE7344',
     ];
 
-    protected static array $defaultAdditionalWeapons = [
+    protected static array $additionalWeapons = [
         '69055D534DF27180C4B36CAB4B651054',
+    ];
+
+    protected static array $defaultEquippedPowers = [
+        'C8AF3D534973F82FADBB40BDA96F9DCD'
     ];
 }

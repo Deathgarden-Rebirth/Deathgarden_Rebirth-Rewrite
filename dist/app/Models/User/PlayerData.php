@@ -25,6 +25,11 @@ class PlayerData extends Model
         'last_faction' => Faction::Runner,
         'last_hunter' => Hunter::Poacher,
         'last_runner' => Runner::Smoke,
+        'readout_version' => 1,
+        'runner_faction_level' => 1,
+        'hunter_faction_level' => 1,
+        'runner_faction_experience' => 0,
+        'hunter_faction_experience' => 0
     ];
 
     protected $casts = [
@@ -53,6 +58,10 @@ class PlayerData extends Model
         return $this->hasMany(CharacterData::class);
     }
 
+    public function characterDataForCharacter(Characters $character): CharacterData|Model|null {
+        return $this->characterData()->firstWhere('character', $character->value);
+    }
+
     public function lastHunterCharacterData(): CharacterData|Model  {
         $attributeValue = ['character' => $this->last_hunter];
         return $this->hasMany(CharacterData::class)->firstOrCreate($attributeValue, $attributeValue);
@@ -61,6 +70,18 @@ class PlayerData extends Model
     public function lastRunnerCharacterData(): CharacterData|Model  {
         $attributeValue = ['character' => $this->last_runner];
         return $this->hasMany(CharacterData::class)->firstOrCreate($attributeValue, $attributeValue);
+    }
+
+    public function getCumulativeExperience(): int
+    {
+        $characterData = $this->characterData;
+        $experience = 0;
+
+        foreach ($characterData as $character) {
+            $experience += $character->experience;
+        }
+
+        return $experience;
     }
 
     public static function getRemainingFactionExperience(int $level): int

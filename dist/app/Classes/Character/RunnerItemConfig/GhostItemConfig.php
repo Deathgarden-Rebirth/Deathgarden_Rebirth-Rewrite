@@ -27,14 +27,18 @@ class GhostItemConfig extends CharacterItemConfig
         '8EFCD5CC464EBFE1B7B03A984563710A',
     ];
 
-    protected static array $defaultAdditionalPerks = [
+    protected static array $additionalPerks = [
         'F05493F04CF30636487243B5776882D6',
         'CAA84E294F02ECF88B08FB96E481194D',
         'A858CAF640A824508A028D89AFC44366',
         '1258297B4BCBFB39628E22A58C77EA87',
     ];
 
-    protected static array $defaultAdditionalWeapons = [
+    protected static array $additionalWeapons = [
         'C9C6D40A4D6A6A5748D5C0A17763C9C1',
+    ];
+
+    protected static array $defaultEquippedPowers = [
+        'C8AF3D534973F82FADBB40BDA96F9DCD'
     ];
 }

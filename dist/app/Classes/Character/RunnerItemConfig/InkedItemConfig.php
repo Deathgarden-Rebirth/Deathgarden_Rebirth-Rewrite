@@ -27,14 +27,18 @@ class InkedItemConfig extends CharacterItemConfig
         '92B767F442A89C87CC3C9CB5D279D6EA',
     ];
 
-    protected static array $defaultAdditionalPerks = [
+    protected static array $additionalPerks = [
         '78C4B6734B7C9DD1D2488EBA8EB5A7E4',
         '75A9B5A34CD7815B6D77248506897122',
         '6340FA564B0C4E692AD174BB743607F5',
         '5681640F41DF9BEF0659C3A951BFC01B',
     ];
 
-    protected static array $defaultAdditionalWeapons = [
+    protected static array $additionalWeapons = [
         '5D230967452FEEE13F1CA780F580E889',
+    ];
+
+    protected static array $defaultEquippedPowers = [
+        'C8AF3D534973F82FADBB40BDA96F9DCD'
     ];
 }

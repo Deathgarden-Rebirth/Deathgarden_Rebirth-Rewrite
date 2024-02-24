@@ -37,7 +37,14 @@ class PlayerController extends Controller
                 else
                     $response->addFactionProgression($group, $user);
             }
+
+            if (!$request->skipMetadataGroups) {
+                if($group->getCharacter() !== false)
+                    $response->addCharacterMetadataGroup($group->getCharacter(), $user);
+            }
         }
+
+        $response->addGeneralMetadata($user);
 
         return json_encode($response);
     }

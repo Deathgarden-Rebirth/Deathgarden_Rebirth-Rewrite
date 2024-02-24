@@ -30,13 +30,20 @@ class StalkerItemConfig extends CharacterItemConfig
         '8A5BF2274640C2F23EF3C996A6F6404D',
     ];
 
-    protected static array $defaultAdditionalPerks = [
+    protected static array $defaultEquippedPowers = [
         '10A8C667458016646E2EFA9452E3141A',
         '08DC38B6470A7A5B0BA025B96279DAA8',
         '5159591743CBF0B57EC6FEB3341960D6',
     ];
 
-    protected static array $defaultAdditionalWeapons = [
+    protected static array $additionalPerks = [
+        '08E1B04246C86826FA5FBE9B8030EB01',
+        '0FA5CBDA402FB9FCC8B56CAE69202061',
+        'B7287C204907B7DDFC7D0EA0B8252E60',
+        '7037D4804CB9931A4DDF23A35E321775',
+    ];
+
+    protected static array $additionalWeapons = [
         '1B51D59C47F565A20E743BA187B83642',
     ];
 }

@@ -2,8 +2,18 @@
 
 namespace App\Classes\Character;
 
+use Illuminate\Support\Arr;
+
 abstract class CharacterItemConfig
 {
+    const RUNNER_EQUIPPED_PERK_COUNT = 2;
+
+    const RUNNER_EQUIPPED_WEAPON_COUNT = 1;
+
+    const HUNTER_EQUIPPED_PERK_COUNT = 2;
+
+    const HUNTER_EQUIPPED_WEAPON_COUNT = 2;
+
     protected static array $defaultEquippedPerks;
 
     protected static array $defaultEquippedWeapons;
@@ -12,14 +22,16 @@ abstract class CharacterItemConfig
 
     protected static array $defaultEquippedBonuses;
 
+    protected static array $defaultEquippedPowers = [];
+
     /**
      * additional perks for Runners and Equipped Powers for Hunters
      *
      * @var array
      */
-    protected static array $defaultAdditionalPerks;
+    protected static array $additionalPerks;
 
-    protected static array $defaultAdditionalWeapons;
+    protected static array $additionalWeapons;
 
     public static function getDefaultEquippedPerks(): array {
         return static::$defaultEquippedPerks;
@@ -37,16 +49,16 @@ abstract class CharacterItemConfig
         return static::$defaultEquippedBonuses;
     }
 
-    public static function getDefaultAdditionalPerks(): array {
-        return static::$defaultAdditionalPerks;
-    }
-
-    public static function getDefaultEqippedPowers()
+    public static function getDefaultPowers()
     {
-        return static::$defaultAdditionalPerks;
+        return static::$defaultEquippedPowers;
     }
 
-    public static function getDefaultAdditionalWeapons(): array {
-        return static::$defaultAdditionalWeapons;
+    public static function getAllowedPerks(): array {
+        return [...static::$additionalPerks, ...static::$defaultEquippedPerks];
+    }
+
+    public static function getAllowedWeapons(): array {
+        return [...static::$additionalWeapons, ...static::$defaultEquippedWeapons];
     }
 }

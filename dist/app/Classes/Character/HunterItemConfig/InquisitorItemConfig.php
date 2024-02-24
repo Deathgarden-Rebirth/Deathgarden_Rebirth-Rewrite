@@ -30,13 +30,20 @@ class InquisitorItemConfig extends CharacterItemConfig
         'EDB6D6B742023AE61AD8718CAC073C0E',
     ];
 
-    protected static array $defaultAdditionalPerks = [
+    protected static array $defaultEquippedPowers = [
         '7902D836470BBB49DE9B9D97F17C9DB5',
         '08DC38B6470A7A5B0BA025B96279DAA8',
         '5159591743CBF0B57EC6FEB3341960D6',
     ];
 
-    protected static array $defaultAdditionalWeapons = [
+    protected static array $additionalPerks = [
+        'C215B81F4E42196103ECE98949892499',
+        '0C6D2A4648B95C2264312783F977F211',
+        '4886DDC446B96FEE1255D6A2AB114B0D',
+        '9281A7AB4EE28B4FB6341886DFD50391',
+    ];
+
+    protected static array $additionalWeapons = [
         'B83A141A45FB8D96D48A5185CD607AA3',
     ];
 }

@@ -30,13 +30,20 @@ class VeteranItemConfig extends CharacterItemConfig
         '3D377249421D35F0F750578919A7E210',
     ];
 
-    protected static array $defaultAdditionalPerks = [
+    protected static array $defaultEquippedPowers = [
         '7A541DCB4F04DAB2E10FAB84395BB967',
         '08DC38B6470A7A5B0BA025B96279DAA8',
         '0703E3634B0E4409623E2D8C06B14C79',
     ];
 
-    protected static array $defaultAdditionalWeapons = [
+    protected static array $additionalPerks = [
+        '00CE22624386379A86512A9500B41ABC',
+        'DE624DB646B9EEAA7CBDFF9A62D96293',
+        '2046082F4049FFABD5A933A4559B3AE0',
+        '97D7970A47CDE0451384D098E7E4A681',
+    ];
+
+    protected static array $additionalWeapons = [
         '48072EAA49C83C6F387236955B3C7B6E',
     ];
 }

@@ -27,14 +27,18 @@ class SwitchItemConfig extends CharacterItemConfig
         'F91593E346415A85CFD0ED9CEBFBBDEA',
     ];
 
-    protected static array $defaultAdditionalPerks = [
+    protected static array $additionalPerks = [
         '5889E8B1404109B1D4623B9DD2057608',
         'E30FA007473CD2472AE5798B679DA419',
         '2F3693A4473188D2787CC899A70DC563',
         '9B34059A4199ACBEE46BB4B0472E7CC3',
     ];
 
-    protected static array $defaultAdditionalWeapons = [
+    protected static array $additionalWeapons = [
         '51E112D1407DC2F33CD6C98B31E1F1BD',
+    ];
+
+    protected static array $defaultEquippedPowers = [
+        'C8AF3D534973F82FADBB40BDA96F9DCD'
     ];
 }

@@ -25,6 +25,11 @@ enum Characters: string
         return $runner?->getTag() ?? Hunter::tryFrom($this->value)->getTag();
     }
 
+    public function getCharacter(): Runner|Hunter
+    {
+        return Runner::tryFrom($this->value) ?? Hunter::tryFrom($this->value);
+    }
+
     public function isHunter(): bool
     {
         return Hunter::tryFrom($this->value) !== null;

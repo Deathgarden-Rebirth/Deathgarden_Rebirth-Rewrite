@@ -27,14 +27,18 @@ class SawbonesItemConfig extends CharacterItemConfig
         '54B3EF794FCB0643C4644FA15BEF31D5',
     ];
 
-    protected static array $defaultAdditionalPerks = [
+    protected static array $additionalPerks = [
         '9FCAAC9143A827E79DC179B762B1E520',
         '04FC953E40A601200FA1C181A0D3C913',
         '274EB0B34AB39E468BFA878F7E87465B',
         'D495BCB543F2D005B559C888E4BF2B3B',
     ];
 
-    protected static array $defaultAdditionalWeapons = [
+    protected static array $additionalWeapons = [
         '5A2DD3F6433AB83A725513B868D240CF',
+    ];
+
+    protected static array $defaultEquippedPowers = [
+        'C8AF3D534973F82FADBB40BDA96F9DCD'
     ];
 }

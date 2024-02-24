@@ -6,9 +6,11 @@ use App\Enums\Game\Characters;
 use App\Enums\Game\Faction;
 use App\Enums\Game\Hunter;
 use App\Enums\Game\Runner;
+use App\Models\Game\CatalogItem;
 use App\Models\Game\CharacterData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
@@ -59,6 +61,11 @@ class PlayerData extends Model
     public function characterData(): HasMany
     {
         return $this->hasMany(CharacterData::class);
+    }
+
+    public function inventory(): BelongsToMany
+    {
+        return $this->belongsToMany(CatalogItem::class)->withTimestamps();
     }
 
     public function characterDataForCharacter(Characters $character): CharacterData|Model|null {

@@ -41,5 +41,7 @@ Route::prefix('v1')->group(function () {
         Route::post('extensions/progression/initOrGetGroups', [PlayerController::class, 'initOrGetGroups']);
 
         Route::get('wallet/currencies', [CurrencyController::class, 'getCurrencies']);
+
+        Route::get('inventories', [PlayerController::class, 'getInventory']);
     });
 });

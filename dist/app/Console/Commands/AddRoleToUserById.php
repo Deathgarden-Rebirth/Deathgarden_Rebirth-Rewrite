@@ -7,14 +7,14 @@ use App\Models\User\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 
-class AddRoleToUser extends Command
+class AddRoleToUserById extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'permissions:addRoleToUser {role} {user}';
+    protected $signature = 'permission:addRoleToUserById {role} {user}';
 
     /**
      * The console command description.

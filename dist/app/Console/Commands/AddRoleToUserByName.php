@@ -67,16 +67,12 @@ class AddRoleToUserByName extends Command
      */
     private function displayUserSelection(\Illuminate\Database\Eloquent\Collection $users): User|false
     {
-        $this->info("Multiple Users with name found, please select one:\n");
+        $this->info("Multiple Users with name found, please select one:");
 
-        $this->info("                   User Cloud ID                   Steam ID         Username\n");
-        $this->info("[1]    9b692453-ecec-4cee-9743-07ca4c7f87ca    76561198241289194    Vari");
-
+        $this->info("                   User Cloud ID                   Steam ID         Username");
         foreach ($users as $index => $user) {
-            $this->info('['.$index.']    ');
-            $this->info($user->id.'    ');
-            $this->info($user->steam_id.'    ');
-            $this->info($user->last_known_username."\n");
+            $outString = '['.$index.']    '.$user->id.'    '.$user->steam_id.'    '.$user->last_known_username;
+            $this->info($outString);
         }
 
         $answer = $this->ask('Selected User: ', false);

@@ -6,6 +6,8 @@ use App\Classes\Character\CharacterItemConfig;
 
 class PoacherItemConfig extends CharacterItemConfig
 {
+    protected static string $characterId = 'EF96A20249884D437B87A6A4BDE81B7F';
+
     protected static array $defaultEquippedPerks = [
         'EB90A75F44EA4D821B385EA00B45E1BE',
         '305F597C424FDD0A0A6B2BB6CF5CC542',

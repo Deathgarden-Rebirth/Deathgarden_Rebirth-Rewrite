@@ -6,6 +6,8 @@ use App\Classes\Character\CharacterItemConfig;
 
 class VeteranItemConfig extends CharacterItemConfig
 {
+    protected static string $characterId = '606129DC45AB9D16B69E2FA5C99A9835';
+
     protected static array $defaultEquippedPerks = [
         '3C9D2E0A44ED015979667DBA4F080B49',
         'AA00BB584A47234168A63D9F14C4C4E8',

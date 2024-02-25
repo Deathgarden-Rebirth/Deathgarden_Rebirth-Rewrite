@@ -5,6 +5,7 @@ namespace App\Helper\Uuid;
 use Illuminate\Support\Collection;
 use Ramsey\Uuid\Type\Hexadecimal;
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 abstract class UuidHelper
 {
@@ -21,6 +22,10 @@ abstract class UuidHelper
         return collect($new);
     }
 
+    /**
+     * @param Collection|array $collection
+     * @return Collection|UuidInterface[]
+     */
     public static function convertFromHexToUuidCollecton(Collection|array $collection): Collection {
         $new = [];
 

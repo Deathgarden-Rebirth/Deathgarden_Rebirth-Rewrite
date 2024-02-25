@@ -6,6 +6,8 @@ use App\Classes\Character\CharacterItemConfig;
 
 class FogItemConfig extends CharacterItemConfig
 {
+    protected static string $characterId = '56B7B6F6473712D0B7A2F992BB2C16CD';
+
     protected static array $defaultEquippedPerks = [
         '20FF1865462FD26B0253A08F18EFAA10',
         'E4892E8A495FFB38F90729A1C97F3AC9',

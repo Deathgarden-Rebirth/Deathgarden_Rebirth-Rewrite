@@ -14,6 +14,8 @@ abstract class CharacterItemConfig
 
     const HUNTER_EQUIPPED_WEAPON_COUNT = 2;
 
+    protected static string $characterId;
+
     protected static array $defaultEquippedPerks;
 
     protected static array $defaultEquippedWeapons;
@@ -60,5 +62,19 @@ abstract class CharacterItemConfig
 
     public static function getAllowedWeapons(): array {
         return [...static::$additionalWeapons, ...static::$defaultEquippedWeapons];
+    }
+
+    public static function getAllItems(): array
+    {
+        return [
+            ...static::$defaultEquippedPerks,
+            ...static::$defaultEquippedWeapons,
+            ...static::$defaultEquipment,
+            ...static::$defaultEquippedBonuses,
+            ...static::$defaultEquippedPowers,
+            ...static::$additionalPerks,
+            ...static::$additionalWeapons,
+            static::$characterId,
+        ];
     }
 }

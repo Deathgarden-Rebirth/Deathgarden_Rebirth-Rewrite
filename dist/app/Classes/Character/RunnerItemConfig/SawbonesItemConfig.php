@@ -6,6 +6,8 @@ use App\Classes\Character\CharacterItemConfig;
 
 class SawbonesItemConfig extends CharacterItemConfig
 {
+    protected static string $characterId = '755D4DFE40DA1512B01E3D8CFF3C8D4D';
+
     protected static array $defaultEquippedPerks = [
         'F2768C4541C8262EFF4922B372AB7306',
         'BE1C0D4C4CE0861122BE22B2736D9091',

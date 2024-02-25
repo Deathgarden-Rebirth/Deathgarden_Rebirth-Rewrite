@@ -6,6 +6,8 @@ use App\Classes\Character\CharacterItemConfig;
 
 class StalkerItemConfig extends CharacterItemConfig
 {
+    protected static string $characterId = 'C50FFFBF4686613182F45890651797CE';
+
     protected static array $defaultEquippedPerks = [
         '7CE5AFBF459102E5728DCDAA6F88C0F1',
         '2DBF9B114B82A63940936396CBA68BCD',

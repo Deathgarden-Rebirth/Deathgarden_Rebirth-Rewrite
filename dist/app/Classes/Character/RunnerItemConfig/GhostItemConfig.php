@@ -6,6 +6,8 @@ use App\Classes\Character\CharacterItemConfig;
 
 class GhostItemConfig extends CharacterItemConfig
 {
+    protected static string $characterId = '234FFD464C55514B6C1E738645993CAA';
+
     protected static array $defaultEquippedPerks = [
         '6A8FA1C845AE1D7576BD87A53F7ED4A4',
         'C7A898A44F208F9F85CE75969A98242D',

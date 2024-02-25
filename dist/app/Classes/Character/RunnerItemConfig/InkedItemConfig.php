@@ -6,6 +6,8 @@ use App\Classes\Character\CharacterItemConfig;
 
 class InkedItemConfig extends CharacterItemConfig
 {
+    protected static string $characterId = 'C300E3A84E571D549E014B9051A18BE8';
+
     protected static array $defaultEquippedPerks = [
         '48C47A4341B0E3E001F3D18537658D40',
         '366DFB0841631FE3A1F4FE9BF814CF2C',

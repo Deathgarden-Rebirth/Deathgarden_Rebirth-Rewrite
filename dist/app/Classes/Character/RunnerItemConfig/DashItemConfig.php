@@ -6,6 +6,8 @@ use App\Classes\Character\CharacterItemConfig;
 
 class DashItemConfig extends CharacterItemConfig
 {
+    protected static string $characterId = '759E44DD469C284175C2D6A1AB0B0FA7';
+
     protected static array $defaultEquippedPerks = [
         '97501DEF493625107AEDCAAB2ADEDF4B',
         '2BD43A50459BD9094DADC49A0F5F2551',

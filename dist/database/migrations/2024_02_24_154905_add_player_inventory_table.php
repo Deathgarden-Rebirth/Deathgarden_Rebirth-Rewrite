@@ -15,6 +15,8 @@ return new class extends Migration
             $table->foreignUuid('catalog_item_id')->constrained();
             $table->foreignId('player_data_id')->constrained('player_data');
             $table->timestamps();
+
+            $table->unique(['catalog_item_id', 'player_data_id']);
         });
     }
 

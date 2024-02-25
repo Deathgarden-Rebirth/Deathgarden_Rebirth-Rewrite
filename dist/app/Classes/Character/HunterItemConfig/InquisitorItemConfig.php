@@ -6,6 +6,8 @@ use App\Classes\Character\CharacterItemConfig;
 
 class InquisitorItemConfig extends CharacterItemConfig
 {
+    protected static string $characterId = 'CCA2272D408ED95387F017BED437FF9A';
+
     protected static array $defaultEquippedPerks = [
         'F055513D48AACBAC280B2AA00A984180',
         '5998C1C548AB7BDA80C87295F2764C5D',

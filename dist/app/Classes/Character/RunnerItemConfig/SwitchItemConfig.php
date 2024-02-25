@@ -6,6 +6,8 @@ use App\Classes\Character\CharacterItemConfig;
 
 class SwitchItemConfig extends CharacterItemConfig
 {
+    protected static string $characterId = '38A4EF8140822E498B2FD196B757F7AD';
+
     protected static array $defaultEquippedPerks = [
         '350B26074604529237BF0CB22B60A9B8',
         '04650B23493C386FA87E48947D26D79F',

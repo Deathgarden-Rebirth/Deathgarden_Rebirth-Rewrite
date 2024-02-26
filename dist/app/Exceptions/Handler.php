@@ -49,8 +49,6 @@ class Handler extends ExceptionHandler
     public function register(): void
     {
         $this->reportable(function (Throwable $e) {
-            $sessionLogConfig = AccessLogger::getSessionLogConfig();
-
             $request = request();
 
             $log = new \stdClass();
@@ -65,7 +63,7 @@ class Handler extends ExceptionHandler
             $log->error->line = $e->getLine();
             $log->error->trace = $e->getTrace();
 
-            $channels = ['dg_requests_errors', $sessionLogConfig];
+            $channels = ['dg_requests_errors'];
 
             $logMessage = $log->method.' '.$log->url."\n".json_encode($log, JSON_PRETTY_PRINT);
             Log::stack($channels)->error($logMessage);

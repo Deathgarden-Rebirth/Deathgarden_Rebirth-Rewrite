@@ -106,7 +106,7 @@ class StalkerItemConfig extends CharacterItemConfig
     ];
 
     protected static array $additionalWeapons = [
-        '1B51D59C47F565A20E743BA187B83642',
+        "2732ae1e44d10cf38ee2be9a5927aa6f",
         "065629e04a181add3062169aafb88f43",
         "0d96281e4440df505b9ca8b1457f50d8",
         "1727c5e74c3c7454a6cc0fb1f7562ce2",
@@ -119,16 +119,6 @@ class StalkerItemConfig extends CharacterItemConfig
         "ab2f540d448b533998ec38b8abaffd35",
         "192ec9dd4f40fe3c66f8a2ad84568769",
         "1945d4b24a31eb6c6ca508a4cdfbb44f",
-        "1b51d59c47f565a20e743ba187b83642",
-        "71f194c145e9629058957e9183c5c9c6",
-        "773c61c84b175db0314b809dc142739a",
-        "7fd66fcd42766c53d2cb42a7a611b88e",
-        "86711d8347a60ed764be78a051cd4c11",
-        "9aa46980454c38b8cbc1ce87f7e04f37",
-        "ca7d61574eb6f0ae1d6d39a4edd719d7",
-        "d4cbb3c9425ab53eb481558bed82ae7c",
-        "0fdfc87d45df769282ea1fa7ab57e409",
-        "169446014aa2a782e51ecfaf9ef33a39",
         "307a0b13417737ded675309f8b978ab8",
         "3d535d304b5e5113ca31d2838c840129",
         "4e4e95bb4ebd26e7cfa0e489979da0cc",
@@ -137,5 +127,15 @@ class StalkerItemConfig extends CharacterItemConfig
         "8c365cf442ae795157a187b017e4d17f",
         "a9349c774a13d353c0f315bb7b979324",
         "c55d9eff46eb08abdd8467bc23969e53",
+        "0b14db78493fc642908a88ad910f66fa",
+        "2732ae1e44d10cf38ee2be9a5927aa6f",
+        "38947a1e490f3f66255c2f9efde5d2c4",
+        "64f742034df9120418116b8d432f8c85",
+        "8fb116484ce9929d07267c9e7e7581a9",
+        "bad66b384c24c1714ed63eb8907edf73",
+        "db8f73c54cc7c390b3e0fdb451ed3e1c",
+        "e414c42947c4dfc2763edbb5bcc08629",
+        "fc5ac36c4d43405f92a3ed84b2923a24",
+
     ];
 }

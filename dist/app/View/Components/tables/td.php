@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\tables;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class RawLayout extends Component
+class td extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class RawLayout extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('layouts.raw');
+        return view('components.tables.td');
     }
 }

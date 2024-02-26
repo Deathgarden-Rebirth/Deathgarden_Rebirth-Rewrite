@@ -94,10 +94,10 @@ class InitOrGetGroupsResponse
             // if there is not, we just create it entirely and fill the list with the current challenge
             if($foundKey === false) {
                 $newEntry = [
-                    'itemId' => $picked->pivot->catalog_item_id,
+                    'itemId' => Uuid::fromString($picked->pivot->catalog_item_id)->getHex()->toString(),
                     'list' => [
                         [
-                            'challengeId' => $picked->id,
+                            'challengeId' => Uuid::fromString($picked->id)->getHex()->toString(),
                             'challengeCompletionValue' => $picked->completion_value,
                             'challengeAsset' => $picked->asset_path,
                         ]
@@ -109,7 +109,7 @@ class InitOrGetGroupsResponse
             // and if there is we just add the challenge to the list of the item.
             else {
                 $resultChallenges[$foundKey]['list'] = [
-                    'challengeId' => $picked->id,
+                    'challengeId' => Uuid::fromString($picked->id)->getHex()->toString(),
                     'challengeCompletionValue' => $picked->completion_value,
                     'challengeAsset' => $picked->asset_path,
                 ];

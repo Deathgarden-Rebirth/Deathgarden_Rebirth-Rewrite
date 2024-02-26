@@ -74,7 +74,7 @@ class AddAllGameplayItems extends Command
                     $this->info('Attaching Item '.$itemId.' from config '.$configClass);
                     $playerData->inventory()->attach($itemId->toString());
                 } catch(UniqueConstraintViolationException $e) {
-                    $this->warn('Skipping Item '.$itemId.' from config '.$configClass. 'because it alread is inside the players inventory.');
+                    $this->warn('Skipping Item '.$itemId.' from config '.$configClass. 'because it already is inside the players inventory.');
                 }
             }
         }

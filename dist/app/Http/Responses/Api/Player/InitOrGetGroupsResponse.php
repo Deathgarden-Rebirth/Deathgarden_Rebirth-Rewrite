@@ -6,10 +6,12 @@ use App\Classes\Character\CharacterItemConfig;
 use App\Enums\Game\Characters;
 use App\Enums\Game\ItemGroupType;
 use App\Helper\Uuid\UuidHelper;
+use App\Models\Game\Challenge;
 use App\Models\Game\CharacterData;
 use App\Models\User\PlayerData;
 use App\Models\User\User;
 use JsonSerializable;
+use Ramsey\Uuid\Uuid;
 
 class InitOrGetGroupsResponse
 {
@@ -79,6 +81,43 @@ class InitOrGetGroupsResponse
         $newGroup->equippedPowers = $itemConfigClass::getDefaultPowers();
         $newGroup->prestigeLevel = $characterData->prestige_level;
 
+        $pickedChallenges = $characterData->pickedChallenges;
+        $resultChallenges = collect();
+
+        foreach ($pickedChallenges as $picked) {
+            // Because a pciked challenge for a specific item can have multiple challenges,
+            // we look if there is already an entry with the item id.
+            $foundKey = $resultChallenges->search(function ($value, $key) use ($picked) {
+                return $value['itemId'] === Uuid::fromString($picked->pivot->catalog_item_id)->getHex()->toString();
+            });
+
+            // if there is not, we just create it entirely and fill the list with the current challenge
+            if($foundKey === false) {
+                $newEntry = [
+                    'itemId' => $picked->pivot->catalog_item_id,
+                    'list' => [
+                        [
+                            'challengeId' => $picked->id,
+                            'challengeCompletionValue' => $picked->completion_value,
+                            'challengeAsset' => $picked->asset_path,
+                        ]
+                    ]
+                ];
+
+                $resultChallenges->add($newEntry);
+            }
+            // and if there is we just add the challenge to the list of the item.
+            else {
+                $resultChallenges[$foundKey]['list'] = [
+                    'challengeId' => $picked->id,
+                    'challengeCompletionValue' => $picked->completion_value,
+                    'challengeAsset' => $picked->asset_path,
+                ];
+            }
+        }
+
+        $newGroup->pickedChallenges = $resultChallenges->toArray();
+
         $newGroup->version = $characterData->readout_version;
         $newGroup->objectId = $character->getgroup();
 
@@ -137,7 +176,7 @@ class MetadataGroup implements JsonSerializable
 
     public array $equippedBonuses;
 
-    public array $pickedChallenges = [];
+    public array $pickedChallenges;
 
     public array $equippedPowers;
 

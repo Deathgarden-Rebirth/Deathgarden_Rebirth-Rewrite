@@ -5,11 +5,10 @@ namespace App\Models\Game;
 use App\Classes\Character\CharacterItemConfig;
 use App\Enums\Game\Characters;
 use App\Helper\Uuid\UuidHelper;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
 use Ramsey\Uuid\Uuid;
 
 /**
@@ -50,6 +49,20 @@ class CharacterData extends Model
     public function equippedWeapons(): BelongsToMany
     {
         return $this->belongsToMany(CatalogItem::class,'character_data_equipped_weapons');
+    }
+
+    public function pickedChallenges(): BelongsToMany
+    {
+        return $this->belongsToMany(Challenge::class, 'character_data_picked_challenge')
+            ->withPivot('catalog_item_id');
+    }
+
+    public function getPicketChallengeForItem(Uuid $uuid): Collection
+    {
+        return $this->pickedChallenges()
+            ->where('catalog_item_id', '=', $uuid->toString())
+            ->withPivot('catalog_item_id')
+            ->get();
     }
 
     public static function getExperienceForLevel(int $level): int

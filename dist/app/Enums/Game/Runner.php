@@ -24,6 +24,19 @@ enum Runner: string
         return 'Runner.'.$this->value;
     }
 
+    public static function tryFromTag(string $tag): Runner|null
+    {
+        return match ($tag) {
+            'Runner.Smoke' => Runner::Smoke,
+            'Runner.Ink' => Runner::Ink,
+            'Runner.Ghost' => Runner::Ghost,
+            'Runner.Sawbones' => Runner::Sawbones,
+            'Runner.Switch' => Runner::Switch,
+            'Runner.Dash' => Runner::Dash,
+            default => null,
+        };
+    }
+
     public function getGroupType(): ItemGroupType
     {
         return match ($this) {

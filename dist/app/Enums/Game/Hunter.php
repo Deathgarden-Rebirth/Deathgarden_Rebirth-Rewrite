@@ -19,6 +19,17 @@ enum Hunter: string
         return 'Hunter.'.$this->value;
     }
 
+    public static function tryFromTag(string $tag): Hunter|null
+    {
+        return match ($tag) {
+            'Hunter.Stalker' => Hunter::Stalker,
+            'Hunter.Poacher' => Hunter::Poacher,
+            'Hunter.Inquisitor' => Hunter::Inquisitor,
+            'Hunter.Mass' => Hunter::Mass,
+            default => null,
+        };
+    }
+
     public function getGroupType(): ItemGroupType
     {
         return match ($this) {

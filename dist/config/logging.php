@@ -86,6 +86,20 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'challenge' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/challenges/challenge.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
+        'challenge_new' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/challenges/challenge_new.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),

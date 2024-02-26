@@ -26,11 +26,14 @@ abstract class UuidHelper
      * @param Collection|array $collection
      * @return Collection|UuidInterface[]
      */
-    public static function convertFromHexToUuidCollecton(Collection|array $collection): Collection {
+    public static function convertFromHexToUuidCollecton(Collection|array $collection, bool $toString = false): Collection {
         $new = [];
 
         foreach ($collection as $id) {
-            $new[] = Uuid::fromHexadecimal(new Hexadecimal($id));
+            if($toString)
+                $new[] = Uuid::fromHexadecimal(new Hexadecimal($id))->toString();
+            else
+                $new[] = Uuid::fromHexadecimal(new Hexadecimal($id));
         }
 
         return collect($new);

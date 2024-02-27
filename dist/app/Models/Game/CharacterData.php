@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Psr\Log\LoggerInterface;
 use Ramsey\Uuid\Uuid;
 
 /**
@@ -30,6 +33,8 @@ class CharacterData extends Model
     protected $attributes = [
         'readout_version' => 1,
     ];
+
+    static ?LoggerInterface $resetItemsLogger = null;
 
     public function equipment(): BelongsToMany
     {
@@ -116,6 +121,9 @@ class CharacterData extends Model
         $this->equippedPerks()->detach();
         $defaultPerkIds = UuidHelper::convertFromHexToUuidCollecton($itemConfigClass::getDefaultEquippedPerks());
         $this->equippedPerks()->attach($defaultPerkIds);
+
+        $user = Auth::user();
+        static::getResetItemsLogger()->warning(sprintf('User %s(%s) had unallowed Perks Equipped', $user->id, $user->last_known_username));
     }
 
     protected function resetEquippedWeapons(string|CharacterItemConfig $itemConfigClass): void
@@ -124,6 +132,9 @@ class CharacterData extends Model
         $this->equippedWeapons()->detach();
         $defaultWeaponIds = UuidHelper::convertFromHexToUuidCollecton($itemConfigClass::getDefaultEquippedWeapons());
         $this->equippedWeapons()->attach($defaultWeaponIds);
+
+        $user = Auth::user();
+        static::getResetItemsLogger()->warning(sprintf('User %s(%s) had unallowed Weapons Equipped', $user->id, $user->last_known_username));
     }
 
     protected function resetEquipment(string|CharacterItemConfig $itemConfigClass): void
@@ -132,6 +143,9 @@ class CharacterData extends Model
         $this->equipment()->detach();
         $defaultEquipmentIds = UuidHelper::convertFromHexToUuidCollecton($itemConfigClass::getDefaultEquipment());
         $this->equipment()->attach($defaultEquipmentIds);
+
+        $user = Auth::user();
+        static::getResetItemsLogger()->warning(sprintf('User %s(%s) had unallowed Equipment Equipped', $user->id, $user->last_known_username));
     }
 
     protected function resetEquippedBonuses(string|CharacterItemConfig $itemConfigClass): void
@@ -140,6 +154,21 @@ class CharacterData extends Model
         $this->equippedBonuses()->detach();
         $defaultBonusIds = UuidHelper::convertFromHexToUuidCollecton($itemConfigClass::getDefaultEquippedBonuses());
         $this->equippedBonuses()->attach($defaultBonusIds);
+
+        $user = Auth::user();
+        static::getResetItemsLogger()->warning(sprintf('User %s(%s) had unallowed Bonuses Equipped', $user->id, $user->last_known_username));
+    }
+
+    protected static function getResetItemsLogger(): LoggerInterface
+    {
+        if(static::$resetItemsLogger === null) {
+            static::$resetItemsLogger = Log::build([
+                'driver' => 'single',
+                'path' => storage_path('logs/resetEquippedItems.log'),
+            ]);
+        }
+
+        return static::$resetItemsLogger;
     }
 
 }

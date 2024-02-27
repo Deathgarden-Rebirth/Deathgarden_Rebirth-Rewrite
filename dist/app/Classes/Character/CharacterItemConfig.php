@@ -3,6 +3,9 @@
 namespace App\Classes\Character;
 
 use Illuminate\Support\Arr;
+use Ramsey\Uuid\Type\Hexadecimal;
+use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 abstract class CharacterItemConfig
 {
@@ -34,6 +37,10 @@ abstract class CharacterItemConfig
     protected static array $additionalPerks;
 
     protected static array $additionalWeapons;
+
+    public static function getCharacterId(): UuidInterface {
+        return Uuid::fromHexadecimal(new Hexadecimal(static::$characterId));
+    }
 
     public static function getDefaultEquippedPerks(): array {
         return static::$defaultEquippedPerks;

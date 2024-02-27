@@ -84,7 +84,7 @@ class CharacterData extends Model
 
         $equippedPerks = UuidHelper::convertFromUuidToHexCollection($this->equippedPerks()->allRelatedIds());
 
-        if($equippedPerks->count() > $this->character->isHunter() ? CharacterItemConfig::HUNTER_EQUIPPED_PERK_COUNT : CharacterItemConfig::RUNNER_EQUIPPED_PERK_COUNT)
+        if($equippedPerks->count() > ($this->character->isHunter() ? CharacterItemConfig::HUNTER_EQUIPPED_PERK_COUNT : CharacterItemConfig::RUNNER_EQUIPPED_PERK_COUNT))
             $this->resetEquippedPerks($itemConfigClass);
         else {
             $allowedPerks = $itemConfigClass::getAllowedPerks();
@@ -96,7 +96,7 @@ class CharacterData extends Model
 
         $equippedWeapons = UuidHelper::convertFromUuidToHexCollection($this->equippedWeapons()->allRelatedIds());
 
-        if($equippedWeapons->count() > $this->character->isHunter() ? CharacterItemConfig::HUNTER_EQUIPPED_WEAPON_COUNT : CharacterItemConfig::RUNNER_EQUIPPED_WEAPON_COUNT)
+        if($equippedWeapons->count() > ($this->character->isHunter() ? CharacterItemConfig::HUNTER_EQUIPPED_WEAPON_COUNT : CharacterItemConfig::RUNNER_EQUIPPED_WEAPON_COUNT))
             $this->resetEquippedWeapons($itemConfigClass);
         else {
             $allowedWeapons = $itemConfigClass::getAllowedWeapons();

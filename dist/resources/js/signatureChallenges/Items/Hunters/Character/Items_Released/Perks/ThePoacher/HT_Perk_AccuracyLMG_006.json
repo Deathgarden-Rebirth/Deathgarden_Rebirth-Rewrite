@@ -1,0 +1,130 @@
+[
+  {
+    "Type": "AccuracyMod",
+    "Name": "AccuracyMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'AccuracyMod'",
+    "Properties": {
+      "SpreadIncreaseMultiplier": 0.6334,
+      "AccuracyMultiplier": {
+        "Max": 0.625,
+        "SpreadIncreaseModifier": 0.625
+      }
+    }
+  },
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "HT_Perk_AccuracyLMG_006",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "WeaponModsMetadata'HT_Perk_AccuracyLMG_006:CompositeItemMetadata_0.WeaponModsMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_AccuracyLMG_006.3"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "HT_Perk_AccuracyLMG_006",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_ThePoacher_CompensatorLMG'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/ThePoacher/PerksPowerIcon_Hunter_ThePoacher_CompensatorLMG.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 550
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 61
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "LoadoutItemAsset'HT_Perk_AccuracyLMG_007'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_AccuracyLMG_007.2"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "85C7B811-415DA97C-04FB609B-E76ACDF0",
+          "ChallengeCompletionValue": 8.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_LMGCompensator_Hunter.Challenge_LMGCompensator_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Poacher_LMGCompensator1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            37.5
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_LMGCompensator1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_LMGCompensator1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_LMGCompensator1_Lore"
+      },
+      "Guid": "5959E172-4E48EB31-40F980A1-7AF1F7C4",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'HT_Perk_AccuracyLMG_006:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_AccuracyLMG_006.1"
+      },
+      "Version": 1
+    }
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "AccuracyMod'HT_Perk_AccuracyLMG_006:CompositeItemMetadata_0.WeaponModsMetadata_0.AccuracyMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_AccuracyLMG_006.0"
+        }
+      ],
+      "RequiredTags": [
+        "Customization.HT.Weapon.AssaultRifle.ARH"
+      ]
+    }
+  }
+]

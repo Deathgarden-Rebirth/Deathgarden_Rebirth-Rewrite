@@ -6,13 +6,16 @@ use App\Enums\Game\ItemGroupType;
 use App\Enums\Game\ItemOrigin;
 use App\Enums\Game\ItemQuality;
 use App\Models\Game\CatalogItem;
+use App\Models\Game\Challenge;
 use App\Models\Game\PrestigeReward;
 use App\Models\Game\PrestigeRewardItem;
 use DB;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Ramsey\Uuid\Type\Hexadecimal;
 use Ramsey\Uuid\Uuid;
+use RecursiveArrayIterator;
+use RecursiveIteratorIterator;
 
 class ImportCatalog extends Command
 {
@@ -35,6 +38,7 @@ class ImportCatalog extends Command
      */
     public function handle()
     {
+        DB::table('challenges')->delete();
         DB::table('catalog_items')->delete();
 
         $catalog = json_decode(file_get_contents(resource_path('js/catalog/catalog.json')), true)['result'];
@@ -42,7 +46,7 @@ class ImportCatalog extends Command
         $this->info('Strting import of Catalog items...');
 
         foreach ($catalog as $item) {
-            $uuid = Uuid::fromHexadecimal(new Hexadecimal($item['id']));
+            $uuid = Uuid::fromString($item['id']);
 
             $this->info('Importing Item '.$item['displayName']);
 
@@ -73,6 +77,10 @@ class ImportCatalog extends Command
         }
 
         $this->info('Finsiehd importing items.');
+
+        $this->info('Importing Challenges...');
+        $this->importChallenges();
+
         $this->info('importing Relations...');
 
         foreach ($catalog as $item) {
@@ -81,16 +89,45 @@ class ImportCatalog extends Command
 
             $this->info('Processing Relations for item '.$itemModel->display_name);
 
-
             $itemModel->addGameplayTags($item['metaData']['gameplayTags']);
-            $itemModel->addChallenges($item['metaData']['requiredChallengesToComplete']);
             static::checkForAutoUnlockItems($item, $itemModel);
             static::checkForBundleItems($item, $itemModel);
             static::checkForItemAssignments($item, $itemModel);
             static::checkForPrestigeRewards($item, $itemModel);
+            $this->checkForRequiredChallenges($item, $itemModel);
 
             $itemModel->save();
         }
+    }
+
+    private function importChallenges(): void {
+        $itemFiles = File::allFiles(resource_path('js/signatureChallenges'));
+
+        foreach ($itemFiles as $item) {
+            $data = json_decode(file_get_contents($item->getRealPath()), true);
+
+            $iterator = new RecursiveArrayIterator($data);
+            $recursive = new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator::SELF_FIRST);
+
+            foreach ($recursive as $key => $value) {
+                if($key !== 'RequiredChallengesToComplete')
+                    continue;
+
+                $challengeId = Uuid::fromString($value[0]['ChallengeId']);
+
+                $newChallenge = new Challenge([
+                    'id' => $challengeId->toString(),
+                    'completion_value' => $value[0]['ChallengeCompletionValue'],
+                    'asset_path' => $value[0]['ChallengeAsset']['AssetPathName'],
+                ]);
+
+                $this->info('Importing Signature Challenge: '.$value[0]['ChallengeId']);
+
+                $newChallenge->save();
+            }
+        }
+
+        $this->info('Finished importing challenges.');
     }
 
     private static function checkForAutoUnlockItems(array &$rawItem, CatalogItem &$itemModel)
@@ -154,6 +191,21 @@ class ImportCatalog extends Command
             $newPrestigeReward->rewardItems()->saveMany($rewards);
 
             $item->prestigeRewards()->save($newPrestigeReward);
+        }
+    }
+
+    private function checkForRequiredChallenges(array &$rawItem, CatalogItem &$item)
+    {
+        foreach ($rawItem['metaData']['requiredChallengesToComplete'] as $challengeId) {
+            $challengeId = Uuid::fromString($challengeId);
+            $foundChallenge = Challenge::find($challengeId->toString());
+
+            if($foundChallenge === null) {
+                $this->warn('Could not find Challenge with ID "'.$challengeId->toString().'" for item '.$item->display_name);
+                continue;
+            }
+
+            $item->requiredChallenges()->attach($challengeId->toString());
         }
     }
 }

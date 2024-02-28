@@ -23,7 +23,7 @@ return new class extends Migration
         Schema::create($table, function (Blueprint $table) {
             $table->id();
             $table->foreignId('character_data_id')->constrained('character_data')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignUuid('catalog_item_id')->constrained();
+            $table->foreignUuid('catalog_item_id')->constrained()->cascadeOnDelete()->cascadeOnDelete();
             $table->timestamps();
         });
     }

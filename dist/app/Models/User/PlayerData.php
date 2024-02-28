@@ -2,16 +2,19 @@
 
 namespace App\Models\User;
 
+use App\Classes\Character\CharacterItemConfig;
 use App\Enums\Game\Characters;
 use App\Enums\Game\Faction;
 use App\Enums\Game\Hunter;
 use App\Enums\Game\Runner;
+use App\Helper\Uuid\UuidHelper;
 use App\Models\Game\CatalogItem;
 use App\Models\Game\CharacterData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\QueryException;
 
 
 /**
@@ -50,10 +53,40 @@ class PlayerData extends Model
         static::created(function ( PlayerData $playerData) {
             foreach (Runner::cases() as $runner) {
                 $playerData->characterData()->create(['character' => Characters::from($runner->value)]);
+                // Add Default items into inventory
+                /** @var CharacterItemConfig $configClass */
+                $configClass = $runner->getItemConfigClass();
+                $itemIds = [
+                    ...$configClass::getDefaultEquippedBonuses(),
+                    ...$configClass::getDefaultEquippedWeapons(),
+                    ...$configClass::getDefaultEquipment(),
+                    ...$configClass::getDefaultPowers(),
+                    ...$configClass::getDefaultEquippedPerks(),
+                ];
+
+                try {
+                    $playerData->inventory()->attach(UuidHelper::convertFromHexToUuidCollecton($itemIds)->toArray());
+                }
+                catch (QueryException $e) {}
             }
 
             foreach (Hunter::cases() as $hunter) {
                 $playerData->characterData()->create(['character' => Characters::from($hunter->value)]);
+                // Add Default items into inventory
+                /** @var CharacterItemConfig $configClass */
+                $configClass = $hunter->getItemConfigClass();
+                $itemIds = [
+                    ...$configClass::getDefaultEquippedBonuses(),
+                    ...$configClass::getDefaultEquippedWeapons(),
+                    ...$configClass::getDefaultEquipment(),
+                    ...$configClass::getDefaultPowers(),
+                    ...$configClass::getDefaultEquippedPerks(),
+                ];
+
+                try {
+                    $playerData->inventory()->attach(UuidHelper::convertFromHexToUuidCollecton($itemIds));
+                }
+                catch (QueryException $e) {}
             }
         });
     }

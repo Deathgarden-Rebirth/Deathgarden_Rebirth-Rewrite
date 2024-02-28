@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Psr\Log\LoggerInterface;
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * @mixin IdeHelperCharacterData
@@ -56,18 +57,16 @@ class CharacterData extends Model
         return $this->belongsToMany(CatalogItem::class,'character_data_equipped_weapons');
     }
 
-    public function pickedChallenges(): BelongsToMany
+    public function pickedChallenges(): HasMany
     {
-        return $this->belongsToMany(Challenge::class, 'character_data_picked_challenge')
-            ->withPivot('catalog_item_id');
+        return $this->hasMany(PickedChallenge::class);
     }
 
-    public function getPicketChallengeForItem(Uuid $uuid): Collection
+    public function getPicketChallengeForItem(UuidInterface $uuid): Collection|PickedChallenge|null
     {
-        return $this->pickedChallenges()
-            ->where('catalog_item_id', '=', $uuid->toString())
-            ->withPivot('catalog_item_id')
-            ->get();
+        $challenges = $this->pickedChallenges;
+
+        return $challenges->firstWhere('catalog_item_id', '=', $uuid->toString());
     }
 
     public static function getExperienceForLevel(int $level): int

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\Player;
 
-use App\Enums\Api\UpdateMetadataReason;
 use App\Enums\Game\Faction;
 use App\Enums\Game\Hunter;
 use App\Enums\Game\ItemGroupType;
@@ -14,8 +13,7 @@ use App\Http\Requests\Api\Player\InitOrGetGroupsRequest;
 use App\Http\Requests\Api\Player\UpdateMetadataGroupRequest;
 use App\Http\Responses\Api\Player\InitOrGetGroupsResponse;
 use App\Http\Responses\Api\Player\UpdateMetadataResponse;
-use App\Models\Game\Challenge;
-use Illuminate\Http\Request;
+use App\Models\Game\PickedChallenge;
 use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Type\Hexadecimal;
 use Ramsey\Uuid\Uuid;
@@ -83,30 +81,29 @@ class MetadataController extends Controller
         $convertedIds = UuidHelper::convertFromHexToUuidCollecton($request->metadata['equippedBonuses'], true);
         $characterData->equippedBonuses()->sync($convertedIds);
 
-        $characterData->pickedChallenges()->detach();
         foreach ($request->metadata['pickedChallenges'] as $picked) {
             $itemId = Uuid::fromHexadecimal(new Hexadecimal($picked['itemId']));
+            $pickedChallenge = $characterData->getPicketChallengeForItem($itemId);
+
+            // Picked challenge for item already exists, so we just ignore the send one and keep ours because we don't want to reset the progress.
+            if($pickedChallenge !== null)
+                continue;
 
             foreach ($picked['list'] as $challenge) {
                 $challengeId = Uuid::fromHexadecimal(new Hexadecimal($challenge['challengeId']));
                 $completionValue = $challenge['challengeCompletionValue'];
                 $assetPath = $challenge['challengeAsset'];
 
-                $foundChallenge = Challenge::firstOrCreate(
-                    [
-                        'id' => $challengeId->toString(),
-                    ],
-                    [
-                        'id' => $challengeId->toString(),
-                        'completion_value' => $completionValue,
-                        'asset_path' => $assetPath,
-                    ]
-                );
-
-
-                $characterData->pickedChallenges()->attach($foundChallenge->id, [
-                    'catalog_item_id' => $itemId->toString(),
+                $newPicked = new PickedChallenge([
+                    'id' => $challengeId->toString(),
+                    'completion_value' => $completionValue,
+                    'asset_path' => $assetPath,
                 ]);
+
+                $newPicked->characterData()->associate($characterData);
+                $newPicked->catalogItem()->associate($itemId->toString());
+
+                $newPicked->save();
             }
         }
 

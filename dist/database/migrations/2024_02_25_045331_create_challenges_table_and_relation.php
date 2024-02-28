@@ -17,14 +17,6 @@ return new class extends Migration
             $table->string('asset_path');
             $table->timestamps();
         });
-
-        Schema::create('character_data_picked_challenge', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('character_data_id')->constrained('character_data')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignUuid('catalog_item_id')->constrained();
-            $table->foreignUuid('challenge_id')->constrained();
-            $table->timestamps();
-        });
     }
 
     /**
@@ -32,7 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('character_data_picked_challenge');
         Schema::dropIfExists('challenges');
     }
 };

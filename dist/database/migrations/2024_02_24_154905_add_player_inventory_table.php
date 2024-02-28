@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('catalog_item_player_data', function (Blueprint $table) {
-            $table->foreignUuid('catalog_item_id')->constrained();
-            $table->foreignId('player_data_id')->constrained('player_data');
+            $table->foreignUuid('catalog_item_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('player_data_id')->constrained('player_data')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
 
             $table->unique(['catalog_item_id', 'player_data_id']);

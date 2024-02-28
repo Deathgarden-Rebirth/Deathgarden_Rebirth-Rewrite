@@ -88,13 +88,13 @@ class InitOrGetGroupsResponse
             // Because a pciked challenge for a specific item can have multiple challenges,
             // we look if there is already an entry with the item id.
             $foundKey = $resultChallenges->search(function ($value, $key) use ($picked) {
-                return $value['itemId'] === Uuid::fromString($picked->pivot->catalog_item_id)->getHex()->toString();
+                return $value['itemId'] === Uuid::fromString($picked->catalog_item_id)->getHex()->toString();
             });
 
             // if there is not, we just create it entirely and fill the list with the current challenge
             if($foundKey === false) {
                 $newEntry = [
-                    'itemId' => Uuid::fromString($picked->pivot->catalog_item_id)->getHex()->toString(),
+                    'itemId' => Uuid::fromString($picked->catalog_item_id)->getHex()->toString(),
                     'list' => [
                         [
                             'challengeId' => Uuid::fromString($picked->id)->getHex()->toString(),

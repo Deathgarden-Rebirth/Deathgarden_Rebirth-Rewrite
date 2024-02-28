@@ -1,0 +1,103 @@
+[
+  {
+    "Type": "BP_Ability_Item_C",
+    "Name": "HT_FadePower_010",
+    "Class": "BlueprintGeneratedClass'TheExit/Content/Items/ItemTemplates/Powers/BP_Ability_Item.BP_Ability_Item_C'",
+    "Template": {
+      "ObjectName": "BP_Ability_Item_C'Default__BP_Ability_Item_C'",
+      "ObjectPath": "TheExit/Content/Items/ItemTemplates/Powers/BP_Ability_Item.1"
+    },
+    "Properties": {
+      "ActorClass": {
+        "AssetPathName": "/Game/Items/ItemTemplates/Powers/Fade/BP_Fade.BP_Fade_C",
+        "SubPathString": ""
+      },
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_TheGuardian_Fade'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/TheGuardian/PerksPowerIcon_Hunter_TheGuardian_Fade.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyC",
+          "Price": 3440
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 3177
+        }
+      ],
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "589168EA-42DE8131-A4611ABD-189B1EEF",
+          "ChallengeCompletionValue": 300.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_Fade_Hunter.Challenge_Fade_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Characters.Characters",
+            "Key": "Hunter_FadePower_FormatedDESC"
+          },
+          "Arguments": [
+            18.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_FadePower_DisplayName"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_FadePower_DESC"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_FadePower_LORE"
+      },
+      "Guid": "E5F2E0AF-46A203FE-FB69C2A2-DA6CAF5F",
+      "TagContainer": [
+        "Ability.Fade"
+      ],
+      "Metadata": {
+        "ObjectName": "WeaponModsMetadata'HT_FadePower_010:WeaponModsMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Powers/HT_FadePower_010.2"
+      },
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Ability_Item_C'",
+        "ObjectPath": "TheExit/Content/Items/ItemTemplates/Powers/BP_Ability_Item.0"
+      }
+    }
+  },
+  {
+    "Type": "PowerLevelMod",
+    "Name": "PowerLevelMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'PowerLevelMod'",
+    "Properties": {
+      "Level": 9
+    }
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "HT_FadePower_010",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "PowerLevelMod'HT_FadePower_010:WeaponModsMetadata_0.PowerLevelMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Powers/HT_FadePower_010.1"
+        }
+      ],
+      "RequiredTags": [
+        "Ability.Fade"
+      ]
+    }
+  }
+]

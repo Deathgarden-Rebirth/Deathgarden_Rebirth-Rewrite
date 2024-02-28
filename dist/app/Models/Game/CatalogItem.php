@@ -87,6 +87,11 @@ class CatalogItem extends Model
         );
     }
 
+    public function requiredChallenges(): BelongsToMany
+    {
+        return $this->belongsToMany(Challenge::class);
+    }
+
     /**
      * Adds one or multiple gameplay tags to the item.
      *
@@ -121,39 +126,6 @@ class CatalogItem extends Model
 
         foreach ($tags as $tag) {
             $stringArray[] = $tag->gameplay_tag;
-        }
-
-        return $stringArray;
-    }
-
-    public function addChallenges(string|array $challenges): void
-    {
-        $table = DB::table('catalog_item_challenges');
-
-        if(!is_array($challenges)) {
-            $table->insertOrIgnore([
-                'catalog_item_id' => $this->id,
-                'challenge_id' => $challenges
-            ]);
-            return;
-        }
-
-        foreach ($challenges as $challenge) {
-            $table->insertOrIgnore([
-                'catalog_item_id' => $this->id,
-                'challenge_id' => $challenge
-            ]);
-        }
-    }
-
-    public function getChallenges(): array
-    {
-        $table = DB::table('catalog_item_challenges');
-        $challenges = $table->where('catalog_item_id', '=', $this->id)->get(['challenge_id']);
-        $stringArray = [];
-
-        foreach ($challenges as $challenge) {
-            $stringArray[] = $challenge->challenge_id;
         }
 
         return $stringArray;

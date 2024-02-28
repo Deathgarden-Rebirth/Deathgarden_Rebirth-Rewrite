@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\Player\CurrencyController;
 use App\Http\Controllers\Api\Player\MetadataController;
 use App\Http\Controllers\Api\Player\ModifierCenterController;
 use App\Http\Controllers\Api\Player\PlayerController;
+use App\Http\Controllers\Api\Player\PurchaseController;
 use App\Http\Controllers\Api\VersionController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,6 +46,8 @@ Route::prefix('v1')->group(function () {
 
         Route::post('extensions/challenges/getChallengeProgressionBatch', [ChallengeController::class, 'getProgressionBatch']);
         Route::post('extensions/challenges/getChallenges', [ChallengeController::class, 'getChallenges']);
+
+        Route::post('extensions/purchase/item', [PurchaseController::class, 'purchaseItem']);
 
         Route::get('wallet/currencies', [CurrencyController::class, 'getCurrencies']);
 

@@ -1,20 +1,19 @@
-_id: req_d3bb4371405c44c29d6c727c80c08ada
+_id: req_42f0732155a444c79cfb2407539457a6
 type: Request
-parentId: fld_6b71314154f54ad5b4c6f2f890e493e7
-modified: 1708033389936
-created: 1708031873690
-url: "{{ _.base_url }}/te-18f25613-36778-ue4-374f864b/catalog"
-name: Catalog
+parentId: fld_a42fe50612594db598f440f14c31ce66
+modified: 1707783507119
+created: 1707783461234
+url: "{{ _.base_url }}/api/v1/config/VER_LATEST_CLIENT_DATA"
+name: Latest Client Version
 description: ""
 method: GET
 body: {}
 parameters: []
 headers:
   - name: User-Agent
-    value: "{{ _.user_agent }}"
-    id: pair_22b70a262caa42f8b3f1e5b023a2c2cd
+    value: insomnium/0.2.3-a
 authentication: {}
-metaSortKey: -1708031873690
+metaSortKey: -1707783461234
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

@@ -1,0 +1,32 @@
+_id: req_737e207d27a64b64a0e9147e1fe924a0
+type: Request
+parentId: fld_0f6def0bc6834e1bbf9e28b8506b0ed8
+modified: 1708812892649
+created: 1708812698966
+url: "{{ _.base_url }}/api/v1/inventories"
+name: Get Inventory
+description: ""
+method: GET
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"limit": 500
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: "{{ _.user_agent }}"
+    id: pair_10805d9530d04e5fbcbfd42a4c8b9997
+authentication: {}
+metaSortKey: -1707785387243.375
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

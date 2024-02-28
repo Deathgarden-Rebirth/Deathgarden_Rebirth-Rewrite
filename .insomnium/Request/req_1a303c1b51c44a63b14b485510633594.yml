@@ -1,19 +1,20 @@
-_id: req_c82cb808e85c4d7e9df0a7f0ff7e80f6
+_id: req_1a303c1b51c44a63b14b485510633594
 type: Request
-parentId: fld_33cc51787dcf4b57b85e8ce8dbfabedb
-modified: 1708470872318
-created: 1708470843171
-url: "{{ _.base_url }}/api/files/patch/sig"
-name: Download Sig
+parentId: fld_a42fe50612594db598f440f14c31ce66
+modified: 1708814621104
+created: 1708031873690
+url: "{{ _.base_url }}/te-18f25613-36778-ue4-374f864b/catalog"
+name: Catalog
 description: ""
 method: GET
 body: {}
 parameters: []
 headers:
   - name: User-Agent
-    value: insomnium/0.2.3-a
+    value: "{{ _.user_agent }}"
+    id: pair_22b70a262caa42f8b3f1e5b023a2c2cd
 authentication: {}
-metaSortKey: -1708470113577
+metaSortKey: -1708031873690
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

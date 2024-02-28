@@ -1,20 +1,19 @@
-_id: req_953fde741a084e06b97fed50ffed2e33
+_id: req_5797cd3e08b54a37bcbaf5bc33fd3c49
 type: Request
-parentId: fld_6b71314154f54ad5b4c6f2f890e493e7
-modified: 1707861290686
-created: 1707859308587
-url: "{{ _.base_url }}/api/v1/services/tex"
-name: Tex
+parentId: fld_a42fe50612594db598f440f14c31ce66
+modified: 1707852897754
+created: 1707852893172
+url: "{{ _.base_url }}/api/v1/healthcheck"
+name: Healthcheck
 description: ""
 method: GET
 body: {}
 parameters: []
 headers:
   - name: User-Agent
-    value: TheExit
-    id: pair_3c0ca35900be4c45890cd90addcec1a4
+    value: insomnium/0.2.3-a
 authentication: {}
-metaSortKey: -1707859308587
+metaSortKey: -1707758711674.25
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

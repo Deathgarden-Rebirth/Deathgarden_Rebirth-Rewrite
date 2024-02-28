@@ -1,10 +1,10 @@
-_id: req_aa4183ce42a94441af60d34d026a3972
+_id: req_3c79df48024c4f0abf1db50d68fd0978
 type: Request
-parentId: fld_6b71314154f54ad5b4c6f2f890e493e7
-modified: 1707852897754
-created: 1707852893172
-url: "{{ _.base_url }}/api/v1/healthcheck"
-name: Healthcheck
+parentId: fld_7016fb6648f74ab6ba77186dd3b1ad41
+modified: 1708470872318
+created: 1708470843171
+url: "{{ _.base_url }}/api/files/patch/sig"
+name: Download Sig
 description: ""
 method: GET
 body: {}
@@ -13,7 +13,7 @@ headers:
   - name: User-Agent
     value: insomnium/0.2.3-a
 authentication: {}
-metaSortKey: -1707758711674.25
+metaSortKey: -1708470113577
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

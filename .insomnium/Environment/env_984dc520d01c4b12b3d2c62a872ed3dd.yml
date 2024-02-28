@@ -1,0 +1,14 @@
+_id: env_984dc520d01c4b12b3d2c62a872ed3dd
+type: Environment
+parentId: env_70078d3f75ff8c6ee07a15eda26aeaf86b881bab
+modified: 1708554701090
+created: 1707849918640
+name: Rewrite prod
+data:
+  base_url: https://playdeathgarden.live
+dataPropertyOrder:
+  "&":
+    - base_url
+color: "#08fd18"
+isPrivate: false
+metaSortKey: 1707849918640

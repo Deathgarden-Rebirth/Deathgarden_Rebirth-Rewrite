@@ -1,19 +1,20 @@
-_id: req_bc9afa11236746e899503a26a929407c
+_id: req_c9e82256529f4907a6253d610f73a069
 type: Request
-parentId: fld_6b71314154f54ad5b4c6f2f890e493e7
-modified: 1707783507119
-created: 1707783461234
-url: "{{ _.base_url }}/api/v1/config/VER_LATEST_CLIENT_DATA"
-name: Latest Client Version
+parentId: fld_a42fe50612594db598f440f14c31ce66
+modified: 1707861290686
+created: 1707859308587
+url: "{{ _.base_url }}/api/v1/services/tex"
+name: Tex
 description: ""
 method: GET
 body: {}
 parameters: []
 headers:
   - name: User-Agent
-    value: insomnium/0.2.3-a
+    value: TheExit
+    id: pair_3c0ca35900be4c45890cd90addcec1a4
 authentication: {}
-metaSortKey: -1707783461234
+metaSortKey: -1707859308587
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

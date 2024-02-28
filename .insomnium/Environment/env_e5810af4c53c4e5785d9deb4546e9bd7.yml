@@ -1,0 +1,14 @@
+_id: env_e5810af4c53c4e5785d9deb4546e9bd7
+type: Environment
+parentId: env_70078d3f75ff8c6ee07a15eda26aeaf86b881bab
+modified: 1708029058831
+created: 1708028844367
+name: Rebirth live
+data:
+  base_url: https://api.zkwolf.com
+dataPropertyOrder:
+  "&":
+    - base_url
+color: "#fc03f4"
+isPrivate: false
+metaSortKey: 1708028844367

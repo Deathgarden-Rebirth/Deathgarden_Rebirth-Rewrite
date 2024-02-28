@@ -1,7 +1,7 @@
-_id: req_d4ce4649d73d4471ba72fb732eff6955
+_id: req_6050ec3e2bc7474e8a48f77e989a223e
 type: Request
-parentId: fld_66ea5df0e93347619f5519bf6bf77ed4
-modified: 1708110712839
+parentId: fld_0f6def0bc6834e1bbf9e28b8506b0ed8
+modified: 1709073294948
 created: 1707946255285
 url: "{{ _.base_url }}/api/v1/extensions/progression/initOrGetGroups"
 name: Init or Get Groups
@@ -28,6 +28,11 @@ headers:
     name: XDEBUG_SESSION
     value: start
     description: ""
+  - id: pair_ff272dda4e7d4fa5a4d01e85368cb9a4
+    name: accept
+    value: application/json
+    description: ""
+    disabled: true
 authentication: {}
 metaSortKey: -1707946255285
 isPrivate: false

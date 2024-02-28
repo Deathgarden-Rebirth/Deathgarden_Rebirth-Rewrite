@@ -1,0 +1,557 @@
+_id: req_793fc6f95be34eef8960dd49b1d1143c
+type: Request
+parentId: fld_2738eb852acf451392cf394d419ca461
+modified: 1709034236731
+created: 1708852399980
+url: "{{ _.base_url }}/api/v1/extensions/progression/updateMetadataGroup"
+name: "Update Metadata: Character"
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: >-
+    {
+        "data": {
+          "objectId": "RunnerGroupA",
+          "version": 1,
+          "metadata": {
+            "characterId": {
+              "tagName": "Runner.Sawbones"
+            },
+            "prestigeLevel": 0,
+            "equipment": [
+              "63A7C0BF4FF014544C218FA9E1B3516E",
+              "BB7B6E224B1A58EA9FBFD6A0924D3B4F",
+              "DEA476E44FCCDCEC4821B5B6C0DD158F",
+              "5881CA7B47C74C8D15DAF09B5860EBC9"
+            ],
+            "equippedPerks": [
+              "FEC1059E484060C384E2F4B3DAB9ADDF",
+              "ECEBC4314D3A0038B44F0086E436AE58"
+            ],
+            "equippedPowers": [
+              "C8AF3D534973F82FADBB40BDA96F9DCD"
+            ],
+            "equippedWeapons": [
+              "BC8866F343E7970E145C889D9CE7B994"
+            ],
+            "equippedBonuses": [
+              "109BC5904DC1272D70822EBA79CC85B1",
+              "54B3EF794FCB0643C4644FA15BEF31D5"
+            ],
+            "equippedConsumables": [
+              "487DEBE247818A01797AF5B3FD04C2B2"
+            ],
+            "pickedChallenges": [
+              {
+                "itemId": "7f33795840136a9ebc0186a529e4a82a",
+                "list": [
+                  {
+                    "challengeId": "EC0E477F4FA526ACDD2526AE6C6C7628",
+                    "challengeCompletionValue": 15,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_CollectAmmo.Challenge_CollectAmmo"
+                  }
+                ]
+              },
+              {
+                "itemId": "c40eb3e34f9864e4a9bbd2aedc692224",
+                "list": [
+                  {
+                    "challengeId": "06307B3940569C46BA2B20A15A328805",
+                    "challengeCompletionValue": 1680,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_HunterClose_Runner.Challenge_HunterClose_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "496cc3bd4e3dd73e70894c9f28d74bde",
+                "list": [
+                  {
+                    "challengeId": "210A6CFD476515DE75BAB0B3B9CBEB11",
+                    "challengeCompletionValue": 45,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_SpendNPI_Runner.Challenge_SpendNPI_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "c3c093af47c8ec0a9955b58f55132352",
+                "list": [
+                  {
+                    "challengeId": "24D67DCA42C43B6467DC99883756A27C",
+                    "challengeCompletionValue": 51,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_CollectAmmo.Challenge_CollectAmmo"
+                  }
+                ]
+              },
+              {
+                "itemId": "9472e86e4d354e3724dfeaaf6c146990",
+                "list": [
+                  {
+                    "challengeId": "DCDDE1994401C63C210DCC949158E34B",
+                    "challengeCompletionValue": 10,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_SurviveAChase_Runner.Challenge_SurviveAChase_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "6e8132464381c5af299e908b68c2565b",
+                "list": [
+                  {
+                    "challengeId": "43E1818C4D0BED7658CEA3A8CBE10721",
+                    "challengeCompletionValue": 420,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Evade_Runner.Challenge_Evade_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "d500fb67476afa419553bf9f384a9cf2",
+                "list": [
+                  {
+                    "challengeId": "E8C57E704A6A3ED4DB8CA5B215997F37",
+                    "challengeCompletionValue": 1,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_BloodMode_Runner.Challenge_BloodMode_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "75ced6b24cca9fda4d976990d0a65172",
+                "list": [
+                  {
+                    "challengeId": "94F8084B4E8529D961E77F88F48CF7BF",
+                    "challengeCompletionValue": 756,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_ConstructDefeats_Runner.Challenge_ConstructDefeats_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "3d5693d941e0cff7fb4bb4a346775074",
+                "list": [
+                  {
+                    "challengeId": "07CCCF6A489B5654138C04BCCE62F288",
+                    "challengeCompletionValue": 45,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_SpendNPI_Runner.Challenge_SpendNPI_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "ce215d4b4c691d83842cd395f893b250",
+                "list": [
+                  {
+                    "challengeId": "0E6B720849510BD89EC1649ABAD1088B",
+                    "challengeCompletionValue": 7,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_CollectHealthCrates.Challenge_CollectHealthCrates"
+                  }
+                ]
+              },
+              {
+                "itemId": "e3139a504d205c06438904b1ecd68d44",
+                "list": [
+                  {
+                    "challengeId": "8E8E9CC840A3DFABE6F1B9AA90E629F7",
+                    "challengeCompletionValue": 5,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Exit_Runner.Challenge_Exit_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "e9564aff410c3f82bd53b7890da9db97",
+                "list": [
+                  {
+                    "challengeId": "8DD1C929420DB8AABBC7D898D2377079",
+                    "challengeCompletionValue": 350,
+                    "challengeAsset": "/Game/Challenges/Challenge_Deliver_Runner.Challenge_Deliver_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "25b8f52744caeb17e599888b5e80162e",
+                "list": [
+                  {
+                    "challengeId": "DE35F42E42B19C5743DA80A730955F47",
+                    "challengeCompletionValue": 15,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_CollectWeaponUpgrades_Runner.Challenge_CollectWeaponUpgrades_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "eac46b4c4979624cd3c15b9189d1cc93",
+                "list": [
+                  {
+                    "challengeId": "438EBCB7459D66FD4AF6D58D2C8E33AC",
+                    "challengeCompletionValue": 2800,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Travel_Runner.Challenge_Travel_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "2822f9b547761dd69a4853920a5a3a67",
+                "list": [
+                  {
+                    "challengeId": "CB114DB64AC6897A2D96C993DEDE0A6C",
+                    "challengeCompletionValue": 6,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_DangerClose_Runner.Challenge_DangerClose_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "ff5821084098286d2e31e99192bb0988",
+                "list": [
+                  {
+                    "challengeId": "3567173F43577DABE954F8B9473D3961",
+                    "challengeCompletionValue": 4,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_BloodMode_Runner.Challenge_BloodMode_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "77ef1cac48919368f529018d6e512b94",
+                "list": [
+                  {
+                    "challengeId": "CF0A347D404FB668FA35EB92370EE423",
+                    "challengeCompletionValue": 5,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_BloodMode_Runner.Challenge_BloodMode_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "6babafd74690d55f470764a1acc7dfe1",
+                "list": [
+                  {
+                    "challengeId": "5D2719464D7D046584F7B6B75E5EDD51",
+                    "challengeCompletionValue": 14000,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Travel_Runner.Challenge_Travel_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "cbe63cae4215643c4fde1cbb4df8b265",
+                "list": [
+                  {
+                    "challengeId": "D329E544464105AC3343329028505103",
+                    "challengeCompletionValue": 540,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_ConstructDefeats_Runner.Challenge_ConstructDefeats_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "0498c28c4468ec81ba43b585d4d759ed",
+                "list": [
+                  {
+                    "challengeId": "14C4BE4D4EB6B4625EFC7AA3F0DC4514",
+                    "challengeCompletionValue": 2,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Exit_Runner.Challenge_Exit_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "50f9173d4a2e6ac649390393ad8a1876",
+                "list": [
+                  {
+                    "challengeId": "580D4D6F4DFBDADC2B0067B40D712E52",
+                    "challengeCompletionValue": 11340,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Ressources_Runner.Challenge_Ressources_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "b016402440755f9f0e580e8bd4309020",
+                "list": [
+                  {
+                    "challengeId": "F02763E84FA6703055ACE98ED8AFF3ED",
+                    "challengeCompletionValue": 6750,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Ressources_Runner.Challenge_Ressources_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "4f668ff6481246016585dbb4f7c2cdf8",
+                "list": [
+                  {
+                    "challengeId": "234CEA544DD4117757DFBABD3E8E26C7",
+                    "challengeCompletionValue": 2700,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_ConstructDefeats_Runner.Challenge_ConstructDefeats_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "1c4a65dd4fcf5f27088e16a2a8b3d42a",
+                "list": [
+                  {
+                    "challengeId": "5C161B7144D1AD95E9D67094E00C77D9",
+                    "challengeCompletionValue": 7,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_AssistAChase_Runner.Challenge_AssistAChase_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "42e05fc94e6b09ccbb6208baf94ae98f",
+                "list": [
+                  {
+                    "challengeId": "E48806B84BAC7CD7695BC8BDD4712A2C",
+                    "challengeCompletionValue": 15,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_CollectAmmo.Challenge_CollectAmmo"
+                  }
+                ]
+              },
+              {
+                "itemId": "2f12511b412a1b310a55e09cde252ed7",
+                "list": [
+                  {
+                    "challengeId": "30812AC74B57FFB64703AE8B23DA3DCE",
+                    "challengeCompletionValue": 35,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_SpendNPI_Runner.Challenge_SpendNPI_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "f20f6e2e4f3162124a476bb9fe07e407",
+                "list": [
+                  {
+                    "challengeId": "A7A530DA4141F3EB4C7885801388516F",
+                    "challengeCompletionValue": 27,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_CollectAmmo.Challenge_CollectAmmo"
+                  }
+                ]
+              },
+              {
+                "itemId": "38c5d09a4a0e7175283da691b6491b6f",
+                "list": [
+                  {
+                    "challengeId": "C0D3E8D64C309509644CFDA2F024DD1C",
+                    "challengeCompletionValue": 4,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_BloodMode_Runner.Challenge_BloodMode_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "4aa977184cf5bd38555eb5b17c03f058",
+                "list": [
+                  {
+                    "challengeId": "EC28952E488C1FF8E8A5429329EA9ADC",
+                    "challengeCompletionValue": 75,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_DisableDrones_Runner.Challenge_DisableDrones_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "3d1cdd6c40ca5955251b54922f016a7e",
+                "list": [
+                  {
+                    "challengeId": "2DFF61EC47757F30A80BEF90FC67EC7C",
+                    "challengeCompletionValue": 105,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_CollectWeaponUpgrades_Runner.Challenge_CollectWeaponUpgrades_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "fc3d5c6b4d2547cda76ce8ba1d536a7d",
+                "list": [
+                  {
+                    "challengeId": "49100B3A4308692F67D9CBBDDE069187",
+                    "challengeCompletionValue": 50,
+                    "challengeAsset": "/Game/Challenges/Challenge_Deliver_Runner.Challenge_Deliver_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "cd7d1f824fa432fea6310b91ea158db2",
+                "list": [
+                  {
+                    "challengeId": "A2D9D0B54EB92ECE4FCD4F8C6E52DC1F",
+                    "challengeCompletionValue": 756,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_ConstructDefeats_Runner.Challenge_ConstructDefeats_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "d738850d4dc5527a6140cdbbb8006512",
+                "list": [
+                  {
+                    "challengeId": "9EECBB06467A13A538E74A85F532E15E",
+                    "challengeCompletionValue": 27,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_CollectWeaponUpgrades_Runner.Challenge_CollectWeaponUpgrades_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "c194ef534de59947a26e8198f92de085",
+                "list": [
+                  {
+                    "challengeId": "486418504751B14CCEAC30B130531A11",
+                    "challengeCompletionValue": 170,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Mark_Runner.Challenge_Mark_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "897984f8487fd493976858b14f118084",
+                "list": [
+                  {
+                    "challengeId": "EDBE0A234C0D53B9509B59BEF5F00FC5",
+                    "challengeCompletionValue": 250,
+                    "challengeAsset": "/Game/Challenges/Challenge_Deliver_Runner.Challenge_Deliver_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "ee4bff834606642cc8aec89ee00aa153",
+                "list": [
+                  {
+                    "challengeId": "0460ACA840BB6D43ECDE438B475BD6C3",
+                    "challengeCompletionValue": 420,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Evade_Runner.Challenge_Evade_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "e4d525404770e39e9864a29dc690db89",
+                "list": [
+                  {
+                    "challengeId": "D7C570914C54230EA1D3369D66BA122D",
+                    "challengeCompletionValue": 1,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Exit_Runner.Challenge_Exit_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "461633744e4f7bfdeb51a8b69718ae83",
+                "list": [
+                  {
+                    "challengeId": "77BB80274705267DB20D4085A4B1C995",
+                    "challengeCompletionValue": 2800,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Travel_Runner.Challenge_Travel_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "540c247746391bfd55813dbb9e258aa6",
+                "list": [
+                  {
+                    "challengeId": "BEC5CD3E49892839998F79B2FC55C00C",
+                    "challengeCompletionValue": 90,
+                    "challengeAsset": "/Game/Challenges/Challenge_Deliver_Runner.Challenge_Deliver_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "933239404146b44040ce5e951a0eed57",
+                "list": [
+                  {
+                    "challengeId": "5F058C22465F78AE5897608FA62CF421",
+                    "challengeCompletionValue": 510,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Heal_Runner.Challenge_Heal_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "b5497d9a49dc0ab5e1a2f1ab23cab14b",
+                "list": [
+                  {
+                    "challengeId": "12EF558F463A2A181C6076A5F648F975",
+                    "challengeCompletionValue": 10,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_CollectHealthCrates.Challenge_CollectHealthCrates"
+                  }
+                ]
+              },
+              {
+                "itemId": "433aa8a04db2b9e979369684f1409c83",
+                "list": [
+                  {
+                    "challengeId": "BBDFE9A94F3DA698E6C681A69B4701EF",
+                    "challengeCompletionValue": 3780,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_ConstructDefeats_Runner.Challenge_ConstructDefeats_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "2920b01748aa9ab4ec6299ad15ff0e6a",
+                "list": [
+                  {
+                    "challengeId": "50C574E844A395D373853999231DFE9E",
+                    "challengeCompletionValue": 540,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_ConstructDefeats_Runner.Challenge_ConstructDefeats_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "8b886664468a2878b26813a097f375e5",
+                "list": [
+                  {
+                    "challengeId": "84BEE3F847B7B59BE1CC4DBBB28AC5B3",
+                    "challengeCompletionValue": 2,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Exit_Runner.Challenge_Exit_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "dc91c3414f22f217bcb30590fab59a9e",
+                "list": [
+                  {
+                    "challengeId": "EB53F61D486F40153ED3F4A358C94673",
+                    "challengeCompletionValue": 2,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_Exit_Runner.Challenge_Exit_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "240bc7484af781eba93c47932da8d061",
+                "list": [
+                  {
+                    "challengeId": "55ECFA474776BCB3A220EBA89FB55D33",
+                    "challengeCompletionValue": 4590,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_TeamActions_Runner.Challenge_TeamActions_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "51c1825b4469ff483278ddb12d116e04",
+                "list": [
+                  {
+                    "challengeId": "56DE188244D5A075BF19018D097F3CB6",
+                    "challengeCompletionValue": 500,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_TakeDamage_Runner.Challenge_TakeDamage_Runner"
+                  }
+                ]
+              },
+              {
+                "itemId": "42795ddf4ed4b7700a6555b586c5ad2b",
+                "list": [
+                  {
+                    "challengeId": "E2A372FB4CEC692C94B76289CE6CDD6E",
+                    "challengeCompletionValue": 175,
+                    "challengeAsset": "/Game/Challenges/Progression/General/Challenge_SpendNPI_Runner.Challenge_SpendNPI_Runner"
+                  }
+                ]
+              }
+            ]
+          },
+          "reason": "OnCloseLoadoout"
+        }
+      }
+parameters: []
+headers:
+  - name: content-type
+    value: application/json
+    id: pair_134b431bf2e34c3b9543d974f7521623
+  - name: User-Agent
+    value: "{{ _.user_agent }}"
+    id: pair_6ed3d85dbc094296a88cde8894d1d354
+  - id: pair_1ed53bf258f44c5fb0d82ae9597f8e6e
+    name: XDEBUG_SESSION
+    value: start
+    description: ""
+  - id: pair_f4fc9df9ab8148d0a532cabd2c13b83f
+    name: Accept
+    value: application/json
+    description: ""
+    disabled: true
+authentication: {}
+metaSortKey: -1708652860687.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

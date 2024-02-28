@@ -1,10 +1,10 @@
-_id: req_d839a9ff745e4fc7b6ffe4c82b29315a
+_id: req_6508749edd624595908a4923824490f3
 type: Request
-parentId: fld_33cc51787dcf4b57b85e8ce8dbfabedb
-modified: 1708470860369
-created: 1708470113477
-url: "{{ _.base_url }}/api/files/patch/current"
-name: Download Latest Pak
+parentId: fld_a42fe50612594db598f440f14c31ce66
+modified: 1707783656594
+created: 1707783519556
+url: "{{ _.base_url }}/api/v1/utils/contentVersion/latest/2.11"
+name: Latesdt Content Version
 description: ""
 method: GET
 body: {}
@@ -13,7 +13,7 @@ headers:
   - name: User-Agent
     value: insomnium/0.2.3-a
 authentication: {}
-metaSortKey: -1708470113677
+metaSortKey: -1707733962114.5
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

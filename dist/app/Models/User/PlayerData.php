@@ -9,6 +9,7 @@ use App\Enums\Game\Hunter;
 use App\Enums\Game\Runner;
 use App\Helper\Uuid\UuidHelper;
 use App\Models\Game\CatalogItem;
+use App\Models\Game\Challenge;
 use App\Models\Game\CharacterData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -113,6 +114,11 @@ class PlayerData extends Model
     public function lastRunnerCharacterData(): CharacterData|Model  {
         $attributeValue = ['character' => $this->last_runner];
         return $this->hasMany(CharacterData::class)->firstOrCreate($attributeValue, $attributeValue);
+    }
+
+    public function challenges(): BelongsToMany
+    {
+        return $this->belongsToMany(Challenge::class)->withPivot(['progress']);
     }
 
     public function getCumulativeExperience(): int

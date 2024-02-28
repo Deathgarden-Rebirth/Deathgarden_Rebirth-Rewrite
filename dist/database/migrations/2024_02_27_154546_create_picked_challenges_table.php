@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('picked_challenges', function (Blueprint $table) {
             $table->uuid('id')->unique();
             $table->foreignId('character_data_id')->constrained('character_data')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignUuid('catalog_item_id')->constrained();
+            $table->foreignUuid('catalog_item_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('asset_path');
             $table->unsignedInteger('completion_value');
             $table->unsignedInteger('progress');

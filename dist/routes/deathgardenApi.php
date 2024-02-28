@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Auth\SteamAuthController;
 use App\Http\Controllers\Api\Eula\EulaConsentController;
+use App\Http\Controllers\Api\Player\ChallengeController;
 use App\Http\Controllers\Api\Player\CurrencyController;
 use App\Http\Controllers\Api\Player\MetadataController;
 use App\Http\Controllers\Api\Player\ModifierCenterController;
@@ -41,6 +42,9 @@ Route::prefix('v1')->group(function () {
 
         Route::post('extensions/progression/initOrGetGroups', [MetadataController::class, 'initOrGetGroups']);
         Route::post('extensions/progression/updateMetadataGroup', [MetadataController::class, 'updateMetadataGroup']);
+
+        Route::post('extensions/challenges/getChallengeProgressionBatch', [ChallengeController::class, 'getProgressionBatch']);
+        Route::post('extensions/challenges/getChallenges', [ChallengeController::class, 'getChallenges']);
 
         Route::get('wallet/currencies', [CurrencyController::class, 'getCurrencies']);
 

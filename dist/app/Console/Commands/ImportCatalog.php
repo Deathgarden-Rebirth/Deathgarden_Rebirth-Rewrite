@@ -179,15 +179,12 @@ class ImportCatalog extends Command
             foreach ($prestigeReward['rewards'] as $reward) {
                 $uuid = Uuid::fromHexadecimal(new Hexadecimal($reward['id']));
 
-                $newReward = PrestigeRewardItem::create([
+                $rewards[] = PrestigeRewardItem::create([
                     'catalog_item_id' => $uuid->toString(),
                     'amount' => $reward['amount'],
                 ]);
-                $newReward->save();
-                $rewards[] = $newReward;
             }
 
-            $newPrestigeReward->save();
             $newPrestigeReward->rewardItems()->saveMany($rewards);
 
             $item->prestigeRewards()->save($newPrestigeReward);

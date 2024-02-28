@@ -48,6 +48,7 @@ Route::prefix('v1')->group(function () {
         Route::post('extensions/challenges/getChallenges', [ChallengeController::class, 'getChallenges']);
 
         Route::post('extensions/purchase/item', [PurchaseController::class, 'purchaseItem']);
+        Route::post('extensions/purchase/set', [PurchaseController::class, 'purchaseSet']);
 
         Route::get('wallet/currencies', [CurrencyController::class, 'getCurrencies']);
 

@@ -25,7 +25,8 @@ class InitOrGetGroupsResponse
         $this->metadataGroups = $metadataGroups;
     }
 
-    public function addGeneralMetadata(User $user): void {
+    public function addGeneralMetadata(User $user): void
+    {
         $playerData = $user->playerData();
 
         $this->metadataGroups[] = new GeneralMetadata(
@@ -92,21 +93,19 @@ class InitOrGetGroupsResponse
             });
 
             // if there is not, we just create it entirely and fill the list with the current challenge
-            if($foundKey === false) {
-                $newEntry = [
+            if ($foundKey === false) {
+                $newEntry = collect([
                     'itemId' => Uuid::fromString($picked->catalog_item_id)->getHex()->toString(),
-                    'list' => [
+                    'list' => collect([
                         [
                             'challengeId' => Uuid::fromString($picked->id)->getHex()->toString(),
                             'challengeCompletionValue' => $picked->completion_value,
                             'challengeAsset' => $picked->asset_path,
                         ]
-                    ]
-                ];
+                    ])]);
 
                 $resultChallenges->add($newEntry);
-            }
-            // and if there is we just add the challenge to the list of the item.
+            } // and if there is we just add the challenge to the list of the item.
             else {
                 $resultChallenges[$foundKey]['list']->add([
                     'challengeId' => Uuid::fromString($picked->id)->getHex()->toString(),
@@ -138,7 +137,8 @@ class InitOrGetGroupsResponse
         $this->progressionGroups[] = $group;
     }
 
-    public function addFactionProgression(ItemGroupType $groupType, User $user): void {
+    public function addFactionProgression(ItemGroupType $groupType, User $user): void
+    {
         $playerData = $user->playerData();
 
         $group = new ProgressionGroup();
@@ -146,13 +146,13 @@ class InitOrGetGroupsResponse
         $group->version = $playerData->readout_version;
         $group->objectId = $groupType;
 
-        $group->level = match($groupType) {
+        $group->level = match ($groupType) {
             ItemGroupType::RunnerProgression => $playerData->runner_faction_level,
             ItemGroupType::HunterProgression => $playerData->hunter_faction_level,
             default => 1,
         };
 
-        $group->currentExperience = match($groupType) {
+        $group->currentExperience = match ($groupType) {
             ItemGroupType::RunnerProgression => $playerData->runner_faction_experience,
             ItemGroupType::HunterProgression => $playerData->hunter_faction_experience,
             default => 0,
@@ -202,7 +202,7 @@ class MetadataGroup implements JsonSerializable
 
         // Unused Consumable items that were never developed in Deathgarden, but still present in request.
         // Can be hard-coded because they never change.
-        if($this->objectId->getCharacter()->isHunter())
+        if ($this->objectId->getCharacter()->isHunter())
             $array['data']['equippedConsumables'] = ['1069E6DF40AB4CAEF2AF03B4FD60BB22'];
         else
             $array['data']['equippedConsumables'] = ['487DEBE247818A01797AF5B3FD04C2B2'];
@@ -241,13 +241,14 @@ class ProgressionGroup implements JsonSerializable
     }
 }
 
-class GeneralMetadata {
+class GeneralMetadata
+{
     public array $data = [];
 
     public int $schemaVersion = 1;
 
     public function __construct(
-        public int $version,
+        public int    $version,
         public string $objectId,
     )
     {

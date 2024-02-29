@@ -13,6 +13,7 @@ use App\Http\Responses\Api\Player\ResetCharacterProgressionForPrestigeResponse;
 use App\Models\Game\CatalogItem;
 use App\Models\Game\Challenge;
 use App\Models\Game\CharacterData;
+use App\Models\Game\PickedChallenge;
 use App\Models\Game\PrestigeReward;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\UniqueConstraintViolationException;
@@ -137,7 +138,9 @@ class PlayerController extends Controller
         }
 
         // Remove all picked Challenges
-        $characterData->pickedChallenges()->delete();
+        $characterData->pickedChallenges->each(function (PickedChallenge $challenge) {
+            $challenge->delete();
+        });
 
         // reset experience and level
         $characterData->experience = 0;

@@ -62,7 +62,7 @@ jobs:
       - name: 📂 Upload to server
         run: |
           echo Connecting to FTP server
-          lftp ${{ secrets.FTP_HOST }} -u "${{ secrets.FTP_USER }}","${{ secrets.FTP_PASS }}" -e "set ftp:ssl-force no; set ssl:verify-certificate false;
+          lftp ${{ secrets.FTP_HOST }} -u '${{ secrets.FTP_USER }}','${{ secrets.FTP_PASS }}' -e "set ftp:ssl-force no; set ssl:verify-certificate false;
           echo Uploading maintenance file
           put -O ./storage/framework storage/framework/down;
           put -O ./storage/framework storage/framework/maintenance.php;

@@ -2,6 +2,7 @@
 
 namespace App\Enums\Game;
 
+use App\Classes\Character\CharacterItemConfig;
 use App\Classes\Character\HunterItemConfig\InquisitorItemConfig;
 use App\Classes\Character\HunterItemConfig\PoacherItemConfig;
 use App\Classes\Character\HunterItemConfig\StalkerItemConfig;
@@ -40,7 +41,7 @@ enum Hunter: string
         };
     }
 
-    public function getItemConfigClass(): string
+    public function getItemConfigClass(): string|CharacterItemConfig
     {
         return match ($this) {
             Hunter::Stalker => StalkerItemConfig::class,

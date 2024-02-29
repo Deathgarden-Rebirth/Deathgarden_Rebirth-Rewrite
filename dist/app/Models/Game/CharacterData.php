@@ -5,9 +5,11 @@ namespace App\Models\Game;
 use App\Classes\Character\CharacterItemConfig;
 use App\Enums\Game\Characters;
 use App\Helper\Uuid\UuidHelper;
+use App\Models\User\PlayerData;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +38,11 @@ class CharacterData extends Model
     ];
 
     static ?LoggerInterface $resetItemsLogger = null;
+
+    public function playerData(): BelongsTo
+    {
+        return $this->belongsTo(PlayerData::class);
+    }
 
     public function equipment(): BelongsToMany
     {

@@ -17,6 +17,10 @@ class AddItemWithLevel extends Command
         'Weapon.Shotgun',
         'Weapon.Launcher',
         'Weapon.SniperRifle',
+        'Ability.Fade',
+        'Ability.DropMine',
+        'Ability.Strike',
+        'Ability.SpawnTurret',
     ];
 
     /**
@@ -81,8 +85,8 @@ class AddItemWithLevel extends Command
 
             if(Str::contains($item->display_name, $levelString)) {
                 try {
-                    $this->info('Attaching Item ' . $item->id);
                     $playerData->inventory()->attach($item->id);
+                    $this->info('Attached Item ' . $item->id);
                 } catch (UniqueConstraintViolationException $e) {
                     $this->warn('Skipping Item ' . $item->id . 'because it already is inside the players inventory.');
                 }

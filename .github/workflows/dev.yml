@@ -9,6 +9,9 @@ jobs:
     name: 🎉 Deploy devlopment build to dev.playdeathgarden.live
     runs-on: ubuntu-latest
     environment: Dev
+    defaults:
+      run:
+        working-directory: ./dist
 
     steps:
       - name: 🚚 Get latest code
@@ -33,13 +36,14 @@ jobs:
 
       - name: Install dependencies
         if: steps.composer-cache.outputs.cache-hit != 'true'
-        run: composer install --prefer-dist --no-progress --no-suggest
+        run: composer install --prefer-dist --no-progress --ignore-platform-reqs
 
-      - name: Use Node.js 18
+      - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
+          cache-dependency-path: ./dist/package-lock.json
           
       - name: 🔨 Build Project
         run: |
@@ -52,13 +56,13 @@ jobs:
       - name: Generate vendor archive
         run: php artisan zip:create ./vendor vendor
         
-      - name: Generate public vendor archive
-        run: php artisan zip:create ./public/assets/vendor vendor_public
+      #- name: Generate public vendor archive
+      #  run: php artisan zip:create ./public/assets/vendor vendor_public
 
       - name: 📂 Upload to server
         run: |
           echo Connecting to FTP server
-          lftp ${{ secrets.FTP_HOST }} -u "${{ secrets.FTP_USER }}","${{ secrets.FTP_PASS }}" -e "set ftp:ssl-force no; set ssl:verify-certificate false;
+          lftp ${{ secrets.FTP_HOST }} -u '${{ secrets.FTP_USER }}','${{ secrets.FTP_PASS }}' -e "set ftp:ssl-force no; set ssl:verify-certificate false;
           echo Uploading maintenance file
           put -O ./storage/framework storage/framework/down;
           put -O ./storage/framework storage/framework/maintenance.php;

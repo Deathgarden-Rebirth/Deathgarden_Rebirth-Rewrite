@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Player;
 
 use App\Helper\Uuid\UuidHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\AccessLogger;
 use App\Http\Requests\Api\Player\PurchaseItemRequest;
 use App\Http\Requests\Api\Player\PurchaseSetRequest;
 use App\Http\Responses\Api\Player\Purchase\PurchaseItemResponse;
@@ -50,12 +51,18 @@ class PurchaseController extends Controller
             $playerData->currency_c < $costC)
             return response('Not enough Currency', 402);
 
-        $bundleItemIds = [$setItem->id, ...$setItem->bundleItems()->allRelatedIds()];
+        $bundleItemIds = $setItem->bundleItems()->allRelatedIds();
+        $bundleItemIds->add($setItem->id);
 
         try {
-            $playerData->inventory()->attach($bundleItemIds);
+            $playerData->inventory()->syncWithoutDetaching($bundleItemIds);
         }
         catch (UniqueConstraintViolationException $e) {
+            $message = 'User "'.$user->id.'" ('.$user->last_known_username.') tried to purchase item already in inventory'."\n";
+            AccessLogger::getSessionLogConfig()->notice($message.json_encode([
+                    'bundleItems' => $bundleItems,
+                    'setItem' => $setItem,
+                ]));
             return response('Item already in inventory.', 418);
         }
 
@@ -103,9 +110,13 @@ class PurchaseController extends Controller
             return response('Not enough Currency', 418);
 
         try {
-            $playerData->inventory()->attach($itemToBuy);
+            $playerData->inventory()->syncWithoutDetaching($itemToBuy);
         }
         catch (UniqueConstraintViolationException $e) {
+            $message = 'User "'.$user->id.'" ('.$user->last_known_username.') tried to purchase item already in inventory'."\n";
+            AccessLogger::getSessionLogConfig()->notice($message.json_encode([
+                    'item to buy' => $itemToBuy,
+                ]));
             return response('Item already in inventory.', 418);
         }
 

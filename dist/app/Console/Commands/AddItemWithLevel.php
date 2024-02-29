@@ -17,6 +17,7 @@ class AddItemWithLevel extends Command
         'Weapon.Shotgun',
         'Weapon.Launcher',
         'Weapon.SniperRifle',
+        'Weapon.Carbine',
         'Ability.Fade',
         'Ability.DropMine',
         'Ability.Strike',

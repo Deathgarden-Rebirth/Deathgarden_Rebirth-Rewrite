@@ -56,8 +56,8 @@ jobs:
       - name: Generate vendor archive
         run: php artisan zip:create ./vendor vendor
         
-      - name: Generate public vendor archive
-        run: php artisan zip:create ./public/assets/vendor vendor_public
+      #- name: Generate public vendor archive
+      #  run: php artisan zip:create ./public/assets/vendor vendor_public
 
       - name: 📂 Upload to server
         run: |

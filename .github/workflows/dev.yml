@@ -9,6 +9,9 @@ jobs:
     name: 🎉 Deploy devlopment build to dev.playdeathgarden.live
     runs-on: ubuntu-latest
     environment: Dev
+    defaults:
+      run:
+        working-directory: ./dist
 
     steps:
       - name: 🚚 Get latest code

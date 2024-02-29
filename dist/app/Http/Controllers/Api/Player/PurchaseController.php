@@ -50,7 +50,7 @@ class PurchaseController extends Controller
             $playerData->currency_c < $costC)
             return response('Not enough Currency', 402);
 
-        $bundleItemIds = $setItem->bundleItems()->allRelatedIds();
+        $bundleItemIds = [$setItem->id, ...$setItem->bundleItems()->allRelatedIds()];
 
         try {
             $playerData->inventory()->attach($bundleItemIds);

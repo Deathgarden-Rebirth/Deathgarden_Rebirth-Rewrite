@@ -108,11 +108,11 @@ class InitOrGetGroupsResponse
             }
             // and if there is we just add the challenge to the list of the item.
             else {
-                $resultChallenges[$foundKey]['list'] = [
+                $resultChallenges[$foundKey]['list']->add([
                     'challengeId' => Uuid::fromString($picked->id)->getHex()->toString(),
                     'challengeCompletionValue' => $picked->completion_value,
                     'challengeAsset' => $picked->asset_path,
-                ];
+                ]);
             }
         }
 

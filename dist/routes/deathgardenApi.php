@@ -55,5 +55,6 @@ Route::prefix('v1')->group(function () {
         Route::get('wallet/currencies', [CurrencyController::class, 'getCurrencies']);
 
         Route::get('inventories', [PlayerController::class, 'getInventory']);
+        Route::post('extensions/inventory/unlockSpecialItems', [PlayerController::class, 'unlockSpecialItems']);
     });
 });

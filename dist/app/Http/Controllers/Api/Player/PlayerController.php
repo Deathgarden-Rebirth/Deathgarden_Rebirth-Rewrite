@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api\Player;
 
+use App\Classes\Config\SpecialUnlocksItemsConfig;
 use App\Enums\Game\RewardType;
 use App\Helper\Uuid\UuidHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Player\GetInventoryRequest;
 use App\Http\Requests\Api\Player\ResetCharacterProgressionForPrestigeRequest;
+use App\Http\Requests\Api\Player\UnlockSpecialitemsRequest;
 use App\Http\Responses\Api\General\Reward;
 use App\Http\Responses\Api\Player\GetBanStatusResponse;
 use App\Http\Responses\Api\Player\ResetCharacterProgressionForPrestigeResponse;
@@ -59,6 +61,34 @@ class PlayerController extends Controller
         ];
 
         return json_encode($response);
+    }
+
+    public function unlockSpecialItems(UnlockSpecialitemsRequest $request)
+    {
+        if(count($request->appIds) === 0)
+            return ['unlockedItems' => []];
+
+        $user = Auth::user();
+
+        $itemsToCheck = [];
+
+        foreach ($request->appIds as $appid) {
+            $itemsToCheck = [...$itemsToCheck, ...SpecialUnlocksItemsConfig::getFromAppId($appid)];
+        }
+
+        if($user->playerData()->has_played_dg_1)
+            $itemsToCheck = [...$itemsToCheck, ...SpecialUnlocksItemsConfig::LEGACY, ...SpecialUnlocksItemsConfig::BETA];
+
+        $itemsToCheck = UuidHelper::convertFromHexToUuidCollecton($itemsToCheck, true);
+
+        $foundItems = $user->playerData()->inventory()->allRelatedIds()->intersect($itemsToCheck);
+        if($foundItems->count() === count($itemsToCheck))
+            return ['unlockedItems' => []];
+
+        $itemsToAdd = $itemsToCheck->diff($foundItems);
+        $user->playerData()->inventory()->syncWithoutDetaching($itemsToAdd);
+
+        return json_encode(['unlockedItems' => UuidHelper::convertFromUuidToHexCollection($itemsToAdd)]);
     }
 
     public function resetCharacterProgressionForPrestige(ResetCharacterProgressionForPrestigeRequest $request)

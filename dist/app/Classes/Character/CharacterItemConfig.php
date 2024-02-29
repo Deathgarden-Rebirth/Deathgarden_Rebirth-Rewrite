@@ -38,6 +38,8 @@ abstract class CharacterItemConfig
 
     protected static array $additionalWeapons;
 
+    protected static array $additionalPowers = [];
+
     public static function getCharacterId(): UuidInterface {
         return Uuid::fromHexadecimal(new Hexadecimal(static::$characterId));
     }
@@ -74,6 +76,7 @@ abstract class CharacterItemConfig
     public static function getAllItems(): array
     {
         return [
+            ...static::$additionalPowers,
             ...static::$defaultEquippedPerks,
             ...static::$defaultEquippedWeapons,
             ...static::$defaultEquipment,

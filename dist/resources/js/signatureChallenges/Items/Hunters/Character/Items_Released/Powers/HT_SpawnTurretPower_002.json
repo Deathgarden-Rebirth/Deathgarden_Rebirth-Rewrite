@@ -1,0 +1,103 @@
+[
+  {
+    "Type": "BP_Ability_Item_C",
+    "Name": "HT_SpawnTurretPower_002",
+    "Class": "BlueprintGeneratedClass'TheExit/Content/Items/ItemTemplates/Powers/BP_Ability_Item.BP_Ability_Item_C'",
+    "Template": {
+      "ObjectName": "BP_Ability_Item_C'Default__BP_Ability_Item_C'",
+      "ObjectPath": "TheExit/Content/Items/ItemTemplates/Powers/BP_Ability_Item.1"
+    },
+    "Properties": {
+      "ActorClass": {
+        "AssetPathName": "/Game/Items/ItemTemplates/Powers/SpawnTurret/BP_SpawnTurret.BP_SpawnTurret_C",
+        "SubPathString": ""
+      },
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_TheInquisitor_Turrets'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/TheInquisitor/PerksPowerIcon_Hunter_TheInquisitor_Turrets.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyC",
+          "Price": 340
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "BP_Ability_Item_C'HT_SpawnTurretPower_003'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Powers/HT_SpawnTurretPower_003.0"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "A1DFB20F-48B76A50-9B424599-E30F8A0E",
+          "ChallengeCompletionValue": 150.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_Turrets_Hunter.Challenge_Turrets_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Characters.Characters",
+            "Key": "Hunter_SpawnTurret_FormatedDESC"
+          },
+          "Arguments": [
+            31.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_SpawnTurret_DisplayName"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_SpawnTurret_DESC"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_SpawnTurret_LORE"
+      },
+      "Guid": "ADD2D777-499D30AE-C4CEF297-F1464B5B",
+      "TagContainer": [
+        "Ability.SpawnTurret"
+      ],
+      "Metadata": {
+        "ObjectName": "WeaponModsMetadata'HT_SpawnTurretPower_002:WeaponModsMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Powers/HT_SpawnTurretPower_002.2"
+      },
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Ability_Item_C'",
+        "ObjectPath": "TheExit/Content/Items/ItemTemplates/Powers/BP_Ability_Item.0"
+      }
+    }
+  },
+  {
+    "Type": "PowerLevelMod",
+    "Name": "PowerLevelMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'PowerLevelMod'",
+    "Properties": {
+      "Level": 1
+    }
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "HT_SpawnTurretPower_002",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "PowerLevelMod'HT_SpawnTurretPower_002:WeaponModsMetadata_0.PowerLevelMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Powers/HT_SpawnTurretPower_002.1"
+        }
+      ],
+      "RequiredTags": [
+        "Ability.SpawnTurret"
+      ]
+    }
+  }
+]

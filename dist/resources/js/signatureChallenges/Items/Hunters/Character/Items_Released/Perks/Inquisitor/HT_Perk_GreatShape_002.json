@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "HT_Perk_GreatShape_002",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "GameplayEffectMetadata'HT_Perk_GreatShape_002:CompositeItemMetadata_0.GameplayEffectMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/Inquisitor/HT_Perk_GreatShape_002.1"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameplayEffectMetadata",
+    "Name": "GameplayEffectMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'GameplayEffectMetadata'",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'PerkMod_GreatShape_C'",
+        "ObjectPath": "TheExit/Content/Items/GameplayEffects/Hunter/PerkMod_GreatShape.0"
+      }
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "HT_Perk_GreatShape_002",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_TheInquisitor_GreatShape'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/TheInquisitor/PerksPowerIcon_Hunter_TheInquisitor_GreatShape.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 170
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "LoadoutItemAsset'HT_Perk_GreatShape_003'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/Inquisitor/HT_Perk_GreatShape_003.2"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "A1047B3B-49BFBF12-313991A8-FBB3E215",
+          "ChallengeCompletionValue": 50.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_GreatShape_Hunter.Challenge_GreatShape_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Inquisitor_GreatShape1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            6.25
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Inquisitor_GreatShape1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Inquisitor_GreatShape1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Inquisitor_GreatShape1_Lore"
+      },
+      "Guid": "1D7D5484-4A373E8A-1593E68D-29449BC0",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'HT_Perk_GreatShape_002:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/Inquisitor/HT_Perk_GreatShape_002.0"
+      },
+      "Version": 1
+    }
+  }
+]

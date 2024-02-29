@@ -1,0 +1,129 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "HT_Perk_PowerBooster_OrbitalStrike_006",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "WeaponModsMetadata'HT_Perk_PowerBooster_OrbitalStrike_006:CompositeItemMetadata_0.WeaponModsMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/TheVeteran/HT_Perk_PowerBooster_OrbitalStrike_006.3"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CooldownMod",
+    "Name": "CooldownMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'CooldownMod'",
+    "Properties": {
+      "CooldownRecoverSpeedMultiplier": 0.7
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "HT_Perk_PowerBooster_OrbitalStrike_006",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_TheVeteran_ImpulsiveManeuver'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/TheVeteran/PerksPowerIcon_Hunter_TheVeteran_ImpulsiveManeuver.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 550
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 61
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "LoadoutItemAsset'HT_Perk_PowerBooster_OrbitalStrike_007'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/TheVeteran/HT_Perk_PowerBooster_OrbitalStrike_007.2"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "4C48C95A-4ED42570-8F038591-BC28446D",
+          "ChallengeCompletionValue": 25.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_PowerBoosterOrbital_Hunter.Challenge_PowerBoosterOrbital_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Collector_EvadeMaster1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            30.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Veteran_PowerBoosterOrbital_NAME"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Veteran_PowerBoosterOrbital_DESC"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Veteran_PowerBoosterOrbital_LORE"
+      },
+      "Guid": "D156E4EF-413E0210-2F3ED7B0-C6EB4E11",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'HT_Perk_PowerBooster_OrbitalStrike_006:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/TheVeteran/HT_Perk_PowerBooster_OrbitalStrike_006.0"
+      },
+      "Version": 1
+    }
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "CooldownMod'HT_Perk_PowerBooster_OrbitalStrike_006:CompositeItemMetadata_0.WeaponModsMetadata_0.CooldownMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/TheVeteran/HT_Perk_PowerBooster_OrbitalStrike_006.1"
+        }
+      ],
+      "RequiredTags": [
+        "Ability.Strike"
+      ],
+      "IgnoreTags": [
+        "Gameplay.PerksBlocked"
+      ]
+    }
+  }
+]

@@ -1,0 +1,109 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "RN_Perk_Insight_OccularImplants_010",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "GameplayEffectMetadata'RN_Perk_Insight_OccularImplants_010:CompositeItemMetadata_0.GameplayEffectMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Insight/RN_Perk_Insight_OccularImplants_010.1"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameplayEffectMetadata",
+    "Name": "GameplayEffectMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'GameplayEffectMetadata'",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'PerkMod_OccularImplants_C'",
+        "ObjectPath": "TheExit/Content/Items/GameplayEffects/Runner/PerkMod_OccularImplants.0"
+      },
+      "Level": 9.0
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "RN_Perk_Insight_OccularImplants_010",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Ghost_OcularImplants'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Ghost/PerksPowerIcon_Runner_Ghost_OcularImplants.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 1720
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 1059
+        }
+      ],
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "F5316026-41251AEE-39C024B3-F85845FD",
+          "ChallengeCompletionValue": 150.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_OcularImplants_Runner.Challenge_OcularImplants_Runner",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Insight_OccularImplants1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            105.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Insight_OccularImplants1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Insight_OccularImplants1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Insight_OccularImplants1_Lore"
+      },
+      "Guid": "45FE0E77-46930264-1DE116B7-D42C2BAB",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Runner"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Runner )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'RN_Perk_Insight_OccularImplants_010:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Insight/RN_Perk_Insight_OccularImplants_010.0"
+      },
+      "Version": 1
+    }
+  }
+]

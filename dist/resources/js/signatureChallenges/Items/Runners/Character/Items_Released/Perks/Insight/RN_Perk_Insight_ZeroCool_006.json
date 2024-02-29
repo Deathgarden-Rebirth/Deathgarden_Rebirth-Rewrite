@@ -1,0 +1,113 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "RN_Perk_Insight_ZeroCool_006",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "GameplayEffectMetadata'RN_Perk_Insight_ZeroCool_006:CompositeItemMetadata_0.GameplayEffectMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Insight/RN_Perk_Insight_ZeroCool_006.1"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameplayEffectMetadata",
+    "Name": "GameplayEffectMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'GameplayEffectMetadata'",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'PerkMod_ZeroCool_C'",
+        "ObjectPath": "TheExit/Content/Items/GameplayEffects/Runner/PerkMod_ZeroCool.0"
+      },
+      "Level": 5.0
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "RN_Perk_Insight_ZeroCool_006",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Ghost_ZeroCool'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Ghost/PerksPowerIcon_Runner_Ghost_ZeroCool.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 550
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 61
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "LoadoutItemAsset'RN_Perk_Insight_ZeroCool_007'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Insight/RN_Perk_Insight_ZeroCool_007.2"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "EBF33381-4F323130-57BC0AA5-0BF880FC",
+          "ChallengeCompletionValue": 3.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_ZeroCool_Runner.Challenge_ZeroCool_Runner",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Insight_ZeroCool1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            40.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Insight_ZeroCool1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Insight_ZeroCool1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Insight_ZeroCool1_Lore"
+      },
+      "Guid": "E4E2E950-427E3B01-1B36ACB1-A92F4EEB",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Runner"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Runner )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'RN_Perk_Insight_ZeroCool_006:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Insight/RN_Perk_Insight_ZeroCool_006.0"
+      },
+      "Version": 1
+    }
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "RN_Perk_Ink_Resting_010",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "GameplayEffectMetadata'RN_Perk_Ink_Resting_010:CompositeItemMetadata_0.GameplayEffectMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Ink/RN_Perk_Ink_Resting_010.1"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameplayEffectMetadata",
+    "Name": "GameplayEffectMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'GameplayEffectMetadata'",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'PerkMod_Resting_C'",
+        "ObjectPath": "TheExit/Content/Items/GameplayEffects/Runner/PerkMod_Resting.0"
+      },
+      "Level": 9.0
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "RN_Perk_Ink_Resting_010",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Ink_Resting'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Ink/PerksPowerIcon_Runner_Ink_Resting.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 1720
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 1059
+        }
+      ],
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "24424E87-4589E3D4-582EF198-EE7D1E42",
+          "ChallengeCompletionValue": 900.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_Resting_Runner.Challenge_Resting_Runner",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Ink_Resting1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            73.0,
+            100.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Ink_Resting1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Ink_Resting1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Ink_Resting1_Lore"
+      },
+      "Guid": "24671E03-417B9691-CBF3B080-75630ED5",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Runner"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Runner )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'RN_Perk_Ink_Resting_010:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Ink/RN_Perk_Ink_Resting_010.0"
+      },
+      "Version": 1
+    }
+  }
+]

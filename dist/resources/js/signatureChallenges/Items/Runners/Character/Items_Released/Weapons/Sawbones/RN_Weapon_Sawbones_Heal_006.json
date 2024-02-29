@@ -1,0 +1,114 @@
+[
+  {
+    "Type": "BP_RangedWeapon_Item_C",
+    "Name": "RN_Weapon_Sawbones_Heal_006",
+    "Class": "BlueprintGeneratedClass'TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.BP_RangedWeapon_Item_C'",
+    "Template": {
+      "ObjectName": "BP_RangedWeapon_Item_C'Default__BP_RangedWeapon_Item_C'",
+      "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.1"
+    },
+    "Properties": {
+      "WeaponMods": {
+        "SlotSet": {
+          "ObjectName": "ItemSlotSet'DA_Bow_ItemSlotSet'",
+          "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/Bow/DA_Bow_ItemSlotSet.0"
+        },
+        "SlotNames": [
+          "Bow Modifier 1",
+          "Bow Modifier 2",
+          "Bow Modifier 3",
+          "Bow Modifier 4",
+          "Bow Modifier 5",
+          "Bow Modifier 6"
+        ],
+        "ItemAssignments": [
+          {
+            "ObjectName": "LoadoutItemAsset'RN_BowMod_Sawbones_Heal_006'",
+            "ObjectPath": "TheExit/Content/Items/Runners/BowMods/RN_BowMod_Sawbones_Heal_006.1"
+          },
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "ActorClass": {
+        "AssetPathName": "/Game/Items/ItemTemplates/Weapons/Bow/BP_Bow.BP_Bow_C",
+        "SubPathString": ""
+      },
+      "CustomizationSet": {
+        "ObjectName": "CustomizationSetItem'RN_ICR_Default_Customisation'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Weapons/ICR/RN_ICR_Default_Customisation.1"
+      },
+      "SmallItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Sawbones_Heal'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Sawbones/PerksPowerIcon_Runner_Sawbones_Heal.0"
+      },
+      "SelectorItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Sawbones_Heal'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Sawbones/PerksPowerIcon_Runner_Sawbones_Heal.0"
+      },
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Sawbones_Heal'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Sawbones/PerksPowerIcon_Runner_Sawbones_Heal.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyC",
+          "Price": 1100
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 183
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "BP_RangedWeapon_Item_C'RN_Weapon_Sawbones_Heal_007'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Weapons/Sawbones/RN_Weapon_Sawbones_Heal_007.0"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "83BE1ABF-46705544-813B42AC-257A2A2C",
+          "ChallengeCompletionValue": 600.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_Heal_Runner.Challenge_Heal_Runner",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Characters.Characters",
+            "Key": "Runner_SawboneWeaponHeal001_ItemEffectDESC"
+          },
+          "Arguments": [
+            49.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Runner_SawboneWeaponHeal001_DisplayName"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Runner_SawboneWeaponHeal001_DESC"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Runner_SawboneWeaponHeal001_LORE"
+      },
+      "Guid": "0A1D3005-4CBEC273-529E4A95-76757964",
+      "TagContainer": [
+        "Weapon.ICR"
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RangedWeapon_Item_C'",
+        "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.0"
+      }
+    }
+  }
+]

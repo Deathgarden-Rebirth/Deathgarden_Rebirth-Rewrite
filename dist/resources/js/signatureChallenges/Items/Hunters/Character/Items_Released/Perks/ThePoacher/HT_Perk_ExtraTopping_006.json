@@ -1,0 +1,113 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "HT_Perk_ExtraTopping_006",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "GameplayEffectMetadata'HT_Perk_ExtraTopping_006:CompositeItemMetadata_0.GameplayEffectMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_ExtraTopping_006.1"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameplayEffectMetadata",
+    "Name": "GameplayEffectMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'GameplayEffectMetadata'",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'PerkMod_ExtraTopping_C'",
+        "ObjectPath": "TheExit/Content/Items/GameplayEffects/Hunter/PerkMod_ExtraTopping.0"
+      },
+      "Level": 6.0
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "HT_Perk_ExtraTopping_006",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_ThePoacher_ExtraTopping'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/ThePoacher/PerksPowerIcon_Hunter_ThePoacher_ExtraTopping.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 550
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 61
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "LoadoutItemAsset'HT_Perk_ExtraTopping_007'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_ExtraTopping_007.2"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "D80A9221-429E0A5F-CD91DCB0-02D73482",
+          "ChallengeCompletionValue": 38.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_ExtraToppings_Hunter.Challenge_ExtraToppings_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Poacher_ExtraToppings1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            60.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_ExtraToppings1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_ExtraToppings1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_ExtraToppings1_Lore"
+      },
+      "Guid": "9C68C3A2-4D71BCB7-5E154E9B-A54614ED",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'HT_Perk_ExtraTopping_006:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_ExtraTopping_006.0"
+      },
+      "Version": 1
+    }
+  }
+]

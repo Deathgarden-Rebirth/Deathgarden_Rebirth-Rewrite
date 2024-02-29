@@ -1,0 +1,29 @@
+_id: req_b49511fcd0ab4c518a56e1e5b921257d
+type: Request
+parentId: fld_0f6def0bc6834e1bbf9e28b8506b0ed8
+modified: 1708816493308
+created: 1707786542849
+url: "{{ _.base_url }}/api/v1/players/ban/status"
+name: Ban Status
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: TheExit
+    id: pair_10805d9530d04e5fbcbfd42a4c8b9997
+  - id: pair_6041baf733f5472abd7b5c98189a3f9c
+    name: content-type
+    value: application/json
+    description: ""
+authentication: {}
+metaSortKey: -1707786542849
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

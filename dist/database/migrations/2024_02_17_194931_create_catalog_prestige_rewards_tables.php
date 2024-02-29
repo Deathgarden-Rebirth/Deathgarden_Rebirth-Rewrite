@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('catalog_prestige_rewards', function (Blueprint $table) {
+            $table->id();
             $table->foreignUuid('catalog_item_id')->references('id')->on('catalog_items')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
@@ -22,9 +23,10 @@ return new class extends Migration
 
         Schema::create('prestige_rewards', function (Blueprint $table) {
             $table->id();
-            $table->foreignUuid('prestige_reward_id')->nullable()
-                ->constrained('catalog_prestige_rewards', 'catalog_item_id')
-                ->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('prestige_reward_id')
+                ->nullable()
+                ->constrained('catalog_prestige_rewards')
+                ->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignUuid('catalog_item_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->integer('amount');
         });

@@ -1,0 +1,103 @@
+[
+  {
+    "Type": "BP_Ability_Item_C",
+    "Name": "HT_SpawnMinePower_010",
+    "Class": "BlueprintGeneratedClass'TheExit/Content/Items/ItemTemplates/Powers/BP_Ability_Item.BP_Ability_Item_C'",
+    "Template": {
+      "ObjectName": "BP_Ability_Item_C'Default__BP_Ability_Item_C'",
+      "ObjectPath": "TheExit/Content/Items/ItemTemplates/Powers/BP_Ability_Item.1"
+    },
+    "Properties": {
+      "ActorClass": {
+        "AssetPathName": "/Game/Items/ItemTemplates/Powers/SpawnMine/BP_SpawnMine.BP_SpawnMine_C",
+        "SubPathString": ""
+      },
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_ThePoacher_Mines'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/ThePoacher/PerksPowerIcon_Hunter_ThePoacher_Mines.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyC",
+          "Price": 3440
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 3177
+        }
+      ],
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "ABCDD574-4A0CB60A-8F40FEAB-D293FE18",
+          "ChallengeCompletionValue": 30.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_Mines_Hunter.Challenge_Mines_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Characters.Characters",
+            "Key": "Hunter_SpawnMine_FormatedDESC"
+          },
+          "Arguments": [
+            19.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_SpawnMine_DisplayName"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_SpawnMine_DESC"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_SpawnMine_LORE"
+      },
+      "Guid": "D3A96F27-425CF075-CB61E9B0-CDF6C03E",
+      "TagContainer": [
+        "Ability.DropMine"
+      ],
+      "Metadata": {
+        "ObjectName": "WeaponModsMetadata'HT_SpawnMinePower_010:WeaponModsMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Powers/HT_SpawnMinePower_010.2"
+      },
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Ability_Item_C'",
+        "ObjectPath": "TheExit/Content/Items/ItemTemplates/Powers/BP_Ability_Item.0"
+      }
+    }
+  },
+  {
+    "Type": "PowerLevelMod",
+    "Name": "PowerLevelMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'PowerLevelMod'",
+    "Properties": {
+      "Level": 9
+    }
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "HT_SpawnMinePower_010",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "PowerLevelMod'HT_SpawnMinePower_010:WeaponModsMetadata_0.PowerLevelMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Powers/HT_SpawnMinePower_010.1"
+        }
+      ],
+      "RequiredTags": [
+        "Ability.DropMine"
+      ]
+    }
+  }
+]

@@ -1,0 +1,29 @@
+_id: req_a3a47576350a4614ad8f4555b8709dfb
+type: Request
+parentId: fld_0a4c94c3b7db435ab7c4a540d4ba3596
+modified: 1709136205695
+created: 1708784760749
+url: "{{ _.base_url }}/api/v1/wallet/currencies"
+name: Wallet Get Currencies
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: "{{ _.user_agent }}"
+    id: pair_10805d9530d04e5fbcbfd42a4c8b9997
+  - id: pair_fbf737e602574dc9a87d1e5e17a19cf9
+    name: content-type
+    value: application/json
+    description: ""
+authentication: {}
+metaSortKey: -1709136205658
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

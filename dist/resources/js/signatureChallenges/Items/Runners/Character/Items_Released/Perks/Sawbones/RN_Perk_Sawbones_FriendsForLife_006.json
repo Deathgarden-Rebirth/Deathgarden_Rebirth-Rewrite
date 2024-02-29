@@ -1,0 +1,122 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "RN_Perk_Sawbones_FriendsForLife_006",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "GameplayEffectMetadata'RN_Perk_Sawbones_FriendsForLife_006:CompositeItemMetadata_0.GameplayEffectMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Sawbones/RN_Perk_Sawbones_FriendsForLife_006.1"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameplayEffectMetadata",
+    "Name": "GameplayEffectMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'GameplayEffectMetadata'",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'PerkMod_FriendsForLife_C'",
+        "ObjectPath": "TheExit/Content/Items/GameplayEffects/Runner/PerkMod_FriendsForLife.0"
+      },
+      "Level": 5.0
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "RN_Perk_Sawbones_FriendsForLife_006",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Sawbones_FriendForLife'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Sawbones/PerksPowerIcon_Runner_Sawbones_FriendForLife.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 550
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 61
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "LoadoutItemAsset'RN_Perk_Sawbones_FriendsForLife_007'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Sawbones/RN_Perk_Sawbones_FriendsForLife_007.2"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "35898FD4-4E80FD68-376F67A5-60E815BC",
+          "ChallengeCompletionValue": 25.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_FriendsForLife_Runner.Challenge_FriendsForLife_Runner",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Sawbones_FriendsForLife1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            40.0
+          ]
+        },
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Sawbones_FriendsForLife1_ItemEffectDescription1"
+          },
+          "Arguments": [
+            15.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Sawbones_FriendsForLife1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Sawbones_FriendsForLife1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Sawbones_FriendsForLife1_Lore"
+      },
+      "Guid": "A966101E-4DF68988-7A9B0EBB-55CA6F42",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Runner"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Runner )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'RN_Perk_Sawbones_FriendsForLife_006:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Sawbones/RN_Perk_Sawbones_FriendsForLife_006.0"
+      },
+      "Version": 1
+    }
+  }
+]

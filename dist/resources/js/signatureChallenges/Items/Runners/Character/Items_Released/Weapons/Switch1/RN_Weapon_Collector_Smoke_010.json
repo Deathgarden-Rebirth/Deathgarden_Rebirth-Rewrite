@@ -1,0 +1,110 @@
+[
+  {
+    "Type": "BP_RangedWeapon_Item_C",
+    "Name": "RN_Weapon_Collector_Smoke_010",
+    "Class": "BlueprintGeneratedClass'TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.BP_RangedWeapon_Item_C'",
+    "Template": {
+      "ObjectName": "BP_RangedWeapon_Item_C'Default__BP_RangedWeapon_Item_C'",
+      "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.1"
+    },
+    "Properties": {
+      "WeaponMods": {
+        "SlotSet": {
+          "ObjectName": "ItemSlotSet'DA_Bow_ItemSlotSet'",
+          "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/Bow/DA_Bow_ItemSlotSet.0"
+        },
+        "SlotNames": [
+          "Bow Modifier 1",
+          "Bow Modifier 2",
+          "Bow Modifier 3",
+          "Bow Modifier 4",
+          "Bow Modifier 5",
+          "Bow Modifier 6"
+        ],
+        "ItemAssignments": [
+          {
+            "ObjectName": "LoadoutItemAsset'RN_BowMod_Ghost_SmokeScreen_010'",
+            "ObjectPath": "TheExit/Content/Items/Runners/BowMods/RN_BowMod_Ghost_SmokeScreen_010.1"
+          },
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "ActorClass": {
+        "AssetPathName": "/Game/Items/ItemTemplates/Weapons/Bow/BP_Bow.BP_Bow_C",
+        "SubPathString": ""
+      },
+      "CustomizationSet": {
+        "ObjectName": "CustomizationSetItem'RN_ICR_Default_Customisation'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Weapons/ICR/RN_ICR_Default_Customisation.1"
+      },
+      "SmallItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Smoke_Smoke'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Smoke/PerksPowerIcon_Runner_Smoke_Smoke.0"
+      },
+      "SelectorItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Smoke_Smoke'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Smoke/PerksPowerIcon_Runner_Smoke_Smoke.0"
+      },
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Smoke_Smoke'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Smoke/PerksPowerIcon_Runner_Smoke_Smoke.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyC",
+          "Price": 3440
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 3177
+        }
+      ],
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "290112D9-4B4F6015-2BAE088F-9E942F1F",
+          "ChallengeCompletionValue": 100.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_SmokeScreen_Runner.Challenge_SmokeScreen_Runner",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Characters.Characters",
+            "Key": "Runner_CollectorWeaponSmoke001_ItemEffectDESC"
+          },
+          "Arguments": [
+            9.5
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Runner_CollectorWeaponSmoke001_DisplayName"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Runner_CollectorWeaponSmokeSmoke001_DESC"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Runner_CollectorWeaponSmokeSmoke001_LORE"
+      },
+      "Guid": "034217BF-4E7687F3-077C7F8E-2AC605F9",
+      "TagContainer": [
+        "Weapon.ICR"
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RangedWeapon_Item_C'",
+        "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.0"
+      }
+    }
+  }
+]

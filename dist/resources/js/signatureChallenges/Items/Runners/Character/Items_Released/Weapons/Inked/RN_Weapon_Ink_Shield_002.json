@@ -1,0 +1,110 @@
+[
+  {
+    "Type": "BP_RangedWeapon_Item_C",
+    "Name": "RN_Weapon_Ink_Shield_002",
+    "Class": "BlueprintGeneratedClass'TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.BP_RangedWeapon_Item_C'",
+    "Template": {
+      "ObjectName": "BP_RangedWeapon_Item_C'Default__BP_RangedWeapon_Item_C'",
+      "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.1"
+    },
+    "Properties": {
+      "WeaponMods": {
+        "SlotSet": {
+          "ObjectName": "ItemSlotSet'DA_Bow_ItemSlotSet'",
+          "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/Bow/DA_Bow_ItemSlotSet.0"
+        },
+        "SlotNames": [
+          "Bow Modifier 1",
+          "Bow Modifier 2",
+          "Bow Modifier 3",
+          "Bow Modifier 4",
+          "Bow Modifier 5",
+          "Bow Modifier 6"
+        ],
+        "ItemAssignments": [
+          {
+            "ObjectName": "LoadoutItemAsset'RN_BowMod_Ink_Shield_002'",
+            "ObjectPath": "TheExit/Content/Items/Runners/BowMods/RN_BowMod_Ink_Shield_002.1"
+          },
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "ActorClass": {
+        "AssetPathName": "/Game/Items/ItemTemplates/Weapons/Bow/BP_Bow.BP_Bow_C",
+        "SubPathString": ""
+      },
+      "CustomizationSet": {
+        "ObjectName": "CustomizationSetItem'RN_ICR_Default_Customisation'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Weapons/ICR/RN_ICR_Default_Customisation.1"
+      },
+      "SmallItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Ink_Shield'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Ink/PerksPowerIcon_Runner_Ink_Shield.0"
+      },
+      "SelectorItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Ink_Shield'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Ink/PerksPowerIcon_Runner_Ink_Shield.0"
+      },
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Ink_Shield'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Ink/PerksPowerIcon_Runner_Ink_Shield.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyC",
+          "Price": 340
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "BP_RangedWeapon_Item_C'RN_Weapon_Ink_Shield_003'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Weapons/Inked/RN_Weapon_Ink_Shield_003.0"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "EED2F02B-4A55B844-E1B68280-4C84308D",
+          "ChallengeCompletionValue": 10.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_Shield_Runner.Challenge_Shield_Runner",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Characters.Characters",
+            "Key": "Runner_InkWeaponShield001_ItemEffectDESC"
+          },
+          "Arguments": [
+            36.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Runner_InkWeaponShield001_DisplayName"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Runner_InkWeaponShield001_DESC"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Runner_InkWeaponShield001_LORE"
+      },
+      "Guid": "A51608C9-465510C0-CE78779E-0C164C86",
+      "TagContainer": [
+        "Weapon.ICR"
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RangedWeapon_Item_C'",
+        "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.0"
+      }
+    }
+  }
+]

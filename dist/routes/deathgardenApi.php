@@ -2,8 +2,12 @@
 
 use App\Http\Controllers\Api\Auth\SteamAuthController;
 use App\Http\Controllers\Api\Eula\EulaConsentController;
+use App\Http\Controllers\Api\Player\ChallengeController;
+use App\Http\Controllers\Api\Player\CurrencyController;
+use App\Http\Controllers\Api\Player\MetadataController;
 use App\Http\Controllers\Api\Player\ModifierCenterController;
 use App\Http\Controllers\Api\Player\PlayerController;
+use App\Http\Controllers\Api\Player\PurchaseController;
 use App\Http\Controllers\Api\VersionController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +41,20 @@ Route::prefix('v1')->group(function () {
         Route::get('players/ban/status', [PlayerController::class, 'getBanStatus']);
         Route::get('modifierCenter/modifiers/me', [ModifierCenterController::class, 'modifiersMe']);
 
-        Route::post('extensions/progression/initOrGetGroups', [PlayerController::class, 'initOrGetGroups']);
+        Route::post('extensions/progression/initOrGetGroups', [MetadataController::class, 'initOrGetGroups']);
+        Route::post('extensions/progression/updateMetadataGroup', [MetadataController::class, 'updateMetadataGroup']);
+
+        Route::post('extensions/challenges/getChallengeProgressionBatch', [ChallengeController::class, 'getProgressionBatch']);
+        Route::post('extensions/challenges/getChallenges', [ChallengeController::class, 'getChallenges']);
+
+        Route::post('extensions/purchase/item', [PurchaseController::class, 'purchaseItem']);
+        Route::post('extensions/purchase/set', [PurchaseController::class, 'purchaseSet']);
+
+        Route::post('extensions/progression/resetCharacterProgressionForPrestige', [PlayerController::class, 'resetCharacterProgressionForPrestige']);
+
+        Route::get('wallet/currencies', [CurrencyController::class, 'getCurrencies']);
+
+        Route::get('inventories', [PlayerController::class, 'getInventory']);
+        Route::post('extensions/inventory/unlockSpecialItems', [PlayerController::class, 'unlockSpecialItems']);
     });
 });

@@ -3226,7 +3226,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 1000
         }
       ],
       "eventCostList": [],
@@ -3339,7 +3339,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 1000
         }
       ],
       "eventCostList": [],
@@ -3452,7 +3452,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 1000
         }
       ],
       "eventCostList": [],
@@ -3565,7 +3565,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 1000
         }
       ],
       "eventCostList": [],
@@ -25640,7 +25640,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 800
         }
       ],
       "eventCostList": [],
@@ -25863,7 +25863,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 800
         }
       ],
       "eventCostList": [],
@@ -25977,7 +25977,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 800
         }
       ],
       "eventCostList": [],
@@ -26087,7 +26087,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 800
         }
       ],
       "eventCostList": [],
@@ -26197,7 +26197,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 800
         }
       ],
       "eventCostList": [],
@@ -26915,7 +26915,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -27433,7 +27433,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -27541,7 +27541,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -27854,7 +27854,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -28682,7 +28682,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -29400,7 +29400,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -29507,7 +29507,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -30824,7 +30824,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -31461,7 +31461,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -31929,7 +31929,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -32746,7 +32746,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -33336,7 +33336,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -33681,7 +33681,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -49197,7 +49197,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "RunnerProgression",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -49834,7 +49834,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "RunnerProgression",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -50698,7 +50698,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "RunnerProgression",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -51156,7 +51156,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -51429,7 +51429,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
@@ -51702,7 +51702,7 @@
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
         "origin": "None",
-        "quality": "Basic",
+        "quality": "Prestige",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",

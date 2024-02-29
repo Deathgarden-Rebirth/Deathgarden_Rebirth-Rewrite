@@ -72,9 +72,30 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'dg_requests_errors' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/dgApi_errors.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
         'login' => [
             'driver' => 'single',
             'path' => storage_path('logs/login.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
+        'challenge' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/challenges/challenge.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
+        'challenge_new' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/challenges/challenge_new.log'),
             'level' => 'info',
             'replace_placeholders' => true,
         ],

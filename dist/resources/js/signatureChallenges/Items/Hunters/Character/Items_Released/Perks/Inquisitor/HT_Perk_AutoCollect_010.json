@@ -1,0 +1,109 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "HT_Perk_AutoCollect_010",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "GameplayEffectMetadata'HT_Perk_AutoCollect_010:CompositeItemMetadata_0.GameplayEffectMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/Inquisitor/HT_Perk_AutoCollect_010.1"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameplayEffectMetadata",
+    "Name": "GameplayEffectMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'GameplayEffectMetadata'",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'PerkMod_HunterAutoCollect_C'",
+        "ObjectPath": "TheExit/Content/Items/GameplayEffects/Hunter/PerkMod_HunterAutoCollect.0"
+      },
+      "Level": 9.0
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "HT_Perk_AutoCollect_010",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_TheInquisitor_AutoCollect'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/TheInquisitor/PerksPowerIcon_Hunter_TheInquisitor_AutoCollect.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 1720
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 1059
+        }
+      ],
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "6DFAA855-48F1C349-CE1E6A9F-29188FCF",
+          "ChallengeCompletionValue": 250.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_Autocollect_Hunter.Challenge_Autocollect_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Inquisitor_AutoCollect1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            10.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Inquisitor_AutoCollect1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Inquisitor_AutoCollect1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Inquisitor_AutoCollect1_Lore"
+      },
+      "Guid": "EC3E4663-42249899-CF7C29A8-247FAF88",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'HT_Perk_AutoCollect_010:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/Inquisitor/HT_Perk_AutoCollect_010.0"
+      },
+      "Version": 1
+    }
+  }
+]

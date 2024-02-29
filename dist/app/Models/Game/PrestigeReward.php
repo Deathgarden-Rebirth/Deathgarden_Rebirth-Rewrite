@@ -30,7 +30,6 @@ class PrestigeReward extends Model
         return $this->hasMany(
             PrestigeRewardItem::class,
             'prestige_reward_id',
-            'catalog_item_id',
         );
     }
 }

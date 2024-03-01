@@ -31,3 +31,10 @@ Route::get('{catalogVersion}/catalog', [\App\Http\Controllers\Api\Catalog\Catalo
 Route::get('/', function () {
     return \Inertia\Inertia::render('Dashboard');
 });
+
+Route::middleware('verify_migration_key')->get('/migrate-database', function () {
+    Artisan::call('migrate --no-interaction');
+    print Artisan::output();
+    Artisan::call('optimize:clear');
+    print Artisan::output();
+});

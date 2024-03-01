@@ -86,5 +86,5 @@ jobs:
         run: wget --debug -qO- ${{ vars.URL_VENDOR_UNZIP }}
         
       - name: Run migrations and seeders
-        run: wget -qO- ${{ secrets.URL_MIGRATIONS }}?migration_key=${{ steps.migration_key.outputs.migrationKey }}
+        run: wget --debug -qO- ${{ secrets.URL_MIGRATIONS }}?migration_key=${{ steps.migration_key.outputs.migrationKey }}
         

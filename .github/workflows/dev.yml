@@ -55,6 +55,11 @@ jobs:
         
       - name: Generate vendor archive
         run: php artisan zip:create ./vendor vendor
+
+      - name: Generate temporary migration key
+        id: migration_key
+        run: |
+          echo "migrationKey=$(php artisan migration_key:generate)" >> $GITHUB_OUTPUT
         
       #- name: Generate public vendor archive
       #  run: php artisan zip:create ./public/assets/vendor vendor_public
@@ -80,6 +85,6 @@ jobs:
       - name: Extract vendor and public vendor archives
         run: wget --debug -qO- ${{ vars.URL_VENDOR_UNZIP }}
         
-#      - name: Run migrations and seeders
-#        run: wget -qO- ${{ secrets.URL_DEV_MIGRATIONS }}
+      - name: Run migrations and seeders
+        run: wget -qO- ${{ secrets.URL_MIGRATIONS }}?migration_key=${{ steps.migration_key.outputs.migrationKey }}
         

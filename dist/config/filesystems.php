@@ -47,6 +47,7 @@ return [
         'dg_public' => [
             'driver' => 'local',
             'root' => public_path().'/game-files',
+            'visibility' => 'public'
         ],
 
         'patches' => [

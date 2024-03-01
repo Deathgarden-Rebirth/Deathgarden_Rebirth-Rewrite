@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Auth\SteamAuthController;
 use App\Http\Controllers\Api\Eula\EulaConsentController;
+use App\Http\Controllers\Api\Matchmaking\MatchmakingController;
 use App\Http\Controllers\Api\Player\ChallengeController;
 use App\Http\Controllers\Api\Player\CurrencyController;
 use App\Http\Controllers\Api\Player\MetadataController;
@@ -29,6 +30,7 @@ Route::prefix('v1')->group(function () {
         ->name(VersionController::ROUTE_HEALTHCHECK);
     Route::get('config/VER_LATEST_CLIENT_DATA', [VersionController::class, 'getLatestClientData'])
         ->name(VersionController::ROUTE_LATEST_CLIENT_DATA);
+    Route::get('config/MATCH_MAKING_REGIONS/raw', [MatchmakingController::class, 'getRegions']);
     Route::get('utils/contentVersion/latest/{version}', [VersionController::class, 'getLatestContentVersion'])
         ->name(VersionController::ROUTE_LATEST_CONTENT_VERSION);
     Route::get('services/tex', [VersionController::class, 'tex'])
@@ -57,6 +59,9 @@ Route::prefix('v1')->group(function () {
 
         Route::get('inventories', [PlayerController::class, 'getInventory']);
         Route::post('extensions/inventory/unlockSpecialItems', [PlayerController::class, 'unlockSpecialItems']);
+
+
+        Route::post('queue', [MatchmakingController::class, 'queue']);
     });
 
 

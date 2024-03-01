@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('catalog_item_challenge', function (Blueprint $table) {
             $table->foreignUuid('catalog_item_id')->references('id')->on('catalog_items')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignUuid('challenge_id')->constrained();
+            $table->foreignUuid('challenge_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
 
             $table->primary(['catalog_item_id', 'challenge_id'], 'item_challenge_primary');
             $table->unique(['catalog_item_id', 'challenge_id'], 'item_challenge_unique');

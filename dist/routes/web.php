@@ -35,6 +35,8 @@ Route::get('/', function () {
 Route::middleware('verify_migration_key')->get('/migrate-database', function () {
     Artisan::call('migrate --no-interaction');
     print Artisan::output();
+    Artisan::call('db:seed');
+    print Artisan::output();
     Artisan::call('optimize:clear');
     print Artisan::output();
 });

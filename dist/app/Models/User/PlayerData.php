@@ -11,10 +11,12 @@ use App\Helper\Uuid\UuidHelper;
 use App\Models\Game\CatalogItem;
 use App\Models\Game\Challenge;
 use App\Models\Game\CharacterData;
+use App\Models\Game\QuitterState;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\QueryException;
 
 
@@ -89,6 +91,8 @@ class PlayerData extends Model
                 }
                 catch (QueryException $e) {}
             }
+
+            $playerData->quitterState()->create();
         });
     }
 
@@ -119,6 +123,11 @@ class PlayerData extends Model
     public function challenges(): BelongsToMany
     {
         return $this->belongsToMany(Challenge::class)->withPivot(['progress']);
+    }
+
+    public function quitterState(): HasOne
+    {
+        return $this->hasOne(QuitterState::class);
     }
 
     public function getCumulativeExperience(): int

@@ -51,10 +51,22 @@ Route::prefix('v1')->group(function () {
         Route::post('extensions/purchase/set', [PurchaseController::class, 'purchaseSet']);
 
         Route::post('extensions/progression/resetCharacterProgressionForPrestige', [PlayerController::class, 'resetCharacterProgressionForPrestige']);
+        Route::post('extensions/quitters/getQuitterState', [PlayerController::class, 'getQuitterState']);
 
         Route::get('wallet/currencies', [CurrencyController::class, 'getCurrencies']);
 
         Route::get('inventories', [PlayerController::class, 'getInventory']);
         Route::post('extensions/inventory/unlockSpecialItems', [PlayerController::class, 'unlockSpecialItems']);
+    });
+
+
+    Route::post('gameDataAnalytics/batch', function () {
+        return response('', 200);
+    });
+    Route::post('gameDataAnalytics', function () {
+        return response('', 200);
+    });
+    Route::post('me/richPresence', function () {
+        return response('', 200);
     });
 });

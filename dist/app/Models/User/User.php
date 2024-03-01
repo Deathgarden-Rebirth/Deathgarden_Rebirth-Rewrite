@@ -2,6 +2,7 @@
 
 namespace App\Models\User;
 
+use App\Models\Game\QuitterState;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -29,7 +30,8 @@ class User extends AuthUser
 
     public function playerData(): PlayerData|Model
     {
-        return $this->hasOne(PlayerData::class)->firstOrCreate();
+        // Added Shared lock to stop a race condition between initOrGetGroups and GetQuitterState
+        return $this->hasOne(PlayerData::class)->sharedLock()->firstOrCreate();
     }
 
     public static function findBySteamID(int $steamId): User|null

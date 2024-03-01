@@ -51,6 +51,7 @@ Route::prefix('v1')->group(function () {
         Route::post('extensions/purchase/set', [PurchaseController::class, 'purchaseSet']);
 
         Route::post('extensions/progression/resetCharacterProgressionForPrestige', [PlayerController::class, 'resetCharacterProgressionForPrestige']);
+        Route::post('extensions/quitters/getQuitterState', [PlayerController::class, 'getQuitterState']);
 
         Route::get('wallet/currencies', [CurrencyController::class, 'getCurrencies']);
 

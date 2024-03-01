@@ -1,0 +1,132 @@
+[
+  {
+    "Type": "BP_RangedWeapon_Item_C",
+    "Name": "HT_AssaultRifle_010",
+    "Class": "BlueprintGeneratedClass'TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.BP_RangedWeapon_Item_C'",
+    "Template": {
+      "ObjectName": "BP_RangedWeapon_Item_C'Default__BP_RangedWeapon_Item_C'",
+      "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.1"
+    },
+    "Properties": {
+      "WeaponMods": {
+        "ItemAssignments": [
+          {
+            "ObjectName": "LoadoutItemAsset'HT_AssaultRifleMod_010'",
+            "ObjectPath": "TheExit/Content/Items/Hunters/WeaponMods/HT_AssaultRifleMod_010.1"
+          },
+          null,
+          null,
+          null
+        ]
+      },
+      "ActorClass": {
+        "AssetPathName": "/Game/Items/ItemTemplates/Weapons/AssaultRifleFPS/BP_AssaultRifle.BP_AssaultRifle_C",
+        "SubPathString": ""
+      },
+      "CustomizationSet": {
+        "ObjectName": "CustomizationSetItem'HT_INQUISITOR_ARD_Prog001'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/WeaponSkins/HT_INQUISITOR_ARD_Prog001.10"
+      },
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'HUD_Weapon_AssaultRifle_Standard'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/WeaponsIcon/HUD_Weapon_AssaultRifle_Standard.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyC",
+          "Price": 3440
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 3177
+        }
+      ],
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "9F8EE83B-43841049-6374ADA5-22F55713",
+          "ChallengeCompletionValue": 12000.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/General/Challenge_Damage_Hunter.Challenge_Damage_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Characters.Characters",
+            "Key": "Hunter_GunAssaultRifle001_FormatedDESC"
+          },
+          "Arguments": [
+            20.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_GunAssaultRifle001_DisplayName"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_GunAssaultRifle001_DESC"
+      },
+      "Guid": "46B5D90B-466F5CB8-D13035BE-EB11774D",
+      "TagContainer": [
+        "Weapon.AssaultRifle",
+        "WeaponVariation.B",
+        "Customization.HT.Weapon.AssaultRifle.ARD"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "WeaponModsMetadata'HT_AssaultRifle_010:WeaponModsMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Weapons/HT_AssaultRifle_010.2"
+      },
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RangedWeapon_Item_C'",
+        "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.0"
+      }
+    }
+  },
+  {
+    "Type": "PowerLevelMod",
+    "Name": "PowerLevelMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'PowerLevelMod'",
+    "Properties": {
+      "Level": 9
+    }
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "HT_AssaultRifle_010",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "PowerLevelMod'HT_AssaultRifle_010:WeaponModsMetadata_0.PowerLevelMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Weapons/HT_AssaultRifle_010.1"
+        }
+      ],
+      "RequiredTags": [
+        "WeaponVariation.B",
+        "Weapon.AssaultRifle"
+      ]
+    }
+  }
+]

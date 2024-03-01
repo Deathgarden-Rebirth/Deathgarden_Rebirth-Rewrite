@@ -1,0 +1,125 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "HT_Perk_PowerBooster_Turrets_010",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "WeaponModsMetadata'HT_Perk_PowerBooster_Turrets_010:CompositeItemMetadata_0.WeaponModsMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/Inquisitor/HT_Perk_PowerBooster_Turrets_010.3"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CooldownMod",
+    "Name": "CooldownMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'CooldownMod'",
+    "Properties": {
+      "CooldownRecoverSpeedMultiplier": 0.58
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "HT_Perk_PowerBooster_Turrets_010",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_TheInquisitor_PowerBooster'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/TheInquisitor/PerksPowerIcon_Hunter_TheInquisitor_PowerBooster.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 1720
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 1059
+        }
+      ],
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "EAC4FDA2-45A1B54C-B15BE892-6EB62E89",
+          "ChallengeCompletionValue": 100.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_PowerBoosterTurret_Hunter.Challenge_PowerBoosterTurret_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Inquisitor_PowerBoosterTurrets1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            42.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Inquisitor_PowerBoosterTurrets1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Inquisitor_PowerBoosterTurrets1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Inquisitor_PowerBoosterTurrets1_Lore"
+      },
+      "Guid": "FEF49F93-4BE8B18F-CF4AFCB2-C9138C29",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'HT_Perk_PowerBooster_Turrets_010:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/Inquisitor/HT_Perk_PowerBooster_Turrets_010.0"
+      },
+      "Version": 1
+    }
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "CooldownMod'HT_Perk_PowerBooster_Turrets_010:CompositeItemMetadata_0.WeaponModsMetadata_0.CooldownMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/Inquisitor/HT_Perk_PowerBooster_Turrets_010.1"
+        }
+      ],
+      "RequiredTags": [
+        "Ability.SpawnTurret"
+      ],
+      "IgnoreTags": [
+        "Gameplay.PerksBlocked"
+      ]
+    }
+  }
+]

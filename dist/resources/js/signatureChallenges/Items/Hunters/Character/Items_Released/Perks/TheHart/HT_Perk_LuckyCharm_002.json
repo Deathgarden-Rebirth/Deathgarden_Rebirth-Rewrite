@@ -1,0 +1,109 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "HT_Perk_LuckyCharm_002",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "GameplayEffectMetadata'HT_Perk_LuckyCharm_002:CompositeItemMetadata_0.GameplayEffectMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/TheHart/HT_Perk_LuckyCharm_002.1"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameplayEffectMetadata",
+    "Name": "GameplayEffectMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'GameplayEffectMetadata'",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'PerkMod_HT_LuckyCharm_C'",
+        "ObjectPath": "TheExit/Content/Items/GameplayEffects/Hunter/PerkMod_HT_LuckyCharm.0"
+      },
+      "Level": 1.0
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "HT_Perk_LuckyCharm_002",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_TheGuardian_LuckyCharms'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/TheGuardian/PerksPowerIcon_Hunter_TheGuardian_LuckyCharms.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 170
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "LoadoutItemAsset'HT_Perk_LuckyCharm_003'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/TheHart/HT_Perk_LuckyCharm_003.2"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "721E2D64-4D051394-207BC492-127586CA",
+          "ChallengeCompletionValue": 3.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_LuckyCharm_Hunter.Challenge_LuckyCharm_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Hart_LuckyCharm1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            7.5
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Hart_LuckyCharm1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Hart_LuckyCharm1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Hart_LuckyCharm1_Lore"
+      },
+      "Guid": "889C5129-41A27F89-D080EB9A-110681C0",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'HT_Perk_LuckyCharm_002:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/TheHart/HT_Perk_LuckyCharm_002.0"
+      },
+      "Version": 1
+    }
+  }
+]

@@ -1,0 +1,125 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "HT_Perk_PowerBooster_Mines_010",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "WeaponModsMetadata'HT_Perk_PowerBooster_Mines_010:CompositeItemMetadata_0.WeaponModsMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_PowerBooster_Mines_010.3"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CooldownMod",
+    "Name": "CooldownMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'CooldownMod'",
+    "Properties": {
+      "CooldownRecoverSpeedMultiplier": 0.58
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "HT_Perk_PowerBooster_Mines_010",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_ThePoacher_PowerBooster'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/ThePoacher/PerksPowerIcon_Hunter_ThePoacher_PowerBooster.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 1720
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 1059
+        }
+      ],
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "F2C40675-44A6B04B-10FF6CB2-C404BB55",
+          "ChallengeCompletionValue": 200.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_PowerBoosterMines_Hunter.Challenge_PowerBoosterMines_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Poacher_PowerBoosterMines1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            42.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_PowerBoosterMines1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_PowerBoosterMines1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_PowerBoosterMines1_Lore"
+      },
+      "Guid": "9CC4BC96-43394FE4-E001A4BC-B1E112D2",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'HT_Perk_PowerBooster_Mines_010:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_PowerBooster_Mines_010.0"
+      },
+      "Version": 1
+    }
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "CooldownMod'HT_Perk_PowerBooster_Mines_010:CompositeItemMetadata_0.WeaponModsMetadata_0.CooldownMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_PowerBooster_Mines_010.1"
+        }
+      ],
+      "RequiredTags": [
+        "Ability.DropMine"
+      ],
+      "IgnoreTags": [
+        "Gameplay.PerksBlocked"
+      ]
+    }
+  }
+]

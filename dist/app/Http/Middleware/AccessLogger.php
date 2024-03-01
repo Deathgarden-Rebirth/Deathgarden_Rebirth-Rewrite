@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use Psr\Log\LoggerInterface;
 use stdClass;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -16,12 +17,13 @@ class AccessLogger
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!Str::contains($request->userAgent(), 'TheExit'))
+        if (!Str::contains($request->userAgent(), 'TheExit'))
             return $next($request);
+
+        $response = $next($request);
 
         $log = new stdClass();
         $log->method = $request->method();
@@ -32,46 +34,37 @@ class AccessLogger
 
         $channels = ['dg_requests'];
 
-        try {
-            $response = $next($request);
+        $logChannel = static::getSessionLogConfig();
 
-            if(!Session::has('sessionLogConfig')) {
-                $user = Auth::user();
-                $username = $user?->last_known_username ?? '';
-                $logConfig = [
-                    'driver' => 'single',
-                    'path' => storage_path('logs/sessions/'.$username.'_'.Str::substr(Session::getId(), 0, 12).'.log')
-                ];
-                Session::put('sessionLogConfig', $logConfig);
-            }
-            else
-                $logConfig = Session::get('sessionLogConfig');
+        $channels[] = $logChannel;
 
-            $logChannel = Log::build($logConfig);
+        $log->response = new stdClass();
+        $log->response->statusCode = $response->getStatusCode();
+        $log->response->body = json_decode($response->getContent());
 
-            $channels[] = $logChannel;
+        $logMessage = $log->method . ' ' . $log->url . "\n" . json_encode($log);
 
-            $log->response = new stdClass();
-            $log->response->statusCode = $response->getStatusCode();
-            $log->response->body = json_decode($response->getContent());
+        if ($response->isSuccessful())
+            Log::stack($channels)->info($logMessage);
+        else
+            Log::stack($channels)->warning($logMessage);
 
-            $logMessage = $log->method.' '.$log->url."\n".json_encode($log);
+        return $response;
+    }
 
-            if($response->isSuccessful())
-                Log::stack($channels)->info($logMessage);
-            else
-                Log::stack($channels)->warning($logMessage);
+    public static function getSessionLogConfig(): LoggerInterface
+    {
+        if (!Session::has('sessionLogConfig')) {
+            $user = Auth::user();
+            $username = $user?->last_known_username ?? '';
+            $logConfig = [
+                'driver' => 'single',
+                'path' => storage_path('logs/sessions/' . $username . '_' . Str::substr(Session::getId(), 0, 12) . '.log')
+            ];
+            Session::put('sessionLogConfig', $logConfig);
+        } else
+            $logConfig = Session::get('sessionLogConfig');
 
-            return $response;
-        } catch (\Exception $e) {
-            $log->exception = new stdClass();
-            $log->exception->code = $e->getCode();
-            $log->exception->message = $e->getMessage();
-            $log->exception->trace = $e->getTrace();
-
-            $logMessage = $log->method.' '.$log->url."\n".json_encode($log);
-            Log::stack($channels)->error($logMessage);
-            throw $e;
-        }
+        return Log::build($logConfig);
     }
 }

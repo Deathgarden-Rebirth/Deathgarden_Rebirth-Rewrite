@@ -1,0 +1,118 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "HT_Perk_SoClose_002",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "GameplayEffectMetadata'HT_Perk_SoClose_002:CompositeItemMetadata_0.GameplayEffectMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/Inquisitor/HT_Perk_SoClose_002.1"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameplayEffectMetadata",
+    "Name": "GameplayEffectMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'GameplayEffectMetadata'",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'PerkMod_SoClose_C'",
+        "ObjectPath": "TheExit/Content/Items/GameplayEffects/Hunter/PerkMod_SoClose.0"
+      },
+      "Level": 1.0
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "HT_Perk_SoClose_002",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_TheInquisitor_SoClose'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/TheInquisitor/PerksPowerIcon_Hunter_TheInquisitor_SoClose.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 170
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "LoadoutItemAsset'HT_Perk_SoClose_003'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/Inquisitor/HT_Perk_SoClose_003.2"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "0E7912E3-4B0F76F0-6A547693-71A1615A",
+          "ChallengeCompletionValue": 1.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_SoClose_Hunter.Challenge_SoClose_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Inquisitor_SoClose1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            5.5
+          ]
+        },
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Inquisitor_SoClose1_ItemEffectDescription1"
+          },
+          "Arguments": [
+            6.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Inquisitor_SoClose1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Inquisitor_SoClose1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Inquisitor_SoClose1_Lore"
+      },
+      "Guid": "7FF66ECA-49B0A1F1-6FDE8DAA-7F352115",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'HT_Perk_SoClose_002:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/Inquisitor/HT_Perk_SoClose_002.0"
+      },
+      "Version": 1
+    }
+  }
+]

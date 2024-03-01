@@ -1,0 +1,25 @@
+_id: req_1a303c1b51c44a63b14b485510633594
+type: Request
+parentId: fld_a42fe50612594db598f440f14c31ce66
+modified: 1708814621104
+created: 1708031873690
+url: "{{ _.base_url }}/te-18f25613-36778-ue4-374f864b/catalog"
+name: Catalog
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: "{{ _.user_agent }}"
+    id: pair_22b70a262caa42f8b3f1e5b023a2c2cd
+authentication: {}
+metaSortKey: -1708031873690
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

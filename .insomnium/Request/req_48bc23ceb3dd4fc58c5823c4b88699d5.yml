@@ -1,0 +1,56 @@
+_id: req_48bc23ceb3dd4fc58c5823c4b88699d5
+type: Request
+parentId: fld_2738eb852acf451392cf394d419ca461
+modified: 1708939716451
+created: 1708816516394
+url: "{{ _.base_url }}/api/v1/extensions/progression/updateMetadataGroup"
+name: "Update Metadata: Player"
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+        "data": {
+            "objectId": "PlayerMetadata",
+            "version": 1,
+            "metadata": {
+                "lastPlayedFaction": "Runner",
+                "lastPlayedRunnerId": {
+                    "tagName": "Runner.Sawbones"
+                },
+                "lastPlayedHunterId": {
+                    "tagName": "Hunter.Poacher"
+                },
+                "shouldPlayWithoutContextualHelp": false,
+                "hasPlayedDeathGarden1": true
+            },
+            "reason": "SetLastPlayedFaction"
+        }
+    }
+parameters: []
+headers:
+  - name: content-type
+    value: application/json
+    id: pair_134b431bf2e34c3b9543d974f7521623
+  - name: User-Agent
+    value: "{{ _.user_agent }}"
+    id: pair_6ed3d85dbc094296a88cde8894d1d354
+  - id: pair_1ed53bf258f44c5fb0d82ae9597f8e6e
+    name: XDEBUG_SESSION
+    value: start
+    description: ""
+  - id: pair_f4fc9df9ab8148d0a532cabd2c13b83f
+    name: Accept
+    value: application/json
+    description: ""
+authentication: {}
+metaSortKey: -1708835607698
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

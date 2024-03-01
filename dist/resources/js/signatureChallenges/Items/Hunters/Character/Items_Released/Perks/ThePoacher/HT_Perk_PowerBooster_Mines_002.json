@@ -1,0 +1,125 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "HT_Perk_PowerBooster_Mines_002",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "WeaponModsMetadata'HT_Perk_PowerBooster_Mines_002:CompositeItemMetadata_0.WeaponModsMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_PowerBooster_Mines_002.3"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CooldownMod",
+    "Name": "CooldownMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'CooldownMod'",
+    "Properties": {
+      "CooldownRecoverSpeedMultiplier": 0.82
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "HT_Perk_PowerBooster_Mines_002",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_ThePoacher_PowerBooster'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/ThePoacher/PerksPowerIcon_Hunter_ThePoacher_PowerBooster.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 170
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "LoadoutItemAsset'HT_Perk_PowerBooster_Mines_003'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_PowerBooster_Mines_003.2"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "674BB4C7-477253BA-116C8CBE-079E27D6",
+          "ChallengeCompletionValue": 20.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_PowerBoosterMines_Hunter.Challenge_PowerBoosterMines_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Poacher_PowerBoosterMines1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            18.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_PowerBoosterMines1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_PowerBoosterMines1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_PowerBoosterMines1_Lore"
+      },
+      "Guid": "5F1FE836-46A31A90-0DB092B7-8FB7A5E4",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'HT_Perk_PowerBooster_Mines_002:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_PowerBooster_Mines_002.0"
+      },
+      "Version": 1
+    }
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "CooldownMod'HT_Perk_PowerBooster_Mines_002:CompositeItemMetadata_0.WeaponModsMetadata_0.CooldownMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_PowerBooster_Mines_002.1"
+        }
+      ],
+      "RequiredTags": [
+        "Ability.DropMine"
+      ],
+      "IgnoreTags": [
+        "Gameplay.PerksBlocked"
+      ]
+    }
+  }
+]

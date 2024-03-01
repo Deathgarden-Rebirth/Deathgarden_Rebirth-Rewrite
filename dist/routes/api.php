@@ -23,4 +23,4 @@ Route::get('patch/files', [PatchController::class, 'getGameFileList']);
 
 Route::fallback(function () {
     return response('route not found', 404);
-});
+})->middleware('api.session');

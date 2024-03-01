@@ -1,0 +1,37 @@
+_id: req_523e998ccf8247d6ac098dea9efbb3c8
+type: Request
+parentId: fld_0a4c94c3b7db435ab7c4a540d4ba3596
+modified: 1709137579112
+created: 1709136217406
+url: "{{ _.base_url }}/api/v1/extensions/purchase/item"
+name: Purchase Item
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+        "data": {
+          "objectId": "895471FA4A8A74AB2FEE16BF35FC9D04",
+          "oldQuantity": 0,
+          "wantedQuantity": 1,
+          "currencyGroup": "SoftCurrencyGroup"
+        }
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: "{{ _.user_agent }}"
+    id: pair_10805d9530d04e5fbcbfd42a4c8b9997
+authentication: {}
+metaSortKey: -1709126894206.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

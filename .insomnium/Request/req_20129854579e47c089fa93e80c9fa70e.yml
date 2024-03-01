@@ -1,0 +1,24 @@
+_id: req_20129854579e47c089fa93e80c9fa70e
+type: Request
+parentId: fld_7016fb6648f74ab6ba77186dd3b1ad41
+modified: 1708470860369
+created: 1708470113477
+url: "{{ _.base_url }}/api/files/patch/current"
+name: Download Latest Pak
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: insomnium/0.2.3-a
+authentication: {}
+metaSortKey: -1708470113677
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

@@ -1,0 +1,132 @@
+[
+  {
+    "Type": "BP_RangedWeapon_Item_C",
+    "Name": "HT_DefaultSniper_010",
+    "Class": "BlueprintGeneratedClass'TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.BP_RangedWeapon_Item_C'",
+    "Template": {
+      "ObjectName": "BP_RangedWeapon_Item_C'Default__BP_RangedWeapon_Item_C'",
+      "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.1"
+    },
+    "Properties": {
+      "WeaponMods": {
+        "ItemAssignments": [
+          {
+            "ObjectName": "LoadoutItemAsset'HT_DefaultSniperMod_010'",
+            "ObjectPath": "TheExit/Content/Items/Hunters/WeaponMods/HT_DefaultSniperMod_010.1"
+          },
+          null,
+          null,
+          null
+        ]
+      },
+      "ActorClass": {
+        "AssetPathName": "/Game/Items/ItemTemplates/Weapons/SniperRifleFPS/BP_DefaultSniperRifle.BP_DefaultSniperRifle_C",
+        "SubPathString": ""
+      },
+      "CustomizationSet": {
+        "ObjectName": "LoadoutCustomizationSetItem'HT_STALKER_SRD_Prog001a'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/WeaponSkins/HT_STALKER_SRD_Prog001a.19"
+      },
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'HUD_Weapon_SniperRifle_Standard'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/WeaponsIcon/HUD_Weapon_SniperRifle_Standard.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyC",
+          "Price": 3440
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 3177
+        }
+      ],
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "26752583-45FC8734-A6CB0E98-E02DE88A",
+          "ChallengeCompletionValue": 12000.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/General/Challenge_Damage_Hunter.Challenge_Damage_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Characters.Characters",
+            "Key": "Hunter_GunDefaultSniper001_FormatedDESC"
+          },
+          "Arguments": [
+            20.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_GunDefaultRifle001_DisplayName"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_GunDefaultSniper001_DESC"
+      },
+      "Guid": "16944601-4AA2A782-E51ECFAF-9EF33A39",
+      "TagContainer": [
+        "Weapon.SniperRifle",
+        "WeaponVariation.B",
+        "Customization.HT.Weapon.SniperRifle.SRD"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "WeaponModsMetadata'HT_DefaultSniper_010:WeaponModsMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Weapons/HT_DefaultSniper_010.2"
+      },
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RangedWeapon_Item_C'",
+        "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.0"
+      }
+    }
+  },
+  {
+    "Type": "PowerLevelMod",
+    "Name": "PowerLevelMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'PowerLevelMod'",
+    "Properties": {
+      "Level": 9
+    }
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "HT_DefaultSniper_010",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "PowerLevelMod'HT_DefaultSniper_010:WeaponModsMetadata_0.PowerLevelMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Weapons/HT_DefaultSniper_010.1"
+        }
+      ],
+      "RequiredTags": [
+        "Weapon.SniperRifle",
+        "WeaponVariation.B"
+      ]
+    }
+  }
+]

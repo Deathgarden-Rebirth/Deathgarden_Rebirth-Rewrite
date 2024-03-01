@@ -21,6 +21,8 @@ class LoginController extends Controller
         $user = Socialite::driver('steam')->user();
         $loggedInUser = User::firstOrCreate(['steam_id' => $user->getId()], ['source' => 'WEB']);
         Auth::login($loggedInUser);
+        $loggedInUser->last_known_username = $user->getNickname();
+        $loggedInUser->save();
 
         Log::stack(['stack', 'login'])->info('User with SteamID "{id}" successfully logged in via Web.', ['id' => $loggedInUser->steam_id]);
 

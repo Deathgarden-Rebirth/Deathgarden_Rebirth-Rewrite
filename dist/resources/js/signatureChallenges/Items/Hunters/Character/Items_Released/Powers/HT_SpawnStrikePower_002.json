@@ -1,0 +1,103 @@
+[
+  {
+    "Type": "BP_Ability_Item_C",
+    "Name": "HT_SpawnStrikePower_002",
+    "Class": "BlueprintGeneratedClass'TheExit/Content/Items/ItemTemplates/Powers/BP_Ability_Item.BP_Ability_Item_C'",
+    "Template": {
+      "ObjectName": "BP_Ability_Item_C'Default__BP_Ability_Item_C'",
+      "ObjectPath": "TheExit/Content/Items/ItemTemplates/Powers/BP_Ability_Item.1"
+    },
+    "Properties": {
+      "ActorClass": {
+        "AssetPathName": "/Game/Items/ItemTemplates/Powers/Strike/BP_SpawnStrike.BP_SpawnStrike_C",
+        "SubPathString": ""
+      },
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_TheVeteran_OrbitalStrike'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/TheVeteran/PerksPowerIcon_Hunter_TheVeteran_OrbitalStrike.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyC",
+          "Price": 340
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "BP_Ability_Item_C'HT_SpawnStrikePower_003'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Powers/HT_SpawnStrikePower_003.0"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "9D59DA35-4BB511D4-C7EE64B6-0B546A1B",
+          "ChallengeCompletionValue": 15.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_OrbitalStrike_Hunter.Challenge_OrbitalStrike_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Characters.Characters",
+            "Key": "Hunter_OrbitalStrikePower_FormatedDESC"
+          },
+          "Arguments": [
+            22.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_OrbitalStrikePower_NAME"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_OrbitalStrikePower_DESC"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_OrbitalStrikePower_LORE"
+      },
+      "Guid": "2FBD62CA-46D16FB8-923AD584-91AA3B7A",
+      "TagContainer": [
+        "Ability.Strike"
+      ],
+      "Metadata": {
+        "ObjectName": "WeaponModsMetadata'HT_SpawnStrikePower_002:WeaponModsMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Powers/HT_SpawnStrikePower_002.2"
+      },
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_Ability_Item_C'",
+        "ObjectPath": "TheExit/Content/Items/ItemTemplates/Powers/BP_Ability_Item.0"
+      }
+    }
+  },
+  {
+    "Type": "PowerLevelMod",
+    "Name": "PowerLevelMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'PowerLevelMod'",
+    "Properties": {
+      "Level": 1
+    }
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "HT_SpawnStrikePower_002",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "PowerLevelMod'HT_SpawnStrikePower_002:WeaponModsMetadata_0.PowerLevelMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Powers/HT_SpawnStrikePower_002.1"
+        }
+      ],
+      "RequiredTags": [
+        "Ability.Strike"
+      ]
+    }
+  }
+]

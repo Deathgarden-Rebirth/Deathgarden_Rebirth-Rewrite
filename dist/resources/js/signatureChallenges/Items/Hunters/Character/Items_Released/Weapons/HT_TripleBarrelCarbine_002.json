@@ -1,0 +1,133 @@
+[
+  {
+    "Type": "BP_RangedWeapon_Item_C",
+    "Name": "HT_TripleBarrelCarbine_002",
+    "Class": "BlueprintGeneratedClass'TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.BP_RangedWeapon_Item_C'",
+    "Template": {
+      "ObjectName": "BP_RangedWeapon_Item_C'Default__BP_RangedWeapon_Item_C'",
+      "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.1"
+    },
+    "Properties": {
+      "WeaponMods": {
+        "ItemAssignments": [
+          {
+            "ObjectName": "LoadoutItemAsset'HT_TripleBarrelCarbineMod_002'",
+            "ObjectPath": "TheExit/Content/Items/Hunters/WeaponMods/HT_TripleBarrelCarbineMod_002.2"
+          },
+          null,
+          null,
+          null
+        ]
+      },
+      "ActorClass": {
+        "AssetPathName": "/Game/Items/ItemTemplates/Weapons/AssaultRifleFPS/BP_TripleBarrelCarbine.BP_TripleBarrelCarbine_C",
+        "SubPathString": ""
+      },
+      "CustomizationSet": {
+        "ObjectName": "CustomizationSetItem'HT_VETERAN_CARB_Prog001'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/WeaponSkins/HT_VETERAN_CARB_Prog001.1"
+      },
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'HUD_Weapon_Carbine'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/WeaponsIcon/HUD_Weapon_Carbine.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyC",
+          "Price": 340
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "BP_RangedWeapon_Item_C'HT_TripleBarrelCarbine_003'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Weapons/HT_TripleBarrelCarbine_003.0"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "FBA3C3F3-458AAD1B-6D8199AF-1451FE45",
+          "ChallengeCompletionValue": 60.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_SpendAmmo_Carbine_Hunter.Challenge_SpendAmmo_Carbine_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Characters.Characters",
+            "Key": "Hunter_GunHeavyMachineGun001_FormatedDESC"
+          },
+          "Arguments": [
+            6.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_GunCAR001_NAME"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_GunCAR001_DESC"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_GunCAR001_LORE"
+      },
+      "Guid": "22C48CEE-49DC29EE-D48A82A7-423DCCE6",
+      "TagContainer": [
+        "WeaponVariation.C",
+        "Weapon.Carbine",
+        "Customization.HT.Weapon.TripleCarbine"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "WeaponModsMetadata'HT_TripleBarrelCarbine_002:WeaponModsMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Weapons/HT_TripleBarrelCarbine_002.2"
+      },
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RangedWeapon_Item_C'",
+        "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.0"
+      }
+    }
+  },
+  {
+    "Type": "PowerLevelMod",
+    "Name": "PowerLevelMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'PowerLevelMod'"
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "HT_TripleBarrelCarbine_002",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "PowerLevelMod'HT_TripleBarrelCarbine_002:WeaponModsMetadata_0.PowerLevelMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Weapons/HT_TripleBarrelCarbine_002.1"
+        }
+      ],
+      "RequiredTags": [
+        "Weapon.Carbine",
+        "WeaponVariation.C"
+      ]
+    }
+  }
+]

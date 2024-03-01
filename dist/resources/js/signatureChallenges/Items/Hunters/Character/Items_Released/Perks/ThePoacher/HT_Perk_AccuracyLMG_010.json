@@ -1,0 +1,126 @@
+[
+  {
+    "Type": "AccuracyMod",
+    "Name": "AccuracyMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'AccuracyMod'",
+    "Properties": {
+      "SpreadIncreaseMultiplier": 0.5,
+      "AccuracyMultiplier": {
+        "Max": 0.485,
+        "SpreadIncreaseModifier": 0.485
+      }
+    }
+  },
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "HT_Perk_AccuracyLMG_010",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "WeaponModsMetadata'HT_Perk_AccuracyLMG_010:CompositeItemMetadata_0.WeaponModsMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_AccuracyLMG_010.3"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "HT_Perk_AccuracyLMG_010",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_ThePoacher_CompensatorLMG'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/ThePoacher/PerksPowerIcon_Hunter_ThePoacher_CompensatorLMG.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 1720
+        },
+        {
+          "CurrencyId": "EGMCurrency::CurrencyA",
+          "Price": 1059
+        }
+      ],
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "A1F03DFD-49F4100C-2153CEAA-F8EAF151",
+          "ChallengeCompletionValue": 30.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_LMGCompensator_Hunter.Challenge_LMGCompensator_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Perks.Perks",
+            "Key": "Poacher_LMGCompensator1_ItemEffectDescription0"
+          },
+          "Arguments": [
+            51.5
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_LMGCompensator1_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_LMGCompensator1_Description"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Perks.Perks",
+        "Key": "Poacher_LMGCompensator1_Lore"
+      },
+      "Guid": "50B80A5C-4A066B10-CF8E85B5-1EEF24E9",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'HT_Perk_AccuracyLMG_010:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_AccuracyLMG_010.1"
+      },
+      "Version": 1
+    }
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "AccuracyMod'HT_Perk_AccuracyLMG_010:CompositeItemMetadata_0.WeaponModsMetadata_0.AccuracyMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Perks/ThePoacher/HT_Perk_AccuracyLMG_010.0"
+        }
+      ],
+      "RequiredTags": [
+        "Customization.HT.Weapon.AssaultRifle.ARH"
+      ]
+    }
+  }
+]

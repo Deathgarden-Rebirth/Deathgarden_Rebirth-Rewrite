@@ -1,0 +1,43 @@
+_id: req_cb9328c13b974a3d83759c8e6c663c3d
+type: Request
+parentId: wrk_adbfd4a031fa45edbd063e7fe12d6333
+modified: 1709133122848
+created: 1707625407787
+url: "{{ _.base_url }}/api/v1/auth/provider/steam/login"
+name: Login
+description: ""
+method: POST
+body:
+  mimeType: multipart/form-data
+  params:
+    - id: pair_4df600fd090f429ca3765b8fc280c078
+      name: token
+      value: 14000000470afe35b1d5c026ea13c010010010013b4ddf65180000000100000002000000ca33154d000000001d00000001000000be0000003e00000004000000ea13c01001001001b0790800ca33154d0df0adba00000000ab72de652b22fa650100bb510600020042510d00000096f70d0000000000a72136600f9eb09d3c079120b99d3dff8eb3e608a9f0e76a4115af7d62e7467b7c029072b598c3dcefc012f7ff4c6eb0662cfe53c423df1c8aec38fae1cde23ec9bc4cef542974935a30b06e13153b05b1b5a79c2f5f00ea2aeff3c98125fa8c7b2aea4dea7e52eb813846aab82c843eb8178f2c37d678fff7b639a2dca4e7df
+      description: ""
+parameters:
+  - id: pair_838f9eac37a54c14892b5cadf313de3b
+    name: token
+    value: 14000000fbe178349df89f77ea13c010010010012ab0cf65180000000100000002000000ca33154d000000001a00000001000000be0000003e00000004000000ea13c01001001001b0790800ca33154d0df0adba0000000003d6cb658385e7650100bb510600020042510d00000096f70d0000000000a9ff9d97a3471e261e47c76ae4a2a9d1ecaf5fd2b6250622c5b363ee3e094c1fcf3a10352209555b59229e5199dacac30fa111fe0232ab763959404b39414b8ff3e9566c9325cad3d5516a17c30f9d10b4dc5cd8918fa211565be405e32d091587e939a43251345a038a9387ab0e5e907d9a3ba80dda6770bf7956da428f4d0f
+    description: ""
+headers:
+  - name: Content-Type
+    value: multipart/form-data
+    id: pair_6fbe3212dce0498ea62fd48a63bb88bc
+  - name: User-Agent
+    value: "{{ _.user_agent }}"
+    id: pair_14f884a075744fd89253ee1333357626
+  - id: pair_313517c7559848ab885f634d03fb91d1
+    name: XDEBUG_SESSION
+    value: start
+    description: ""
+    disabled: false
+authentication: {}
+metaSortKey: -1707684457762
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

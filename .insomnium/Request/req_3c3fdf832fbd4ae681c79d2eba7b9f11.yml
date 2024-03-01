@@ -1,0 +1,40 @@
+_id: req_3c3fdf832fbd4ae681c79d2eba7b9f11
+type: Request
+parentId: fld_5582aa34508b41b985b2be94abf024af
+modified: 1708034498763
+created: 1707863481032
+url: "{{ _.base_url }}/moderation/check/username"
+name: Check Username
+description: ""
+method: POST
+body:
+  mimeType: multipart/form-data
+  params:
+    - id: pair_599a3b89f368445192998e442b113260
+      name: userId
+      value: 9b5040a7-00f5-4471-bd3d-231ac41de439
+      description: ""
+      disabled: false
+    - id: pair_32c29e7340d542bb9ec64659a31acd06
+      name: username
+      value: Vari
+      description: ""
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_b31a540e109c45428a1d2a2851bec1c7
+    disabled: false
+  - name: User-Agent
+    value: TheExit
+    id: pair_84215265090f47e6aa75c319bf54b222
+authentication: {}
+metaSortKey: -1707863481032
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

@@ -1,0 +1,121 @@
+[
+  {
+    "Type": "BP_RangedWeapon_Item_C",
+    "Name": "HT_HuntingShotgun_002",
+    "Class": "BlueprintGeneratedClass'TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.BP_RangedWeapon_Item_C'",
+    "Template": {
+      "ObjectName": "BP_RangedWeapon_Item_C'Default__BP_RangedWeapon_Item_C'",
+      "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.1"
+    },
+    "Properties": {
+      "ActorClass": {
+        "AssetPathName": "/Game/Items/ItemTemplates/Weapons/ShotgunFPS/BP_HuntingShotgun.BP_HuntingShotgun_C",
+        "SubPathString": ""
+      },
+      "CustomizationSet": {
+        "ObjectName": "LoadoutCustomizationSetItem'HT_POACHER_SHH_Prog001'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/WeaponSkins/HT_Poacher_SHH_Prog001.11"
+      },
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'HUD_Weapon_Shotgun_Hunting'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/WeaponsIcon/HUD_Weapon_Shotgun_Hunting.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyC",
+          "Price": 340
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "BP_RangedWeapon_Item_C'HT_HuntingShotgun_003'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Weapons/HT_HuntingShotgun_003.0"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "AC14BF35-47AB708F-0D50C58C-5440CFEB",
+          "ChallengeCompletionValue": 50.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_SpendAmmo_HuntingShotgun_Hunter.Challenge_SpendAmmo_HuntingShotgun_Hunter",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Characters.Characters",
+            "Key": "Hunter_GunHuntingShotgun001_FormatedDESC"
+          },
+          "Arguments": [
+            4.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_GunHuntingShotgun001_DisplayName"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Characters.Characters",
+        "Key": "Hunter_GunHuntingShotgun001_DESC"
+      },
+      "Guid": "022AC78D-48C408C3-34516A90-48A238B9",
+      "TagContainer": [
+        "Weapon.Shotgun",
+        "WeaponVariation.C",
+        "Customization.HT.Weapon.Shotgun.SHH"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Hunter"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Hunter )"
+      },
+      "Metadata": {
+        "ObjectName": "WeaponModsMetadata'HT_HuntingShotgun_002:WeaponModsMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Weapons/HT_HuntingShotgun_002.2"
+      },
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_RangedWeapon_Item_C'",
+        "ObjectPath": "TheExit/Content/Items/ItemTemplates/Weapons/BP_RangedWeapon_Item.0"
+      }
+    }
+  },
+  {
+    "Type": "PowerLevelMod",
+    "Name": "PowerLevelMod_0",
+    "Outer": "WeaponModsMetadata_0",
+    "Class": "UScriptClass'PowerLevelMod'",
+    "Properties": {
+      "Level": 1
+    }
+  },
+  {
+    "Type": "WeaponModsMetadata",
+    "Name": "WeaponModsMetadata_0",
+    "Outer": "HT_HuntingShotgun_002",
+    "Class": "UScriptClass'WeaponModsMetadata'",
+    "Properties": {
+      "WeaponMods": [
+        {
+          "ObjectName": "PowerLevelMod'HT_HuntingShotgun_002:WeaponModsMetadata_0.PowerLevelMod_0'",
+          "ObjectPath": "TheExit/Content/Items/Hunters/Character/Items_Released/Weapons/HT_HuntingShotgun_002.1"
+        }
+      ],
+      "RequiredTags": [
+        "Weapon.Shotgun",
+        "WeaponVariation.C"
+      ]
+    }
+  }
+]

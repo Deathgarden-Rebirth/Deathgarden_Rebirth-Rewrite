@@ -1,0 +1,24 @@
+_id: req_42f0732155a444c79cfb2407539457a6
+type: Request
+parentId: fld_a42fe50612594db598f440f14c31ce66
+modified: 1707783507119
+created: 1707783461234
+url: "{{ _.base_url }}/api/v1/config/VER_LATEST_CLIENT_DATA"
+name: Latest Client Version
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: insomnium/0.2.3-a
+authentication: {}
+metaSortKey: -1707783461234
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

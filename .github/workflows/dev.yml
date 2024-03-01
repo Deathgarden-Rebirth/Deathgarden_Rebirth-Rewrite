@@ -74,7 +74,7 @@ jobs:
           echo Backup config file
           mv .env .env_back;
           echo Uploading files
-          mirror -p --parallel=10 --reverse --continue --dereference --only-newer --delete --verbose=3 --exclude ^.git/ --exclude ^.github/ --exclude ^node_modules/ --exclude ^vendor/ --exclude ^public/assets/vendor --exclude ^.env_back --exclude ^.htaccess . ./;
+          mirror -p --parallel=10 --reverse --continue --dereference --only-newer --delete --verbose=3 --exclude ^.git/ --exclude ^.github/ --exclude ^node_modules/ --exclude ^vendor/ --exclude ^public/assets/vendor --exclude ^.env_back --exclude ^public/game-files/ --exclude ^.htaccess . ./;
           echo Renaming directories
           rm ./storage/framework/down;
           rm ./storage/framework/maintenance.php;

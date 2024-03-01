@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\GameFile;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -37,5 +39,10 @@ class PatchController extends Controller
             return response('No Patch Found', 404);
 
         return response()->download($disk->path('bottleEye/BEClient_x64.dll'));
+    }
+
+    public function getGameFileList() : JsonResponse
+    {
+        return response()->json(GameFile::select(['name', 'hash', 'game_path'])->latest()->get(), 200);
     }
 }

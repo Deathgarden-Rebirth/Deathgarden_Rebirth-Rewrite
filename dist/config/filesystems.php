@@ -44,6 +44,11 @@ return [
             'throw' => false,
         ],
 
+        'dg_public' => [
+            'driver' => 'local',
+            'root' => public_path().'/game-files',
+        ],
+
         'patches' => [
             'driver' => 'local',
             'root' => resource_path('patches'),

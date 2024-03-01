@@ -45,3 +45,15 @@ Route::middleware('verify_migration_key')->get('/migrate-database', function () 
     Artisan::call('optimize:clear');
     print Artisan::output();
 });
+
+
+
+Route::post('metrics/httplog/event', function () {
+    return response('', 200);
+});
+Route::post('metrics/server/event', function () {
+    return response('', 200);
+});
+Route::post('metrics/client/event', function () {
+    return response('', 200);
+});

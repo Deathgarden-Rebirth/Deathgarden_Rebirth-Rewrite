@@ -4,6 +4,8 @@ namespace App\Http\Responses\Api\Matchmaking;
 
 use App\Enums\Game\Matchmaking\MatchStatus;
 use App\Enums\Game\Matchmaking\QueueStatus;
+use App\Models\Game\Matchmaking\MatchConfiguration;
+use Illuminate\Support\Facades\Hash;
 
 class QueueResponse
 {
@@ -53,7 +55,7 @@ class MatchData {
     /**
      * @var string[]
      */
-    public array $sideB;
+    public array $sideB = [];
 
     public object $customData;
 
@@ -65,5 +67,27 @@ class MatchData {
     {
         $this->customData = new \stdClass();
         $this->props = new \stdClass();
+    }
+}
+
+class MatchProperties implements \JsonSerializable {
+    public MatchConfiguration $matchConfiguration;
+
+    protected string $platform = 'Windows';
+
+    public function __construct(MatchConfiguration $matchConfiguration)
+    {
+        $this->matchConfiguration = $matchConfiguration;
+    }
+
+    public function jsonSerialize(): mixed
+    {
+        return [
+            'matchConfiguration' => $this->matchConfiguration->asset_path,
+            'countA' => $this->matchConfiguration->hunters,
+            'countB' => $this->matchConfiguration->runners,
+            'gameMode' => md5($this->matchConfiguration->asset_path).'-Default',
+            'platform' => $this->platform,
+        ];
     }
 }

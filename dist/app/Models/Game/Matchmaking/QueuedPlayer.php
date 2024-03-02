@@ -4,7 +4,6 @@ namespace App\Models\Game\Matchmaking;
 
 use App\Enums\Game\Matchmaking\MatchmakingSide;
 use App\Models\User\User;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,6 +23,11 @@ class QueuedPlayer extends Model
         'side' => MatchmakingSide::class,
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -31,16 +35,16 @@ class QueuedPlayer extends Model
 
     public function followingUsers()
     {
-        return $this->hasMany(QueuedPlayer::class, 'queued_runner_id');
+        return $this->hasMany(QueuedPlayer::class, 'queued_player_id');
     }
 
     public function leader()
     {
-        return $this->belongsTo(QueuedPlayer::class, 'queued_runner_id');
+        return $this->belongsTo(QueuedPlayer::class, 'queued_player_id');
     }
 
     public static function getLeaders(): \Illuminate\Support\Collection
     {
-        return static::whereNull('queued_runner_id')->get();
+        return static::whereNull('queued_player_id')->get();
     }
 }

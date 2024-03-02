@@ -3,7 +3,7 @@
 namespace App\APIClients\SteamAPIClient\ISteamUser\GetPlayerSummaries;
 
 use Carbon\Carbon;
-use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 
 class GetPlayerSummariesResponse
 {
@@ -15,25 +15,27 @@ class GetPlayerSummariesResponse
     public function __construct(array $players)
     {
         foreach ($players as $player) {
+            /** @var Collection $player */
+            $player = collect($player);
             $this->players[] = new SteamPlayer(
-                $player->steamid,
-                $player->communityvisibilitystate,
-                $player->profilestate,
-                $player->personaname,
-                $player->commentpermission,
-                $player->profileurl,
-                $player->avatar,
-                $player->avatarmedium,
-                $player->avatarfull,
-                $player->avatarhash,
-                Carbon::createFromTimestamp($player->lastlogoff),
-                $player->personastate,
-                $player->realname,
-                $player->primaryclanid,
-                Carbon::createFromTimestamp($player->timecreated),
-                $player->personastateflags,
-                $player->loccountrycode,
-                $player->locstatecode,
+                $player->get('steamid'),
+                $player->get('communityvisibilitystate'),
+                $player->get('profilestate'),
+                $player->get('personaname'),
+                $player->get('commentpermission'),
+                $player->get('profileurl'),
+                $player->get('avatar'),
+                $player->get('avatarmedium'),
+                $player->get('avatarfull'),
+                $player->get('avatarhash'),
+                $player->get('lastlogoff') ? Carbon::createFromTimestamp($player->get('lastlogoff')) : null,
+                $player->get('personastate'),
+                $player->get('realname'),
+                $player->get('primaryclanid'),
+                $player->get('timecreated') ? Carbon::createFromTimestamp($player->get('timecreated')) : null,
+                $player->get('personastateflags'),
+                $player->get('loccountrycode'),
+                $player->get('locstatecode'),
             );
         }
     }
@@ -53,23 +55,23 @@ class SteamPlayer {
 
     public function __construct(
         public readonly string $steamId,
-        public readonly int $communityVisibilityState,
-        public readonly int $profilestate,
-        public readonly string $personName,
-        public readonly int $commentPermission,
-        public readonly string $profileUrl,
-        public readonly string $avatar,
-        public readonly string $avatarMedium,
-        public readonly string $avatarFull,
-        public readonly string $avatarHash,
-        public readonly Carbon $lastLogOff,
-        public readonly int $personState,
-        public readonly string $realName,
-        public readonly string $primaryClanId,
-        public readonly Carbon $timeCreated,
-        public readonly int $personaStateFlags,
-        public readonly string $CountryCode,
-        public readonly string $stateCode,
+        public readonly ?int $communityVisibilityState,
+        public readonly ?int $profilestate,
+        public readonly ?string $personName,
+        public readonly ?int $commentPermission,
+        public readonly ?string $profileUrl,
+        public readonly ?string $avatar,
+        public readonly ?string $avatarMedium,
+        public readonly ?string $avatarFull,
+        public readonly ?string $avatarHash,
+        public readonly ?Carbon $lastLogOff,
+        public readonly ?int $personState,
+        public readonly ?string $realName,
+        public readonly ?string $primaryClanId,
+        public readonly ?Carbon $timeCreated,
+        public readonly ?int $personaStateFlags,
+        public readonly ?string $CountryCode,
+        public readonly ?string $stateCode,
     )
     {
     }

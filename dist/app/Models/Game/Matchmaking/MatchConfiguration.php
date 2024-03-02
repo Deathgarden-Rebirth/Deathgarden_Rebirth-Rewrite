@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Game;
+namespace App\Models\Game\Matchmaking;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -15,6 +15,8 @@ class MatchConfiguration extends Model
     protected $fillable = [
         'name',
         'enabled',
+        'hunters',
+        'runners',
         'weight',
         'asset_path',
     ];
@@ -22,5 +24,7 @@ class MatchConfiguration extends Model
     protected $attributes = [
         'enabled' => true,
         'weight' => 100,
+        'hunters' => 1,
+        'runners' => 5,
     ];
 }

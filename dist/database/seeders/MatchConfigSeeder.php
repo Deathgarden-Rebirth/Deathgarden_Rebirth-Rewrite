@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Game\MatchConfiguration;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Game\Matchmaking\MatchConfiguration;
 use Illuminate\Database\Seeder;
 
 class MatchConfigSeeder extends Seeder

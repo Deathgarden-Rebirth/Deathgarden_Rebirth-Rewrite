@@ -2,6 +2,7 @@
 
 namespace App\Models\User;
 
+use App\Models\Game\Matchmaking\Game;
 use App\Models\Game\QuitterState;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
@@ -34,8 +35,14 @@ class User extends AuthUser
         return $this->hasOne(PlayerData::class)->sharedLock()->firstOrCreate();
     }
 
+    public function games()
+    {
+        return $this->belongsToMany(Game::class)->withPivot('side');
+    }
+
     public static function findBySteamID(int $steamId): User|null
     {
         return static::where('steam_id', $steamId)->first();
     }
+
 }

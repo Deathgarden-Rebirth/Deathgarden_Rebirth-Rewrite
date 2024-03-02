@@ -252,7 +252,7 @@ class MatchConfigSeeder extends Seeder
             'runners' => 10,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Harvest Your Exit - 1v5 (DEV)',
+            'name' => 'Harvest Your Exit - 1v1 (DEV)',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
             'hunters' => 1,
             'runners' => 1,

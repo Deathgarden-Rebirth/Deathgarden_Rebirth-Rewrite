@@ -59,6 +59,13 @@ class Game extends Model
         });
     }
 
+    public function determineHost(): void
+    {
+        $hunter = $this->players()->firstWhere('side', '=', MatchmakingSide::Hunter->value);
+        $this->creator()->associate($hunter);
+        $this->save();
+    }
+
     public function remainingPlayerCount(): MatchmakingPlayerCount
     {
         $players = $this->players;

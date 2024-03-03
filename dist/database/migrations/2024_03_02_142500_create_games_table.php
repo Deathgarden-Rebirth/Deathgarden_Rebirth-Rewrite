@@ -19,6 +19,7 @@ return new class extends Migration
                 ->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('match_configuration_id')->constrained()
                 ->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('session_settings', 2000)->nullable();
             $table->timestamps();
         });
     }

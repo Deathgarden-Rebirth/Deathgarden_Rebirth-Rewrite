@@ -63,6 +63,10 @@ Route::prefix('v1')->group(function () {
 
         Route::post('queue', [MatchmakingController::class, 'queue']);
         Route::get('match/{matchId}', [MatchmakingController::class, 'matchInfo']);
+        Route::post('match/{matchId}/register', [MatchmakingController::class, 'register']);
+
+        Route::post('file/{gameVersion}/{seed}/{mapName}', [MatchmakingController::class, 'seedFilePost']);
+        Route::get('file/{gameVersion}/{seed}/{mapName}', [MatchmakingController::class, 'seedFileGet']);
     });
 
 

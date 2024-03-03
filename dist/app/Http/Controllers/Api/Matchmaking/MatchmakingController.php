@@ -8,6 +8,7 @@ use App\Enums\Game\Matchmaking\MatchStatus;
 use App\Enums\Game\Matchmaking\QueueStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Matchmaking\QueueRequest;
+use App\Http\Requests\Api\Matchmaking\RegisterMatchRequest;
 use App\Http\Responses\Api\Matchmaking\MatchData;
 use App\Http\Responses\Api\Matchmaking\MatchProperties;
 use App\Http\Responses\Api\Matchmaking\QueueData;
@@ -31,7 +32,6 @@ class MatchmakingController extends Controller
     public function queue(QueueRequest $request)
     {
         $this->processQueue();
-        $this->processGames();
         if($request->checkOnly)
             return json_encode($this->checkQueueStatus($request));
 
@@ -45,23 +45,29 @@ class MatchmakingController extends Controller
         if($foundGame === null)
             return ['status' => 'Error', 'message' => 'Match not found.'];
 
-        $response = new MatchData();
-
-        $response->matchId = $foundGame->id;
-        $response->creationDateTime = $foundGame->created_at->getTimestamp();
-        $response->status = $foundGame->status;
-        $response->creator = $foundGame->creator?->id;
-
-        $players = $foundGame->players;
-        $response->players = $players->pluck('id')->toArray();
-        $response->sideA = $players->where('pivot.side', MatchmakingSide::Hunter->value)->pluck('id')->toArray();
-        $response->sideB = $players->where('pivot.side', MatchmakingSide::Runner->value)->pluck('id')->toArray();
-
-        $response->props = new MatchProperties(
-            $foundGame->matchConfiguration,
-        );
+        $response = MatchData::fromGame($foundGame);
 
         return json_encode($response);
+    }
+
+    public function register(RegisterMatchRequest $request, string $matchId)
+    {
+        $foundGame = Game::find($matchId);
+        $foundGame->session_settings = $request->sessionSettings;
+        $foundGame->status = MatchStatus::Opened;
+        $foundGame->save();
+
+        return json_encode(MatchData::fromGame($foundGame));
+    }
+
+    public function seedFileGet()
+    {
+
+    }
+
+    public function seedFilePost()
+    {
+
     }
 
     protected function checkQueueStatus(QueueRequest $request): QueueResponse
@@ -99,7 +105,6 @@ class MatchmakingController extends Controller
         /** @var Game $foundGame */
         $foundGame = $foundGame->first();
         $response = new QueueResponse();
-        $matchData = new MatchData();
 
         if($foundGame->status === MatchStatus::Opened) {
             $response->queueData = new QueueData(
@@ -111,22 +116,7 @@ class MatchmakingController extends Controller
         else
             $response->status = QueueStatus::Matched;
 
-        $matchData->matchId = $foundGame->id;
-        $matchData->category = $request->category;
-        $matchData->creationDateTime = $foundGame->created_at->getTimestamp();
-        $matchData->status = $foundGame->status;
-        $matchData->creator = $foundGame->creator?->id;
-
-        $players = $foundGame->players;
-        $matchData->players = $players->pluck('id')->toArray();
-        $matchData->sideA = $players->where('pivot.side', MatchmakingSide::Hunter->value)->pluck('id')->toArray();
-        $matchData->sideB = $players->where('pivot.side', MatchmakingSide::Runner->value)->pluck('id')->toArray();
-
-        $matchData->props = new MatchProperties(
-            $foundGame->matchConfiguration,
-        );
-
-        $response->matchData = $matchData;
+        $response->matchData = MatchData::fromGame($foundGame);
 
         return $response;
     }
@@ -204,7 +194,7 @@ class MatchmakingController extends Controller
         rsort($hunterGroupsSet, SORT_NUMERIC);
 
         $newGame = new Game();
-        $newGame->status = MatchStatus::Opened;
+        $newGame->status = MatchStatus::Created;
         $newGame->matchConfiguration()->associate($selectedConfig);
         $newGame->save();
 
@@ -223,22 +213,8 @@ class MatchmakingController extends Controller
 
             $newGame->addQueuedPlayer($runners[$foundQueuedPlayer]);
         }
-    }
 
-    private function processGames()
-    {
-        $games = Game::where('status', '=', MatchStatus::Opened)->get();
-
-        foreach ($games as $game) {
-            if($game->remainingPlayerCount()->getTotal() == 0) {
-                $hunter = $game->players()->firstWhere('side', '=', MatchmakingSide::Hunter->value);
-                $game->creator()->associate($hunter);
-                $game->status = MatchStatus::Created;
-                $game->save();
-            }
-
-            //Todo: Handle games with missing users later
-        }
+        $newGame->determineHost();
     }
 
     /**

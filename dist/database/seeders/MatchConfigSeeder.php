@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Game\Matchmaking\MatchConfiguration;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class MatchConfigSeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class MatchConfigSeeder extends Seeder
      */
     public function run(): void
     {
-        MatchConfiguration::truncate();
+        DB::table('match_configurations')->delete();
         MatchConfiguration::Create([
             'name' => 'Slums',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_SLU_DownTown.MatchConfig_SLU_DownTown',

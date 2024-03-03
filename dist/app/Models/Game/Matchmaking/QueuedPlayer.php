@@ -42,9 +42,4 @@ class QueuedPlayer extends Model
     {
         return $this->belongsTo(QueuedPlayer::class, 'queued_player_id');
     }
-
-    public static function getLeaders(): \Illuminate\Support\Collection
-    {
-        return static::whereNull('queued_player_id')->get();
-    }
 }

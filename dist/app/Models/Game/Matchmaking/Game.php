@@ -2,6 +2,8 @@
 
 namespace App\Models\Game\Matchmaking;
 
+use App\Classes\Matchmaking\MatchmakingPlayerCount;
+use App\Enums\Game\Matchmaking\MatchmakingSide;
 use App\Enums\Game\Matchmaking\MatchStatus;
 use App\Models\User\User;
 use Cache;
@@ -10,14 +12,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @mixin IdeHelperGame
  */
 class Game extends Model
 {
-    const TRY_CREATE_MATCH_INTERVAL_SECONDS = 5;
-
     use HasFactory, HasUuids;
 
     protected $fillable = [
@@ -44,13 +45,41 @@ class Game extends Model
         return $this->belongsToMany(User::class)->withPivot('side');
     }
 
-    public static function tryToCreateMatch()
+    public function addQueuedPlayer(QueuedPlayer $player): void
     {
-        // skip when the lastz time this job run is not older than the interval seconds
-        if(!(Cache::get('tryCreateMatch', 0) > time() - static::TRY_CREATE_MATCH_INTERVAL_SECONDS))
-            return;
+        DB::transaction(function () use ($player){
+            $this->players()->attach($player->user, ['side' => $player->side->value]);
 
-        Cache::set('tryCreateMatch', time());
+            foreach ($player->followingUsers as $followingUser) {
+                $this->players()->attach($followingUser->id, ['side', $followingUser->side->value]);
+                $followingUser->delete();
+            }
 
+            $player->delete();
+        });
+    }
+
+    public function remainingPlayerCount(): MatchmakingPlayerCount
+    {
+        $players = $this->players;
+        $currentHunterCount = 0;
+        $currentRunnerCount = 0;
+
+        foreach ($players as $player) {
+            if($player->pivot->side === MatchmakingSide::Hunter->value)
+                ++$currentHunterCount;
+            else
+                ++$currentRunnerCount;
+        }
+
+        $config = $this->matchConfiguration;
+
+        if($config === null)
+            return new MatchmakingPlayerCount();
+
+        return new MatchmakingPlayerCount(
+            $config->hunters - $currentHunterCount,
+            $config->runners - $currentRunnerCount,
+        );
     }
 }

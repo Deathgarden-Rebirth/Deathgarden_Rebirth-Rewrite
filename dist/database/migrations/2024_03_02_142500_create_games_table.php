@@ -15,8 +15,10 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->enum('status', array_column(MatchStatus::cases(), 'value'));
-            $table->foreignUuid('creator_user_id')->constrained('users');
-            $table->foreignId('match_configuration_id')->constrained();
+            $table->foreignUuid('creator_user_id')->nullable()->constrained('users')
+                ->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('match_configuration_id')->constrained()
+                ->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

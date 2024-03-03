@@ -62,6 +62,7 @@ Route::prefix('v1')->group(function () {
 
 
         Route::post('queue', [MatchmakingController::class, 'queue']);
+        Route::get('match/{matchId}', [MatchmakingController::class, 'matchInfo']);
     });
 
 

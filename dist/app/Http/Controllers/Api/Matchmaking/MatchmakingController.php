@@ -7,6 +7,7 @@ use App\Enums\Game\Matchmaking\MatchmakingSide;
 use App\Enums\Game\Matchmaking\MatchStatus;
 use App\Enums\Game\Matchmaking\QueueStatus;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Matchmaking\EndOfMatchRequest;
 use App\Http\Requests\Api\Matchmaking\PlayerEndOfMatchRequest;
 use App\Http\Requests\Api\Matchmaking\QueueRequest;
 use App\Http\Requests\Api\Matchmaking\RegisterMatchRequest;
@@ -108,12 +109,29 @@ class MatchmakingController extends Controller
         return response('', 200);
     }
 
+    public function endOfMatch(EndOfMatchRequest $request)
+    {
+        $game = Game::find($request->matchId);
+        $user = Auth::user();
+
+        if($game->creator !== $user)
+            throw new AuthorizationException('you are not the creator of the match.');
+
+        $game->status = MatchStatus::Killed;
+        $game->save();
+
+        return json_encode(['success' => true]);
+    }
+
     public function playerEndOfMatch(PlayerEndOfMatchRequest $request)
     {
         $user = Auth::user();
         $game = Game::find($request->matchId);
 
-        if ($game === null || $game->creator !== $user)
+        if($game === null)
+            return response('Match not found.', 404);
+
+        if ($game->creator !== $user)
             throw new AuthorizationException('User is not host of given match');
 
         $user = User::find($request->playerId);
@@ -146,6 +164,8 @@ class MatchmakingController extends Controller
                     $playerData->currency_c += $earnedCurrency['amount'];
             }
         }
+
+        $this->removeUserFromGame($user, $game);
 
         // We dont really know what the game wants except for a json object called "player".
         return json_encode(['player' => []], JSON_FORCE_OBJECT);
@@ -300,8 +320,11 @@ class MatchmakingController extends Controller
     {
         $game->players()->detach($user);
 
-        if($game->players->count() === 0)
-            $game->status = MatchStatus::Killed;
+        if($game->players->count() !== 0)
+            return;
+
+        $game->status = MatchStatus::Killed;
+        $game->save();
     }
 
     /**

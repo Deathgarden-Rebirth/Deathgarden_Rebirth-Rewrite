@@ -72,7 +72,7 @@ class ChallengeController extends Controller
     {
         $user = Auth::user();
         /** @var Game $foundGame */
-        $foundGame = $user->activeGames()->first();
+        $foundGame = $user->games()->orderBy('created_at', 'desc')->first();
 
         // Only allow the saving of challenge progress if the request comes from the same user as from the
         // game the request is coming from.

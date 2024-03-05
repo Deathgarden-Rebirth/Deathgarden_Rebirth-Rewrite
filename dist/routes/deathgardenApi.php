@@ -53,6 +53,9 @@ Route::prefix('v1')->group(function () {
         Route::post('extensions/purchase/set', [PurchaseController::class, 'purchaseSet']);
 
         Route::post('extensions/progression/resetCharacterProgressionForPrestige', [PlayerController::class, 'resetCharacterProgressionForPrestige']);
+        Route::post('extensions/progression/playerEndOfMatch', [MatchmakingController::class, 'playerEndOfMatch']);
+        Route::post('extensions/progression/endOfMatch', [MatchmakingController::class, 'endOfMatch']);
+        Route::post('extensions/challenges/executeChallengeProgressionOperationBatch', [ChallengeController::class, 'executeChallengeProgressionBatch']);
 
         Route::post('extensions/quitters/getQuitterState', [PlayerController::class, 'getQuitterState']);
 

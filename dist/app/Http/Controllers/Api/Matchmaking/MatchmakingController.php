@@ -226,19 +226,20 @@ class MatchmakingController extends Controller
         $newGame->save();
 
         foreach ($hunterGroupsSet as $groupSize) {
-            $foundQueuedPlayer = $hunters->search(function (QueuedPlayer $hunter) use ($groupSize) {
+            $foundQueuedPlayerIndex = $hunters->search(function (QueuedPlayer $hunter) use ($groupSize) {
                 return ($hunter->following_users_count + 1) === $groupSize;
             });
 
-            $newGame->addQueuedPlayer($hunters[$foundQueuedPlayer]);
+            $foundHunter = $hunters->pull($foundQueuedPlayerIndex);
+            $newGame->addQueuedPlayer($foundHunter);
         }
 
         foreach ($runnerGroupsSet as $groupSize) {
-            $foundQueuedPlayer = $hunters->search(function (QueuedPlayer $runner) use ($groupSize) {
+            $foundQueuedPlayerIndex = $runners->search(function (QueuedPlayer $runner) use ($groupSize) {
                 return ($runner->following_users_count + 1) === $groupSize;
             });
-
-            $newGame->addQueuedPlayer($runners[$foundQueuedPlayer]);
+            $foundRunner = $runners->pull($foundQueuedPlayerIndex);
+            $newGame->addQueuedPlayer($foundRunner);
         }
 
         $newGame->determineHost();

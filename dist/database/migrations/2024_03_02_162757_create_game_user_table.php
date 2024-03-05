@@ -18,8 +18,6 @@ return new class extends Migration
             $table->foreignUuid('user_id')->constrained();
             $table->enum('side',array_column(MatchmakingSide::cases(), 'value'))->index();
             $table->timestamps();
-
-            $table->unique('user_id');
         });
     }
 

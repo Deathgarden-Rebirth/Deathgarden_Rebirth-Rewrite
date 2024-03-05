@@ -7,16 +7,20 @@ use App\Enums\Game\Matchmaking\MatchmakingSide;
 use App\Enums\Game\Matchmaking\MatchStatus;
 use App\Enums\Game\Matchmaking\QueueStatus;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Matchmaking\PlayerEndOfMatchRequest;
 use App\Http\Requests\Api\Matchmaking\QueueRequest;
 use App\Http\Requests\Api\Matchmaking\RegisterMatchRequest;
 use App\Http\Responses\Api\Matchmaking\MatchData;
 use App\Http\Responses\Api\Matchmaking\MatchProperties;
 use App\Http\Responses\Api\Matchmaking\QueueData;
 use App\Http\Responses\Api\Matchmaking\QueueResponse;
+use App\Models\Game\CharacterData;
 use App\Models\Game\Matchmaking\Game;
 use App\Models\Game\Matchmaking\MatchConfiguration;
 use App\Models\Game\Matchmaking\QueuedPlayer;
+use App\Models\User\User;
 use Auth;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Cache;
 
@@ -94,14 +98,57 @@ class MatchmakingController extends Controller
 		return json_encode(MatchData::fromGame($foundGame));
 	}
 
-    public function seedFileGet()
+    public function seedFileGet(string $gameVersion, string $seed, string $mapName)
     {
         return response('', 200);
     }
 
-    public function seedFilePost()
+    public function seedFilePost(string $gameVersion, string $seed, string $mapName)
     {
         return response('', 200);
+    }
+
+    public function playerEndOfMatch(PlayerEndOfMatchRequest $request)
+    {
+        $user = Auth::user();
+        $game = Game::find($request->matchId);
+
+        if ($game === null || $game->creator !== $user)
+            throw new AuthorizationException('User is not host of given match');
+
+        $user = User::find($request->playerId);
+
+        if($user === null)
+            return response('User not found.', 404);
+
+        $playerData = $user->playerData();
+        $characterData = $playerData->characterDataForCharacter($request->characterGroup->getCharacter());
+
+        foreach ($request->experienceEvents as $experienceEvent) {
+            $characterData->experience += $experienceEvent['amount'];
+
+            $xpToReach = CharacterData::getExperienceForLevel($characterData->level);
+            if ($characterData->experience >= $xpToReach) {
+                ++$characterData->level;
+                $characterData->experience -= $xpToReach;
+            }
+        }
+
+        foreach ($request->earnedCurrencies as $earnedCurrency) {
+            switch ($earnedCurrency['currencyName']) {
+                case 'CurrencyA':
+                    $playerData->currency_a += $earnedCurrency['amount'];
+                    break;
+                case 'CurrencyB':
+                    $playerData->currency_b += $earnedCurrency['amount'];
+                    break;
+                case 'CurrencyC':
+                    $playerData->currency_c += $earnedCurrency['amount'];
+            }
+        }
+
+        // We dont really know what the game wants except for a json object called "player".
+        return json_encode(['player' => []], JSON_FORCE_OBJECT);
     }
 
     protected function checkQueueStatus(QueueRequest $request): QueueResponse
@@ -247,6 +294,14 @@ class MatchmakingController extends Controller
         }
 
         $newGame->determineHost();
+    }
+
+    protected function removeUserFromGame(User $user, Game $game)
+    {
+        $game->players()->detach($user);
+
+        if($game->players->count() === 0)
+            $game->status = MatchStatus::Killed;
     }
 
     /**

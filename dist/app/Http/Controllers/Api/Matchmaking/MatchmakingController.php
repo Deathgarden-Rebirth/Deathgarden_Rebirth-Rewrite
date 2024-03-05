@@ -60,6 +60,33 @@ class MatchmakingController extends Controller
         return json_encode(MatchData::fromGame($foundGame));
     }
 
+	public function close($matchId)
+	{
+		$foundGame = Game::find($matchId);
+		$foundGame->status = MatchStatus::Closed;
+		$foundGame->save();
+
+		return json_encode(MatchData::fromGame($foundGame));
+	}
+
+	public function quit($matchId)
+	{
+		$foundGame = Game::find($matchId);
+		$foundGame->status = MatchStatus::Completed;
+		$foundGame->save();
+
+		return json_encode(MatchData::fromGame($foundGame));
+	}
+
+	public function kill($matchId)
+	{
+		$foundGame = Game::find($matchId);
+		$foundGame->status = MatchStatus::Killed;
+		$foundGame->save();
+
+		return json_encode(MatchData::fromGame($foundGame));
+	}
+
     public function seedFileGet()
     {
 

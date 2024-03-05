@@ -2,10 +2,11 @@
 
 namespace App\Models\User;
 
+use App\Enums\Game\Matchmaking\MatchStatus;
 use App\Models\Game\Matchmaking\Game;
-use App\Models\Game\QuitterState;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as AuthUser;
 use Spatie\Permission\Traits\HasRoles;
@@ -38,6 +39,13 @@ class User extends AuthUser
     public function games()
     {
         return $this->belongsToMany(Game::class)->withPivot('side');
+    }
+
+    public function activeGames(): BelongsToMany
+    {
+        return $this->belongsToMany(Game::class)
+            ->withPivot('side')
+            ->whereIn('status', [MatchStatus::Created->value, MatchStatus::Opened->value]);
     }
 
     public static function findBySteamID(int $steamId): User|null

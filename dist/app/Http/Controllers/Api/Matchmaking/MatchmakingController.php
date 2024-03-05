@@ -72,10 +72,17 @@ class MatchmakingController extends Controller
 	public function quit($matchId)
 	{
 		$foundGame = Game::find($matchId);
-		$foundGame->status = MatchStatus::Completed;
-		$foundGame->save();
+        $user = Auth::user();
 
-		return json_encode(MatchData::fromGame($foundGame));
+        if($foundGame->creator === $user) {
+            $foundGame->status = MatchStatus::Destroyed;
+            $foundGame->save();
+        }
+        else {
+            $foundGame->players()->detach(Auth::user()->id);
+        }
+
+        return response(null, 204);
 	}
 
 	public function kill($matchId)
@@ -89,12 +96,12 @@ class MatchmakingController extends Controller
 
     public function seedFileGet()
     {
-
+        return response('', 200);
     }
 
     public function seedFilePost()
     {
-
+        return response('', 200);
     }
 
     protected function checkQueueStatus(QueueRequest $request): QueueResponse
@@ -113,17 +120,17 @@ class MatchmakingController extends Controller
 
             return $response;
         }
-        // If we didn't find the player in the queued list, search if he is already joined a match
 
-        $foundGame = $user->games();
-        // If he also isn't in a game, add hi to the queue again
+        // If we didn't find the player in the queued list, search if he is already joined a match
+        // Only search for Created or open matches
+        $foundGame = $user->activeGames();
+        // If they also aren't in a game, add them to the queue again
         if($foundGame->count() < 1) {
             $this->addPlayerToQueue($request);
             $response = new QueueResponse();
             $response->status = QueueStatus::Queued;
             $response->queueData = new QueueData(
                 1,
-                10
             );
 
             return $response;
@@ -136,13 +143,10 @@ class MatchmakingController extends Controller
         if($foundGame->status === MatchStatus::Opened) {
             $response->queueData = new QueueData(
                 1,
-                10
+                1
             );
-            $response->status = QueueStatus::Matched;
         }
-        else
-            $response->status = QueueStatus::Matched;
-
+        $response->status = QueueStatus::Matched;
         $response->matchData = MatchData::fromGame($foundGame);
 
         return $response;
@@ -151,7 +155,7 @@ class MatchmakingController extends Controller
     protected function addPlayerToQueue(QueueRequest $request)
     {
         $user = Auth::user();
-        if($user->games()->exists())
+        if($user->activeGames()->exists())
             return $this->checkQueueStatus($request);
 
         $queued = QueuedPlayer::firstOrCreate(['user_id' => $user->id]);

@@ -64,8 +64,8 @@ Route::prefix('v1')->group(function () {
         Route::post('queue', [MatchmakingController::class, 'queue']);
         Route::get('match/{matchId}', [MatchmakingController::class, 'matchInfo']);
         Route::post('match/{matchId}/register', [MatchmakingController::class, 'register']);
-        Route::put('match/{matchId}/close', [MatchmakingController::class, 'register']);
-		Route::put('match/{matchId}/kill', [MatchmakingController::class, 'kill']);
+        Route::put('match/{matchId}/Close', [MatchmakingController::class, 'close']);
+		Route::put('match/{matchId}/Kill', [MatchmakingController::class, 'kill']);
 		Route::put('match/{matchId}/Quit', [MatchmakingController::class, 'quit']);
 
         Route::post('file/{gameVersion}/{seed}/{mapName}', [MatchmakingController::class, 'seedFilePost']);

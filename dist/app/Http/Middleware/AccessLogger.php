@@ -54,8 +54,8 @@ class AccessLogger
 
     public static function getSessionLogConfig(): LoggerInterface
     {
+        $user = Auth::user();
         if (!Session::has('sessionLogConfig')) {
-            $user = Auth::user();
             $username = $user?->last_known_username ?? '';
             $logConfig = [
                 'driver' => 'single',
@@ -64,6 +64,14 @@ class AccessLogger
             Session::put('sessionLogConfig', $logConfig);
         } else
             $logConfig = Session::get('sessionLogConfig');
+
+        if($user !== null && str_starts_with(basename($logConfig['path']), '_')) {
+            $oldPath = $logConfig['path'];
+            $newPath = storage_path('logs/sessions/'.$user->last_known_username.basename($oldPath));
+            rename($oldPath, $newPath);
+            $logConfig['path'] = $newPath;
+            Session::put('sessionLogConfig', $logConfig);
+        }
 
         return Log::build($logConfig);
     }

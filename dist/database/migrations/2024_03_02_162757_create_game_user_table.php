@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('game_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignUuid('game_id')->constrained();
-            $table->foreignUuid('user_id')->constrained();
+            $table->foreignUuid('game_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->enum('side',array_column(MatchmakingSide::cases(), 'value'))->index();
             $table->timestamps();
         });

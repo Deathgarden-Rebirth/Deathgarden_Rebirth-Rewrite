@@ -44,6 +44,8 @@ Route::middleware('verify_migration_key')->get('/migrate-database', function () 
     print Artisan::output();
     Artisan::call('optimize:clear');
     print Artisan::output();
+    Artisan::call('vendor:publish --tag=log-viewer-assets --force');
+    print Artisan::output();
 });
 
 

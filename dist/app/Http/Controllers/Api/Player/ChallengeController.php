@@ -92,7 +92,7 @@ class ChallengeController extends Controller
             if($operation['operationName'] === 'complete')
                 $this->setChallengeAsCompleted($challengeId, $user);
             else
-                $this->addProgressToChallenge($challengeId, round($operation['operationsData']['value']), $user);
+                $this->addProgressToChallenge($challengeId, round($operation['operationData']['value']), $user);
             $processedChallenges[] = $challengeId;
         }
     }
@@ -126,6 +126,7 @@ class ChallengeController extends Controller
             $foundChallenge->playerData()->updateExistingPivot($user->playerData()->id, [
                 'progress' => $foundChallenge->completion_value,
             ]);
+            $foundChallenge->save();
             return;
         }
 

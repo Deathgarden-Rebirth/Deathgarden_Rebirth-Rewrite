@@ -152,6 +152,8 @@ class MatchmakingController extends Controller
             }
         }
 
+        $characterData->save();
+
         foreach ($request->earnedCurrencies as $earnedCurrency) {
             switch ($earnedCurrency['currencyName']) {
                 case 'CurrencyA':
@@ -164,6 +166,7 @@ class MatchmakingController extends Controller
                     $playerData->currency_c += $earnedCurrency['amount'];
             }
         }
+        $playerData->save();
 
         $this->removeUserFromGame($user, $game);
 

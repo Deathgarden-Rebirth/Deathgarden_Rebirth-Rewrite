@@ -146,6 +146,7 @@ class MatchmakingController extends Controller
             $characterData->addExperience($experienceEvent['amount']);
         }
 
+        ++$characterData->readout_version;
         $characterData->save();
 
         foreach ($request->earnedCurrencies as $earnedCurrency) {
@@ -160,6 +161,8 @@ class MatchmakingController extends Controller
                     $playerData->currency_c += $earnedCurrency['amount'];
             }
         }
+
+        ++$playerData->readout_version;
         $playerData->save();
 
         $this->removeUserFromGame($user, $game);

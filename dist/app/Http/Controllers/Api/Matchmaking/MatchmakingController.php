@@ -255,7 +255,7 @@ class MatchmakingController extends Controller
             ->sharedLock()
             ->whereNull('queued_player_id')
             ->orderByDesc('following_users_count')
-            ->orderByDesc('created_at')
+            ->orderBy('created_at')
             ->get();
 
         $playerCount = $this->getTotalPlayersCount($players);

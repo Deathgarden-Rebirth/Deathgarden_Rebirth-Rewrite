@@ -32,6 +32,11 @@ enum Characters: string
         return Runner::tryFrom($this->value) ?? Hunter::tryFrom($this->value);
     }
 
+    public function getFaction(): Faction
+    {
+        return $this->isRunner() ? Faction::Runner : Faction::Hunter;
+    }
+
     public function isHunter(): bool
     {
         return Hunter::tryFrom($this->value) !== null;

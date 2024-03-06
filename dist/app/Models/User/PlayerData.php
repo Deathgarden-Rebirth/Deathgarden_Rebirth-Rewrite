@@ -142,6 +142,28 @@ class PlayerData extends Model
         return $experience;
     }
 
+    public function addFactionExperience(Faction $faction): PlayerData
+    {
+        if($faction === Faction::Runner) {
+            ++$this->runner_faction_experience;
+
+            if($this->runner_faction_level >= static::getRemainingFactionExperience($this->runner_faction_level)) {
+                ++$this->runner_faction_level;
+                $this->runner_faction_experience = 0;
+            }
+        }
+        else if($faction === Faction::Hunter) {
+            ++$this->hunter_faction_level;
+
+            if($this->hunter_faction_level >= static::getRemainingFactionExperience($this->hunter_faction_level)) {
+                ++$this->hunter_faction_level;
+                $this->hunter_faction_experience = 0;
+            }
+        }
+
+        return $this;
+    }
+
     public static function getRemainingFactionExperience(int $level): int
     {
          if($level <= 26)

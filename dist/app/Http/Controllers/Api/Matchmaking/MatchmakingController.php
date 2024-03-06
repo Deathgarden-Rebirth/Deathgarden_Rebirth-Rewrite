@@ -143,13 +143,7 @@ class MatchmakingController extends Controller
         $characterData = $playerData->characterDataForCharacter($request->characterGroup->getCharacter());
 
         foreach ($request->experienceEvents as $experienceEvent) {
-            $characterData->experience += $experienceEvent['amount'];
-
-            $xpToReach = CharacterData::getExperienceForLevel($characterData->level);
-            if ($characterData->experience >= $xpToReach) {
-                ++$characterData->level;
-                $characterData->experience -= $xpToReach;
-            }
+            $characterData->addExperience($experienceEvent['amount']);
         }
 
         $characterData->save();

@@ -90,9 +90,9 @@ class ChallengeController extends Controller
                 continue;
 
             if($operation['operationName'] === 'complete')
-                $this->setChallengeAsCompleted($challengeId, $user);
+                $this->setChallengeAsCompleted($challengeId, $progressUser);
             else
-                $this->addProgressToChallenge($challengeId, round($operation['operationData']['value']), $user);
+                $this->addProgressToChallenge($challengeId, round($operation['operationData']['value']), $progressUser);
             $processedChallenges[] = $challengeId;
         }
     }

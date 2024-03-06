@@ -83,7 +83,7 @@ class CharacterData extends Model
 
         // if we reached teh experience threshold, add a level to the character and faction
         // Set the new xp to reach and do it again if necessary.
-        while ($xpToReach >= $this->experience) {
+        while ($this->experience >= $xpToReach) {
             ++$this->level;
             $this->experience -= $xpToReach;
             $this->playerData->addFactionExperience($this->character->getFaction());

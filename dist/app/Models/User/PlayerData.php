@@ -153,7 +153,7 @@ class PlayerData extends Model
             }
         }
         else if($faction === Faction::Hunter) {
-            ++$this->hunter_faction_level;
+            ++$this->hunter_faction_experience;
 
             if($this->hunter_faction_level >= static::getRemainingFactionExperience($this->hunter_faction_level)) {
                 ++$this->hunter_faction_level;

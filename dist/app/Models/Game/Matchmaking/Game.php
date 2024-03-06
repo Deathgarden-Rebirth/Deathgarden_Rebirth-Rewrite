@@ -51,7 +51,7 @@ class Game extends Model
             $this->players()->attach($player->user, ['side' => $player->side->value]);
 
             foreach ($player->followingUsers as $followingUser) {
-                $this->players()->attach($followingUser->user, ['side', $followingUser->side->value]);
+                $this->players()->attach($followingUser->user, ['side' => $followingUser->side->value]);
                 $followingUser->delete();
             }
 

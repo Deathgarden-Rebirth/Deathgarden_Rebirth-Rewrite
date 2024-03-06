@@ -29,10 +29,10 @@ class MetadataController extends Controller
         // if not use the current authenticated user from this session.
         // This is important because the hosts requests the progression and metadata groups for the other players
         // for tracking challenges and so on.
-        if($request->playerId !== null)
-            $user = User::find($request->playerId);
-        else
+        if($request->playerId === null)
             $user = Auth::user();
+        else
+            $user = User::find($request->playerId);
 
         foreach (ItemGroupType::cases() as $group) {
             if ($group == ItemGroupType::None)
@@ -75,7 +75,16 @@ class MetadataController extends Controller
 
     private function handleUpdateCharacterMetadata(UpdateMetadataGroupRequest &$request): string|bool
     {
-        $user = Auth::user();
+        // If the request has set a player Id, use it.
+        // if not use the current authenticated user from this session.
+        // This is important because the hosts requests the progression and metadata groups for the other players
+        // for tracking challenges and so on.
+        if($request->playerId === null)
+            $user = Auth::user();
+        else
+            $user = User::find($request->playerId);
+
+
         $characterData = $user->playerData()->characterDataForCharacter($request->group->getCharacter());
 
         $convertedIds = UuidHelper::convertFromHexToUuidCollecton($request->metadata['equipment'], true);
@@ -127,7 +136,14 @@ class MetadataController extends Controller
 
     private function handleUpdatePlayerMetadata(UpdateMetadataGroupRequest &$request): string|bool
     {
-        $user = Auth::user();
+        // If the request has set a player Id, use it.
+        // if not use the current authenticated user from this session.
+        // This is important because the hosts requests the progression and metadata groups for the other players
+        // for tracking challenges and so on.
+        if($request->playerId === null)
+            $user = Auth::user();
+        else
+            $user = User::find($request->playerId);
 
         $playerData = $user->playerData();
         $playerData->last_faction = Faction::tryFrom($request->metadata['lastPlayedFaction']);

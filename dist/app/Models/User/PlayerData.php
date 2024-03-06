@@ -147,7 +147,7 @@ class PlayerData extends Model
         if($faction === Faction::Runner) {
             ++$this->runner_faction_experience;
 
-            if($this->runner_faction_level >= static::getRemainingFactionExperience($this->runner_faction_level)) {
+            if($this->runner_faction_experience >= static::getRemainingFactionExperience($this->runner_faction_level)) {
                 ++$this->runner_faction_level;
                 $this->runner_faction_experience = 0;
             }
@@ -155,7 +155,7 @@ class PlayerData extends Model
         else if($faction === Faction::Hunter) {
             ++$this->hunter_faction_experience;
 
-            if($this->hunter_faction_level >= static::getRemainingFactionExperience($this->hunter_faction_level)) {
+            if($this->hunter_faction_experience >= static::getRemainingFactionExperience($this->hunter_faction_level)) {
                 ++$this->hunter_faction_level;
                 $this->hunter_faction_experience = 0;
             }

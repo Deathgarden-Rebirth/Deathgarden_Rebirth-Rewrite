@@ -114,8 +114,8 @@ class MatchmakingController extends Controller
         $game = Game::find($request->matchId);
         $user = Auth::user();
 
-        if($game->creator !== $user)
-            throw new AuthorizationException('you are not the creator of the match.');
+        if($game->creator != $user)
+            return response('you are not the creator of the match.', 403);
 
         $game->status = MatchStatus::Killed;
         $game->save();
@@ -131,7 +131,7 @@ class MatchmakingController extends Controller
         if($game === null)
             return response('Match not found.', 404);
 
-        if ($game->creator !== $user)
+        if ($game->creator != $user)
             throw new AuthorizationException('User is not host of given match');
 
         $user = User::find($request->playerId);

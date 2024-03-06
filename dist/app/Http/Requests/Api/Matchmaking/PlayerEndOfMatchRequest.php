@@ -5,6 +5,7 @@ namespace App\Http\Requests\Api\Matchmaking;
 use App\Enums\Game\Faction;
 use App\Enums\Game\ItemGroupType;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class PlayerEndOfMatchRequest extends FormRequest
@@ -38,7 +39,7 @@ class PlayerEndOfMatchRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**

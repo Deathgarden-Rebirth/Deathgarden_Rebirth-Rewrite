@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api\Matchmaking;
 
 use App\Enums\Game\Faction;
+use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -19,7 +20,7 @@ class EndOfMatchRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -39,7 +40,7 @@ class EndOfMatchRequest extends FormRequest
     protected function passedValidation()
     {
         $this->players = $this->input('data.players');
-        $this->dominantFaction = $this->input('data.dominantFaction');
-        $this->matchId = $this->input('matchId');
+        $this->dominantFaction = Faction::tryFrom($this->input('data.dominantFaction'));
+        $this->matchId = $this->input('data.matchId');
     }
 }

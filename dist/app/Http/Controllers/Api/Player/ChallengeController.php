@@ -76,7 +76,7 @@ class ChallengeController extends Controller
 
         // Only allow the saving of challenge progress if the request comes from the same user as from the
         // game the request is coming from.
-        if($user !== $foundGame->creator)
+        if($user != $foundGame->creator)
             throw new AuthorizationException('Not allowed to save progress');
 
         $progressUser = User::find($request->userId);

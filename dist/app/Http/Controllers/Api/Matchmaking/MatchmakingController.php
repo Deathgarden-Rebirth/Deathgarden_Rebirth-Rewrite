@@ -109,6 +109,19 @@ class MatchmakingController extends Controller
         return response('', 200);
     }
 
+    public function deleteUserFromMatch(string $matchId, string $userId)
+    {
+        $foundGame = Game::find($matchId);
+        $userToRemove = User::find($userId);
+        $requestUser = Auth::user();
+
+        // Block request if it doesn't come from the host
+        if($foundGame === null || $foundGame->creator != $requestUser)
+            return response('Action not allowed, you are not the creator of the match.', 403);
+
+        $foundGame->players()->detach($userToRemove);
+    }
+
     public function endOfMatch(EndOfMatchRequest $request)
     {
         $game = Game::find($request->matchId);
@@ -264,12 +277,6 @@ class MatchmakingController extends Controller
         if($availableMatchConfigs->isEmpty())
             return;
 
-        $selectedConfig = MatchConfiguration::selectRandomConfigByWeight($availableMatchConfigs);
-
-        // Should never happen, but just to be careful
-        if($selectedConfig === null)
-            return;
-
         $runners = new Collection();
         $hunters = new Collection();
 
@@ -280,6 +287,14 @@ class MatchmakingController extends Controller
             else
                 $runners->add($player);
         });
+
+        $this->tryFillOpenGames($hunters, $runners);
+
+        $selectedConfig = MatchConfiguration::selectRandomConfigByWeight($availableMatchConfigs);
+
+        // Should never happen, but just to be careful
+        if($selectedConfig === null)
+            return;
 
         $hunterGroupsSet = $this->determineMatchingPlayers($hunters, $selectedConfig->hunters);
         $runnerGroupsSet = $this->determineMatchingPlayers($runners, $selectedConfig->runners);
@@ -314,6 +329,59 @@ class MatchmakingController extends Controller
         }
 
         $newGame->determineHost();
+    }
+
+    protected function tryFillOpenGames(Collection|array &$hunters, Collection|array &$runners)
+    {
+        $openGames = Game::where('status', '=', MatchStatus::Opened->value)->get();
+
+        foreach ($openGames as $game) {
+            $neededPlayers = $game->remainingPlayerCount();
+
+            // game is full and doesn't need filling
+            if($neededPlayers->getTotal() == 0)
+                continue;
+
+            if($neededPlayers->hunters > 0) {
+                $hunterGroupsSet = $this->determineMatchingPlayers($hunters, $neededPlayers->hunters);
+
+                // see if there are any group combinations possible to fill the game
+                if(count($hunterGroupsSet) === 0)
+                    continue;
+
+                // use biggest groups first
+                rsort($hunterGroupsSet, SORT_NUMERIC);
+
+                foreach ($hunterGroupsSet as $groupSize) {
+                    $foundQueuedPlayerIndex = $hunters->search(function (QueuedPlayer $hunter) use ($groupSize) {
+                        return ($hunter->following_users_count + 1) === $groupSize;
+                    });
+
+                    $foundHunter = $hunters->pull($foundQueuedPlayerIndex);
+                    $game->addQueuedPlayer($foundHunter);
+                }
+            }
+
+            if($neededPlayers->runners > 0) {
+                $runnerGroupSet = $this->determineMatchingPlayers($runners, $neededPlayers->runners);
+
+                // see if there are any group combinations possible to fill the game
+                if(count($runnerGroupSet) === 0)
+                    continue;
+
+                // use biggest groups first
+                rsort($runnerGroupSet, SORT_NUMERIC);
+
+                foreach ($runnerGroupSet as $groupSize) {
+                    $foundQueuedPlayerIndex = $hunters->search(function (QueuedPlayer $hunter) use ($groupSize) {
+                        return ($hunter->following_users_count + 1) === $groupSize;
+                    });
+
+                    $foundRunner = $hunters->pull($foundQueuedPlayerIndex);
+                    $game->addQueuedPlayer($foundRunner);
+                }
+            }
+        }
     }
 
     protected function removeUserFromGame(User $user, Game $game)

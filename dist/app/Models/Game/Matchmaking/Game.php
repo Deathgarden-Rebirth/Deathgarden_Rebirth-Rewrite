@@ -66,6 +66,11 @@ class Game extends Model
         $this->save();
     }
 
+    /**
+     * Get the number of needed players to fill the game.
+     *
+     * @return MatchmakingPlayerCount
+     */
     public function remainingPlayerCount(): MatchmakingPlayerCount
     {
         $players = $this->players;

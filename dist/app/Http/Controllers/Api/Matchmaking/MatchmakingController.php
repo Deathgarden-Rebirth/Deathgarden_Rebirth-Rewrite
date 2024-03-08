@@ -24,6 +24,7 @@ use Auth;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 
 class MatchmakingController extends Controller
 {
@@ -271,12 +272,6 @@ class MatchmakingController extends Controller
             ->orderBy('created_at')
             ->get();
 
-        $playerCount = $this->getTotalPlayersCount($players);
-        $availableMatchConfigs = MatchConfiguration::getAvailableMatchConfigs($playerCount->runners, $playerCount->hunters);
-
-        if($availableMatchConfigs->isEmpty())
-            return;
-
         $runners = new Collection();
         $hunters = new Collection();
 
@@ -290,6 +285,12 @@ class MatchmakingController extends Controller
 
         $this->tryFillOpenGames($hunters, $runners);
 
+        $playerCount = $this->getTotalPlayersCount($players);
+        $availableMatchConfigs = MatchConfiguration::getAvailableMatchConfigs($playerCount->runners, $playerCount->hunters);
+
+        if($availableMatchConfigs->isEmpty())
+            return;
+
         $selectedConfig = MatchConfiguration::selectRandomConfigByWeight($availableMatchConfigs);
 
         // Should never happen, but just to be careful
@@ -300,7 +301,7 @@ class MatchmakingController extends Controller
         $runnerGroupsSet = $this->determineMatchingPlayers($runners, $selectedConfig->runners);
 
         // if we cannot create a match with our current player groups, stop
-        if(count($runnerGroupsSet) == 0 || count($hunterGroupsSet) == 0)
+        if($runnerGroupsSet === false || $hunterGroupsSet === false)
             return;
 
         rsort($runnerGroupsSet, SORT_NUMERIC);
@@ -346,7 +347,7 @@ class MatchmakingController extends Controller
                 $hunterGroupsSet = $this->determineMatchingPlayers($hunters, $neededPlayers->hunters);
 
                 // see if there are any group combinations possible to fill the game
-                if(count($hunterGroupsSet) === 0)
+                if($hunterGroupsSet === false)
                     continue;
 
                 // use biggest groups first
@@ -366,18 +367,18 @@ class MatchmakingController extends Controller
                 $runnerGroupSet = $this->determineMatchingPlayers($runners, $neededPlayers->runners);
 
                 // see if there are any group combinations possible to fill the game
-                if(count($runnerGroupSet) === 0)
+                if($runnerGroupSet === false)
                     continue;
 
                 // use biggest groups first
                 rsort($runnerGroupSet, SORT_NUMERIC);
 
                 foreach ($runnerGroupSet as $groupSize) {
-                    $foundQueuedPlayerIndex = $hunters->search(function (QueuedPlayer $hunter) use ($groupSize) {
-                        return ($hunter->following_users_count + 1) === $groupSize;
+                    $foundQueuedPlayerIndex = $runners->search(function (QueuedPlayer $runner) use ($groupSize) {
+                        return ($runner->following_users_count + 1) === $groupSize;
                     });
 
-                    $foundRunner = $hunters->pull($foundQueuedPlayerIndex);
+                    $foundRunner = $runners->pull($foundQueuedPlayerIndex);
                     $game->addQueuedPlayer($foundRunner);
                 }
             }

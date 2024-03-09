@@ -22,13 +22,18 @@ use App\Models\Game\Matchmaking\QueuedPlayer;
 use App\Models\User\User;
 use Auth;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\Cache\LockTimeoutException;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Laravel\Prompts\Table;
 
 class MatchmakingController extends Controller
 {
     const TRY_CREATE_MATCH_INTERVAL_SECONDS = 5;
+
+    const QUEUE_LOCK = 'queuedPlayers';
 
     public function getRegions()
     {
@@ -42,6 +47,28 @@ class MatchmakingController extends Controller
             return json_encode($this->checkQueueStatus($request));
 
         return json_encode($this->addPlayerToQueue($request));
+    }
+
+    public function cancelQueue()
+    {
+        $user = Auth::user();
+
+        $lock = Cache::lock(static::QUEUE_LOCK, 10);
+
+        try {
+            $lock->block(20 ,function () use (&$user) {
+                // Delete the player from the Queue
+                QueuedPlayer::where('user_id', '=', $user->id)->delete();
+                // And also from any game they are maczhed for.
+                DB::table('game_user')->where('user_id', '=', $user->id)->delete();
+            });
+        } catch (LockTimeoutException $e) {
+            Log::channel('matchmaking')->emergency('Queue Cancel: Could not acquire Lock for canceling user '.$user->id.'('.$user->last_known_username.')');
+        } finally {
+            $lock?->release();
+        }
+
+        return response('', 204);
     }
 
     public function matchInfo(string $matchId)
@@ -235,23 +262,25 @@ class MatchmakingController extends Controller
 
     protected function addPlayerToQueue(QueueRequest $request)
     {
-        $user = Auth::user();
-        if($user->activeGames()->exists())
-            return $this->checkQueueStatus($request);
+        Cache::lock(static::QUEUE_LOCK, 10)->block(20, function () use ($request) {
+            $user = Auth::user();
+            if($user->activeGames()->exists())
+                return;
 
-        $queued = QueuedPlayer::firstOrCreate(['user_id' => $user->id]);
-        $queued->leader()->disassociate();
-        $queued->side = $request->side;
-        $queued->user()->associate($user->id);
-        $queued->save();
+            $queued = QueuedPlayer::firstOrCreate(['user_id' => $user->id]);
+            $queued->leader()->disassociate();
+            $queued->side = $request->side;
+            $queued->user()->associate($user->id);
+            $queued->save();
 
-        foreach ($request->additionalUserIds as $additionalUserId) {
-            $follower = QueuedPlayer::firstOrCreate(['user_id' => $additionalUserId]);
-            $follower->side = $request->side;
-            $follower->user()->associate($additionalUserId);
-            $follower->save();
-            $queued->followingUsers()->save($follower);
-        }
+            foreach ($request->additionalUserIds as $additionalUserId) {
+                $follower = QueuedPlayer::firstOrCreate(['user_id' => $additionalUserId]);
+                $follower->side = $request->side;
+                $follower->user()->associate($additionalUserId);
+                $follower->save();
+                $queued->followingUsers()->save($follower);
+            }
+        });
 
         return $this->checkQueueStatus($request);
     }
@@ -262,7 +291,11 @@ class MatchmakingController extends Controller
         if(!(Cache::get('tryCreateMatch', 0) < time() - static::TRY_CREATE_MATCH_INTERVAL_SECONDS))
             return;
 
-        Cache::set('tryCreateMatch', time());
+        $lock = Cache::lock(static::QUEUE_LOCK, 20);
+
+        // If we cannot acquire the lock, do nothing
+        if(!$lock->get())
+            return;
 
         // Select all queued Players/party leaders, descending by party size
         $players = QueuedPlayer::withCount('followingUsers')
@@ -288,22 +321,27 @@ class MatchmakingController extends Controller
         $playerCount = $this->getTotalPlayersCount($players);
         $availableMatchConfigs = MatchConfiguration::getAvailableMatchConfigs($playerCount->runners, $playerCount->hunters);
 
-        if($availableMatchConfigs->isEmpty())
+        if($availableMatchConfigs->isEmpty()) {
+            $lock->release();
             return;
+        }
 
         $selectedConfig = MatchConfiguration::selectRandomConfigByWeight($availableMatchConfigs);
 
         // Should never happen, but just to be careful
-        if($selectedConfig === null)
+        if($selectedConfig === null) {
+            $lock->release();
             return;
+        }
 
         $hunterGroupsSet = $this->determineMatchingPlayers($hunters, $selectedConfig->hunters);
         $runnerGroupsSet = $this->determineMatchingPlayers($runners, $selectedConfig->runners);
 
         // if we cannot create a match with our current player groups, stop
-        if($runnerGroupsSet === false || $hunterGroupsSet === false)
+        if($runnerGroupsSet === false || $hunterGroupsSet === false) {
+            $lock->release();
             return;
-
+        }
         rsort($runnerGroupsSet, SORT_NUMERIC);
         rsort($hunterGroupsSet, SORT_NUMERIC);
 
@@ -330,6 +368,10 @@ class MatchmakingController extends Controller
         }
 
         $newGame->determineHost();
+
+        // Set cached timeat the end of processing and release lock
+        Cache::set('tryCreateMatch', time());
+        $lock->release();
     }
 
     protected function tryFillOpenGames(Collection|array &$hunters, Collection|array &$runners)

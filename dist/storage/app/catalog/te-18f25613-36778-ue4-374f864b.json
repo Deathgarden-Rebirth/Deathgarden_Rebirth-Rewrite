@@ -43773,7 +43773,12 @@
       "initialQuantity": 0,
       "consumable": false,
       "consumptionReward": [],
-      "defaultCost": [],
+      "defaultCost": [
+          {
+              "currencyId": "CurrencyA",
+              "price": 125
+          }
+      ],
       "eventCostList": [],
       "metaData": {
         "gameplayTags": [

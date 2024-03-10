@@ -10,7 +10,7 @@ class GhostItemConfig extends CharacterItemConfig
 
     protected static array $defaultEquippedPerks = [
         '6A8FA1C845AE1D7576BD87A53F7ED4A4',
-        '19FB62054E644ECDC831E29FC5B9E501',
+        'CAA84E294F02ECF88B08FB96E481194D',
     ];
 
     protected static array $defaultEquippedWeapons = [

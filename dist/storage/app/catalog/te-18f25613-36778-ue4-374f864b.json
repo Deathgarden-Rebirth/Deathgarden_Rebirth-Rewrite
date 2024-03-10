@@ -43775,7 +43775,7 @@
       "consumptionReward": [],
       "defaultCost": [
           {
-              "currencyId": "CurrencyA",
+              "currencyId": "CurrencyB",
               "price": 125
           }
       ],

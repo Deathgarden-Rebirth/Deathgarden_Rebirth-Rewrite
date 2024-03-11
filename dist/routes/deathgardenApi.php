@@ -66,7 +66,8 @@ Route::prefix('v1')->group(function () {
 
 
         Route::post('queue', [MatchmakingController::class, 'queue']);
-        Route::post('queue/cancel', [MatchmakingController::class, 'cancelQueue']);
+        // Because there is no dedicated endpoint the game calls for canceling the queue, we abuse the
+        // matchmaking metrics endpoint in the web.php routes file.
         Route::get('match/{matchId}', [MatchmakingController::class, 'matchInfo']);
         Route::post('match/{matchId}/register', [MatchmakingController::class, 'register']);
         Route::put('match/{matchId}/Close', [MatchmakingController::class, 'close']);

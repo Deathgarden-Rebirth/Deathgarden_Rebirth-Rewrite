@@ -11,6 +11,7 @@ use App\Http\Requests\Api\Matchmaking\EndOfMatchRequest;
 use App\Http\Requests\Api\Matchmaking\PlayerEndOfMatchRequest;
 use App\Http\Requests\Api\Matchmaking\QueueRequest;
 use App\Http\Requests\Api\Matchmaking\RegisterMatchRequest;
+use App\Http\Requests\Metrics\MatchmakingRequest;
 use App\Http\Responses\Api\Matchmaking\MatchData;
 use App\Http\Responses\Api\Matchmaking\MatchProperties;
 use App\Http\Responses\Api\Matchmaking\QueueData;
@@ -24,6 +25,7 @@ use Auth;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Cache\LockTimeoutException;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -32,6 +34,12 @@ use Laravel\Prompts\Table;
 class MatchmakingController extends Controller
 {
     const TRY_CREATE_MATCH_INTERVAL_SECONDS = 5;
+
+    // After how many minutes a queued palyer gets removed from  the queue or from an open match in Minutes.
+    const PLAYER_HEARTBEAT_TIMEOUT = 2;
+
+    // After how many minutes a closed game gets deleted automatically when it hasn't been killed normally yet.
+    const GAME_MAX_TIME = 15;
 
     const QUEUE_LOCK = 'queuedPlayers';
 
@@ -43,15 +51,19 @@ class MatchmakingController extends Controller
     public function queue(QueueRequest $request)
     {
         $this->processQueue();
+        $this->cleanupDeadPlayersAndGames();
         if($request->checkOnly)
             return json_encode($this->checkQueueStatus($request));
 
         return json_encode($this->addPlayerToQueue($request));
     }
 
-    public function cancelQueue()
+    public function cancelQueue(MatchmakingRequest $request)
     {
         $user = Auth::user();
+
+        if($user->id !== $request->playerId || $request->endState !== 'Cancelled')
+            return response('', 204);
 
         $lock = Cache::lock(static::QUEUE_LOCK, 10);
 
@@ -59,7 +71,7 @@ class MatchmakingController extends Controller
             $lock->block(20 ,function () use (&$user) {
                 // Delete the player from the Queue
                 QueuedPlayer::where('user_id', '=', $user->id)->delete();
-                // And also from any game they are maczhed for.
+                // And also from any game they are matched for.
                 DB::table('game_user')->where('user_id', '=', $user->id)->delete();
             });
         } catch (LockTimeoutException $e) {
@@ -78,8 +90,17 @@ class MatchmakingController extends Controller
         if($foundGame === null)
             return ['status' => 'Error', 'message' => 'Match not found.'];
 
-        $response = MatchData::fromGame($foundGame);
+        $user = Auth::user();
+        // Update timestamp for player heartbeat check
+        $foundGame->players()->updateExistingPivot($user->id, [
+            'updated_at' => Carbon::now(),
+        ]);
+        $foundGame->updated_at = Carbon::now();
+        $foundGame->save();
 
+        $this->cleanupDeadPlayersAndGames();
+
+        $response = MatchData::fromGame($foundGame);
         return json_encode($response);
     }
 
@@ -102,6 +123,9 @@ class MatchmakingController extends Controller
 		return json_encode(MatchData::fromGame($foundGame));
 	}
 
+    /*
+     * Set a game to Quit state, Maybe exists but unsure since it never showed up in the request logs.
+     */
 	public function quit($matchId)
 	{
 		$foundGame = Game::find($matchId);
@@ -121,10 +145,11 @@ class MatchmakingController extends Controller
 	public function kill($matchId)
 	{
 		$foundGame = Game::find($matchId);
-		$foundGame->status = MatchStatus::Killed;
-		$foundGame->save();
 
-		return json_encode(MatchData::fromGame($foundGame));
+        $response = json_encode(MatchData::fromGame($foundGame));
+        $foundGame->delete();
+
+		return $response;
 	}
 
     public function seedFileGet(string $gameVersion, string $seed, string $mapName)
@@ -219,6 +244,11 @@ class MatchmakingController extends Controller
 
         // If we found a queued Player, return his status
         if($foundQueuedPlayer !== null) {
+            // Set Last queue call time to remove players that maybe crashed or something
+            // if they haven't sent a queue request in a long time.
+            $foundQueuedPlayer->updated_at = Carbon::now();
+            $foundQueuedPlayer->save();
+
             $response = new QueueResponse();
             $response->status = QueueStatus::Queued;
             $response->queueData = new QueueData(
@@ -246,6 +276,10 @@ class MatchmakingController extends Controller
 
         /** @var Game $foundGame */
         $foundGame = $foundGame->first();
+
+        // Update pivot updated_at to detect client crashes or other errors of theyhavent sent a request in a period of time.
+        $foundGame->players()->updateExistingPivot($user->id, ['updated_at' => Carbon::now()]);
+
         $response = new QueueResponse();
 
         if($foundGame->status === MatchStatus::Opened) {
@@ -436,6 +470,32 @@ class MatchmakingController extends Controller
 
         $game->status = MatchStatus::Killed;
         $game->save();
+    }
+
+    protected function cleanupDeadPlayersAndGames(): void
+    {
+        // skip when the last time this job ran is not older than the interval seconds
+        if(!(Cache::get('cleanupDeadPlayersAndGames', 0) < time() - static::PLAYER_HEARTBEAT_TIMEOUT))
+            return;
+
+        // Delete queued players that haven't sent a queue resquest in the given period of time,
+        // which means they crashed or closed the game without sending cancle.
+        QueuedPlayer::where('updated_at', '<', Carbon::now()->subMinutes(static::PLAYER_HEARTBEAT_TIMEOUT))
+            ->delete();
+
+        Game::where('status', '=', MatchStatus::Closed->value)
+            ->where('updated_at', '<', Carbon::now()->subMinutes(static::GAME_MAX_TIME))
+            ->delete();
+
+        // Delete users that joined a game and haven't sent the match request for a period of time
+        // This porpably means they crashed or never joined the game in the first place.
+        DB::table('game_user')->join('games', 'game_user.game_id', '=', 'games.id')
+            ->whereIn('games.status', [
+                MatchStatus::Created->value,
+                MatchStatus::Opened->value,
+            ])
+            ->where('game_user.updated_at', '<', Carbon::now()->subMinutes(static::PLAYER_HEARTBEAT_TIMEOUT))
+            ->delete();
     }
 
     /**

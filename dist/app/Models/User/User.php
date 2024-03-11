@@ -53,16 +53,16 @@ class User extends AuthUser
         return $this->hasOne(PlayerData::class)->sharedLock()->firstOrCreate();
     }
 
-    public function games()
+    public function games(): BelongsToMany
     {
-        return $this->belongsToMany(Game::class)->withPivot('side');
+        return $this->belongsToMany(Game::class)->withPivot('side')->withTimestamps();
     }
 
     public function activeGames(): BelongsToMany
     {
         return $this->belongsToMany(Game::class)
             ->withPivot('side')
-            ->whereIn('status', [MatchStatus::Created->value, MatchStatus::Opened->value]);
+            ->whereIn('status', [MatchStatus::Created->value, MatchStatus::Opened->value])->withTimestamps();
     }
 
     public static function findBySteamID(int $steamId): User|null

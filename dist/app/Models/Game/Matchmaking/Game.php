@@ -42,7 +42,7 @@ class Game extends Model
 
     public function players(): BelongsToMany
     {
-        return $this->belongsToMany(User::class)->withPivot('side');
+        return $this->belongsToMany(User::class)->withPivot('side')->withTimestamps();
     }
 
     public function addQueuedPlayer(QueuedPlayer $player): void

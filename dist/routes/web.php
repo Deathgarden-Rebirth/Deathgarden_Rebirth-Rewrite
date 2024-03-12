@@ -52,18 +52,3 @@ Route::middleware('verify_migration_key')->get('/migrate-database', function () 
 
 Route::post('file/{gameVersion}/{seed}/{mapName}', [MatchmakingController::class, 'seedFilePost']);
 Route::get('file/{gameVersion}/{seed}/{mapName}', [MatchmakingController::class, 'seedFileGet']);
-
-
-Route::middleware('api.session')->group(function () {
-    Route::post('metrics/httplog/event', function () {
-        return response('', 204);
-    });
-    Route::post('metrics/server/event', function () {
-        return response('', 204);
-    });
-    Route::post('metrics/client/event', function () {
-        return response('', 204);
-    });
-
-    Route::post('metrics/matchmaking/event', [MatchmakingController::class, 'cancelQueue']);
-});

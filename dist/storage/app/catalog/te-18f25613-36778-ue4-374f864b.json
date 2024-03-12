@@ -25785,8 +25785,8 @@
           "487DEBE247818A01797AF5B3FD04C2B2",
           "C8AF3D534973F82FADBB40BDA96F9DCD",
           "38E5F7F241E2BA1177419BB312FC1ACE",
-          "1A09DB19434DA733AAD3D9B5B1929CD4",
-          "19FB62054E644ECDC831E29FC5B9E501",
+          "C7A898A44F208F9F85CE75969A98242D",
+          "78C4B6734B7C9DD1D2488EBA8EB5A7E4",
           "320652184E1A719DEF1D3C9395EE7344",
           "69055D534DF27180C4B36CAB4B651054"
         ],
@@ -26010,7 +26010,7 @@
           "366DFB0841631FE3A1F4FE9BF814CF2C",
           "487DEBE247818A01797AF5B3FD04C2B2",
           "C8AF3D534973F82FADBB40BDA96F9DCD",
-          "78C4B6734B7C9DD1D2488EBA8EB5A7E4",
+          "04650B23493C386FA87E48947D26D79F",
           "75A9B5A34CD7815B6D77248506897122",
           "6340FA564B0C4E692AD174BB743607F5",
           "5681640F41DF9BEF0659C3A951BFC01B",
@@ -26227,7 +26227,7 @@
           "CE235B2C497B4381DA1742BA22999128",
           "F91593E346415A85CFD0ED9CEBFBBDEA",
           "350B26074604529237BF0CB22B60A9B8",
-          "04650B23493C386FA87E48947D26D79F",
+          "25BF0927456349471A1C77A852342246",
           "487DEBE247818A01797AF5B3FD04C2B2",
           "C8AF3D534973F82FADBB40BDA96F9DCD",
           "5889E8B1404109B1D4623B9DD2057608",
@@ -34897,7 +34897,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 4,
+        "minCharacterLevel": 3,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -35280,10 +35280,15 @@
     {
       "id": "04650B23493C386FA87E48947D26D79F",
       "displayName": "RN_Perk_Collector_HerdMentality_001_Herd_Mentality",
-      "initialQuantity": 1,
+      "initialQuantity": 0,
       "consumable": false,
       "consumptionReward": [],
-      "defaultCost": [],
+        "defaultCost": [
+            {
+                "currencyId": "CurrencyB",
+                "price": 125
+            }
+        ],
       "eventCostList": [],
       "metaData": {
         "gameplayTags": [
@@ -35292,7 +35297,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 0,
+        "minCharacterLevel": 2,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -35692,7 +35697,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 5,
+        "minCharacterLevel": 4,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -36075,15 +36080,10 @@
     {
       "id": "2F3693A4473188D2787CC899A70DC563",
       "displayName": "RN_Perk_Collector_SuddenInsight_001_Sudden_Insight",
-      "initialQuantity": 0,
+      "initialQuantity": 1,
       "consumable": false,
       "consumptionReward": [],
-      "defaultCost": [
-        {
-          "currencyId": "CurrencyB",
-          "price": 125
-        }
-      ],
+      "defaultCost": [],
       "eventCostList": [],
       "metaData": {
         "gameplayTags": [
@@ -36092,7 +36092,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 3,
+        "minCharacterLevel": 0,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,

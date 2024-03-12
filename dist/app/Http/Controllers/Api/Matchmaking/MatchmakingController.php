@@ -298,8 +298,14 @@ class MatchmakingController extends Controller
     {
         Cache::lock(static::QUEUE_LOCK, 10)->block(20, function () use ($request) {
             $user = Auth::user();
-            if($user->activeGames()->exists())
-                return;
+
+            // Remove user from any game he has previously joined.
+            if($user->activeGames()->exists()) {
+                $games = $user->activeGames()->get();
+                foreach ($games as $game) {
+                    $this->removeUserFromGame($user, $game);
+                }
+            }
 
             $queued = QueuedPlayer::firstOrCreate(['user_id' => $user->id]);
             $queued->leader()->disassociate();
@@ -463,13 +469,17 @@ class MatchmakingController extends Controller
 
     protected function removeUserFromGame(User $user, Game $game)
     {
+        if($game->creator->id == $user->id) {
+            $game->delete();
+            return;
+        }
+
         $game->players()->detach($user);
 
         if($game->players->count() !== 0)
             return;
 
-        $game->status = MatchStatus::Killed;
-        $game->save();
+        $game->delete();
     }
 
     protected function cleanupDeadPlayersAndGames(): void
@@ -487,15 +497,27 @@ class MatchmakingController extends Controller
             ->where('updated_at', '<', Carbon::now()->subMinutes(static::GAME_MAX_TIME))
             ->delete();
 
-        // Delete users that joined a game and haven't sent the match request for a period of time
+        // Select User Ids that joined a game and haven't sent the match request for a period of time
         // This porpably means they crashed or never joined the game in the first place.
-        DB::table('game_user')->join('games', 'game_user.game_id', '=', 'games.id')
+        $usersToRemove = DB::table('game_user')->join('games', 'game_user.game_id', '=', 'games.id')
             ->whereIn('games.status', [
                 MatchStatus::Created->value,
                 MatchStatus::Opened->value,
             ])
             ->where('game_user.updated_at', '<', Carbon::now()->subMinutes(static::PLAYER_HEARTBEAT_TIMEOUT))
-            ->delete();
+            ->get(['user_id']);
+
+        $userIdArray = [];
+        foreach ($usersToRemove as $user) {
+            $userIdArray[] = $user->user_id;
+        }
+
+        // Delete a game if one of the to be removed players is the host.
+        Game::whereIn('creator_user_id', $userIdArray)->delete();
+
+        // Delete them afterwards.
+        DB::table('game_user')->whereIn('user_id', $userIdArray)->delete();
+
     }
 
     /**

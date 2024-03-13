@@ -1,0 +1,14 @@
+_id: env_f38e8c832fe84aecb18215ecdd62ba48
+type: Environment
+parentId: env_70078d3f75ff8c6ee07a15eda26aeaf86b881bab
+modified: 1709318906628
+created: 1709318781727
+name: Rebirth Wolf Dev
+data:
+  base_url: https://dev_api.bloodharvest-rebirth.com
+dataPropertyOrder:
+  "&":
+    - base_url
+color: "#fc03f4"
+isPrivate: false
+metaSortKey: 1708028844417

@@ -1,0 +1,25 @@
+_id: req_9ce1e2a8d74c439ab0669e153cabc2b2
+type: Request
+parentId: fld_55eb8682a27a4533aa42d31f76b43b83
+modified: 1709744768439
+created: 1709300261760
+url: "{{ _.base_url }}/api/v1/config/MATCH_MAKING_REGIONS/raw"
+name: MatchMakingRegions
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: "{{ _.user_agent }}"
+    id: pair_c0999b1155cf4c4da111b07cf9b98e21
+authentication: {}
+metaSortKey: -1709301572422
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
+segmentParams: []

@@ -14,6 +14,7 @@ use App\Http\Requests\Api\Player\UpdateMetadataGroupRequest;
 use App\Http\Responses\Api\Player\InitOrGetGroupsResponse;
 use App\Http\Responses\Api\Player\UpdateMetadataResponse;
 use App\Models\Game\PickedChallenge;
+use App\Models\User\User;
 use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Type\Hexadecimal;
 use Ramsey\Uuid\Uuid;
@@ -23,7 +24,15 @@ class MetadataController extends Controller
     public function initOrGetGroups(InitOrGetGroupsRequest $request)
     {
         $response = new InitOrGetGroupsResponse();
-        $user = Auth::user();
+
+        // If the request has set a player Id, use it.
+        // if not use the current authenticated user from this session.
+        // This is important because the hosts requests the progression and metadata groups for the other players
+        // for tracking challenges and so on.
+        if($request->playerId === null)
+            $user = Auth::user();
+        else
+            $user = User::find($request->playerId);
 
         foreach (ItemGroupType::cases() as $group) {
             if ($group == ItemGroupType::None)
@@ -66,7 +75,16 @@ class MetadataController extends Controller
 
     private function handleUpdateCharacterMetadata(UpdateMetadataGroupRequest &$request): string|bool
     {
-        $user = Auth::user();
+        // If the request has set a player Id, use it.
+        // if not use the current authenticated user from this session.
+        // This is important because the hosts requests the progression and metadata groups for the other players
+        // for tracking challenges and so on.
+        if($request->playerId === null)
+            $user = Auth::user();
+        else
+            $user = User::find($request->playerId);
+
+
         $characterData = $user->playerData()->characterDataForCharacter($request->group->getCharacter());
 
         $convertedIds = UuidHelper::convertFromHexToUuidCollecton($request->metadata['equipment'], true);
@@ -118,7 +136,14 @@ class MetadataController extends Controller
 
     private function handleUpdatePlayerMetadata(UpdateMetadataGroupRequest &$request): string|bool
     {
-        $user = Auth::user();
+        // If the request has set a player Id, use it.
+        // if not use the current authenticated user from this session.
+        // This is important because the hosts requests the progression and metadata groups for the other players
+        // for tracking challenges and so on.
+        if($request->playerId === null)
+            $user = Auth::user();
+        else
+            $user = User::find($request->playerId);
 
         $playerData = $user->playerData();
         $playerData->last_faction = Faction::tryFrom($request->metadata['lastPlayedFaction']);

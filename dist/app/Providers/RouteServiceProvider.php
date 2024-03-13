@@ -44,6 +44,10 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware(['api', 'api.session'])
                 ->prefix('api')
                 ->group(base_path('routes/deathgardenApi.php'));
+
+            Route::middleware(['api', 'api.session'])
+                ->prefix('metrics')
+                ->group(base_path('routes/metrics.php'));
         });
     }
 }

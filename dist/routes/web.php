@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Matchmaking\MatchmakingController;
 use App\Http\Controllers\Web\LoginController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
@@ -49,13 +50,5 @@ Route::middleware('verify_migration_key')->get('/migrate-database', function () 
 });
 
 
-
-Route::post('metrics/httplog/event', function () {
-    return response('', 200);
-});
-Route::post('metrics/server/event', function () {
-    return response('', 200);
-});
-Route::post('metrics/client/event', function () {
-    return response('', 200);
-});
+Route::post('file/{gameVersion}/{seed}/{mapName}', [MatchmakingController::class, 'seedFilePost']);
+Route::get('file/{gameVersion}/{seed}/{mapName}', [MatchmakingController::class, 'seedFileGet']);

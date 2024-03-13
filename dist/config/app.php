@@ -182,7 +182,9 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'Game' => \App\Models\Game\Matchmaking\Game::class,
+        'QueuedPlayer' => \App\Models\Game\Matchmaking\QueuedPlayer::class,
+        'MatchmakingPlayerCount' => \App\Classes\Matchmaking\MatchmakingPlayerCount::class,
     ])->toArray(),
 
 ];

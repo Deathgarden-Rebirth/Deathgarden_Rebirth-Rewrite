@@ -5,14 +5,11 @@ namespace App\Http\Requests\Api\Player;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class InitOrGetGroupsRequest extends FormRequest
+class ExecuteChallengeProgressionBatchRequest extends FormRequest
 {
-    public bool $skipProgressionGroups;
+    public string $userId;
 
-    public bool $skipMetadataGroups;
-
-    public ?string $playerId;
-
+    public array $operations;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -30,16 +27,14 @@ class InitOrGetGroupsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'data.skipProgressionGroups' => 'bool|required',
-            'data.skipMetadataGroups' => 'bool|required',
-            'data.playerId' => 'string'
+            'data.userId' => 'required|string',
+            'data.operations' => 'present|array'
         ];
     }
 
     protected function passedValidation()
     {
-        $this->skipProgressionGroups = $this->input('data.skipProgressionGroups');
-        $this->skipMetadataGroups = $this->input('data.skipMetadataGroups');
-        $this->playerId = $this->input('data.playerId');
+        $this->userId = $this->input('data.userId');
+        $this->operations = $this->input('data.operations');
     }
 }

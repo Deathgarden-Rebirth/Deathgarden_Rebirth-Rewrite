@@ -27,11 +27,11 @@ class GameNews
 
     public ?string $redirectUrl = '';
 
-    public ?string $embeddedBackgroundImage = null;
+    public string $embeddedBackgroundImage = 'null';
 
-    public ?string $embeddedInGameNewsBackgroundImage = null;
+    public string $embeddedInGameNewsBackgroundImage = 'null';
 
-    public ?string $embeddedInGameNewsThumbnailImage = null;
+    public string $embeddedInGameNewsThumbnailImage = 'null';
 
     public ?string $fromDate = null;
 

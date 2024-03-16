@@ -20,10 +20,11 @@ use Laravel\Socialite\Facades\Socialite;
 Route::get('/auth/redirect', function () {
     return Socialite::driver('steam')->redirect();
 })->name(LoginController::ROUTE_LOGIN);
+
 Route::get('/auth/logout', function () {
     \Illuminate\Support\Facades\Auth::logout();
     return redirect('/');
-});
+})->name('logout');
 
 Route::get('/auth/callback', [LoginController::class, 'callback'])->name(LoginController::ROUTE_CALLBACK);
 
@@ -31,11 +32,6 @@ Route::get('{catalogVersion}/catalog', [\App\Http\Controllers\Api\Catalog\Catalo
 
 Route::get('/', function () {
     return \Inertia\Inertia::render('Dashboard');
-});
-
-Route::middleware('auth')->group(function () {
-    Route::get('/admin/file-manager', [\App\Http\Controllers\Web\GameFileController::class, 'index']);
-    Route::post('/admin/file-manager', [\App\Http\Controllers\Web\GameFileController::class, 'store'])->name('file.store');
 });
 
 Route::middleware('verify_migration_key')->get('/migrate-database', function () {

@@ -2,6 +2,7 @@
 
 namespace App\Models\Game\Messages;
 
+use App\Enums\Game\Faction;
 use App\Enums\Game\Message\GameNewsRedirectMode;
 use App\Enums\Game\Message\MessageType;
 use DateTime;
@@ -19,5 +20,6 @@ class News extends Model
     protected $casts = [
         'message_type' => MessageType::class,
         'redirect_mode' => GameNewsRedirectMode::class,
+        'faction' => Faction::class,
     ];
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Game\Faction;
 use App\Enums\Game\Message\GameNewsRedirectMode;
 use App\Enums\Game\Message\MessageType;
 use Illuminate\Database\Migrations\Migration;
@@ -16,6 +17,7 @@ return new class extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->uuid()->primary();
             $table->enum('message_type', array_column(MessageType::cases(), 'value'));
+            $table->enum('faction', array_column(Faction::cases(), 'value'))->default(Faction::None->value);
             $table->boolean('one_time_news');
             $table->boolean('should_quit_game');
             $table->boolean('one_match');

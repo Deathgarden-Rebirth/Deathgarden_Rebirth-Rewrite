@@ -19,6 +19,7 @@ class NewsController extends Controller
                 $query->where('max_player_level', '>=', $request->playerLevel)
                     ->orWhereNull('max_player_level');
             })
+            ->where('faction', '=', $request->faction->value)
             ->orderBy('created_at', $request->sortDescending ? 'desc' : 'asc')
             ->get();
 

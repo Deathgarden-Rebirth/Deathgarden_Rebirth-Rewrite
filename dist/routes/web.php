@@ -33,11 +33,6 @@ Route::get('/', function () {
     return \Inertia\Inertia::render('Dashboard');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/admin/file-manager', [\App\Http\Controllers\Web\GameFileController::class, 'index']);
-    Route::post('/admin/file-manager', [\App\Http\Controllers\Web\GameFileController::class, 'store'])->name('file.store');
-});
-
 Route::middleware('verify_migration_key')->get('/migrate-database', function () {
     Artisan::call('migrate --no-interaction');
     print Artisan::output();

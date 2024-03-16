@@ -18,4 +18,8 @@
     <div class="ml-auto max-h-10 object-scale-down">
         <x-auth.user :$user/>
     </div>
+
+    <a href="{{ route('logout') }}" title="Logout" class="w-8 ml-2.5">
+        <x-icons.logout />
+    </a>
 </nav>

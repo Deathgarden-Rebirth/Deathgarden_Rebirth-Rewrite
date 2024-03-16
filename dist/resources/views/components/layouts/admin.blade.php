@@ -1,7 +1,7 @@
 <x-layouts.app>
-    <div class="grid grid-cols-1 grid-rows-2">
+    <div class="h-screen flex flex-col">
         <x-admin.navbar class="row-span-1"/>
-        <div class="row-span-2">
+        <div class="row-span-2 h-full">
             {{ $slot }}
         </div>
     </div>

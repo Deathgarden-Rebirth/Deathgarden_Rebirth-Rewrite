@@ -20,10 +20,11 @@ use Laravel\Socialite\Facades\Socialite;
 Route::get('/auth/redirect', function () {
     return Socialite::driver('steam')->redirect();
 })->name(LoginController::ROUTE_LOGIN);
+
 Route::get('/auth/logout', function () {
     \Illuminate\Support\Facades\Auth::logout();
     return redirect('/');
-});
+})->name('logout');
 
 Route::get('/auth/callback', [LoginController::class, 'callback'])->name(LoginController::ROUTE_CALLBACK);
 

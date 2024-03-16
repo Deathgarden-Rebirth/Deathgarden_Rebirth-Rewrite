@@ -22,6 +22,10 @@ class LoginController extends Controller
         $loggedInUser = User::firstOrCreate(['steam_id' => $user->getId()], ['source' => 'WEB']);
         Auth::login($loggedInUser);
         $loggedInUser->last_known_username = $user->getNickname();
+        $loggedInUser->avatar_small = $user->user['avatar'];
+        $loggedInUser->avatar_medium = $user->getAvatar();
+        $loggedInUser->avatar_full = $user->user['avatarfull'];
+
         $loggedInUser->save();
 
         Log::stack(['stack', 'login'])->info('User with SteamID "{id}" successfully logged in via Web.', ['id' => $loggedInUser->steam_id]);

@@ -1,0 +1,40 @@
+.input-global-text {
+  @apply rounded-md border border-gray-600 bg-gray-800 px-4 py-2 text-base outline-none focus-within:border-indigo-600 whitespace-nowrap;
+  flex-grow: 1;
+
+  input {
+    @apply w-full bg-inherit text-inherit focus:outline-none;
+  }
+
+  &:has(> input[data-show-error='1']) {
+    input {
+      width: calc(100% - 1rem);
+    }
+
+    &::after {
+      display: inline-block;
+      content: '⚠';
+    }
+  }
+
+  span {
+    @apply inline-block;
+  }
+}
+
+.input-global-textarea {
+  @apply px-4 py-2 rounded-md bg-gray-800 border-gray-600 border w-auto outline-none focus-within:border-indigo-600 resize-y text-nowrap;
+  flex-grow: 1;
+}
+
+.input-global-checkbox {
+  @apply accent-indigo-800;
+}
+
+.input-global-dropdown {
+  @apply rounded-md border border-gray-600 bg-gray-800 px-4 py-2 text-base outline-none focus:border-indigo-600;
+
+  option {
+    @apply bg-gray-800 px-4 py-2 rounded-sm;
+  }
+}

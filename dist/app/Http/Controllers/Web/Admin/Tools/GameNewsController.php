@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Admin\Tools;
 
 use App\Enums\Auth\Permissions;
 use App\Http\Controllers\Controller;
+use App\Models\Game\Messages\News;
 use Illuminate\Http\Request;
 
 class GameNewsController extends AdminToolController
@@ -18,6 +19,8 @@ class GameNewsController extends AdminToolController
 
     public function index()
     {
-        return view('admin.tools.game-news');
+        $news = News::all();
+
+        return view('admin.tools.game-news', ['newsList' => $news]);
     }
 }

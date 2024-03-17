@@ -1,0 +1,1 @@
+<textarea {{ $attributes->merge(['class' => 'input-global-textarea']) }}>{{ $slot }}</textarea>

@@ -11,6 +11,7 @@
         "axios": "^1.6.4",
         "laravel-vite-plugin": "^1.0.0",
         "postcss": "^8.4.35",
+        "sass": "^1.72.0",
         "steam-user": "^5.0.8",
         "tailwindcss": "^3.4.1",
         "vite": "^5.0.0"

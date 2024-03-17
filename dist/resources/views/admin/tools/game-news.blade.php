@@ -1,3 +1,11 @@
+@props([
+    'newsList'
+])
+
 <x-layouts.admin>
-    Game News
+    <div class="h-full w-full p-1 md:p-16">
+        @foreach($newsList as $news)
+            <x-admin.tools.game-news-list-entry :$news />
+        @endforeach
+    </div>
 </x-layouts.admin>

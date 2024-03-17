@@ -57,6 +57,7 @@ class AccessLogger
         $user = Auth::user();
         if (!Session::has('sessionLogConfig')) {
             $username = $user?->last_known_username ?? '';
+            static::cleanupUsername($username);
             $logConfig = [
                 'driver' => 'single',
                 'path' => storage_path('logs/sessions/' . $username . '_' . Str::substr(Session::getId(), 0, 12) . '.log')
@@ -67,12 +68,19 @@ class AccessLogger
 
         if($user !== null && str_starts_with(basename($logConfig['path']), '_')) {
             $oldPath = $logConfig['path'];
-            $newPath = storage_path('logs/sessions/'.$user->last_known_username.basename($oldPath));
+            $username = $user->last_known_username;
+            static::cleanupUsername($username);
+            $newPath = storage_path('logs/sessions/'.$username.basename($oldPath));
             rename($oldPath, $newPath);
             $logConfig['path'] = $newPath;
             Session::put('sessionLogConfig', $logConfig);
         }
 
         return Log::build($logConfig);
+    }
+
+    public static function cleanupUsername(string &$username): void
+    {
+        $username = preg_replace('/[^\w\-\.]/', '', $username);
     }
 }

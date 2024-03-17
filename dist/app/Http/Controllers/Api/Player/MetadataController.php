@@ -125,6 +125,9 @@ class MetadataController extends Controller
             }
         }
 
+        ++$characterData->readout_version;
+        $characterData->save();
+
         $response = new UpdateMetadataResponse(
             $user->id,
             MetadataGroup::Player,

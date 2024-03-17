@@ -6,6 +6,7 @@ use App\Enums\Game\Faction;
 use App\Enums\Game\Message\GameNewsRedirectMode;
 use App\Enums\Game\Message\MessageType;
 use DateTime;
+use Ramsey\Uuid\Uuid;
 
 class GameNews
 {
@@ -45,7 +46,7 @@ class GameNews
 
     public function __construct(string $id, MessageType $type)
     {
-        $this->id = $id;
+        $this->id = Uuid::fromString($id)->getHex()->toString();
         $this->messageType = $type;
     }
 }

@@ -66,14 +66,14 @@ return [
         ],
 
         'dg_requests' => [
-            'driver' => 'single',
+            'driver' => 'daily',
             'path' => storage_path('logs/dgApi.log'),
             'level' => 'info',
             'replace_placeholders' => true,
         ],
 
         'dg_requests_errors' => [
-            'driver' => 'single',
+            'driver' => 'daily',
             'path' => storage_path('logs/dgApi_errors.log'),
             'level' => 'info',
             'replace_placeholders' => true,
@@ -96,6 +96,13 @@ return [
         'challenge_new' => [
             'driver' => 'single',
             'path' => storage_path('logs/challenges/challenge_new.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
+        'matchmaking' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/matchmaking/matchmaking.log'),
             'level' => 'info',
             'replace_placeholders' => true,
         ],

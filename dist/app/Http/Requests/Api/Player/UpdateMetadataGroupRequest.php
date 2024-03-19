@@ -21,6 +21,8 @@ class UpdateMetadataGroupRequest extends FormRequest
 
     public array $metadata;
 
+    public ?string $playerId;
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -49,6 +51,7 @@ class UpdateMetadataGroupRequest extends FormRequest
         $this->group = MetadataGroup::tryFrom($this->input('data.objectId'));
         $this->version = $this->input('data.version');
         $this->metadata = $this->input('data.metadata');
+        $this->playerId = $this->input('data.playerId');
 
         $this->reason = UpdateMetadataReason::tryFrom($this->input('data.reason'));
         if ($this->reason === null) {

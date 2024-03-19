@@ -6,6 +6,7 @@ use App\APIClients\HttpMethod;
 use App\APIClients\SteamAPIClient\Exceptions\SteamRequestException;
 use App\APIClients\SteamAPIClient\SteamApiClient;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 
 class GetPlayerSummariesRequest extends SteamApiClient
 {
@@ -44,16 +45,18 @@ class GetPlayerSummariesRequest extends SteamApiClient
     }
 
     private function parseResponse(string $body) {
-        $json = json_decode($body);
+        $data = collect(json_decode($body, true));
 
-        if(!isset($json->response->players)) {
-            if(!isset($json->response->error))
+        if(!isset($data['response']['players'])) {
+            if(!isset($data['response']['error']))
                 throw new SteamRequestException('GetPlayerSummariesRequest: Unknown Error while connecting to Steam.');
 
-            $error = $json->response->error;
-            throw new SteamRequestException('GetPlayerSummariesRequest: Steam API Response resulted in Error: '.$error->errorcode.', '.$error->errordesc);
+            $errorCode = $data['response']['error']['errorcode'];
+            $errorDescription = $data['response']['error']['errordesc'];
+            $errorMessage = 'GetPlayerSummariesRequest: Steam API Response resulted in Error: '.$errorCode.', '.$errorDescription;
+            throw new SteamRequestException($errorMessage);
         }
 
-        return new GetPlayerSummariesResponse((array)$json->response->players);
+        return new GetPlayerSummariesResponse($data['response']['players']);
     }
 }

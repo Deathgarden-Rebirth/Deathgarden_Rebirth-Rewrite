@@ -76,6 +76,24 @@ class CharacterData extends Model
         return $challenges->firstWhere('catalog_item_id', '=', $uuid->toString());
     }
 
+    public function addExperience(int $experienceToAdd): CharacterData
+    {
+        $xpToReach = static::getExperienceForLevel($this->level);
+        $this->experience += $experienceToAdd;
+
+        // if we reached teh experience threshold, add a level to the character and faction
+        // Set the new xp to reach and do it again if necessary.
+        while ($this->experience >= $xpToReach) {
+            ++$this->level;
+            $this->experience -= $xpToReach;
+            $this->playerData->addFactionExperience($this->character->getFaction());
+            $xpToReach = static::getExperienceForLevel($this->level);
+            $this->playerData->save();
+        }
+
+        return $this;
+    }
+
     public static function getExperienceForLevel(int $level): int
     {
         --$level;

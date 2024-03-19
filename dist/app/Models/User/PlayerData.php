@@ -11,10 +11,12 @@ use App\Helper\Uuid\UuidHelper;
 use App\Models\Game\CatalogItem;
 use App\Models\Game\Challenge;
 use App\Models\Game\CharacterData;
+use App\Models\Game\QuitterState;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\QueryException;
 
 
@@ -89,6 +91,8 @@ class PlayerData extends Model
                 }
                 catch (QueryException $e) {}
             }
+
+            $playerData->quitterState()->create();
         });
     }
 
@@ -121,6 +125,11 @@ class PlayerData extends Model
         return $this->belongsToMany(Challenge::class)->withPivot(['progress']);
     }
 
+    public function quitterState(): HasOne
+    {
+        return $this->hasOne(QuitterState::class);
+    }
+
     public function getCumulativeExperience(): int
     {
         $characterData = $this->characterData;
@@ -131,6 +140,28 @@ class PlayerData extends Model
         }
 
         return $experience;
+    }
+
+    public function addFactionExperience(Faction $faction): PlayerData
+    {
+        if($faction === Faction::Runner) {
+            ++$this->runner_faction_experience;
+
+            if($this->runner_faction_experience >= static::getRemainingFactionExperience($this->runner_faction_level)) {
+                ++$this->runner_faction_level;
+                $this->runner_faction_experience = 0;
+            }
+        }
+        else if($faction === Faction::Hunter) {
+            ++$this->hunter_faction_experience;
+
+            if($this->hunter_faction_experience >= static::getRemainingFactionExperience($this->hunter_faction_level)) {
+                ++$this->hunter_faction_level;
+                $this->hunter_faction_experience = 0;
+            }
+        }
+
+        return $this;
     }
 
     public static function getRemainingFactionExperience(int $level): int

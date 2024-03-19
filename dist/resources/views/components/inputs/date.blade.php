@@ -1,0 +1,1 @@
+<input type="date" {{ $attributes->merge(['class' => 'input-global-date']) }}>

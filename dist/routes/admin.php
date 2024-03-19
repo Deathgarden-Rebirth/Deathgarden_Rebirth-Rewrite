@@ -15,7 +15,7 @@ Route::get('file-manager', [GameFileController::class, 'index'])->name(FileManag
 Route::post('file-manager', [GameFileController::class, 'store'])->name('file.store');
 
 Route::get('gamenews', [GameNewsController::class, 'index'])->name(GameNewsController::class);
-Route::post('gamenews/{newsId}', [GameNewsController::class, 'put'])->name('gamenews.post');
+Route::post('gamenews/{news}', [GameNewsController::class, 'submit'])->name('gamenews.post');
 
 
 Route::fallback(function () {

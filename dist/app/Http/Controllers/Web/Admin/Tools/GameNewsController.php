@@ -23,4 +23,8 @@ class GameNewsController extends AdminToolController
 
         return view('admin.tools.game-news', ['newsList' => $news]);
     }
+
+    public function put() {
+
+    }
 }

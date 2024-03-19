@@ -18,6 +18,8 @@ class News extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $primaryKey = 'uuid';
+
     protected $casts = [
         'message_type' => MessageType::class,
         'redirect_mode' => GameNewsRedirectMode::class,

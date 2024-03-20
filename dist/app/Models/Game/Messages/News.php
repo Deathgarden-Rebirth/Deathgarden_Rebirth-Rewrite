@@ -27,4 +27,13 @@ class News extends Model
         'from_date' => 'datetime:Y-m-d H:i:s',
         'to_date' => 'datetime:Y-m-d H:i:s',
     ];
+
+    protected $attributes = [
+        'one_time_news' => false,
+        'should_quit_game' => false,
+        'one_match' => false,
+        'redirect_mode' => GameNewsRedirectMode::None,
+        'title' => 'News Title',
+        'body' => 'News Description',
+    ];
 }

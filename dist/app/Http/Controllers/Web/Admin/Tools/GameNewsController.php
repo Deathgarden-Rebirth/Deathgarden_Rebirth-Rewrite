@@ -26,9 +26,16 @@ class GameNewsController extends AdminToolController
 
     public function index()
     {
-        $news = News::all();
+        $news = News::orderByDesc('uuid')->get();
 
         return view('admin.tools.game-news', ['newsList' => $news]);
+    }
+
+    public function create()
+    {
+        News::create();
+
+        return Redirect::back();
     }
 
     public function submit(News $news, SubmitGameNewsRequest $request) {

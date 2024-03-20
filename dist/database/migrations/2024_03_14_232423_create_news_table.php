@@ -16,6 +16,7 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->uuid()->primary();
+            $table->boolean('enabled');
             $table->enum('message_type', array_column(MessageType::cases(), 'value'));
             $table->enum('faction', array_column(Faction::cases(), 'value'))->default(Faction::None->value);
             $table->boolean('one_time_news');
@@ -27,8 +28,8 @@ return new class extends Migration
             $table->string('background_image')->nullable();
             $table->string('in_game_news_background_image')->nullable();
             $table->string('in_game_news_thumbnail')->nullable();
-            $table->dateTime('from_date')->nullable();
-            $table->dateTime('to_date')->nullable();
+            $table->dateTime('from_date')->useCurrent();
+            $table->dateTime('to_date')->useCurrent();
             $table->string('title');
             $table->text('body');
             $table->integer('display_x_times')->nullable();

@@ -8,6 +8,10 @@
 
   input {
     @apply w-full bg-inherit text-inherit focus:outline-none;
+
+    &:invalid {
+      @apply border-red-600;
+    }
   }
 
   &:has(> input[data-show-error='1']) {

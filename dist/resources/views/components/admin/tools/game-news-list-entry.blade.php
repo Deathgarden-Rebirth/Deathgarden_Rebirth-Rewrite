@@ -15,12 +15,23 @@
 <div class="container mx-auto bg-slate-800 border border-slate-500 rounded-xl my-6 py-2 px-4 shadow-glow shadow-gray-400/30">
     <form action="{{ route('gamenews.post', ['news' => $news->uuid]) }}" method="post">
         @csrf
+        <div class="float-right mt-[-1rem]">
+            <span class="text-white/75">{{ $news->uuid }}</span>
+        </div>
         <div class="game-news-entry-attributes">
             <div class="section flex-col">
                 <h1>Main Settings</h1>
                 <div>
+                    <label for="{{ $idPrefix }}enabled">Enabled</label>
+                    <x-inputs.checkbox
+                            id="{{ $idPrefix }}enabled"
+                            name="{{ SubmitGameNewsRequest::ENABLED }}"
+                            :checked="$news->enabled"/>
+                </div>
+                <div>
                     <label for="{{ $idPrefix }}title">Title</label>
                     <x-inputs.text id="{{ $idPrefix }}title"
+                                   required
                                    name="{{ SubmitGameNewsRequest::TITLE }}"
                                    value="{{ $news->title }}"/>
                 </div>
@@ -28,6 +39,7 @@
                     <label for="{{ $idPrefix }}description">Description</label>
                     <x-inputs.text-area
                             id="{{ $idPrefix }}description"
+                            required
                             name="{{ SubmitGameNewsRequest::DESCRIPTION }}"
                     >{{ $news->body }}</x-inputs.text-area>
                 </div>
@@ -38,6 +50,7 @@
                     <label for="{{ $idPrefix }}messageType">Message Type</label>
                     <x-inputs.dropdown
                             id="{{ $idPrefix }}messageType"
+                            required
                             name="{{ SubmitGameNewsRequest::MESSSAGE_TYPE }}"
                             :cases="MessageType::cases()"
                             :selected="$news->message_type"/>
@@ -78,6 +91,7 @@
                     <label for="{{ $idPrefix }}redirect-mode">Redirect Mode</label>
                     <x-inputs.dropdown
                             id="{{ $idPrefix }}redirect-mode"
+                            required
                             name="{{ SubmitGameNewsRequest::REDIRECT_MODE }}"
                             :cases="GameNewsRedirectMode::cases()"
                             :selected="$news->redirect_mode"/>
@@ -125,6 +139,7 @@
                     <label for="{{ $idPrefix }}from-date">From Date</label>
                     <x-inputs.date
                             id="{{ $idPrefix }}from-date"
+                            required
                             name="{{ SubmitGameNewsRequest::FROM_DATE }}"
                             value="{{ $news->from_date?->toDateString() }}"/>
                 </div>
@@ -132,6 +147,7 @@
                     <label for="{{ $idPrefix }}to-date">To Date</label>
                     <x-inputs.date
                             id="{{ $idPrefix }}to-date"
+                            required
                             name="{{ SubmitGameNewsRequest::TO_DATE }}"
                             value="{{ $news->to_date?->toDateString() }}"/>
                 </div>

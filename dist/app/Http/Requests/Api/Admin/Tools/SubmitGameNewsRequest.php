@@ -7,12 +7,15 @@ use App\Enums\Auth\Permissions;
 use App\Enums\Game\Faction;
 use App\Enums\Game\Message\GameNewsRedirectMode;
 use App\Enums\Game\Message\MessageType;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class SubmitGameNewsRequest extends FormRequest
 {
+    const ENABLED = 'enabled';
+
     const TITLE = 'title';
 
     const DESCRIPTION = 'description';
@@ -69,17 +72,14 @@ class SubmitGameNewsRequest extends FormRequest
             static::DESCRIPTION => 'required|string',
             static::MESSSAGE_TYPE => ['required', Rule::enum(MessageType::class)],
             static::FACTION => ['nullable', Rule::enum(Faction::class)],
-            static::ONE_TIME_NEWS => 'bool|nullable',
-            static::QUIT_GAME => 'bool|nullable',
-            static::COMPLETE_ONE_MATCH => 'bool|nullable',
             static::REDIRECT_MODE => ['required', Rule::enum(GameNewsRedirectMode::class)],
             static::REDIRECT_ITEM => 'nullable|string',
             static::REDIRECT_URL => 'nullable|string',
             static::POP_UP_BACKGROUND => 'nullable|string',
             static::IN_GAME_BACKGROUND => 'nullable|string',
             static::IN_GAME_THUMBNAIL => 'nullable|string',
-            static::FROM_DATE => 'date|nullable',
-            static::TO_DATE => 'date|nullable',
+            static::FROM_DATE => 'date|required',
+            static::TO_DATE => 'date|required',
             static::DISPLAY_X_TIMES => 'integer|nullable',
             static::MAX_PLAYER_LEVEL => 'integer|nullable',
             static::SUBMIT_METHOD => ['required', Rule::enum(HttpMethod::class)],

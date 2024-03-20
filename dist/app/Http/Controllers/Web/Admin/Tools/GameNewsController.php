@@ -26,7 +26,7 @@ class GameNewsController extends AdminToolController
 
     public function index()
     {
-        $news = News::orderByDesc('uuid')->get();
+        $news = News::orderByDesc('created_at')->get();
 
         return view('admin.tools.game-news', ['newsList' => $news]);
     }
@@ -54,14 +54,15 @@ class GameNewsController extends AdminToolController
 
     protected function updateNews(News &$news, SubmitGameNewsRequest &$request)
     {
+        $news->enabled = $request->input(SubmitGameNewsRequest::ENABLED) !== null;
         $news->title = $request->input(SubmitGameNewsRequest::TITLE);
         $news->body = $request->input(SubmitGameNewsRequest::DESCRIPTION);
 
         $news->message_type = MessageType::tryFrom($request->input(SubmitGameNewsRequest::MESSSAGE_TYPE));
         $news->faction = Faction::tryFrom($request->input(SubmitGameNewsRequest::FACTION, Faction::None));
-        $news->one_time_news = $request->input(SubmitGameNewsRequest::ONE_TIME_NEWS, false);
-        $news->should_quit_game = $request->input(SubmitGameNewsRequest::QUIT_GAME, false);
-        $news->one_match = $request->input(SubmitGameNewsRequest::COMPLETE_ONE_MATCH, false);
+        $news->one_time_news = $request->input(SubmitGameNewsRequest::ONE_TIME_NEWS) !== null;
+        $news->should_quit_game = $request->input(SubmitGameNewsRequest::QUIT_GAME) !== null;
+        $news->one_match = $request->input(SubmitGameNewsRequest::COMPLETE_ONE_MATCH) !== null;
 
         $news->redirect_mode = GameNewsRedirectMode::tryFrom($request->input(SubmitGameNewsRequest::REDIRECT_MODE));
         $news->redirect_item = $request->input(SubmitGameNewsRequest::REDIRECT_ITEM);

@@ -29,6 +29,7 @@ class News extends Model
     ];
 
     protected $attributes = [
+        'enabled' => false,
         'one_time_news' => false,
         'should_quit_game' => false,
         'one_match' => false,

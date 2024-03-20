@@ -4,8 +4,8 @@
 
 <x-layouts.admin>
     <div class="w-full p-2 md:px-16">
-        @foreach($newsList as $news)
-            <x-admin.tools.game-news-list-entry :$news/>
+        @foreach($newsList as $index => $news)
+            <x-admin.tools.game-news-list-entry :$news :idPrefix="$index"/>
         @endforeach
         <form action="{{ route('gamenews.create') }}" method="post">
             @csrf

@@ -126,14 +126,14 @@
                     <x-inputs.date
                             id="{{ $idPrefix }}from-date"
                             name="{{ SubmitGameNewsRequest::FROM_DATE }}"
-                            value="{{ $news->from_date->toDateString() }}"/>
+                            value="{{ $news->from_date?->toDateString() }}"/>
                 </div>
                 <div>
                     <label for="{{ $idPrefix }}to-date">To Date</label>
                     <x-inputs.date
                             id="{{ $idPrefix }}to-date"
                             name="{{ SubmitGameNewsRequest::TO_DATE }}"
-                            value="{{ $news->to_date->toDateString() }}"/>
+                            value="{{ $news->to_date?->toDateString() }}"/>
                 </div>
                 <div>
                     <label for="{{ $idPrefix }}display-x-times">Display X Times</label>
@@ -154,20 +154,20 @@
             </div>
         </div>
         <div class="flex justify-start gap-6 mt-4">
-            <x-inputs.submit
+            <x-inputs.button
                     class="save"
                     name="{{ SubmitGameNewsRequest::SUBMIT_METHOD }}"
                     value="{{ \App\APIClients\HttpMethod::PUT }}"
             >
                 Save
-            </x-inputs.submit>
-            <x-inputs.submit
+            </x-inputs.button>
+            <x-inputs.button
                     class="delete"
                     name="{{ SubmitGameNewsRequest::SUBMIT_METHOD }}"
                     value="{{ \App\APIClients\HttpMethod::DELETE }}"
             >
                 Delete
-            </x-inputs.submit>
+            </x-inputs.button>
         </div>
     </form>
 </div>

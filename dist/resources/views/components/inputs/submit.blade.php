@@ -1,1 +1,0 @@
-<button type="submit" {{ $attributes->merge(['class' => 'input-global-submit']) }}><span>{{ $slot }}</span></button>

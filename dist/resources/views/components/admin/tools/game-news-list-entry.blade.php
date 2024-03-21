@@ -123,14 +123,14 @@
                     <x-inputs.text
                             id="{{ $idPrefix }}in-game-news-bg"
                             name="{{ SubmitGameNewsRequest::IN_GAME_BACKGROUND }}"
-                            value="{{ $news->background_image }}"/>
+                            value="{{ $news->in_game_news_background_image }}"/>
                 </div>
                 <div>
                     <label for="{{ $idPrefix }}in-game-news-thumbnail">In Game News Thumbnail</label>
                     <x-inputs.text
                             id="{{ $idPrefix }}in-game-news-thumbnail"
                             name=" {{ SubmitGameNewsRequest::IN_GAME_THUMBNAIL }}"
-                            value="{{ $news->background_image }}"/>
+                            value="{{ $news->in_game_news_thumbnail }}"/>
                 </div>
             </div>
             <div class="section columns-1 lg:columns-2">

@@ -1,5 +1,13 @@
 [class^='input-global-'] {
-  @apply transition-colors rounded-md border bg-gray-800 border-gray-600;
+  @apply transition-colors rounded-md border bg-gray-800 border-gray-500;
+
+  &:disabled {
+    @apply text-white/15 border-gray-900;
+  }
+
+  &:has(> input:disabled) {
+    @apply text-white/15 border-gray-900;
+  }
 }
 
 .input-global-text {

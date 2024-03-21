@@ -59,12 +59,12 @@ class GameNewsController extends AdminToolController
         $news->body = $request->input(SubmitGameNewsRequest::DESCRIPTION);
 
         $news->message_type = MessageType::tryFrom($request->input(SubmitGameNewsRequest::MESSSAGE_TYPE));
-        $news->faction = Faction::tryFrom($request->input(SubmitGameNewsRequest::FACTION, Faction::None));
+        $news->faction = Faction::tryFrom($request->input(SubmitGameNewsRequest::FACTION, Faction::None->value));
         $news->one_time_news = $request->input(SubmitGameNewsRequest::ONE_TIME_NEWS) !== null;
         $news->should_quit_game = $request->input(SubmitGameNewsRequest::QUIT_GAME) !== null;
         $news->one_match = $request->input(SubmitGameNewsRequest::COMPLETE_ONE_MATCH) !== null;
 
-        $news->redirect_mode = GameNewsRedirectMode::tryFrom($request->input(SubmitGameNewsRequest::REDIRECT_MODE));
+        $news->redirect_mode = GameNewsRedirectMode::tryFrom($request->input(SubmitGameNewsRequest::REDIRECT_MODE, GameNewsRedirectMode::None->value));
         $news->redirect_item = $request->input(SubmitGameNewsRequest::REDIRECT_ITEM);
         $news->redirect_url = $request->input(SubmitGameNewsRequest::REDIRECT_URL);
 

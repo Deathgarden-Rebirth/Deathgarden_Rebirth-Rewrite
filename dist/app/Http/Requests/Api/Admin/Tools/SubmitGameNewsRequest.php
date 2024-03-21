@@ -72,7 +72,7 @@ class SubmitGameNewsRequest extends FormRequest
             static::DESCRIPTION => 'required|string',
             static::MESSSAGE_TYPE => ['required', Rule::enum(MessageType::class)],
             static::FACTION => ['nullable', Rule::enum(Faction::class)],
-            static::REDIRECT_MODE => ['required', Rule::enum(GameNewsRedirectMode::class)],
+            static::REDIRECT_MODE => ['nullable', Rule::enum(GameNewsRedirectMode::class)],
             static::REDIRECT_ITEM => 'nullable|string',
             static::REDIRECT_URL => 'nullable|string',
             static::POP_UP_BACKGROUND => 'nullable|string',

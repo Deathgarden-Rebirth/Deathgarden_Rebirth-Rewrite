@@ -12,7 +12,12 @@
     @vite(['resources/css/components/admin/tools/game-news-list-entry.scss'])
 @endpushonce
 
-<div class="container mx-auto bg-slate-800 border border-slate-500 rounded-xl my-6 py-2 px-4 shadow-glow shadow-gray-400/30">
+<div class="container mx-auto bg-slate-800 border border-slate-500 rounded-xl my-6 py-2 px-4 shadow-glow shadow-gray-400/30"
+     x-data="{
+        messageType: '{{ $news->message_type->value}}',
+        redirectMode: '{{ $news->redirect_mode->value }}'
+    }"
+>
     <form action="{{ route('gamenews.post', ['news' => $news->uuid]) }}" method="post">
         @csrf
         <div class="float-right mt-[-1rem]">
@@ -52,6 +57,7 @@
                             id="{{ $idPrefix }}messageType"
                             required
                             name="{{ SubmitGameNewsRequest::MESSSAGE_TYPE }}"
+                            x-model="messageType"
                             :cases="MessageType::cases()"
                             :selected="$news->message_type"/>
                 </div>
@@ -60,6 +66,7 @@
                     <x-inputs.dropdown
                             id="{{ $idPrefix }}faction"
                             name="{{ SubmitGameNewsRequest::FACTION }}"
+                            x-bind:disabled="messageType === '{{ MessageType::PopUpNews->value }}'"
                             :cases="Faction::cases()"
                             :selected="$news->faction"/>
                 </div>
@@ -68,6 +75,7 @@
                     <x-inputs.checkbox
                             id="{{ $idPrefix }}one-time"
                             name="{{ SubmitGameNewsRequest::ONE_TIME_NEWS }}"
+                            x-bind:disabled="messageType === '{{ MessageType::InGameNews->value }}'"
                             :checked="$news->one_time_news"/>
                 </div>
                 <div>
@@ -75,6 +83,7 @@
                     <x-inputs.checkbox
                             id="{{ $idPrefix }}quit-game"
                             name="{{ SubmitGameNewsRequest::QUIT_GAME }}"
+                            x-bind:disabled="messageType === '{{ MessageType::InGameNews->value }}'"
                             :checked="$news->should_quit_game"/>
                 </div>
                 <div>
@@ -93,6 +102,8 @@
                             id="{{ $idPrefix }}redirect-mode"
                             required
                             name="{{ SubmitGameNewsRequest::REDIRECT_MODE }}"
+                            x-model="redirectMode"
+                            x-bind:disabled="messageType === '{{ MessageType::PopUpNews->value }}'"
                             :cases="GameNewsRedirectMode::cases()"
                             :selected="$news->redirect_mode"/>
                 </div>
@@ -100,13 +111,22 @@
                     <label for="{{ $idPrefix }}redirect-item">Redirect Item</label>
                     <x-inputs.text id="{{ $idPrefix }}redirect-item"
                                    name="{{ SubmitGameNewsRequest::REDIRECT_ITEM }}"
+                                   x-bind:disabled="
+                                   messageType === '{{ MessageType::PopUpNews->value }}' ||
+                                   redirectMode === '{{ GameNewsRedirectMode::WebsiteLink->value }}' ||
+                                   redirectMode === '{{ GameNewsRedirectMode::None->value }}'"
                                    value="{{ $news->redirect_item }}"/>
                 </div>
                 <div>
                     <label for="{{ $idPrefix }}redirect-url">Redirect Url</label>
                     <x-inputs.text id="{{ $idPrefix }}redirect-url"
                                    name="{{ SubmitGameNewsRequest::REDIRECT_URL }}"
+                                   x-bind:disabled="
+                                   messageType === '{{ MessageType::PopUpNews->value }}' ||
+                                   redirectMode === '{{ GameNewsRedirectMode::Store->value }}' ||
+                                   redirectMode === '{{ GameNewsRedirectMode::None->value }}'"
                                    value="{{ $news->redirect_url }}"/>
+
                 </div>
             </div>
             <div class="section columns-1 lg:columns-2 xl:columns-3">
@@ -116,6 +136,7 @@
                     <x-inputs.text
                             id="{{ $idPrefix }}pop-up-bg"
                             name="{{ SubmitGameNewsRequest::POP_UP_BACKGROUND }}"
+                            x-bind:disabled="messageType !== '{{ MessageType::PopUpNews->value }}'"
                             value="{{ $news->background_image }}"/>
                 </div>
                 <div>
@@ -123,6 +144,7 @@
                     <x-inputs.text
                             id="{{ $idPrefix }}in-game-news-bg"
                             name="{{ SubmitGameNewsRequest::IN_GAME_BACKGROUND }}"
+                            x-bind:disabled="messageType === '{{ MessageType::PopUpNews->value }}'"
                             value="{{ $news->in_game_news_background_image }}"/>
                 </div>
                 <div>
@@ -130,6 +152,7 @@
                     <x-inputs.text
                             id="{{ $idPrefix }}in-game-news-thumbnail"
                             name=" {{ SubmitGameNewsRequest::IN_GAME_THUMBNAIL }}"
+                            x-bind:disabled="messageType === '{{ MessageType::PopUpNews->value }}'"
                             value="{{ $news->in_game_news_thumbnail }}"/>
                 </div>
             </div>
@@ -157,6 +180,7 @@
                             id="{{ $idPrefix }}display-x-times"
                             name="{{ SubmitGameNewsRequest::DISPLAY_X_TIMES }}"
                             min="0"
+                            x-bind:disabled="messageType !== '{{ MessageType::PopUpNews->value }}'"
                             value="{{ $news->display_x_times }}"/>
                 </div>
                 <div>
@@ -165,6 +189,7 @@
                             id="{{ $idPrefix }}max-player-level"
                             name="{{ SubmitGameNewsRequest::MAX_PLAYER_LEVEL }}"
                             min="1"
+                            x-bind:disabled="messageType === '{{ MessageType::PopUpNews->value }}'"
                             value="{{ $news->max_player_level }}"/>
                 </div>
             </div>

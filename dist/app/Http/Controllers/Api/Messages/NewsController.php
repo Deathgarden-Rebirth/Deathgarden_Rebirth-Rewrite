@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Messages;
 
+use App\Enums\Game\Faction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Messages\GameNewsMessagesRequest;
 use App\Http\Responses\Api\Messages\News\GameNews;
@@ -16,13 +17,18 @@ class NewsController extends Controller
     public function getGameNews(GameNewsMessagesRequest $request)
     {
         $now = Carbon::now();
+        $factions = [Faction::None->value];
+
+        if($request->faction !== Faction::None)
+            $factions[] = $request->faction->value;
+
         $query =News::where('message_type', '=', $request->messageType->value)
             ->where('enabled', '=', true)
             ->where(function (Builder $query) use ($request) {
                 $query->where('max_player_level', '>=', $request->playerLevel)
                     ->orWhereNull('max_player_level');
             })
-            ->where('faction', '=', $request->faction->value)
+            ->whereIn('faction', $factions)
             ->whereDate('from_date', '<=', $now)
             ->whereDate('to_date', '>=', $now)
             ->orderBy('created_at', $request->sortDescending ? 'desc' : 'asc');

@@ -3,16 +3,22 @@
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-import { createApp, h } from 'vue'
-
+import modal from 'jquery-modal';
 import axios from 'axios';
 import Alpine from 'alpinejs';
+import jQuery from 'jquery';
 
 window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.Alpine = Alpine;
 Alpine.start();
+
+window.$ = window.jQuery = jQuery();
+window.$.modal = modal;
+windows.$("#custom-close").modal({
+    closeClass: 'modal-close-custom',
+})
 
 
 

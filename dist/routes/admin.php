@@ -18,7 +18,6 @@ Route::get('gamenews', [GameNewsController::class, 'index'])->name(GameNewsContr
 Route::post('gamenews/create', [GameNewsController::class, 'create'])->name('gamenews.create');
 Route::post('gamenews/{news}', [GameNewsController::class, 'submit'])->name('gamenews.post');
 
-
 Route::fallback(function () {
     return redirect(route('admin.dashboard'));
 });

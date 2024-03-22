@@ -18,7 +18,7 @@
         redirectMode: '{{ $news->redirect_mode->value }}'
     }"
 >
-    <form action="{{ route('gamenews.post', ['news' => $news->uuid]) }}" method="post">
+    <form action="{{ route('gamenews.post', ['news' => $news->uuid]) }}" method="post" id="{{ $idPrefix }}news-form">
         @csrf
         <div class="float-right mt-[-1rem]">
             <span class="text-white/75">{{ $news->uuid }}</span>
@@ -203,13 +203,41 @@
                 Save
             </x-inputs.button>
             <x-inputs.button
+                    href="#{{ $idPrefix }}delete-modal"
+                    rel="modal:open"
+                    type="button"
                     class="delete"
                     name="{{ SubmitGameNewsRequest::SUBMIT_METHOD }}"
                     value="{{ \App\APIClients\HttpMethod::DELETE }}"
             >
                 Delete
             </x-inputs.button>
+            <div id="{{ $idPrefix }}delete-modal" class="modal">
+                <div class="flex flex-col items-center gap-5">
+                    <span>
+                        Are you sure you want to delete the news
+                    <span class="italic m-1 inline bg-slate-700 w-fit px-2 rounded">
+                        {{ $news->title }}
+                    </span>
+                        ?
+                    </span>
+                    <div class="flex gap-5">
+                        <x-inputs.button type="button" href="#close" rel="modal:close">
+                            Cancel
+                        </x-inputs.button>
+                        <x-inputs.button
+                                form="{{ $idPrefix }}news-form"
+                                class="delete"
+                                name="{{ SubmitGameNewsRequest::SUBMIT_METHOD }}"
+                                value="{{ \App\APIClients\HttpMethod::DELETE }}"
+                        >
+                            Delete
+                        </x-inputs.button>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </form>
 </div>
 

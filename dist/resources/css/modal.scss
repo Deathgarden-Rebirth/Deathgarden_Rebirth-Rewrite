@@ -1,0 +1,10 @@
+@import 'jquery-modal';
+
+.modal {
+  @apply bg-slate-800 shadow-glow shadow-gray-800/50;
+
+  .close-modal {
+    @apply border-slate-800 border-2 rounded-full;
+  }
+}
+

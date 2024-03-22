@@ -44,7 +44,7 @@ class GameNewsController extends AdminToolController
                 $this->updateNews($news, $request);
                 break;
             case HttpMethod::DELETE:
-                $this->deleteNews($news, $request);
+                $this->deleteNews($news);
                 break;
             default:
         }
@@ -85,9 +85,10 @@ class GameNewsController extends AdminToolController
         return Redirect::back();
     }
 
-    protected function deleteNews(News &$news, SubmitGameNewsRequest &$request)
+    protected function deleteNews(News &$news)
     {
-
+        $news->delete();
+        return Redirect::back();
     }
 
 }

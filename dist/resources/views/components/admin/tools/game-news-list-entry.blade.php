@@ -133,27 +133,30 @@
                 <h1>Images</h1>
                 <div>
                     <label for="{{ $idPrefix }}pop-up-bg">Pop-Up News Background</label>
-                    <x-inputs.text
+                    <x-inputs.asset-dropdown
                             id="{{ $idPrefix }}pop-up-bg"
                             name="{{ SubmitGameNewsRequest::POP_UP_BACKGROUND }}"
                             x-bind:disabled="messageType !== '{{ MessageType::PopUpNews->value }}'"
-                            value="{{ $news->background_image }}"/>
+                            folderPath="news/banners/popup"
+                            selected="{{ $news->background_image }}"/>
                 </div>
                 <div>
                     <label for="{{ $idPrefix }}in-game-news-bg">In Game News Background</label>
-                    <x-inputs.text
+                    <x-inputs.asset-dropdown
                             id="{{ $idPrefix }}in-game-news-bg"
                             name="{{ SubmitGameNewsRequest::IN_GAME_BACKGROUND }}"
                             x-bind:disabled="messageType === '{{ MessageType::PopUpNews->value }}'"
-                            value="{{ $news->in_game_news_background_image }}"/>
+                            folderPath="news/banners/inGame_large"
+                            selected="{{ $news->in_game_news_background_image }}"/>
                 </div>
                 <div>
                     <label for="{{ $idPrefix }}in-game-news-thumbnail">In Game News Thumbnail</label>
-                    <x-inputs.text
+                    <x-inputs.asset-dropdown
                             id="{{ $idPrefix }}in-game-news-thumbnail"
                             name=" {{ SubmitGameNewsRequest::IN_GAME_THUMBNAIL }}"
                             x-bind:disabled="messageType === '{{ MessageType::PopUpNews->value }}'"
-                            value="{{ $news->in_game_news_thumbnail }}"/>
+                            folderPath="news/banners/inGame_small"
+                            selected="{{ $news->in_game_news_thumbnail }}"/>
                 </div>
             </div>
             <div class="section columns-1 lg:columns-2">

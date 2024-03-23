@@ -7,10 +7,8 @@ use App\Enums\Auth\Permissions;
 use App\Enums\Game\Faction;
 use App\Enums\Game\Message\GameNewsRedirectMode;
 use App\Enums\Game\Message\MessageType;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Admin\Tools\SubmitGameNewsRequest;
 use App\Models\Game\Messages\News;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
@@ -88,6 +86,8 @@ class GameNewsController extends AdminToolController
     protected function deleteNews(News &$news)
     {
         $news->delete();
+        // TODO: Add delete alert.
+
         return Redirect::back();
     }
 

@@ -16,11 +16,6 @@ Alpine.start();
 
 window.$ = window.jQuery = jQuery();
 window.$.modal = modal;
-windows.$("#custom-close").modal({
-    closeClass: 'modal-close-custom',
-})
-
-
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

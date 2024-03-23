@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Artisan;
 
 
 /**
@@ -29,12 +30,12 @@ class PlayerData extends Model
 
     protected $attributes = [
         'has_played_tutorial' => false,
-        'has_played_dg_1' => true,
-        'currency_a' => 0,
-        'currency_b' => 0,
-        'currency_c' => 0,
+        'has_played_dg_1' => false,
+        'currency_a' => 1000,
+        'currency_b' => 500,
+        'currency_c' => 500,
         'last_faction' => Faction::Runner,
-        'last_hunter' => Hunter::Poacher,
+        'last_hunter' => Hunter::Inquisitor,
         'last_runner' => Runner::Smoke,
         'readout_version' => 1,
         'runner_faction_level' => 1,
@@ -93,6 +94,18 @@ class PlayerData extends Model
             }
 
             $playerData->quitterState()->create();
+
+            // Add Default Characters
+            Artisan::call('game:add-characters-to-user', [
+                'user' => $playerData->user_id,
+                'characters' => [
+                    Characters::Smoke->value,
+                    Characters::Ghost->value,
+                    Characters::Sawbones->value,
+                    Characters::Inquisitor->value,
+                    Characters::Mass->value,
+                ]
+            ]);
         });
     }
 

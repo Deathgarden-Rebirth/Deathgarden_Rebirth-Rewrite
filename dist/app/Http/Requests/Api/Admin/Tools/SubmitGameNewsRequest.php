@@ -67,6 +67,13 @@ class SubmitGameNewsRequest extends FormRequest
      */
     public function rules(): array
     {
+        $submitMethod = HttpMethod::tryFrom($this->input(static::SUBMIT_METHOD));
+
+        if ($submitMethod === HttpMethod::DELETE)
+            return [
+                static::SUBMIT_METHOD => ['required', Rule::enum(HttpMethod::class)],
+            ];
+
         return [
             static::TITLE => 'required|string',
             static::DESCRIPTION => 'required|string',

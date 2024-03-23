@@ -230,6 +230,7 @@
                                 class="delete"
                                 name="{{ SubmitGameNewsRequest::SUBMIT_METHOD }}"
                                 value="{{ \App\APIClients\HttpMethod::DELETE }}"
+                                formnovalidate
                         >
                             Delete
                         </x-inputs.button>

@@ -62,5 +62,6 @@ class SteamAuthController extends Controller
         $user->avatar_small = $player->avatar;
         $user->avatar_medium = $player->avatarMedium;
         $user->avatar_full = $player->avatarFull;
+        $user->save();
     }
 }

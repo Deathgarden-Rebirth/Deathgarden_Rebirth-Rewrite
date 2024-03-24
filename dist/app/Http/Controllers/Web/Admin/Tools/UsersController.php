@@ -16,7 +16,7 @@ class UsersController extends AdminToolController
 
     protected static Permissions $neededPermission = Permissions::USER_MANAGEMENT;
 
-    const PER_PAGE = 10;
+    const PER_PAGE = 15;
 
     public function index(Request $request)
     {

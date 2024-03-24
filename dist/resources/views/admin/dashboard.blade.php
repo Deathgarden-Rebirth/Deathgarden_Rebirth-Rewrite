@@ -14,7 +14,7 @@
             @endphp
 
             <a href="{{ route($toolClass) }}" class="justify-center text-center">
-            <div class="border-b-red-950 bg-gray-800 w-48 p-4 rounded-xl flex flex-col items-center h-56 max-h-96">
+            <div class="bg-slate-300 dark:bg-gray-800 w-48 p-4 rounded-xl flex flex-col items-center h-56 max-h-96">
                 <span>
                     {{ $toolClass::getName() }}
                 </span>

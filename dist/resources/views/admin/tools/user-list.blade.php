@@ -6,9 +6,8 @@
 ])
 
 @php
-    /** @var \Illuminate\Pagination\LengthAwarePaginator $userList */
+    /** @var \Illuminate\Pagination\LengthAwarePaginator|\App\Models\User\User[] $userList */
 @endphp
-
 
 <x-layouts.admin>
     <div class="w-full p-2 md:px-16">
@@ -48,9 +47,11 @@
                             <td class="text-green-400">GOOD</td>
                         @endif
                         <td>
-                            <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="User Details">
-                                <x-icons.user-details class="size-4"/>
-                            </x-inputs.button>
+                            <a href="{{ route('user.details', ['user' => $user->id]) }}">
+                                <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="User Details">
+                                    <x-icons.user-details class="size-4"/>
+                                </x-inputs.button>
+                            </a>
                             <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="Inbox">
                                 <x-icons.mail class="size-4"/>
                             </x-inputs.button>

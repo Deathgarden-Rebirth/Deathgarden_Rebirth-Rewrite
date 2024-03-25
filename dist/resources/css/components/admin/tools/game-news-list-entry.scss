@@ -7,7 +7,8 @@
       @apply text-2xl font-semibold;
 
       &::after {
-        @apply block w-full mt-2;
+        @apply block w-ful
+        l mt-2;
         content: "";
         border-top: 0.1rem solid;
         border-image: linear-gradient(to right, theme('colors.indigo.600') 10%, transparent) 1;

@@ -15,11 +15,11 @@
     use App\Models\User\PlayerData;
 
     $allowEdit = $user->can(\App\Enums\Auth\Permissions::EDIT_USERS->value);
-    $allowEdit = false;
+    $allowEdit = true;
 @endphp
 
 <x-layouts.admin>
-    <div class="w-full h-full user-details">
+    <div class="w-full user-details max-h-full bg-inherit overflow-y-auto">
         <div class="section">
             <h1>General Info</h1>
             <div class="flex gap-4 mt-4 items-center">
@@ -152,24 +152,54 @@
             <div class="bg-green-400 dark:bg-green-800 p-2 rounded-md shadow-glow shadow-green-400/15 outline outline-green-700">
                 <div class="flex justify-between p-2 text-2xl font-bold ">
                     <label>Runner</label>
-                    <span class="text-yellow-500">{{ $user->playerData()->runner_faction_level }}</span>
+                    @if($allowEdit)
+                        <x-inputs.number
+                                class="w-32"
+                                id="RunnerFactionLevel"
+                                name="RunnerFactionLevel"
+                                value="{{ $user->playerData()->runner_faction_level }}"
+                        />
+                    @else
+                        <span class="text-yellow-500">{{ number_format($user->playerData()->runner_faction_level, thousands_separator: '.') }}</span>
+                    @endif
                 </div>
                 <x-misc.progression.faction-progression
                         class="p-2"
                         :current="$user->playerData()->runner_faction_experience"
                         :needed="PlayerData::getRemainingFactionExperience($user->playerData()->runner_faction_level)"
                 />
+                @foreach(Runner::cases() as $character)
+                    <x-misc.progression.character-progression
+                            class="mt-1 bg-gray-500/50 rounded-md"
+                            :allowEdit="$allowEdit"
+                            :character="$user->playerData()->characterDataForCharacter(\App\Enums\Game\Characters::from($character->value))"/>
+                @endforeach
             </div>
-            <div class="bg-red-400 dark:bg-red-800 p-2 rounded-md col-start-2 shadow-glow shadow-red-400/15 outline outline-red-900">
+            <div class="bg-red-400 dark:bg-red-800 p-2 rounded-md col-start-2 shadow-glow shadow-red-400/15 outline outline-red-900 mt-4 md:mt-0">
                 <div class="flex justify-between p-2 text-2xl font-bold ">
                     <label>Hunter</label>
-                    <span class="text-yellow-500">{{ $user->playerData()->hunter_faction_level }}</span>
+                    @if($allowEdit)
+                        <x-inputs.number
+                                class="w-32"
+                                id="HunterFactionLevel"
+                                name="RunnerFactionLevel"
+                                value="{{ $user->playerData()->hunter_faction_level }}"
+                        />
+                    @else
+                        <span class="text-yellow-500">{{ number_format($user->playerData()->hunter_faction_level, thousands_separator: '.') }}</span>
+                    @endif
                 </div>
                 <x-misc.progression.faction-progression
                         class="p-2"
                         :current="$user->playerData()->hunter_faction_experience"
                         :needed="PlayerData::getRemainingFactionExperience($user->playerData()->hunter_faction_level)"
                 />
+                @foreach(Hunter::cases() as $character)
+                    <x-misc.progression.character-progression
+                            class="mt-1 bg-gray-500/50 rounded-md"
+                            :allowEdit="$allowEdit"
+                            :character="$user->playerData()->characterDataForCharacter(\App\Enums\Game\Characters::from($character->value))"/>
+                @endforeach
             </div>
         </div>
     </div>

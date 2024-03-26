@@ -1,0 +1,80 @@
+[class^='input-global-'] {
+  @apply transition-colors rounded-md border bg-gray-800 border-gray-500;
+
+  &:disabled {
+    @apply text-white/15 border-gray-900;
+  }
+
+  &:has(> input:disabled) {
+    @apply text-white/15 border-gray-900;
+  }
+}
+
+.input-global-text {
+  @apply px-4 py-2 text-base outline-none focus-within:border-indigo-600 whitespace-nowrap;
+  flex-grow: 1;
+
+  input {
+    @apply w-full bg-inherit text-inherit focus:outline-none;
+
+    &:invalid {
+      @apply border-red-600;
+    }
+  }
+
+  &:has(> input[data-show-error='1']) {
+    input {
+      width: calc(100% - 1rem);
+    }
+
+    &::after {
+      display: inline-block;
+      content: '⚠';
+    }
+  }
+
+  span {
+    @apply inline-block;
+  }
+}
+
+.input-global-textarea {
+  @apply px-4 py-2 w-auto outline-none focus-within:border-indigo-600 resize-y text-nowrap;
+  flex-grow: 1;
+}
+
+.input-global-checkbox {
+  @apply accent-indigo-800;
+}
+
+.input-global-dropdown {
+  @apply px-4 py-2 text-base outline-none focus:border-indigo-600;
+
+  option {
+    @apply px-4 py-2 rounded-sm;
+  }
+}
+
+.input-global-date {
+  @apply px-4 py-2 text-base outline-none focus:border-indigo-600;
+}
+
+.input-global-number {
+  @apply px-4 py-2 text-base outline-none focus:border-indigo-600;
+}
+
+.input-global-submit {
+  @apply px-4 py-2 text-base outline-none focus:border-indigo-600 hover:bg-gray-600;
+
+  &.save {
+    @apply bg-blue-800 border-blue-600 hover:bg-blue-600;
+  }
+
+  &.delete {
+    @apply bg-rose-800 border-rose-600 hover:bg-rose-600;
+  }
+
+  &.create {
+    @apply bg-green-800 border-green-600 hover:bg-green-600;
+  }
+}

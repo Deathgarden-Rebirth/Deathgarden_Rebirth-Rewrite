@@ -1,21 +1,21 @@
 [class^='input-global-'] {
-  @apply transition-colors rounded-md border bg-gray-800 border-gray-500;
+  @apply transition-colors rounded-md border bg-slate-200 dark:bg-gray-800 border-gray-500 placeholder:text-black dark:placeholder:text-white;
 
   &:disabled {
     @apply text-white/15 border-gray-900;
   }
 
   &:has(> input:disabled) {
-    @apply text-white/15 border-gray-900;
+    @apply text-white/15 dark:border-gray-900 border-slate-400;
   }
 }
 
 .input-global-text {
-  @apply px-4 py-2 text-base outline-none focus-within:border-indigo-600 whitespace-nowrap;
+  @apply px-4 py-2 text-base focus-within:outline focus-within:outline-1 dark:outline-none focus-within:border-indigo-600 outline-indigo-600 whitespace-nowrap;
   flex-grow: 1;
 
   input {
-    @apply w-full bg-inherit text-inherit focus:outline-none;
+    @apply w-full bg-inherit text-inherit focus:outline-none placeholder:text-black dark:placeholder:text-white;
 
     &:invalid {
       @apply border-red-600;
@@ -39,16 +39,16 @@
 }
 
 .input-global-textarea {
-  @apply px-4 py-2 w-auto outline-none focus-within:border-indigo-600 resize-y text-nowrap;
+  @apply px-4 py-2 w-auto dark:outline-none focus-within:outline focus-within:outline-1 outline-indigo-600 focus-within:border-indigo-600 resize-y text-nowrap;
   flex-grow: 1;
 }
 
 .input-global-checkbox {
-  @apply accent-indigo-800;
+  @apply accent-indigo-800 dark:outline-none focus-within:outline focus-within:outline-1 outline-indigo-600;
 }
 
 .input-global-dropdown {
-  @apply px-4 py-2 text-base outline-none focus:border-indigo-600;
+  @apply px-4 py-2 text-base dark:outline-none dark:focus:border-indigo-600 focus-within:outline focus-within:outline-1 outline-indigo-600;
 
   option {
     @apply px-4 py-2 rounded-sm;
@@ -56,25 +56,25 @@
 }
 
 .input-global-date {
-  @apply px-4 py-2 text-base outline-none focus:border-indigo-600;
+  @apply px-4 py-2 text-base dark:outline-none focus:border-indigo-600 focus:outline focus:outline-1 outline-indigo-600;
 }
 
 .input-global-number {
-  @apply px-4 py-2 text-base outline-none focus:border-indigo-600;
+  @apply px-4 py-2 text-base dark:outline-none focus:border-indigo-600 focus-within:outline focus-within:outline-1 outline-indigo-600;
 }
 
 .input-global-submit {
-  @apply px-4 py-2 text-base outline-none focus:border-indigo-600 hover:bg-gray-600;
+  @apply px-4 py-2 text-base outline-none focus:border-indigo-600 hover:bg-gray-600 hover:text-white;
 
   &.save {
-    @apply bg-blue-800 border-blue-600 hover:bg-blue-600;
+    @apply dark:bg-blue-800 bg-blue-400 border-blue-600 hover:bg-blue-600 hover:text-white;
   }
 
   &.delete {
-    @apply bg-rose-800 border-rose-600 hover:bg-rose-600;
+    @apply dark:bg-rose-800 bg-rose-400 border-rose-600 hover:bg-rose-600 hover:text-white;
   }
 
   &.create {
-    @apply bg-green-800 border-green-600 hover:bg-green-600;
+    @apply dark:bg-green-800 bg-green-400 border-green-600 hover:bg-green-600 hover:text-white;
   }
 }

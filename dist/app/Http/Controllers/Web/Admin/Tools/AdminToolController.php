@@ -31,6 +31,7 @@ abstract class AdminToolController extends Controller
             GameNewsController::class,
             FileManagerController::class,
             LogViewerController::class,
+            UsersController::class,
         ];
     }
 

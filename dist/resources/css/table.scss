@@ -1,0 +1,23 @@
+table {
+  @apply w-full rounded-xl;
+
+  thead {
+    @apply sticky z-10 top-0 text-gray-900 dark:text-gray-500 bg-slate-400 dark:bg-gray-900 rounded-xl;
+
+    th {
+      @apply text-sm uppercase py-2 first:pl-3 last:pr-3 px-1 sm:px-3 default:text-left ;
+    }
+  }
+
+  tr:hover td {
+    @apply dark:bg-slate-700 bg-slate-300;
+  }
+
+  td {
+    @apply text-gray-950 dark:text-white bg-gray-50 dark:bg-slate-800 px-1 sm:px-3 py-3 border border-gray-400 dark:border-gray-700 first:border-l-0 last:border-r-0;
+
+    &[data-numeric] {
+      @apply text-right tabular-nums whitespace-nowrap;
+    }
+  }
+}

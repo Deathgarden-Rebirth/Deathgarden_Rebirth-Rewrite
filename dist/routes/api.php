@@ -12,7 +12,6 @@
 */
 
 use App\Http\Controllers\Api\PatchController;
-use Laravel\Socialite\Facades\Socialite;
 
 Route::prefix('files')->group(function () {
     Route::get('patch/current', [PatchController::class, 'getCurrentPatch']);

@@ -21,6 +21,14 @@ Route::prefix('files')->group(function () {
 
 Route::get('patch/files', [PatchController::class, 'getGameFileList']);
 
+Route::prefix('v1')->middleware('api.session')->group(function () {
+    Route::get('profile', function() {
+        if (!Auth::check())
+            return response()->json("Unauthorized", 401);
+        return response()->json(Auth::user());
+    });
+});
+
 Route::fallback(function () {
     return response('route not found', 404);
 })->middleware('api.session');

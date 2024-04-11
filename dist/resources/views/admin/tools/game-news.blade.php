@@ -3,7 +3,7 @@
 ])
 
 <x-layouts.admin>
-    <div class="w-full p-2 md:px-16">
+    <div class="w-full p-2 md:px-16 bg-inherit">
         @foreach($newsList as $index => $news)
             <x-admin.tools.game-news-list-entry :$news :idPrefix="$index"/>
         @endforeach

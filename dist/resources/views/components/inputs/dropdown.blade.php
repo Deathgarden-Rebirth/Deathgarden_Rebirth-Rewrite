@@ -3,7 +3,12 @@
     /** @var StringBackedEnum $selected */
 ?>
 
-<select {{ $attributes->merge(['class' => 'input-global-dropdown']) }}>
+@props([
+    'disabled' => false,
+])
+
+
+<select {{ $attributes->merge(['class' => 'input-global-dropdown']) }} @disabled($disabled)>
     @foreach($cases as $case)
         <option value="{{ $case->value }}"
                 @selected($case === $selected)

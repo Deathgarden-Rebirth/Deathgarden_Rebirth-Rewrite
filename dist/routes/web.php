@@ -3,7 +3,6 @@
 use App\Http\Controllers\Api\Matchmaking\MatchmakingController;
 use App\Http\Controllers\Web\LoginController;
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +16,7 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 
-Route::get('/auth/redirect', function () {
-    return Socialite::driver('steam')->redirect();
-})->name(LoginController::ROUTE_LOGIN);
+Route::get('/auth/redirect', [LoginController::class, 'redirect'])->name(LoginController::ROUTE_LOGIN);
 
 Route::get('/auth/logout', function () {
     \Illuminate\Support\Facades\Auth::logout();
@@ -27,6 +24,7 @@ Route::get('/auth/logout', function () {
 })->name('logout');
 
 Route::get('/auth/callback', [LoginController::class, 'callback'])->name(LoginController::ROUTE_CALLBACK);
+Route::get('/auth/launcherCallback', [LoginController::class, 'launcherCallback']);
 
 Route::get('{catalogVersion}/catalog', [\App\Http\Controllers\Api\Catalog\CatalogController::class, 'getCatalog']);
 

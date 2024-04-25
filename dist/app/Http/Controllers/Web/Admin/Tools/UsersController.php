@@ -8,6 +8,7 @@ use App\Enums\Game\Runner;
 use App\Http\Requests\Api\Admin\UserDetails\EditUserRequest;
 use App\Models\User\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 
 class UsersController extends AdminToolController
@@ -70,6 +71,8 @@ class UsersController extends AdminToolController
             $characterData->level = $request->{'level'.$character->value};
             $characterData->save();
         }
+
+        Session::flash('alert-success', 'Edits Saved Successfully!');
 
         return redirect()->back();
     }

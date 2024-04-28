@@ -10,4 +10,6 @@ enum Permissions: string
     case GAME_NEWS = 'game-news';
     case VIEW_USERS = 'view-users';
     case EDIT_USERS = 'edit-users';
+    // Access to the homepage while its in maintenance mode
+    case VIEW_MAINTENANCE = 'view-maintenance-mode';
 }

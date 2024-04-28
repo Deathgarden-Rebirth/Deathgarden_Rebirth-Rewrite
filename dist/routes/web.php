@@ -29,7 +29,7 @@ Route::get('/auth/launcherCallback', [LoginController::class, 'launcherCallback'
 Route::get('{catalogVersion}/catalog', [\App\Http\Controllers\Api\Catalog\CatalogController::class, 'getCatalog']);
 
 Route::get('/', function () {
-    return \Inertia\Inertia::render('Dashboard');
+    return view('web.home');
 });
 
 Route::middleware('verify_migration_key')->get('/migrate-database', function () {

@@ -26,6 +26,9 @@ class UsersController extends AdminToolController
 
     public function index(Request $request)
     {
+        if(!Auth::user()->can(Permissions::VIEW_USERS->value))
+            abort(403, 'No Permission to view this Page');
+
         $searchString = $request->input('search');
         $query = User::orderBy('last_known_username');
 
@@ -42,6 +45,9 @@ class UsersController extends AdminToolController
 
     public function details(User $user)
     {
+        if(!Auth::user()->can(Permissions::VIEW_USERS->value))
+            abort(403, 'No Permission to view this Page');
+
         View::share('title', 'User Details: '.$user->last_known_username);
 
         return view('admin.tools.user-details', [
@@ -83,7 +89,7 @@ class UsersController extends AdminToolController
         $canReset = Auth::check() && Auth::user()->can(Permissions::EDIT_USERS->value);
 
         if(!$canReset)
-            return response('You dont have the Permission for this.', 403);
+            abort(403, 'You dont have enough permissions for this action.');
 
         $user->playerData()->delete();
         return redirect()->back();

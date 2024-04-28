@@ -14,13 +14,15 @@
     use App\Enums\Game\Hunter;
     use App\Models\User\PlayerData;
 
-    $allowEdit = $user->can(\App\Enums\Auth\Permissions::EDIT_USERS->value);
+    $allowEdit = \Illuminate\Support\Facades\Auth::user()->can(\App\Enums\Auth\Permissions::EDIT_USERS->value);
 @endphp
 
 <x-layouts.admin>
     <div class="w-full user-details max-h-full bg-inherit overflow-y-auto">
         @if($allowEdit)
-            <form action="{{ route('user.edit', ['user' => $user->id]) }}" method="post"> @csrf @endif
+            <form action="{{ route('user.edit', ['user' => $user->id]) }}" method="post">
+                @csrf
+        @endif
                 <div class="section">
                     <h1>General Info</h1>
                     <div class="flex gap-4 mt-4 items-center">

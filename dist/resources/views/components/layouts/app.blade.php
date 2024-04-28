@@ -24,7 +24,7 @@
     use App\Enums\Auth\Permissions;
     use Illuminate\Support\Facades\Auth;
 
-    $maintenanceMode = \App\Helper\AppHelper\App::isInMaintenanceMode();
+    $maintenanceMode = \App\Helper\AppHelper\AppEnv::isInMaintenanceMode();
     $showMaintenancePage = request()->route()->getPrefix() !== 'admin' &&
         !(Auth::user() !== null && Auth::user()->can(Permissions::VIEW_MAINTENANCE->value));
 @endphp

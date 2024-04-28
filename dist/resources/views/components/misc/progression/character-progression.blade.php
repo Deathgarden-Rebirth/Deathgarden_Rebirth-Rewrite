@@ -15,6 +15,7 @@
                     id="{{ $character->character->value }}Level"
                     name="{{ $character->character->value }}Level"
                     value="{{ $character->level }}"
+                    min="1"
             />
         @else
             <span class="text-yellow-500">{{ $character->level }}</span>

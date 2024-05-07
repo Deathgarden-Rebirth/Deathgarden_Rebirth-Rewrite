@@ -34,10 +34,14 @@ class PlayerController extends Controller
     {
         $user = Auth::user();
 
-        if ($user->ban === null)
+        $banCheckQuery = $user->bans()
+            ->whereDate('start_date', '<', Carbon::now())
+            ->whereDate('end_date', '>', Carbon::now());
+
+        if (!$banCheckQuery->exists())
             return json_encode(new GetBanStatusResponse(false));
 
-        return json_encode(new GetBanStatusResponse(true, $user->ban));
+        return json_encode(new GetBanStatusResponse(true, $banCheckQuery->first()));
     }
 
     public function getInventory(GetInventoryRequest $request)

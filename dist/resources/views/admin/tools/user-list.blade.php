@@ -41,11 +41,9 @@
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->steam_id }}</td>
                         <td class="text-left">{{ $user->last_known_username }}</td>
-                        @if($user->ban()->exists())
-                            <td class="text-red-600">BANNED</td>
-                        @else
-                            <td class="text-green-400">GOOD</td>
-                        @endif
+                        <td>
+                            <x-misc.ban-status :$user />
+                        </td>
                         <td>
                             <a href="{{ route('user.details', ['user' => $user->id]) }}">
                                 <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="User Details">

@@ -9,6 +9,7 @@ use Illuminate\Contracts\Cache\LockTimeoutException;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Support\Facades\Log;
@@ -30,9 +31,9 @@ class User extends AuthUser
         'last_known_username',
     ];
 
-    public function ban(): HasOne
+    public function bans(): HasMany
     {
-        return $this->hasOne(Ban::class);
+        return $this->hasMany(Ban::class);
     }
 
     public function playerData(): PlayerData|Model

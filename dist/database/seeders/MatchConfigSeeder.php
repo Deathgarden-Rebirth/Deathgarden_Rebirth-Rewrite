@@ -24,6 +24,20 @@ class MatchConfigSeeder extends Seeder
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
         ]);
         MatchConfiguration::Create([
+            'name' => 'Harvest Your Exit - 1v4',
+            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v4.MatchConfig_Demo_HarvestYourExit_1v4',
+            'enabled' => false,
+            'hunters' => 1,
+            'runners' => 4,
+        ]);
+        MatchConfiguration::Create([
+            'name' => 'Harvest Your Exit - 1v6',
+            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v6.MatchConfig_Demo_HarvestYourExit_1v6',
+            'enabled' => false,
+            'hunters' => 1,
+            'runners' => 6,
+        ]);
+        MatchConfiguration::Create([
             'name' => 'New Arctic Fortress',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_ARC_Fortress.MatchConfig_ARC_Fortress',
             'weight' => 80,

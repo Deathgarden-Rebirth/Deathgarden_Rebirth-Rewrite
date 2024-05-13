@@ -97,8 +97,8 @@ class CharacterData extends Model
     public static function getExperienceForLevel(int $level): int
     {
         --$level;
-        // f(x) = 5403 + 5403x * 0.002x
-        return 5403 + (5403 * $level) * (0.002 * $level);
+        // f(x) = 12500 + 20000x * 0.0004x
+        return 12500 + (20000 * $level) * (0.0004 * $level);
     }
 
     public function validateEquippedItems(): void

@@ -42,7 +42,7 @@
                         <td>{{ $user->steam_id }}</td>
                         <td class="text-left">{{ $user->last_known_username }}</td>
                         <td>
-                            <x-misc.ban-status :$user />
+                            <x-misc.ban-status :$user/>
                         </td>
                         <td>
                             <a href="{{ route('user.details', ['user' => $user->id]) }}">
@@ -50,12 +50,16 @@
                                     <x-icons.user-details class="size-4"/>
                                 </x-inputs.button>
                             </a>
-                            <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="Inbox">
-                                <x-icons.mail class="size-4"/>
-                            </x-inputs.button>
-                            <x-inputs.button type="button" class="px-2 py-1 !text-sm delete" title="Bans">
-                                <x-icons.hammer class="size-4"/>
-                            </x-inputs.button>
+                            <a href="#">
+                                <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="Inbox">
+                                    <x-icons.mail class="size-4"/>
+                                </x-inputs.button>
+                            </a>
+                            <a href="{{ route('user.bans', ['user' => $user->id]) }}">
+                                <x-inputs.button type="button" class="px-2 py-1 !text-sm delete" title="Bans">
+                                    <x-icons.hammer class="size-4"/>
+                                </x-inputs.button>
+                            </a>
                         </td>
                     </tr>
                 @endforeach

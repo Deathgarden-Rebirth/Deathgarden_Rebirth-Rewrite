@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignUuid('user_id')->constrained()->onDelete('cascade');
             $table->string('ban_reason');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->timestamps();
         });
 

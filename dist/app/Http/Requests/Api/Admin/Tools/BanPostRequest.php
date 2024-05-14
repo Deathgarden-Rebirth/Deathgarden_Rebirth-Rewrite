@@ -44,9 +44,11 @@ class BanPostRequest extends FormRequest
 
     public function passedValidation()
     {
+        $fromTimezone = 'Europe/Berlin';
+
         $this->reason = $this->input('reason');
-        $this->startDate = Carbon::parse($this->input('startDate'));
-        $this->endDate = Carbon::parse($this->input('endDate'));
+        $this->startDate = Carbon::parse($this->input('startDate'), $fromTimezone);
+        $this->endDate = Carbon::parse($this->input('endDate'), $fromTimezone);
         $this->editMethod = HttpMethod::from($this->input('method'));
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\misc;
+namespace App\View\Components\Misc;
 
 use App\Enums\Api\Ban\BanStatus as BanStatusEnum;
 use App\Models\User\User;
@@ -9,7 +9,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Carbon;
 use Illuminate\View\Component;
 
-class banStatus extends Component
+class BanStatus extends Component
 {
     public BanStatusEnum $banStatus;
 
@@ -24,8 +24,8 @@ class banStatus extends Component
         }
 
         $banCheckQuery = $user->bans()
-            ->whereDate('start_date', '<', Carbon::now())
-            ->whereDate('end_date', '>', Carbon::now());
+            ->whereDate('start_date', '<', Carbon::now()->toDateTimeString())
+            ->whereDate('end_date', '>', Carbon::now()->toDateTimeString());
 
         if ($banCheckQuery->exists())
             $this->banStatus = BanStatusEnum::Banned;

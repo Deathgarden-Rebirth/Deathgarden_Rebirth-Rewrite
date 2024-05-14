@@ -35,8 +35,8 @@ class PlayerController extends Controller
         $user = Auth::user();
 
         $banCheckQuery = $user->bans()
-            ->whereDate('start_date', '<', Carbon::now())
-            ->whereDate('end_date', '>', Carbon::now());
+            ->where('start_date', '<', Carbon::now()->toDateTimeString())
+            ->where('end_date', '>', Carbon::now()->toDateTimeString());
 
         if (!$banCheckQuery->exists())
             return json_encode(new GetBanStatusResponse(false));

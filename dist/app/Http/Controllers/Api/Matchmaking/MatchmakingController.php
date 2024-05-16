@@ -469,11 +469,6 @@ class MatchmakingController extends Controller
 
     protected function removeUserFromGame(User $user, Game $game)
     {
-        if($game->creator->id == $user->id) {
-            $game->delete();
-            return;
-        }
-
         $game->players()->detach($user);
 
         if($game->players->count() !== 0)

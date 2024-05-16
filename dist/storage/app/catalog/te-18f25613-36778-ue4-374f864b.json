@@ -1245,7 +1245,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 250
         }
       ],
       "eventCostList": [],
@@ -1283,7 +1283,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 360
         }
       ],
       "eventCostList": [],
@@ -1323,7 +1323,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 470
         }
       ],
       "eventCostList": [],
@@ -1361,7 +1361,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 580
         }
       ],
       "eventCostList": [],
@@ -1399,11 +1399,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 690
         }
       ],
       "eventCostList": [],
@@ -1441,11 +1437,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 800
         }
       ],
       "eventCostList": [],
@@ -1485,11 +1477,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 910
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 120
         }
       ],
       "eventCostList": [],
@@ -1527,11 +1519,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1020
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 230
         }
       ],
       "eventCostList": [],
@@ -1569,11 +1561,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1130
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 340
         }
       ],
       "eventCostList": [],
@@ -1611,11 +1603,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1240
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 440
         }
       ],
       "eventCostList": [],
@@ -1655,7 +1647,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 250
         }
       ],
       "eventCostList": [],
@@ -1693,7 +1685,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 360
         }
       ],
       "eventCostList": [],
@@ -1733,7 +1725,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 470
         }
       ],
       "eventCostList": [],
@@ -1771,7 +1763,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 580
         }
       ],
       "eventCostList": [],
@@ -1809,11 +1801,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 690
         }
       ],
       "eventCostList": [],
@@ -1851,11 +1839,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 800
         }
       ],
       "eventCostList": [],
@@ -1895,11 +1879,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 910
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 120
         }
       ],
       "eventCostList": [],
@@ -1937,11 +1921,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1020
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 230
         }
       ],
       "eventCostList": [],
@@ -1979,11 +1963,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1130
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 340
         }
       ],
       "eventCostList": [],
@@ -2021,11 +2005,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1240
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 440
         }
       ],
       "eventCostList": [],

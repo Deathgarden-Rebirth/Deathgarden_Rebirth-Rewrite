@@ -51,7 +51,7 @@
                             </div>
                             <div class="attribute">
                                 <label>Ban Status</label>
-                                <x-misc.ban-status class="border-none" />
+                                <x-misc.ban-status class="border-none" :$user />
                             </div>
                         </div>
                     </div>

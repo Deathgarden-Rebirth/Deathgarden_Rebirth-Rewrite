@@ -118,8 +118,8 @@ class UsersController extends AdminToolController
         }
 
         $ban->ban_reason = $request->reason;
-        $ban->start_date = $request->startDate;
-        $ban->end_date = $request->endDate;
+        $ban->start_date = Carbon::parse($request->startDate, 'Europe/Berlin');
+        $ban->end_date = Carbon::parse($request->endDate, 'Europe/Berlin');
         $ban->save();
 
         Session::flash('alert-success', 'Ban Edited Successfully!');

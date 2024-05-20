@@ -24,8 +24,8 @@ class BanStatus extends Component
         }
 
         $banCheckQuery = $user->bans()
-            ->whereDate('start_date', '<', Carbon::now()->toDateTimeString())
-            ->whereDate('end_date', '>', Carbon::now()->toDateTimeString());
+            ->where('start_date', '<', Carbon::now(config('app.timezone'))->toDateTimeString())
+            ->where('end_date', '>', Carbon::now(config('app.timezone'))->toDateTimeString());
 
         if ($banCheckQuery->exists())
             $this->banStatus = BanStatusEnum::Banned;

@@ -101,6 +101,9 @@ class UsersController extends AdminToolController
 
     public function bans(User $user)
     {
+        if(!Auth::user()->can(Permissions::EDIT_USERS->value))
+            abort(403, 'You are not allowed to edit Bans of a User.');
+
         $bans = $user->bans;
         View::share('title', 'Bans for User: '.$user->id.'('.$user->last_known_username.')');
 
@@ -128,6 +131,9 @@ class UsersController extends AdminToolController
     }
 
     public function createBan(User $user) {
+        if(!Auth::user()->can(Permissions::EDIT_USERS->value))
+            abort(403, 'No Permission to create a Ban.');
+
         $newBan = new Ban();
         $newBan->ban_reason = 'Placeholder';
         $newBan->start_date = Carbon::now()->addWeek();

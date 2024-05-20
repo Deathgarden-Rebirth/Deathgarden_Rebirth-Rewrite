@@ -67,6 +67,8 @@
                         </x-inputs.button>
                     </a>
 
+                    @can(\App\Enums\Auth\Permissions::EDIT_USERS->value)
+
                     <a href="{{ route('user.bans', ['user' => $user->id]) }}">
                         <x-inputs.button class="delete" type="button">
                         <span class="flex items-center gap-2 text-xl align-middle">
@@ -75,6 +77,8 @@
                         </span>
                         </x-inputs.button>
                     </a>
+
+                    @endcan
                 </div>
 
                 <div class="section">

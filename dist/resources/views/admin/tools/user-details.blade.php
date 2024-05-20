@@ -22,7 +22,7 @@
         @if($allowEdit)
             <form action="{{ route('user.edit', ['user' => $user->id]) }}" method="post">
                 @csrf
-        @endif
+                @endif
                 <div class="section">
                     <h1>General Info</h1>
                     <div class="flex gap-4 mt-4 items-center">
@@ -49,8 +49,36 @@
                                 <label>Source</label>
                                 <span class="border-none">{{ $user->source }}</span>
                             </div>
+                            <div class="attribute">
+                                <label>Ban Status</label>
+                                <x-misc.ban-status class="border-none" :$user />
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="section flex gap-2 justify-center !p-4">
+                    <a href="">
+                        <x-inputs.button type="button" title="Not yet Implemented">
+                        <span class="flex items-center gap-2 text-xl align-middle">
+                            <x-icons.mail class="size-5"/>
+                            Inbox
+                        </span>
+                        </x-inputs.button>
+                    </a>
+
+                    @can(\App\Enums\Auth\Permissions::EDIT_USERS->value)
+
+                    <a href="{{ route('user.bans', ['user' => $user->id]) }}">
+                        <x-inputs.button class="delete" type="button">
+                        <span class="flex items-center gap-2 text-xl align-middle">
+                            <x-icons.hammer class="size-5"/>
+                            Bans
+                        </span>
+                        </x-inputs.button>
+                    </a>
+
+                    @endcan
                 </div>
 
                 <div class="section">
@@ -208,47 +236,47 @@
                     </div>
 
                     @if($allowEdit)
-                    <div class="flex gap-2">
-                        <x-inputs.button class="save">
-                            Save Changes
-                        </x-inputs.button>
-                        <x-inputs.button
-                                class="delete"
-                                rel="modal:open"
-                                type="button"
-                                href="#reset-player-modal"
-                        >
-                            Reset Player
-                        </x-inputs.button>
-                        <div class="modal" id="reset-player-modal">
-                            <div class="flex flex-col items-center gap-5 text-center">
+                        <div class="flex gap-2">
+                            <x-inputs.button class="save">
+                                Save Changes
+                            </x-inputs.button>
+                            <x-inputs.button
+                                    class="delete"
+                                    rel="modal:open"
+                                    type="button"
+                                    href="#reset-player-modal"
+                            >
+                                Reset Player
+                            </x-inputs.button>
+                            <div class="modal" id="reset-player-modal">
+                                <div class="flex flex-col items-center gap-5 text-center">
                                     <span>
                                         Are you sure you want to reset the player Data?<br>
                                         Doing so will Erase all the player and character progress of this user.<br>
                                         <strong>(This is <span class="text-red-600">NOT</span> reversible)</strong>
                                     </span>
-                                <div class="flex gap-5">
-                                    <x-inputs.button type="button" href="#close" rel="modal:close">
-                                        Cancel
-                                    </x-inputs.button>
-                                    <x-inputs.button
-                                            form="reset-form"
-                                            class="delete"
-                                            formnovalidate
-                                    >
-                                        Delete
-                                    </x-inputs.button>
+                                    <div class="flex gap-5">
+                                        <x-inputs.button type="button" href="#close" rel="modal:close">
+                                            Cancel
+                                        </x-inputs.button>
+                                        <x-inputs.button
+                                                form="reset-form"
+                                                class="delete"
+                                                formnovalidate
+                                        >
+                                            Delete
+                                        </x-inputs.button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     @endif
                 </div>
                 @if($allowEdit)
             </form>
-            <form   id="reset-form"
-                    action="{{ route('user.reset', ['user' => $user->id]) }}"
-                    method="post">@csrf</form>
+            <form id="reset-form"
+                  action="{{ route('user.reset', ['user' => $user->id]) }}"
+                  method="post">@csrf</form>
         @endif
     </div>
 </x-layouts.admin>

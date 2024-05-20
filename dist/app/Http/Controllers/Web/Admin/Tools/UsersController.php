@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Web\Admin\Tools;
 
+use App\APIClients\HttpMethod;
 use App\Enums\Auth\Permissions;
 use App\Enums\Game\Characters;
 use App\Enums\Game\Runner;
+use App\Http\Requests\Api\Admin\Tools\BanPostRequest;
 use App\Http\Requests\Api\Admin\UserDetails\EditUserRequest;
+use App\Models\User\Ban;
 use App\Models\User\User;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
@@ -93,5 +97,53 @@ class UsersController extends AdminToolController
 
         $user->playerData()->delete();
         return redirect()->back();
+    }
+
+    public function bans(User $user)
+    {
+        if(!Auth::user()->can(Permissions::EDIT_USERS->value))
+            abort(403, 'You are not allowed to edit Bans of a User.');
+
+        $bans = $user->bans;
+        View::share('title', 'Bans for User: '.$user->id.'('.$user->last_known_username.')');
+
+        return view('admin.tools.user-bans', [
+            'user' => $user,
+            'bans' => $bans,
+        ]);
+    }
+
+    public function banPost(User $user, Ban $ban, BanPostRequest $request) {
+        if($request->editMethod === HttpMethod::DELETE) {
+            $ban->delete();
+            Session::flash('alert-success', 'Ban Deleted Successfully!');
+            return back();
+        }
+
+        $ban->ban_reason = $request->reason;
+        $ban->start_date = Carbon::parse($request->startDate, 'Europe/Berlin');
+        $ban->end_date = Carbon::parse($request->endDate, 'Europe/Berlin');
+        $ban->save();
+
+        Session::flash('alert-success', 'Ban Edited Successfully!');
+
+        return back();
+    }
+
+    public function createBan(User $user) {
+        if(!Auth::user()->can(Permissions::EDIT_USERS->value))
+            abort(403, 'No Permission to create a Ban.');
+
+        $newBan = new Ban();
+        $newBan->ban_reason = 'Placeholder';
+        $newBan->start_date = Carbon::now()->addWeek();
+        $newBan->end_date = Carbon::now()->addWeeks(2);
+        $newBan->user()->associate($user);
+
+        $newBan->save();
+
+        Session::flash('alert-success', 'Ban Created Successfully!');
+
+        return back();
     }
 }

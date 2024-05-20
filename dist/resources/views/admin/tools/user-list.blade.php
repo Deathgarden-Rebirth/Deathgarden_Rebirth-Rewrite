@@ -41,23 +41,27 @@
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->steam_id }}</td>
                         <td class="text-left">{{ $user->last_known_username }}</td>
-                        @if($user->ban()->exists())
-                            <td class="text-red-600">BANNED</td>
-                        @else
-                            <td class="text-green-400">GOOD</td>
-                        @endif
+                        <td>
+                            <x-misc.ban-status :$user/>
+                        </td>
                         <td>
                             <a href="{{ route('user.details', ['user' => $user->id]) }}">
                                 <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="User Details">
                                     <x-icons.user-details class="size-4"/>
                                 </x-inputs.button>
                             </a>
-                            <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="Inbox">
-                                <x-icons.mail class="size-4"/>
-                            </x-inputs.button>
-                            <x-inputs.button type="button" class="px-2 py-1 !text-sm delete" title="Bans">
-                                <x-icons.hammer class="size-4"/>
-                            </x-inputs.button>
+                            <a href="#">
+                                <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="Inbox">
+                                    <x-icons.mail class="size-4"/>
+                                </x-inputs.button>
+                            </a>
+                            @can(\App\Enums\Auth\Permissions::EDIT_USERS->value)
+                            <a href="{{ route('user.bans', ['user' => $user->id]) }}">
+                                <x-inputs.button type="button" class="px-2 py-1 !text-sm delete" title="Bans">
+                                    <x-icons.hammer class="size-4"/>
+                                </x-inputs.button>
+                            </a>
+                            @endcan
                         </td>
                     </tr>
                 @endforeach

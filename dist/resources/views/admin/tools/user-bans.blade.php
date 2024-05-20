@@ -40,7 +40,7 @@
                                     type="datetime-local"
                                     id="{{ $ban->id }}_startDate"
                                     name="startDate"
-                                    value="{{ $ban->start_date }}"
+                                    value="{{ $ban->start_date->toDateTimeString('minute') }}"
                                     required
                             />
                             <label class="sm:ml-12" for="{{ $ban->id }}_endDate">End Date*</label>
@@ -48,7 +48,7 @@
                                     type="datetime-local"
                                     id="{{ $ban->id }}_endDate"
                                     name="endDate"
-                                    value="{{ $ban->end_date }}"
+                                    value="{{ $ban->end_date->toDateTimeString('minute') }}"
                                     required
                             />
                         </div>

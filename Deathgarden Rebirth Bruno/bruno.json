@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Deathgarden Rebirth",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

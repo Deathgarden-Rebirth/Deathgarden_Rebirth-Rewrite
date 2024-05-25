@@ -1,0 +1,15 @@
+meta {
+  name: Modifier Me
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{base_url}}/api/v1/modifierCenter/modifiers/me
+  body: none
+  auth: none
+}
+
+headers {
+  User-Agent: {{base_url}}
+}

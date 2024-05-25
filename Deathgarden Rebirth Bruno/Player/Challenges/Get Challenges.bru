@@ -1,0 +1,27 @@
+meta {
+  name: Get Challenges
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/api/v1/extensions/challenges/getChallenges
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+  User-Agent: {{user_agent}}
+  XDEBUG_SESSION: start
+  ~accept: application/json
+}
+
+body:json {
+  {
+    "data": {
+      "userId": "9b719571-5ec6-49cc-9d4a-7fbefffc590f",
+      "challengeType": "Daily"
+  	}
+  }
+}

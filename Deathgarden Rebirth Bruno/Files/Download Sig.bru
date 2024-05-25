@@ -1,0 +1,15 @@
+meta {
+  name: Download Sig
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{base_url}}/api/files/patch/sig
+  body: none
+  auth: none
+}
+
+headers {
+  User-Agent: insomnium/0.2.3-a
+}

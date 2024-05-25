@@ -1,0 +1,27 @@
+meta {
+  name: Purchase Item
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_url}}/api/v1/extensions/purchase/item
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  User-Agent: {{user_agent}}
+}
+
+body:json {
+  {
+      "data": {
+        "objectId": "895471FA4A8A74AB2FEE16BF35FC9D04",
+        "oldQuantity": 0,
+        "wantedQuantity": 1,
+        "currencyGroup": "SoftCurrencyGroup"
+      }
+  }
+}

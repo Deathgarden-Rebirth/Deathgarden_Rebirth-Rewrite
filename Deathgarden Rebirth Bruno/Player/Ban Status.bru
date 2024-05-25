@@ -1,0 +1,16 @@
+meta {
+  name: Ban Status
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{base_url}}/api/v1/players/ban/status
+  body: none
+  auth: none
+}
+
+headers {
+  User-Agent: TheExit
+  content-type: application/json
+}

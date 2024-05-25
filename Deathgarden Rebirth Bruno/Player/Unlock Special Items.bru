@@ -1,0 +1,30 @@
+meta {
+  name: Unlock Special Items
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{base_url}}/api/v1/extensions/inventory/unlockSpecialItems
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  User-Agent: {{user_agent}}
+  Accept: application/json
+}
+
+body:json {
+  {
+  	"data": {
+  		"additionalSteamAppIds": [ 
+  			  872770,
+          381210,
+          1024660,
+          1083130,
+          920440]
+  	}
+  }
+}

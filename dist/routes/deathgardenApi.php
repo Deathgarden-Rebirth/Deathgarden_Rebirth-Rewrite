@@ -47,6 +47,7 @@ Route::prefix('v1')->group(function () {
         Route::get('messages/count', [InboxController::class, 'count']);
         Route::get('messages/list', [InboxController::class, 'list']);
         Route::delete('messages/list', [InboxController::class, 'deleteMultiple']);
+        Route::post('messages/v2/markAs', [InboxController::class, 'markMessages']);
 
         Route::post('extensions/progression/initOrGetGroups', [MetadataController::class, 'initOrGetGroups']);
         Route::post('extensions/progression/updateMetadataGroup', [MetadataController::class, 'updateMetadataGroup']);

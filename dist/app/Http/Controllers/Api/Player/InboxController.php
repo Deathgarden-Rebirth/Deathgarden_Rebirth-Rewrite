@@ -72,11 +72,53 @@ class InboxController extends Controller
                 $user->inboxMessages()->delete($messageId);
             } catch(\Exception $e) {
                 $logger = AccessLogger::getSessionLogConfig();
-                $logger->warning($request->method().' '.$request->getUri().': Something, Messagelist: '.json_encode($messages, JSON_PRETTY_PRINT));
+                $logger->warning($request->method().' '.$request->getUri().': Something Went Wrong, Messagelist: '.json_encode($messages, JSON_PRETTY_PRINT));
                 return ['success' => false];
             }
         }
 
         return ['success' => true];
+    }
+
+    public function markMessages(Request $request) {
+        if (!Auth::check())
+            abort(403, 'You are not logged in');
+
+        $messages = $request->input('messageList', false);
+        $flag = $request->input('flag', false);
+        $user = Auth::user();
+
+        if($messages === false || !is_array($messages))
+            abort(400, 'Missing Parameter "messageList" of type array.');
+
+        if($flag === false)
+            abort(400, 'Missing Parameter "flag" of type string.');
+
+        $idsToSet = [];
+
+        foreach($messages as $message) {
+            try {
+                $idsToSet[] = $message['received'];
+            } catch(\Exception $e) {
+                $logger = AccessLogger::getSessionLogConfig();
+                $logger->warning($request->method().' '.$request->getUri().': Something Went Wrong, Messagelist: '.json_encode($messages, JSON_PRETTY_PRINT));
+                return ['success' => false];
+            }
+        }
+
+        $user->inboxMessages()->whereIn('id', $idsToSet)->update(['flag' => $flag]);
+
+        $resultList = [];
+        foreach($idsToSet as $id) {
+            $resultList[] = [
+                'received' => $id,
+                'success' => true,
+                'recipientId' => $user->id,
+            ];
+        }
+
+        return [
+            'List' => $resultList,
+        ];
     }
 }

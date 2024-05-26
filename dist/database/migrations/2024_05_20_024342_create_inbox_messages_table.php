@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('inbox_messages', function (Blueprint $table) {
             $table->id();
+            $table->foreignUuid('user_id')->constrained();
             $table->text('title');
             $table->text('body');
             $table->string('flag', 10);
             $table->string('tag', 30);
-            $table->datetime('expire_at');
+            $table->datetime('expire_at')->nullable();
             $table->string('origin')->nullable()->default(null);
-            $table->json('claimables')->nullable()->default(null);
+            $table->json('claimable')->nullable();
 
             $table->timestamps();
         });

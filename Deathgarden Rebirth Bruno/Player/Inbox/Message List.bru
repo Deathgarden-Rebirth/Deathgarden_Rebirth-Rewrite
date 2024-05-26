@@ -1,0 +1,15 @@
+meta {
+  name: Message List
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/v1/messages/list
+  body: none
+  auth: none
+}
+
+query {
+    limit: 100
+}

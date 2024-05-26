@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\Eula\EulaConsentController;
 use App\Http\Controllers\Api\Matchmaking\MatchmakingController;
 use App\Http\Controllers\Api\Player\ChallengeController;
 use App\Http\Controllers\Api\Player\CurrencyController;
+use App\Http\Controllers\Api\Player\InboxController;
 use App\Http\Controllers\Api\Player\MetadataController;
 use App\Http\Controllers\Api\Player\ModifierCenterController;
 use App\Http\Controllers\Api\Player\PlayerController;
@@ -42,6 +43,9 @@ Route::prefix('v1')->group(function () {
 
         Route::get('players/ban/status', [PlayerController::class, 'getBanStatus']);
         Route::get('modifierCenter/modifiers/me', [ModifierCenterController::class, 'modifiersMe']);
+
+        Route::get('messages/count', [InboxController::class, 'count']);
+        Route::get('messages/list', [InboxController::class, 'list']);
 
         Route::post('extensions/progression/initOrGetGroups', [MetadataController::class, 'initOrGetGroups']);
         Route::post('extensions/progression/updateMetadataGroup', [MetadataController::class, 'updateMetadataGroup']);

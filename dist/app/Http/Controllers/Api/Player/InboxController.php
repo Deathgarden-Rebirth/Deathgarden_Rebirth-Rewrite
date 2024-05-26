@@ -45,7 +45,6 @@ class InboxController extends Controller
 
         foreach ($messages as $message) {
             $result['messages'][] = $message->toMessageResponse();
-            $message->flag = 'READ';
             $message->save();
         }
 

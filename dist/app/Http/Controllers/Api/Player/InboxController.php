@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Player;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\AccessLogger;
 use App\Models\Game\Inbox\InboxMessage;
 use Auth;
 use Illuminate\Http\Request;
@@ -53,5 +54,29 @@ class InboxController extends Controller
         }
 
         return $result;
+    }
+
+    public function deleteMultiple(Request $request) {
+        if (!Auth::check())
+            abort(403, 'You are not logged in');
+
+        $messages = $request->input('messageList', false);
+        $user = Auth::user();
+
+        if($messages === false || !is_array($messages))
+            abort(400, 'Missing Parameter "messageList" of type array');
+
+        foreach($messages as $message) {
+            try {
+                $messageId = $message['received'];
+                $user->inboxMessages()->delete($messageId);
+            } catch(\Exception $e) {
+                $logger = AccessLogger::getSessionLogConfig();
+                $logger->warning($request->method().' '.$request->getUri().': Something, Messagelist: '.json_encode($messages, JSON_PRETTY_PRINT));
+                return ['success' => false];
+            }
+        }
+
+        return ['success' => true];
     }
 }

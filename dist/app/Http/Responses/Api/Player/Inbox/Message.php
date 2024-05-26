@@ -9,6 +9,8 @@ class Message
 
     public string $flag;
 
+    public int $receivedTimestamp;
+
     public MessagePayload $message;
 
     public ?string $tag = null;

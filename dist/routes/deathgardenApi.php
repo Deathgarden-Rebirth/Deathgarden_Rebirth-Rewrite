@@ -46,6 +46,7 @@ Route::prefix('v1')->group(function () {
 
         Route::get('messages/count', [InboxController::class, 'count']);
         Route::get('messages/list', [InboxController::class, 'list']);
+        Route::post('messages/claim', [InboxController::class, 'claimMessage']);
         Route::delete('messages/list', [InboxController::class, 'deleteMultiple']);
         Route::post('messages/v2/markAs', [InboxController::class, 'markMessages']);
 

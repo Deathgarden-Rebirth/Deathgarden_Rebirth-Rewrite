@@ -4,11 +4,16 @@ namespace App\Http\Controllers\Api\Player;
 
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\AccessLogger;
+use App\Http\Requests\Api\Player\Inbox\ClaimInboxMessageRequest;
+use App\Http\Responses\Api\Player\Inbox\InboxMessageClaimedReward;
+use App\Http\Responses\Api\Player\Inbox\InboxMessageClaimResponse;
 use App\Models\Game\Inbox\InboxMessage;
 use Auth;
+use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Ramsey\Uuid\Uuid;
 
 class InboxController extends Controller
 {
@@ -121,4 +126,79 @@ class InboxController extends Controller
             'List' => $resultList,
         ];
     }
+
+    public function claimMessage(ClaimInboxMessageRequest $request)
+    {
+        $user = Auth::user();
+        /** @var InboxMessage $message */
+        $message = $user->inboxMessages()
+            ->where('user_id', '=', $user->id)
+            ->where('received', '=', $request->receivedTimestamp)
+            ->first();
+
+        if($message->has_claimed)
+            return json_encode(new InboxMessageClaimResponse());
+
+        $claimable = $message->getClaimables();
+        $playerData = $user->playerData();
+
+        $response = new InboxMessageClaimResponse();
+
+        foreach($claimable as $reward) {
+            if($reward->rewardType === 'Currency') {
+                switch ($reward->id) {
+                    case 'CurrencyA':
+                        $oldAmount = $playerData->currency_a;
+                        $playerData->currency_a += $reward->amount;
+                        $newAmount = $playerData->currency_a;
+                        break;
+                    case 'CurrencyB':
+                        $oldAmount = $playerData->currency_b;
+                        $playerData->currency_b += $reward->amount;
+                        $newAmount = $playerData->currency_b;
+                        break;
+                    case 'CurrencyC':
+                        $oldAmount = $playerData->currency_c;
+                        $playerData->currency_c += $reward->amount;
+                        $newAmount = $playerData->currency_c;
+                        break;
+                    default:
+                        continue 2;
+                }
+
+                $response->currencies[] = new InboxMessageClaimedReward(
+                    $reward->id,
+                    $newAmount,
+                    $newAmount - $oldAmount,
+                );
+            }
+            else if($reward->rewardType === 'Inventory') {
+                $itemUuid = Uuid::fromString($reward->id)->toString();
+
+                try {
+                    $playerData->inventory()->attach($itemUuid);
+                    // Since we can only have one occurrence of an item in the inventory, and an exception gets thrown when we try to add the same item twice
+                    // we can just hard code the new and received amount to 1.
+                    $response->inventories[] = new InboxMessageClaimedReward(
+                        $reward->id,
+                        1,
+                        1,
+                    );
+                } catch(UniqueConstraintViolationException $e) {
+                    $response->inventories[] = new InboxMessageClaimedReward(
+                        $reward->id,
+                        1,
+                        0,
+                    );
+                }
+            }
+        }
+
+        $playerData->save();
+        $message->has_claimed = true;
+        $message->save();
+
+        return json_encode($response);
+    }
+
 }

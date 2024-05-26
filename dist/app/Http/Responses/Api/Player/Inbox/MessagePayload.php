@@ -6,12 +6,23 @@ use JsonSerializable;
 
 class MessagePayload implements JsonSerializable
 {
+    public string $title;
+
+    public string $body;
+    public array $claimable;
+    public bool $hasClaimed;
+
     public function __construct(
-        public string $title,
-        public string $body,
-        public ?array $claimable = null,
+        string $title,
+        string $body,
+        array  $claimable = [],
+        bool   $hasClaimed = false,
     )
     {
+        $this->title = $title;
+        $this->body = $body;
+        $this->claimable = $claimable;
+        $this->hasClaimed = $hasClaimed;
     }
 
     public function jsonSerialize(): mixed
@@ -21,8 +32,11 @@ class MessagePayload implements JsonSerializable
             'body' => $this->body,
         ];
 
-        if($this->claimable !== null)
-            $data['claimable'] = $this->claimable;
+        if ($this->claimable !== null)
+            $data['claimable'] = [
+                'data' => $this->claimable,
+                'state' => $this->hasClaimed ? 'CLAIMED' : 'NONE',
+            ];
 
         return $data;
     }

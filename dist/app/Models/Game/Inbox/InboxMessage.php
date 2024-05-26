@@ -19,6 +19,7 @@ class InboxMessage extends Model
 
     protected $casts = [
         'claimable' => 'array',
+        'expire_at' => 'datetime',
     ];
 
     public function user(): BelongsTo
@@ -37,7 +38,7 @@ class InboxMessage extends Model
             $this->claimable
         );
         $message->tag = $this->tag;
-        $message->expireAt = $this->expire_at;
+        $message->expireAt = $this->expire_at?->getTimestamp();
         $message->origin = $this->origin;
         $message->recipientId = $this->user->id;
 

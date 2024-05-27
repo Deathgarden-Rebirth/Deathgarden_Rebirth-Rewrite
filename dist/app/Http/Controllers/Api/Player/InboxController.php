@@ -99,11 +99,11 @@ class InboxController extends Controller
         if($flag === false)
             abort(400, 'Missing Parameter "flag" of type string.');
 
-        $idsToSet = [];
+        $timestampsToSet = [];
 
         foreach($messages as $message) {
             try {
-                $idsToSet[] = $message['received'];
+                $timestampsToSet[] = $message['received'];
             } catch(\Exception $e) {
                 $logger = AccessLogger::getSessionLogConfig();
                 $logger->warning($request->method().' '.$request->getUri().': Something Went Wrong, Messagelist: '.json_encode($messages, JSON_PRETTY_PRINT));
@@ -111,10 +111,10 @@ class InboxController extends Controller
             }
         }
 
-        $user->inboxMessages()->whereIn('id', $idsToSet)->update(['flag' => $flag]);
+        $user->inboxMessages()->whereIn('received', $timestampsToSet)->update(['flag' => $flag]);
 
         $resultList = [];
-        foreach($idsToSet as $id) {
+        foreach($timestampsToSet as $id) {
             $resultList[] = [
                 'received' => $id,
                 'success' => true,
@@ -135,6 +135,9 @@ class InboxController extends Controller
             ->where('user_id', '=', $user->id)
             ->where('received', '=', $request->receivedTimestamp)
             ->first();
+
+        if($message === null)
+            abort(404, 'Inbox message not found');
 
         if($message->has_claimed)
             return json_encode(new InboxMessageClaimResponse());

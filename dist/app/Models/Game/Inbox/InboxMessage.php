@@ -41,7 +41,8 @@ class InboxMessage extends Model
         $message->message = new MessagePayload(
             $this->title,
             $this->body,
-            $this->claimable
+            $this->claimable,
+            $this->has_claimed,
         );
         $message->tag = $this->tag;
         $message->expireAt = $this->expire_at?->getTimestamp();
@@ -56,6 +57,9 @@ class InboxMessage extends Model
      * @return InboxMessageReward[]
      */
     public function getClaimables(): array {
+        if($this->claimable === null)
+            return [];
+
         $result = [];
         foreach ($this->claimable as $claimable) {
             $result[] = new InboxMessageReward(

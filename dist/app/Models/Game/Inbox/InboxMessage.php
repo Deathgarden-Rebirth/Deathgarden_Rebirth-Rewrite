@@ -36,7 +36,7 @@ class InboxMessage extends Model
     public function toMessageResponse(): Message {
         $message = new Message();
 
-        $message->received = $this->id;
+        $message->received = $this->received;
         $message->flag = $this->flag;
         $message->message = new MessagePayload(
             $this->title,

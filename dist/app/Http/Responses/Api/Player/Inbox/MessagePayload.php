@@ -9,13 +9,13 @@ class MessagePayload implements JsonSerializable
     public string $title;
 
     public string $body;
-    public array $claimable;
+    public ?array $claimable;
     public bool $hasClaimed;
 
     public function __construct(
         string $title,
         string $body,
-        array  $claimable = [],
+        ?array  $claimable = [],
         bool   $hasClaimed = false,
     )
     {

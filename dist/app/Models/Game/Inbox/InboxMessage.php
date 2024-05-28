@@ -5,21 +5,24 @@ namespace App\Models\Game\Inbox;
 use App\Http\Responses\Api\Player\Inbox\InboxMessageReward;
 use App\Http\Responses\Api\Player\Inbox\Message;
 use App\Http\Responses\Api\Player\Inbox\MessagePayload;
-use App\Http\Responses\Api\Player\Inbox\MessageV2;
 use App\Models\User\User;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Prunable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @mixin IdeHelperInboxMessage
  */
 class InboxMessage extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes, Prunable;
 
     protected $casts = [
+        'received' => 'datetime',
         'claimable' => 'array',
         'expire_at' => 'datetime',
     ];
@@ -36,7 +39,7 @@ class InboxMessage extends Model
     public function toMessageResponse(): Message {
         $message = new Message();
 
-        $message->received = $this->received;
+        $message->received = $this->received->getTimestampMs();
         $message->flag = $this->flag;
         $message->message = new MessagePayload(
             $this->title,
@@ -78,5 +81,14 @@ class InboxMessage extends Model
         foreach ($claimables as $claimable) {
             $this->claimable[] = (array)$claimable;
         }
+    }
+
+    public function prunable(): Builder|InboxMessage
+    {
+        // Mark Expired Messages as Deleted
+        static::where('expire_at', '<', Carbon::now())->delete();
+
+        // Delete Models that were soft-deleted a week ago.
+        return static::where('deleted_at', '<=', Carbon::now()->subWeek());
     }
 }

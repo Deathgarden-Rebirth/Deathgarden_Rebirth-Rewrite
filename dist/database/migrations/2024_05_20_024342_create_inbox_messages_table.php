@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('inbox_messages', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('received', false, true)->index();
+            $table->timestamp('received')->index();
             $table->foreignUuid('user_id')->constrained();
             $table->text('title');
             $table->text('body');
@@ -27,6 +27,7 @@ return new class extends Migration
             $table->unique(['user_id', 'received']);
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

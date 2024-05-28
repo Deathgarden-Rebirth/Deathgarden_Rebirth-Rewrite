@@ -9,6 +9,7 @@ use App\Http\Responses\Api\Player\Inbox\InboxMessageClaimedReward;
 use App\Http\Responses\Api\Player\Inbox\InboxMessageClaimResponse;
 use App\Models\Game\Inbox\InboxMessage;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -24,8 +25,7 @@ class InboxController extends Controller
         $flag = $request->input('flag');
         $user = Auth::user();
 
-        //TODO: Add Model Retrieving logic
-        $query = $user->inboxMessages();
+        $query = $user->inboxMessages()->where('expire_at', '>', Carbon::now());
 
         if($flag !== null)
             $query->where('flag', '=', $flag);
@@ -42,7 +42,9 @@ class InboxController extends Controller
         $user = Auth::user();
 
         /** @var InboxMessage[]|Collection|LengthAwarePaginator $messages */
-        $messages = $user->inboxMessages()->paginate($limit);
+        $messages = $user->inboxMessages()
+            ->where('expire_at', '>', Carbon::now())
+            ->paginate($limit);
 
         $result = [
             'messages' => [],

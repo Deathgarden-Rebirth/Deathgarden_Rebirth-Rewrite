@@ -22,11 +22,16 @@ class RolesAndPermissionsSeeder extends Seeder
        $gameNewsPerm = Permission::findOrCreate(Permissions::GAME_NEWS->value);
        $userReadPerm = Permission::findOrCreate(Permissions::VIEW_USERS->value);
        $userEditPerm = Permission::findOrCreate(Permissions::EDIT_USERS->value);
+       $viewMaintenanceMode = Permission::findOrCreate(Permissions::VIEW_MAINTENANCE->value);
 
-       $adminRole->givePermissionTo($viewLogPerm);
-       $adminRole->givePermissionTo($gameNewsPerm);
-       $adminRole->givePermissionTo($viewAdminAreaPerm);
-       $adminRole->givePermissionTo($userReadPerm, $userEditPerm);
-       $adminRole->givePermissionTo($fileUploadPerm)->save();
+       $adminRole->givePermissionTo(
+           $viewAdminAreaPerm,
+           $viewLogPerm,
+           $gameNewsPerm,
+           $userReadPerm,
+           $userEditPerm,
+           $fileUploadPerm,
+           $viewMaintenanceMode,
+       )->save();
     }
 }

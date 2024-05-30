@@ -179,10 +179,12 @@ class PlayerData extends Model
 
     public static function getRemainingFactionExperience(int $level): int
     {
-         if($level <= 26)
+         if($level < 10)
+             return 2;
+         if($level < 20)
              return 3;
-         if($level <= 53)
-             return 4;
+        if($level < 50)
+            return 4;
          return 5;
     }
 }

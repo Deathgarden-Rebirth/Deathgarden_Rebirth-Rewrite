@@ -20,7 +20,12 @@ Route::post('gamenews/create', [GameNewsController::class, 'create'])->name('gam
 Route::post('gamenews/{news}', [GameNewsController::class, 'submit'])->name('gamenews.post');
 
 Route::get('users', [UsersController::class, 'index'])->name(UsersController::class);
-Route::get('users/{user}', [UsersController::class, 'details'])->name('user.details');
+Route::post('user/{user}/edit', [UsersController::class, 'edit'])->name('user.edit');
+Route::post('user/{user}/reset', [UsersController::class, 'reset'])->name('user.reset');
+Route::get('user/{user}/bans', [UsersController::class, 'bans'])->name('user.bans');
+Route::post('user/{user}/ban/{ban}', [UsersController::class, 'banPost'])->name('user.ban.post');
+Route::get('user/{user}/ban/create', [UsersController::class, 'createBan'])->name('user.ban.create');
+Route::get('user/{user}', [UsersController::class, 'details'])->name('user.details');
 
 Route::fallback(function () {
     return redirect(route('admin.dashboard'));

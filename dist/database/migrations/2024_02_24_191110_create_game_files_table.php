@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('game_path');
             $table->string('hash', 64); // SHA-256 hash is 64 characters long
             $table->integer('version')->default(1); // Default version is 1
-            $table->tinyInteger('action')->default(1); //add = 1, delete = 2
+            $table->tinyInteger('action')->default(1); //add = 1, delete = 0
             $table->timestamps();
 
             $table->unique(['name', 'hash', 'version']);

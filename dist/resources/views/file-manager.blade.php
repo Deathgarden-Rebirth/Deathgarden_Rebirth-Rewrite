@@ -1,17 +1,30 @@
 <x-raw-layout>
-  <!-- Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. - Marie Curie -->
+  <!-- Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. - Marie Curie -->  
   <h1 class="text-4xl font-semilight p-10">Deathgarden file manager</h1>
+
+  <form action="{{ url()->current() }}" method="GET">
+    <div class="flex flex-row items-center">
+      <label for="patchlines" class="block p-4 font-medium text-gray-900 dark:text-white">Select a patchline:</label>
+      <select id="patchlines" name="patchline" class="w-32 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onchange="this.form.submit()">
+            <option value="0" {{ request()->input('patchline') == '0' ? 'selected' : '' }}>Live</option>
+            <option value="1" {{ request()->input('patchline') == '1' ? 'selected' : '' }}>Dev</option>
+        </select>
+      </div>
+  </form>
+
   @if(Session::has('alert-error'))
-    <x-alerts.error heading="An error occured">{!! Session::get('alert-error') !!}</x-alerts.error>
+  <x-alerts.error heading="An error occured">{!! Session::get('alert-error') !!}</x-alerts.error>
   @endif
   @if(Session::has('alert-success'))
-    <x-alerts.success heading="Success">{!! Session::get('alert-success') !!}</x-alerts.success>
+  <x-alerts.success heading="Success">{!! Session::get('alert-success') !!}</x-alerts.success>
   @endif
   @if(Session::has('alert-warning'))
-    <x-alerts.warning heading="Warning">{!! Session::get('alert-warning') !!}</x-alerts.warning>
+  <x-alerts.warning heading="Warning">{!! Session::get('alert-warning') !!}</x-alerts.warning>
   @endif
+
+  </div>
   <div class="flex flex-col items-center justify-center p-12">
-    <div class="mx-auto w-full max-w-7xl">
+    <div class="mx-auto w-full max-w-screen-2xl">
       <x-tables.table>
         <x-tables.thead>
           <x-tables.th>Name</x-tables.th>
@@ -22,25 +35,34 @@
         </x-tables.thead>
         <tbody>
           @foreach($files as $file)
-          <tr class="text-center">
-            <x-tables.td>
+          <tr class="text-center {{ $file->action->value ? 'bg-green-600 hover:bg-green-500' : 'bg-red-600 hover:bg-red-500' }}">
+            <x-tables.td title="{{$file->game_path}}">
               {{ $file->name }}
             </x-tables.td>
             <x-tables.td>
               {{ $file->hash }}
             </x-tables.td>
             <x-tables.td>
-              @if(Storage::disk('dg_public')->exists($file->name))
-                  {{ Storage::disk('dg_public')->size($file->name) / 1000 }} kB
+              @if(Storage::disk('patches')->exists(str($file->patchline->name)->lower().'/'.$file->name))
+              {{ Storage::disk('patches')->size(str($file->patchline->name).'/'.$file->name) / 1000 }} kB
               @else
-                  Error while fetching file
+              Error while fetching file
               @endif
             </x-tables.td>
             <x-tables.td>
               {{ $file->updated_at }}
             </x-tables.td>
             <x-tables.td>
-              <!-- <a href="">Delete</a> -->
+              <form action="{{ route('file-manager.update', ['file_manager' => $file->id]) }}" method="POST">
+                @method('PUT')
+                @csrf
+                <button class="">Mark for {{ $file->action->value ? 'delete' : 'add' }}</button>
+              </form>
+              <form action="{{ route('file-manager.destroy', ['file_manager' => $file->id]) }}" method="POST">
+                @method('DELETE')
+                @csrf
+                <button class="" onclick="return confirm('This will delete the file on the server, but won\'t do any actions on the clients.\nAre you sure?')">Delete</button>
+              </form>
             </x-tables.td>
           </tr>
           @endforeach
@@ -48,14 +70,19 @@
       </x-tables.table>
     </div>
 
-    <div class="mx-auto w-full max-w-7xl mt-8">
-      <form action="{{ route('file.store') }}" method="POST" enctype="multipart/form-data">
+    <div class="mx-auto w-full max-w-screen-2xl mt-8">
+      <form action="{{ route('file-manager.store') }}" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="patchline" value="{{ request()->input('patchline') ?? '0' }}">
         @csrf
         <div id="fileInputsContainer">
           <div class="flex flex-wrap gap-4">
-            <div class="w-3/5 flex items-center mb-2">
+            <div class="w-2/5 flex items-center mb-2">
               <x-inputs.text-input name="game_path[]" />
             </div>
+            <select name="file_action[]" class="w-32 rounded-md h-[41.43px] bg-gray-800/75 border border-gray-600 text-white text-sm focus:border-[#6A64F1] focus:shadow-md block px-4 py-2">
+                <option value="1" selected>Add</option>
+                <option value="0">Delete</option>
+            </select>
             <div class="flex items-center mb-2">
               <x-inputs.file-input name="files[]" />
             </div>
@@ -81,19 +108,19 @@
 
   <script>
     function addFileInputEventListener(fileInput) {
-        fileInput.addEventListener('change', function(event) {
-            var selectedFile = event.target.files[0];
-            var textInput = event.target.closest('.flex-wrap').querySelector('input[name="game_path[]"]');
-            if (textInput) {
-                if (selectedFile) {
-                    var fileName = selectedFile.name;
-                    fileName = examineFilePaths(fileName);
-                    textInput.value = fileName;
-                } else {
-                    textInput.value = '';
-                }
-            }
-        });
+      fileInput.addEventListener('change', function(event) {
+        var selectedFile = event.target.files[0];
+        var textInput = event.target.closest('.flex-wrap').querySelector('input[name="game_path[]"]');
+        if (textInput) {
+          if (selectedFile) {
+            var fileName = selectedFile.name;
+            fileName = examineFilePaths(fileName);
+            textInput.value = fileName;
+          } else {
+            textInput.value = '';
+          }
+        }
+      });
     }
 
     function examineFilePaths(fileName) {
@@ -108,32 +135,36 @@
 
       var extension = fileName.split('.').pop();
       switch (extension) {
-          case 'pak':
-              return './TheExit/Content/Paks/' + fileName;
-          case 'sig':
-              return './TheExit/Content/Paks/' + fileName;
-          default:
-              return './' + fileName;
+        case 'pak':
+          return './TheExit/Content/Paks/' + fileName;
+        case 'sig':
+          return './TheExit/Content/Paks/' + fileName;
+        default:
+          return './' + fileName;
       }
     }
 
     document.getElementById('addFileInput').addEventListener('click', function() {
-        var container = document.getElementById('fileInputsContainer');
-        var newInput = document.createElement('div');
-        newInput.classList.add('flex', 'flex-wrap', 'gap-4');
-        newInput.innerHTML = `
-            <div class="w-3/5 flex items-center mb-2">
+      var container = document.getElementById('fileInputsContainer');
+      var newInput = document.createElement('div');
+      newInput.classList.add('flex', 'flex-wrap', 'gap-4');
+      newInput.innerHTML = `
+            <div class="w-2/5 flex items-center mb-2">
               <x-inputs.text-input name="game_path[]" />
             </div>
+            <select name="file_action[]" class="w-32 rounded-md h-[41.43px] bg-gray-800/75 border border-gray-600 text-white text-sm focus:border-[#6A64F1] focus:shadow-md block px-4 py-2">
+                <option value="1" selected>Add</option>
+                <option value="0">Delete</option>
+            </select>
             <div class="flex items-center mb-2">
               <x-inputs.file-input name="files[]" />
             </div>
         `;
-        container.appendChild(newInput);
+      container.appendChild(newInput);
 
-        // Add event listener to file input of the newly created input group
-        var fileInput = newInput.querySelector('input[name="files[]"]');
-        addFileInputEventListener(fileInput);
+      // Add event listener to file input of the newly created input group
+      var fileInput = newInput.querySelector('input[name="files[]"]');
+      addFileInputEventListener(fileInput);
     });
 
     // Add event listener to file input of the initial input group

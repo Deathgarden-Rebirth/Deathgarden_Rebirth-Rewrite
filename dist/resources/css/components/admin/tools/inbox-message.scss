@@ -1,0 +1,51 @@
+.inbox-entry-attributes {
+  .section {
+    @apply mt-4;
+
+    h1 {
+      @apply text-2xl font-semibold;
+      column-span: all;
+
+      &::after {
+        @apply block w-full mb-4;
+        content: "";
+        border-top: 0.15rem solid;
+        border-image: linear-gradient(to right, theme('colors.indigo.600') 10%, transparent) 1;
+      }
+    }
+
+    > div {
+      @apply w-full;
+    }
+  }
+
+  div:has( > label) {
+    @apply flex flex-nowrap w-full pt-3 flex-col sm:flex-row;
+
+    label {
+      @apply inline-block w-48 sm:self-center py-2 sm:py-0;
+    }
+
+    .input-global-checkbox {
+      @apply size-6;
+    }
+  }
+
+  div:has( > input[type="checkbox"]) {
+    @apply flex-row items-center;
+
+  }
+
+  .reward-item {
+    @apply bg-slate-700 border border-gray-500 rounded-md p-4;
+
+    > div {
+      @apply flex gap-4 justify-start p-0;
+
+    }
+
+     > div > span {
+      @apply bg-slate-800 p-2 border border-gray-500 rounded-md;
+    }
+  }
+}

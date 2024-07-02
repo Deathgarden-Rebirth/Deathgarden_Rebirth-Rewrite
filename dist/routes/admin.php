@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Catalog\CatalogController;
 use App\Http\Controllers\Web\Admin\DashboardController;
 use App\Http\Controllers\Web\Admin\Tools\FileManagerController;
 use App\Http\Controllers\Web\Admin\Tools\GameNewsController;
@@ -26,6 +27,10 @@ Route::get('user/{user}/bans', [UsersController::class, 'bans'])->name('user.ban
 Route::post('user/{user}/ban/{ban}', [UsersController::class, 'banPost'])->name('user.ban.post');
 Route::get('user/{user}/ban/create', [UsersController::class, 'createBan'])->name('user.ban.create');
 Route::get('user/{user}', [UsersController::class, 'details'])->name('user.details');
+
+Route::get('user/{user}/inbox', [UsersController::class, 'inbox'])->name('user.inbox');
+Route::post('user/{user}/inboxMessage/{message}', [UsersController::class, 'inboxMessagePost'])->name('user.inboxMessage.edit');
+Route::get('catalog-items', [CatalogController::class, 'catalogItemDropdown'])->name('catalog.dropdown');
 
 Route::fallback(function () {
     return redirect(route('admin.dashboard'));

@@ -50,7 +50,7 @@
                                     <x-icons.user-details class="size-4"/>
                                 </x-inputs.button>
                             </a>
-                            <a href="#">
+                            <a href="{{ route('user.inbox', ['user' => $user->id]) }}">
                                 <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="Inbox">
                                     <x-icons.mail class="size-4"/>
                                 </x-inputs.button>

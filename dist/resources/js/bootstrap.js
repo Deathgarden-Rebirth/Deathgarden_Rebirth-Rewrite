@@ -7,6 +7,7 @@ import modal from 'jquery-modal';
 import axios from 'axios';
 import Alpine from 'alpinejs';
 import jQuery from 'jquery';
+import select2 from 'select2';
 
 window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -16,6 +17,8 @@ Alpine.start();
 
 window.$ = window.jQuery = jQuery();
 window.$.modal = modal;
+
+select2();
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

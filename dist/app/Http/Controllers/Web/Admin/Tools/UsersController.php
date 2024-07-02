@@ -7,11 +7,14 @@ use App\Enums\Auth\Permissions;
 use App\Enums\Game\Characters;
 use App\Enums\Game\Runner;
 use App\Http\Requests\Api\Admin\Tools\BanPostRequest;
+use App\Http\Requests\Api\Admin\Tools\InboxMessagePostRequest;
 use App\Http\Requests\Api\Admin\UserDetails\EditUserRequest;
+use App\Models\Game\Inbox\InboxMessage;
 use App\Models\User\Ban;
 use App\Models\User\User;
 use Auth;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
@@ -52,7 +55,7 @@ class UsersController extends AdminToolController
         if(!Auth::user()->can(Permissions::VIEW_USERS->value))
             abort(403, 'No Permission to view this Page');
 
-        View::share('title', 'User Details: '.$user->last_known_username);
+        $this->overrideTitle('User Details: '.$user->last_known_username);
 
         return view('admin.tools.user-details', [
             'user' => $user,
@@ -105,7 +108,7 @@ class UsersController extends AdminToolController
             abort(403, 'You are not allowed to edit Bans of a User.');
 
         $bans = $user->bans;
-        View::share('title', 'Bans for User: '.$user->id.'('.$user->last_known_username.')');
+        $this->overrideTitle('Bans for User: '.$user->id.'('.$user->last_known_username.')');
 
         return view('admin.tools.user-bans', [
             'user' => $user,
@@ -143,6 +146,46 @@ class UsersController extends AdminToolController
         $newBan->save();
 
         Session::flash('alert-success', 'Ban Created Successfully!');
+
+        return back();
+    }
+
+    public function inbox(User $user)
+    {
+        if(!Auth::user()->can(Permissions::VIEW_USERS->value))
+            abort(403, 'You are not allowed to view the inbox of users.');
+
+        $allowEdit = Auth::user()->can(Permissions::EDIT_USERS->value);
+        $allowEdit = true;
+
+        /** @var InboxMessage[]|Collection $messages */
+        $messages = $user->inboxMessages()->withTrashed()->get();
+
+        $this->overrideTitle('Inbox for User: '.$user->last_known_username);
+        return view('admin.tools.user-inbox', [
+            'messages' => $messages,
+            'allowEdit' => $allowEdit,
+        ]);
+    }
+
+    public function inboxMessagePost(InboxMessagePostRequest $request, User $user, InboxMessage $message)
+    {
+        switch ($request->submitAction) {
+            case HttpMethod::DELETE:
+                $message->delete();
+                Session::flash('alert-success', 'Message Deleted Successfully!');
+                break;
+            case HttpMethod::PUT:
+                $message->title = $request->title;
+                $message->body = $request->body;
+                $message->flag = $request->flag;
+                $message->tag = $request->tag;
+                $message->expire_at = $request->expireAt;
+                $message->setClaimables($request->rewards);
+                $message->save();
+                Session::flash('alert-success', 'Message successfully saved!');
+                break;
+        }
 
         return back();
     }

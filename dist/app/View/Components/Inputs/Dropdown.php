@@ -13,7 +13,7 @@ class Dropdown extends Component
      */
     public function __construct(
         public array $cases,
-        public \BackedEnum $selected)
+        public \BackedEnum|string $selected)
     {
 
     }

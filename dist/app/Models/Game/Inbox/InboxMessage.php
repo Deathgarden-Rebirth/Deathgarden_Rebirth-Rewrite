@@ -66,7 +66,7 @@ class InboxMessage extends Model
         $result = [];
         foreach ($this->claimable as $claimable) {
             $result[] = new InboxMessageReward(
-                $claimable['type'],
+                $claimable['rewardType'],
                 $claimable['amount'],
                 $claimable['id'],
             );
@@ -75,12 +75,15 @@ class InboxMessage extends Model
         return $result;
     }
 
+
     public function setClaimables(array $claimables): void {
-        $this->claimable = [];
+        $newClaimables = [];
 
         foreach ($claimables as $claimable) {
-            $this->claimable[] = (array)$claimable;
+            $newClaimables[] = (array)$claimable;
         }
+
+        $this->claimable = $newClaimables;
     }
 
     public function prunable(): Builder|InboxMessage

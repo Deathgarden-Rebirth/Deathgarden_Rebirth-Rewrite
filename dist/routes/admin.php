@@ -27,6 +27,7 @@ Route::get('user/{user}/bans', [UsersController::class, 'bans'])->name('user.ban
 Route::post('user/{user}/ban/{ban}', [UsersController::class, 'banPost'])->name('user.ban.post');
 Route::get('user/{user}/ban/create', [UsersController::class, 'createBan'])->name('user.ban.create');
 Route::get('user/{user}', [UsersController::class, 'details'])->name('user.details');
+Route::get('usersDropdown', [UsersController::class, 'getUsersForDropdown'])->name('users.dropdown');
 
 Route::get('user/{user}/inbox', [UsersController::class, 'inbox'])->name('user.inbox');
 Route::post('user/{user}/inboxMessage/{message}', [UsersController::class, 'inboxMessagePost'])->name('user.inboxMessage.edit');

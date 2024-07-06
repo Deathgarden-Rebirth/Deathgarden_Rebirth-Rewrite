@@ -31,13 +31,12 @@
         <div class="grid grid-cols-2 mx-auto w-full">
             <div class="col-start-1 col-end-1 w-full">
                 <h1>Add item</h1>
-                <select id="add-item-id"
-                        class="catalog-item-selector input-global-dropdown w-full"
+                <select class="catalog-item-selector input-global-dropdown w-full"
                         data-fetch-url="{{ route('catalog.dropdown') }}"
                 >
                     <option value="" disabled selected>Select an Item</option>
                 </select><br>
-                <x-inputs.button id="add-item-button" type="button" class="create mt-2">
+                <x-inputs.button type="button" class="create mt-2 add-item-button">
                     Add
                 </x-inputs.button>
             </div>
@@ -45,14 +44,14 @@
                 <h1>Add Currency</h1>
                 <div class="flex gap-4 items-center">
                     <x-inputs.dropdown
-                            id="add-currency-type"
+                            class="add-currency-type"
                             :cases="['CurrencyA', 'CurrencyB', 'CurrencyC']"
                             :selected="'CurrencyA'"
                     />
                     <span class="ml-auto">Amount</span>
-                    <x-inputs.number id="add-currency-amount" class="mr-auto" />
+                    <x-inputs.number class="mr-auto add-currency-amount" />
                 </div>
-                <x-inputs.button id="add-currency-button" type="button" class="create mt-2 w-min">
+                <x-inputs.button type="button" class="create mt-2 w-min add-currency-button">
                     Add
                 </x-inputs.button>
             </div>

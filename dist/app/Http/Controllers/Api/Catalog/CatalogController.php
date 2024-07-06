@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api\Catalog;
 use App\Http\Controllers\Controller;
 use App\Models\Game\CatalogItem;
 use Auth;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Storage;
 
 class CatalogController extends Controller
@@ -27,6 +29,7 @@ class CatalogController extends Controller
         if($searchTerm === null)
             abort(400, 'Search term must be provided.');
 
+        /** @var Collection|LengthAwarePaginator $users */
         $items = CatalogItem::where('display_name', 'LIKE', "%{$searchTerm}%")
             ->select(['id', 'display_name'])
             ->paginate(static::CATALOG_DROPDOWN_PAGINATION_LIMIT);

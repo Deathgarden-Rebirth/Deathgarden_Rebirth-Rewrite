@@ -208,16 +208,16 @@
   @apply float-right cursor-pointer mt-1 mr-2 p-1;
 }
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
-  @apply bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-200 border cursor-default rounded my-1 mr-1 px-2 float-left;
+  @apply bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-200 border cursor-default rounded my-1 mr-1 px-0 float-left;
 }
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-  @apply text-gray-700 dark:text-gray-200 cursor-pointer inline-block mr-1;
+  @apply text-gray-700 dark:text-gray-200 cursor-pointer inline-block mr-1 relative;
 }
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
   @apply text-gray-700 dark:text-gray-200;
 }
 .select2-container--default.select2-container--focus .select2-selection--multiple {
-  @apply border-2 outline-none;
+  @apply border-2 dark:bg-gray-600 border-indigo-700 outline-none;
 }
 
 .select2-container--default.select2-container--disabled .select2-selection__choice__remove {

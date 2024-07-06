@@ -1,7 +1,7 @@
 import $ from "jquery";
 
 class ItemSelector {
-    static rewardItemContainer = $('.current-items-selection');
+    rewardItemContainer;
 
     static getSelect2Options(element) {
         return {
@@ -51,55 +51,61 @@ class ItemSelector {
         })
     }
 
-    static addItem() {
-
-    }
-
     static {
         ItemSelector.initCatalogDropdowns();
-        ItemSelector.initItemDeleteButtons()
+        ItemSelector.initItemDeleteButtons();
 
-        let addItemButton = $('button[id="add-item-button"]');
-        addItemButton.on('click', () => {
-            let data = $('.item-selector #add-item-id').select2('data')[0];
+        let itemSelectors = $('.item-selector');
+        itemSelectors.each((index, element) => {
+            let selector = new ItemSelector();
+            selector.rewardItemContainer = $(element).find('.current-items-selection');
 
-            // Check if we have selected something and if it exists already
-            if(typeof data === 'undefined' || data.disabled || ItemSelector.rewardItemContainer.find('input[value="' + data.id + '"]').length > 0)
-                return;
+            let addItemButton = $(element).find('.add-item-button');
+            addItemButton.on('click', () => {
+                let data = $(element).find('.catalog-item-selector').select2('data')[0];
 
-            let newRewardItem = ItemSelector.createRewardItemElement(
-                'Inventory',
-                data.id,
-                data.text,
-                1
-            );
-            ItemSelector.rewardItemContainer.append(newRewardItem);
-            newRewardItem.on('click', 'button', () => {
-                $(newRewardItem).remove();
+                // Check if we have selected something and if it exists already
+                if(typeof data === 'undefined' || data.disabled || selector.rewardItemContainer.find('input[value="' + data.id + '"]').length > 0)
+                    return;
+
+                let newRewardItem = ItemSelector.createRewardItemElement(
+                    'Inventory',
+                    data.id,
+                    data.text,
+                    1
+                );
+                selector.rewardItemContainer.append(newRewardItem);
+                newRewardItem.on('click', 'button', () => {
+                    $(newRewardItem).remove();
+                })
             })
-        })
 
-        let addCurrencyButton = $('button[id="add-currency-button"]');
-        addCurrencyButton.on('click', () => {
-            let type = $('.item-selector #add-currency-type').val();
-            let amount = $('.item-selector #add-currency-amount').val();
-            console.log(amount);
+            let addCurrencyButton =  $(element).find('.add-currency-button');
+            addCurrencyButton.on('click', () => {
+                let type = $(element).find('.add-currency-type').val();
+                let amount = $(element).find('.add-currency-amount').val();
+                console.log(amount);
 
-            // Check if we have selected something and if it exists already
-            if(amount === '' || ItemSelector.rewardItemContainer.find('input[value="' + type + '"]').length > 0)
-                return;
+                // Check if we have selected something and if it exists already
+                if(amount === '' || selector.rewardItemContainer.find('input[value="' + type + '"]').length > 0)
+                    return;
 
-            let newRewardItem = ItemSelector.createRewardItemElement(
-                'Currency',
-                type,
-                type,
-                amount
-            );
-            ItemSelector.rewardItemContainer.prepend(newRewardItem);
-            newRewardItem.on('click', 'button', () => {
-                $(newRewardItem).remove();
-            })
+                let newRewardItem = ItemSelector.createRewardItemElement(
+                    'Currency',
+                    type,
+                    type,
+                    amount
+                );
+                selector.rewardItemContainer.prepend(newRewardItem);
+                newRewardItem.on('click', 'button', () => {
+                    $(newRewardItem).remove();
+                })
+            });
         });
+
+
+
+
     }
 }
 

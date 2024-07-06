@@ -16,6 +16,7 @@ use Auth;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 
@@ -30,6 +31,8 @@ class UsersController extends AdminToolController
     protected static Permissions $neededPermission = Permissions::VIEW_USERS;
 
     const PER_PAGE = 15;
+
+    const USER_DROPDOWN_PER_PAGE = 20;
 
     public function index(Request $request)
     {
@@ -89,6 +92,41 @@ class UsersController extends AdminToolController
         Session::flash('alert-success', 'Edits Saved Successfully!');
 
         return redirect()->back();
+    }
+
+    public function getUsersForDropdown(Request $request)
+    {
+        if(!Auth::check() && Auth::user()->can(Permissions::VIEW_USERS->value))
+            abort(403, 'No Permission to get this Data');
+
+        $searchTerm = $request->input('term');
+
+        if($searchTerm === null)
+            abort(400, 'Search term must be provided.');
+
+        $query = User::orderBy('last_known_username')
+            ->orWhere('id', 'LIKE', '%'.$searchTerm.'%')
+            ->orWhere('steam_id', 'LIKE', '%'.$searchTerm.'%')
+            ->orWhere('last_known_username', 'LIKE', '%'.$searchTerm.'%')
+            ->select(['id', 'last_known_username']);
+
+        /** @var Collection|LengthAwarePaginator $users */
+        $users = $query->paginate(static::USER_DROPDOWN_PER_PAGE);
+
+        $result = [];
+        $users->each(function ($user) use (&$result) {
+            $result[] = [
+                'id' => $user->id,
+                'text' => $user->last_known_username,
+            ];
+        });
+
+        return [
+            'results' => $result,
+            'pagination' => [
+                'more' => $users->currentPage() < $users->lastPage(),
+            ],
+        ];
     }
 
     public function reset(User $user)

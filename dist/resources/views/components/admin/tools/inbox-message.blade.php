@@ -89,7 +89,7 @@
                                     type="datetime-local"
                                     id="{{ $message->id }}_expireAt"
                                     name="expireAt"
-                                    value="{{ $message->expire_at->toDateTimeString('minute') }}"
+                                    value="{{ $message->expire_at?->toDateTimeString('minute') }}"
                             />
                         @else
                             <div class="w-full bg-slate-700 p-2 border border-slate-600 rounded-md">

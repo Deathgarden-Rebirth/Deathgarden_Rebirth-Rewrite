@@ -8,7 +8,8 @@ class UserSelector {
             ajax: {
                 url: $(element).attr('data-fetch-url'),
                 dataType: 'json',
-            }
+            },
+            data: JSON.parse($(element).attr('data-prefill'))
         };
     }
 
@@ -16,7 +17,8 @@ class UserSelector {
         let userDropdowns = $('.user-selector');
 
         userDropdowns.each((index, element) => {
-            $(element).select2(UserSelector.getSelect2Options(element));
+            let elem = $(element);
+            elem.select2(UserSelector.getSelect2Options(element));
         })
     }
 

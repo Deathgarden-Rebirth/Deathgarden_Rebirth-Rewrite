@@ -117,7 +117,7 @@ class UsersController extends AdminToolController
         $users->each(function ($user) use (&$result) {
             $result[] = [
                 'id' => $user->id,
-                'text' => $user->last_known_username,
+                'text' => $user->last_known_username.' ('.$user->id.')',
             ];
         });
 
@@ -194,7 +194,6 @@ class UsersController extends AdminToolController
             abort(403, 'You are not allowed to view the inbox of users.');
 
         $allowEdit = Auth::user()->can(Permissions::EDIT_USERS->value);
-        $allowEdit = true;
 
         /** @var InboxMessage[]|Collection $messages */
         $messages = $user->inboxMessages()->withTrashed()->get();
@@ -203,6 +202,7 @@ class UsersController extends AdminToolController
         return view('admin.tools.user-inbox', [
             'messages' => $messages,
             'allowEdit' => $allowEdit,
+            'user' => $user,
         ]);
     }
 

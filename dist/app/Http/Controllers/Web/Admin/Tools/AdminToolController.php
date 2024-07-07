@@ -32,6 +32,7 @@ abstract class AdminToolController extends Controller
             FileManagerController::class,
             LogViewerController::class,
             UsersController::class,
+            InboxMailerController::class,
         ];
     }
 

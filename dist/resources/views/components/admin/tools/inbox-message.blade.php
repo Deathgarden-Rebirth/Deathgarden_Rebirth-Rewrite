@@ -3,11 +3,12 @@
     /** @var bool $allowEdit */
 @endphp
 
-<div class="container p-4 bg-slate-800 border-slate-500 border rounded-xl">
+<div class="container p-4 bg-slate-800 border-slate-500 border rounded-xl my-8">
     <h1 class="float-right right-0 flex justify-end text-slate-500">
         Database-ID: {{ $message->id }}
     </h1>
-    <form action="{{ route('user.inboxMessage.edit', ['user' => $message->user_id, 'message' => $message->id]) }}" method="post" id="{{ $idPrefix }}inbpx-message-form">
+    <form action="{{ route('user.inboxMessage.edit', ['user' => $message->user_id, 'message' => $message->id]) }}"
+          method="post" id="{{ $idPrefix }}inbpx-message-form">
         @csrf
         <div class="inbox-entry-attributes">
             <div class="section flex-col">
@@ -100,30 +101,34 @@
                 </div>
                 <div class="section">
                     <h1>Rewards</h1>
-                    <x-admin.tools.item-selector :rewards="$message->getClaimables()" />
+                    <x-admin.tools.item-selector :rewards="$message->getClaimables()" :$allowEdit/>
                 </div>
-                <div class="mt-8 flex gap-8">
-                    <x-inputs.button
-                            class="save"
-                            name="submitAction"
-                            value="{{ \App\APIClients\HttpMethod::PUT }}"
-                    >Save</x-inputs.button>
-                    <x-inputs.button
-                            href="#{{ $idPrefix }}message-delete-modal"
-                            rel="modal:open"
-                            type="button"
-                            class="delete"
-                            name="submitAction"
-                            value="{{ \App\APIClients\HttpMethod::DELETE }}"
-                    >
-                        Delete
-                    </x-inputs.button>
-                </div>
+                @if($allowEdit)
+                    <div class="mt-8 flex gap-8">
+                        <x-inputs.button
+                                class="save"
+                                name="submitAction"
+                                value="{{ \App\APIClients\HttpMethod::PUT }}"
+                        >Save
+                        </x-inputs.button>
+                        <x-inputs.button
+                                href="#{{ $idPrefix }}message-delete-modal"
+                                rel="modal:open"
+                                type="button"
+                                class="delete"
+                                name="submitAction"
+                                value="{{ \App\APIClients\HttpMethod::DELETE }}"
+                        >
+                            Delete
+                        </x-inputs.button>
+                    </div>
+                @endif
             </div>
         </div>
     </form>
-    <div id="{{ $idPrefix }}message-delete-modal" class="modal">
-        <div class="flex flex-col items-center gap-5">
+    @if($allowEdit)
+        <div id="{{ $idPrefix }}message-delete-modal" class="modal">
+            <div class="flex flex-col items-center gap-5">
                     <span>
                         Are you sure you want to delete the inbox message
                     <span class="italic m-1 inline dark:bg-slate-700 bg-slate-400 w-fit px-2 rounded">
@@ -131,20 +136,21 @@
                     </span>
                         ?
                     </span>
-            <div class="flex gap-5">
-                <x-inputs.button type="button" href="#close" rel="modal:close">
-                    Cancel
-                </x-inputs.button>
-                <x-inputs.button
-                        form="{{ $idPrefix }}inbpx-message-form"
-                        class="delete"
-                        name="submitAction"
-                        value="{{ \App\APIClients\HttpMethod::DELETE }}"
-                        formnovalidate
-                >
-                    Delete
-                </x-inputs.button>
+                <div class="flex gap-5">
+                    <x-inputs.button type="button" href="#close" rel="modal:close">
+                        Cancel
+                    </x-inputs.button>
+                    <x-inputs.button
+                            form="{{ $idPrefix }}inbpx-message-form"
+                            class="delete"
+                            name="submitAction"
+                            value="{{ \App\APIClients\HttpMethod::DELETE }}"
+                            formnovalidate
+                    >
+                        Delete
+                    </x-inputs.button>
+                </div>
             </div>
         </div>
-    </div>
+    @endif
 </div>

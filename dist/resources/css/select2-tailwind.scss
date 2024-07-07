@@ -182,8 +182,19 @@
 
 .select2-container--default.select2-container--disabled .select2-selection--single {
   /* Selection by property disabled*/
-  @apply cursor-default bg-gray-300;
+  @apply cursor-default bg-gray-300 dark:bg-slate-900 text-white/15;
 }
+
+.select2-container--default.select2-container--disabled .select2-selection--multiple {
+  /* Selection by property disabled*/
+  @apply cursor-default border-gray-900;
+  background-color: inherit;
+
+  .select2-selection__choice {
+    @apply cursor-default border-gray-800/50 text-white/15 #{!important};
+  }
+}
+
 .select2-container--default.select2-container--disabled .select2-selection--single .select2-selection__clear {
   /* Selection bar - Hide the clear cross when selection bar is disabled*/
   @apply hidden;

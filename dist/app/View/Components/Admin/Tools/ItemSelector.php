@@ -15,7 +15,7 @@ class ItemSelector extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(array $rewards)
+    public function __construct(array $rewards = [], public bool $allowEdit = true)
     {
         $this->rewards = $rewards;
     }

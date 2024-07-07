@@ -65,6 +65,8 @@ class InboxMailerController extends AdminToolController
                     'tag' => $request->tag,
                     'expire_at' => $request->expireAt?->toDateTimeString(),
                     'claimable' => json_encode($claimable),
+                    'created_at' => $now->toDateTimeString(),
+                    'updated_at' => $now->toDateTimeString(),
                 ];
                 $sentToUsers[] = $user->last_known_username.' ('.$user->id.')';
             });

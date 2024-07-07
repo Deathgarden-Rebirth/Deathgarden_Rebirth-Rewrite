@@ -14,6 +14,7 @@ use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Uuid;
 
 class InboxController extends Controller
@@ -25,7 +26,9 @@ class InboxController extends Controller
         $flag = $request->input('flag');
         $user = Auth::user();
 
-        $query = $user->inboxMessages()->where('expire_at', '>', Carbon::now());
+        $query = $user->inboxMessages()->where(function ($query) {
+            $query->where('expire_at', '>', Carbon::now())->orWhereNull('expire_at');
+        });
 
         if($flag !== null)
             $query->where('flag', '=', $flag);
@@ -44,6 +47,7 @@ class InboxController extends Controller
         /** @var InboxMessage[]|Collection|LengthAwarePaginator $messages */
         $messages = $user->inboxMessages()
             ->where('expire_at', '>', Carbon::now())
+            ->orWhereNull('expire_at')
             ->paginate($limit);
 
         $result = [
@@ -75,7 +79,7 @@ class InboxController extends Controller
         $idsToDelete = [];
         foreach($messages as $message) {
             try {
-                $idsToDelete[] = $message['received'];
+                $idsToDelete[] = Carbon::createFromTimestampMs($message['received'])->toDateTimeString();
             } catch(\Exception $e) {
                 $logger = AccessLogger::getSessionLogConfig();
                 $logger->warning($request->method().' '.$request->getUri().': Something Went Wrong, Messagelist: '.json_encode($messages, JSON_PRETTY_PRINT));
@@ -105,7 +109,7 @@ class InboxController extends Controller
 
         foreach($messages as $message) {
             try {
-                $timestampsToSet[] = $message['received'];
+                $timestampsToSet[] = Carbon::createFromTimestampMs($message['received'])->toDateTimeString();
             } catch(\Exception $e) {
                 $logger = AccessLogger::getSessionLogConfig();
                 $logger->warning($request->method().' '.$request->getUri().': Something Went Wrong, Messagelist: '.json_encode($messages, JSON_PRETTY_PRINT));
@@ -135,7 +139,7 @@ class InboxController extends Controller
         /** @var InboxMessage $message */
         $message = $user->inboxMessages()
             ->where('user_id', '=', $user->id)
-            ->where('received', '=', $request->receivedTimestamp)
+            ->where('received', '=', Carbon::createFromTimestampMs($request->receivedTimestamp)->toDateTimeString())
             ->first();
 
         if($message === null)

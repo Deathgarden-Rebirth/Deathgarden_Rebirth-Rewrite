@@ -64,7 +64,7 @@ class InboxMessagePostRequest extends FormRequest
         $this->submitAction = HttpMethod::tryFrom($this->input('submitAction'));
 
         $rewardTypes = $this->input('rewards.type');
-        $rewardIds = $this->input('rewards.id');
+        $rewardIds = $this->input('rewards.id', []);
         $rewardAmounts = $this->input('rewards.amount');
 
         foreach ($rewardIds as $index => $id) {

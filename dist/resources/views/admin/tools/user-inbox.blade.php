@@ -43,4 +43,19 @@
             </a>
         </div>
     @endif
+
+    @if($deletedMessages->count() <= 0)
+        <div class="flex justify-center items-center gap-6 m-12 text-xl font-bold flex-col">
+            <span>The User currently has no Deleted messages.</span>
+        </div>
+    @else
+        <div class="w-full p-2 md:px-16 bg-inherit container mx-auto mt-24">
+            <span class="text-3xl font-bold headline">
+                Deleted messages
+            </span>
+            @foreach($deletedMessages as $message)
+                <x-admin.tools.inbox-message :$message :$allowEdit/>
+            @endforeach
+        </div>
+    @endif
 </x-layouts.admin>

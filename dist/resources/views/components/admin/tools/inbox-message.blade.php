@@ -98,6 +98,17 @@
                             </div>
                         @endif
                     </div>
+
+                    @if($message->deleted_at !== null)
+                        <div>
+                            <label for="{{ $message->id }}_deletedAt">
+                                Deleted At
+                            </label>
+                            <div class="w-full bg-slate-700 p-2 border border-slate-600 rounded-md">
+                                {{ $message->deleted_at }}
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 <div class="section">
                     <h1>Rewards</h1>

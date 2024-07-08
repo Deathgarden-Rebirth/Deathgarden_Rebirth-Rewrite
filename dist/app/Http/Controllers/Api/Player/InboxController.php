@@ -112,7 +112,10 @@ class InboxController extends Controller
                 $timestampsToSet[] = Carbon::createFromTimestampMs($message['received'])->toDateTimeString();
             } catch(\Exception $e) {
                 $logger = AccessLogger::getSessionLogConfig();
-                $logger->warning($request->method().' '.$request->getUri().': Something Went Wrong, Messagelist: '.json_encode($messages, JSON_PRETTY_PRINT));
+                $logger->warning($request->method().' '.$request->getUri().': Something Went Wrong, Messagelist: '.json_encode([
+                        'exception' => $e,
+                        'messages' => $messages,
+                    ], JSON_PRETTY_PRINT));
                 return ['success' => false];
             }
         }
@@ -120,9 +123,9 @@ class InboxController extends Controller
         $user->inboxMessages()->whereIn('received', $timestampsToSet)->update(['flag' => $flag]);
 
         $resultList = [];
-        foreach($timestampsToSet as $id) {
+        foreach($timestampsToSet as $timestamp) {
             $resultList[] = [
-                'received' => $id,
+                'received' => Carbon::parse($timestamp)->getTimestampMs(),
                 'success' => true,
                 'recipientId' => $user->id,
             ];

@@ -3,6 +3,7 @@
 namespace App\Http\Responses\Api\Player\Inbox;
 
 use JsonSerializable;
+use Ramsey\Uuid\Uuid;
 
 class MessagePayload implements JsonSerializable
 {
@@ -27,6 +28,11 @@ class MessagePayload implements JsonSerializable
 
     public function jsonSerialize(): mixed
     {
+        foreach ($this->claimable as &$claim) {
+            if($claim['rewardType'] === 'Inventory')
+                $claim['id'] = Uuid::fromString($claim['id'])->getHex()->toString();
+        }
+
         $data = [
             'title' => $this->title,
             'body' => $this->body,

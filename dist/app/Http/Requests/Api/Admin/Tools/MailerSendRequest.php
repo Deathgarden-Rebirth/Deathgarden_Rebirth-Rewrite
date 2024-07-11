@@ -42,7 +42,7 @@ class MailerSendRequest extends FormRequest
             'title' => 'required|string',
             'body' => 'required|string',
             'tag' => 'required|string',
-            'expireAt' => 'sometimes|nullable|date',
+            'expireAt' => 'nullable|date',
             'rewards' => 'sometimes|array',
             'users' => [Rule::requiredIf(!$this->has('allUsers')), 'array'],
             'allUsers' => 'sometimes',
@@ -54,7 +54,7 @@ class MailerSendRequest extends FormRequest
         $this->title = $this->input('title');
         $this->body = $this->input('body');
         $this->tag = $this->input('tag');
-        $this->expireAt = $this->has('expireAt') ? new Carbon($this->input('expireAt')) : null;
+        $this->expireAt = $this->input('expireAt') === null ? null : new Carbon($this->input('expireAt'));
 
         $this->users = $this->input('users');
         $this->allUsers = $this->has('allUsers');

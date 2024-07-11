@@ -106,10 +106,16 @@ class InboxController extends Controller
             abort(400, 'Missing Parameter "flag" of type string.');
 
         $timestampsToSet = [];
+        $resultList = [];
 
         foreach($messages as $message) {
             try {
                 $timestampsToSet[] = Carbon::createFromTimestampMs($message['received'])->toDateTimeString();
+                $resultList[] = [
+                    'received' => $message['received'],
+                    'success' => true,
+                    'recipientId' => $user->id,
+                ];
             } catch(\Exception $e) {
                 $logger = AccessLogger::getSessionLogConfig();
                 $logger->warning($request->method().' '.$request->getUri().': Something Went Wrong, Messagelist: '.json_encode([
@@ -122,15 +128,6 @@ class InboxController extends Controller
 
         $user->inboxMessages()->whereIn('received', $timestampsToSet)->update(['flag' => $flag]);
 
-        $resultList = [];
-        foreach($timestampsToSet as $timestamp) {
-            $resultList[] = [
-                'received' => Carbon::parse($timestamp)->getTimestampMs(),
-                'success' => true,
-                'recipientId' => $user->id,
-            ];
-        }
-
         return [
             'List' => $resultList,
         ];
@@ -142,7 +139,7 @@ class InboxController extends Controller
         /** @var InboxMessage $message */
         $message = $user->inboxMessages()
             ->where('user_id', '=', $user->id)
-            ->where('received', '=', Carbon::createFromTimestampMs($request->receivedTimestamp)->toDateTimeString())
+            ->where('received', '=', Carbon::createFromTimestampMs($request->receivedTimestamp))
             ->first();
 
         if($message === null)

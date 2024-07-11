@@ -29,7 +29,7 @@ class MessagePayload implements JsonSerializable
     public function jsonSerialize(): mixed
     {
         foreach ($this->claimable as &$claim) {
-            if($claim['rewardType'] === 'Inventory')
+            if($claim['type'] === 'Inventory')
                 $claim['id'] = Uuid::fromString($claim['id'])->getHex()->toString();
         }
 

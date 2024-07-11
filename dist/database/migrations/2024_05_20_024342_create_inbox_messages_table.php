@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('inbox_messages', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('received')->index();
+            $table->timestamp('received')->index()->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->foreignUuid('user_id')->constrained();
             $table->text('title');
             $table->text('body');

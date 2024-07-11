@@ -76,10 +76,10 @@ class InboxController extends Controller
         if($messages === false || !is_array($messages))
             abort(400, 'Missing Parameter "messageList" of type array');
 
-        $idsToDelete = [];
+        $timestampsToDelete = [];
         foreach($messages as $message) {
             try {
-                $idsToDelete[] = Carbon::createFromTimestampMs($message['received'])->toDateTimeString();
+                $timestampsToDelete[] = Carbon::createFromTimestampMs($message['received'])->toDateTimeString();
             } catch(\Exception $e) {
                 $logger = AccessLogger::getSessionLogConfig();
                 $logger->warning($request->method().' '.$request->getUri().': Something Went Wrong, Messagelist: '.json_encode($messages, JSON_PRETTY_PRINT));
@@ -87,7 +87,7 @@ class InboxController extends Controller
             }
         }
 
-        $user->inboxMessages()->whereIn('id', $idsToDelete)->delete();
+        $user->inboxMessages()->whereIn('received', $timestampsToDelete)->delete();
         return ['success' => true];
     }
 

@@ -12,7 +12,7 @@
             <div class="current-items-selection p-4 grid gap-2 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
                 @foreach($rewards as $key => $reward)
                     <div class="reward-item">
-                        <input type="hidden" name="rewards[type][]" value="{{ $reward->rewardType }}">
+                        <input type="hidden" name="rewards[type][]" value="{{ $reward->type }}">
                         <input type="hidden" name="rewards[id][]" value="{{ $reward->id }}">
                         <input type="hidden" name="rewards[amount][]" value="{{ $reward->amount }}">
                         <div>

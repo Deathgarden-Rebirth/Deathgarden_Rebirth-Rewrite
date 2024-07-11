@@ -157,7 +157,7 @@ class InboxController extends Controller
         $response = new InboxMessageClaimResponse();
 
         foreach($claimable as $reward) {
-            if($reward->rewardType === 'Currency') {
+            if($reward->type === 'Currency') {
                 switch ($reward->id) {
                     case 'CurrencyA':
                         $oldAmount = $playerData->currency_a;
@@ -184,7 +184,7 @@ class InboxController extends Controller
                     $newAmount - $oldAmount,
                 );
             }
-            else if($reward->rewardType === 'Inventory') {
+            else if($reward->type === 'Inventory') {
                 $itemUuid = Uuid::fromString($reward->id)->toString();
 
                 try {

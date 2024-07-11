@@ -8,14 +8,14 @@ use Ramsey\Uuid\Uuid;
 class InboxMessageReward
 {
     public function __construct(
-        public string $rewardType,
+        public string $type,
         public int $amount,
         public string $id,
     )
     {}
 
     public function getRewardName(): string {
-        if ($this->rewardType === 'Currency') {
+        if ($this->type === 'Currency') {
             return match ($this->id) {
                 'CurrencyA' => 'Currency A',
                 'CurrencyB' => 'Currency B',

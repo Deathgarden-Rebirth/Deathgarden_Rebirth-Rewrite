@@ -66,7 +66,7 @@ class InboxMessage extends Model
         $result = [];
         foreach ($this->claimable as $claimable) {
             $result[] = new InboxMessageReward(
-                $claimable['rewardType'],
+                $claimable['type'],
                 $claimable['amount'],
                 $claimable['id'],
             );

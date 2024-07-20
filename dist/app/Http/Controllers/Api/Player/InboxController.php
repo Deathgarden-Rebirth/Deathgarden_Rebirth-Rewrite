@@ -46,8 +46,10 @@ class InboxController extends Controller
 
         /** @var InboxMessage[]|Collection|LengthAwarePaginator $messages */
         $messages = $user->inboxMessages()
-            ->where('expire_at', '>', Carbon::now())
-            ->orWhereNull('expire_at')
+            ->where(function ($query) {
+                $query->where('expire_at', '>', Carbon::now())
+                    ->orWhereNull('expire_at');
+            })
             ->paginate($limit);
 
         $result = [

@@ -14,4 +14,9 @@ class ModerationController extends Controller
     {
         return json_encode(new CheckUsernameResponse($request->userId, $request->username));
     }
+
+    public function checkChatMessage()
+    {
+        return ['message' => 'TEst'];
+    }
 }

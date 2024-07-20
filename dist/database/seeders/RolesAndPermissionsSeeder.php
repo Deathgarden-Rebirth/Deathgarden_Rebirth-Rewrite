@@ -23,6 +23,7 @@ class RolesAndPermissionsSeeder extends Seeder
        $userReadPerm = Permission::findOrCreate(Permissions::VIEW_USERS->value);
        $userEditPerm = Permission::findOrCreate(Permissions::EDIT_USERS->value);
        $viewMaintenanceMode = Permission::findOrCreate(Permissions::VIEW_MAINTENANCE->value);
+       $inboxMailerPerm = Permission::findOrCreate(Permissions::INBOX_MAILER->value);
 
        $adminRole->givePermissionTo(
            $viewAdminAreaPerm,
@@ -32,6 +33,7 @@ class RolesAndPermissionsSeeder extends Seeder
            $userEditPerm,
            $fileUploadPerm,
            $viewMaintenanceMode,
+           $inboxMailerPerm,
        )->save();
     }
 }

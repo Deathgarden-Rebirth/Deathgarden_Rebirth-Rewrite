@@ -1,3 +1,5 @@
+@import 'select2-tailwind';
+
 [class^='input-global-'] {
   @apply transition-colors rounded-md border bg-slate-200 dark:bg-gray-800 border-gray-500 placeholder:text-black dark:placeholder:text-white;
 

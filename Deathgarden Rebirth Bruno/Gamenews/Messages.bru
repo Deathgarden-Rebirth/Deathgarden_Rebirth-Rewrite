@@ -1,0 +1,23 @@
+meta {
+  name: Messages
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/gamenews/messages
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "sortDesc": "true",
+      "gameVersion": "4417255",
+      "platform": "PC",
+      "language": "EN",
+      "messageType": "InGameNews",
+      "faction": "None",
+      "playerLevel": "1"
+  }
+}

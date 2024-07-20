@@ -1,0 +1,66 @@
+meta {
+  name: Player End Of Match
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{base_url}}/api/v1/extensions/progression/playerEndOfMatch
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  User-Agent: {{user_agent}}
+  Accept: application/json
+}
+
+body:json {
+  {
+  	"data": {
+  		"playerId": "9b74c49b-ce67-4f44-8fc0-087f370628b0",
+  		"faction": "Hunter",
+  		"characterGroup": "HunterGroupC",
+  		"playtime": 552,
+  		"platform": "PC",
+  		"hasQuit": false,
+  		"characterState": "InArena",
+  		"matchId": "9b801ad7-391f-4ca0-ad2f-54ae663bf8fd",
+  		"matchGameMode": "None",
+  		"experienceEvents": [
+  			{
+  				"type": "Downing",
+  				"amount": 6105
+  			},
+  			{
+  				"type": "Execution",
+  				"amount": 7500
+  			},
+  			{
+  				"type": "GardenFinale",
+  				"amount": 545
+  			},
+  			{
+  				"type": "Hacking",
+  				"amount": 60
+  			}
+  		],
+  		"earnedCurrencies": [
+  			{
+  				"currencyName": "CurrencyB",
+  				"amount": 740
+  			},
+  			{
+  				"currencyName": "CurrencyC",
+  				"amount": 740
+  			},
+  			{
+  				"currencyName": "CurrencyA",
+  				"amount": 320
+  			}
+  		],
+  		"completedChallenges": []
+  	}
+  }
+}

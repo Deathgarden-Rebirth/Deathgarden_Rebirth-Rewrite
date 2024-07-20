@@ -1,0 +1,15 @@
+meta {
+  name: Message Count
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/v1/messages/count?flag=NEW
+  body: none
+  auth: none
+}
+
+query {
+  flag: NEW
+}

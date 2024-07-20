@@ -12,4 +12,6 @@ enum Permissions: string
     case EDIT_USERS = 'edit-users';
     // Access to the homepage while its in maintenance mode
     case VIEW_MAINTENANCE = 'view-maintenance-mode';
+
+    case INBOX_MAILER = 'inbox-mailer';
 }

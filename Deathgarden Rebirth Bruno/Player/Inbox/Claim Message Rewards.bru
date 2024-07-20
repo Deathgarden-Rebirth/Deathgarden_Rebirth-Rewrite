@@ -1,0 +1,18 @@
+meta {
+  name: Claim Message Reward
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/api/v1/messages/claim
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "received": 12,
+    "recipientId": "9b70b902-1a13-474b-b5d3-4de3d07ad971"
+  }
+}

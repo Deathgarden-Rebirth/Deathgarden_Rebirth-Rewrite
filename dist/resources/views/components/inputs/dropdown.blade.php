@@ -10,10 +10,10 @@
 
 <select {{ $attributes->merge(['class' => 'input-global-dropdown']) }} @disabled($disabled)>
     @foreach($cases as $case)
-        <option value="{{ $case->value }}"
+        <option value="{{ $case instanceof BackedEnum ? $case->value : $case }}"
                 @selected($case === $selected)
         >
-            {{ $case->value }}
+            {{ $case instanceof BackedEnum ? $case->value : $case }}
         </option>
     @endforeach
 </select>

@@ -3,6 +3,7 @@
 namespace App\Models\User;
 
 use App\Enums\Game\Matchmaking\MatchStatus;
+use App\Models\Game\Inbox\InboxMessage;
 use App\Models\Game\Matchmaking\Game;
 use Cache;
 use Illuminate\Contracts\Cache\LockTimeoutException;
@@ -64,6 +65,11 @@ class User extends AuthUser
         return $this->belongsToMany(Game::class)
             ->withPivot('side')
             ->whereIn('status', [MatchStatus::Created->value, MatchStatus::Opened->value])->withTimestamps();
+    }
+
+    public function inboxMessages(): HasMany
+    {
+        return $this->hasMany(InboxMessage::class);
     }
 
     public static function findBySteamID(int $steamId): User|null

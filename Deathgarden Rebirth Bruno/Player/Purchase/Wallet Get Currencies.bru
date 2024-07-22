@@ -1,0 +1,16 @@
+meta {
+  name: Wallet Get Currencies
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base_url}}/api/v1/wallet/currencies
+  body: none
+  auth: none
+}
+
+headers {
+  User-Agent: {{user_agent}}
+  content-type: application/json
+}

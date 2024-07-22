@@ -1,0 +1,15 @@
+meta {
+  name: Latest Client Version
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{base_url}}/api/v1/config/VER_LATEST_CLIENT_DATA
+  body: none
+  auth: none
+}
+
+headers {
+  User-Agent: insomnium/0.2.3-a
+}

@@ -1,0 +1,17 @@
+meta {
+  name: Queue Cancel
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base_url}}/api/v1/queue/cancel
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  User-Agent: {{user_agent}}
+  ~Accept: application/json
+}

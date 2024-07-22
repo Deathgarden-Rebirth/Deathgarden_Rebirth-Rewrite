@@ -22,6 +22,7 @@
         "alpinejs": "^3.13.7",
         "dotenv": "^16.4.2",
         "jquery": "^3.7.1",
-        "jquery-modal": "^0.9.2"
+        "jquery-modal": "^0.9.2",
+        "select2": "^4.1.0-rc.0"
     }
 }

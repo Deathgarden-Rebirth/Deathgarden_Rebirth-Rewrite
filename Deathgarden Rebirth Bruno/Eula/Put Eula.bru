@@ -1,0 +1,16 @@
+meta {
+  name: Put Eula
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{base_url}}/api/v1/consent/eula2
+  body: none
+  auth: none
+}
+
+headers {
+  User-Agent: insomnium/0.2.3-a
+  Accept: application/json
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Delete Messages List
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{base_url}}/api/v1/messages/list
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "messageList": [
+        {
+          "received": 1,
+          "recipientId": "9b70b902-1a13-474b-b5d3-4de3d07ad971"
+        }
+      ]
+    }
+}

@@ -1,0 +1,32 @@
+meta {
+  name: Queue
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/api/v1/queue
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  User-Agent: {{user_agent}}
+  ~Accept: application/json
+}
+
+body:json {
+  {
+  	"category": "Steam-te-18f25613-36778-ue4-374f864b",
+  	"rank": 1,
+  	"side": "B",
+  	"latencies": [],
+  	"additionalUserIds": [],
+  	"checkOnly": false,
+  	"gameMode": "Default",
+  	"region": "EU",
+  	"countA": 1,
+  	"countB": 5
+  }
+}

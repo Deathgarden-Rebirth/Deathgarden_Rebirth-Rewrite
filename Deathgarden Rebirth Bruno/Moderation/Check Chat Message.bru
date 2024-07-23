@@ -1,0 +1,19 @@
+meta {
+  name: Check Chat Message
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/moderation/check/chat
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "userId": "9b70b902-1a13-474b-b5d3-4de3d07ad971",
+      "language": "en",
+      "message": "Fuck"
+    }
+}

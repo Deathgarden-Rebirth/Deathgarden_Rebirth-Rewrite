@@ -24,4 +24,9 @@ class BadChatMessage extends Model
     {
         return $this->belongsTo(User::class, 'handled_by_id');
     }
+
+    public function hostUser(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'host_user_id');
+    }
 }

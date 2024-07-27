@@ -21,10 +21,11 @@
         @endif
 
         @if(count($unhandledMessages) > 0)
-            <h1 class="text-2xl font-bold">Unhandled</h1>
+            <h1 class="text-2xl font-bold my-6">Unhandled</h1>
 
             <table class="border-spacing-3">
                 <thead>
+                <th>Lobby Host</th>
                 <th>User</th>
                 <th>Message</th>
                 <th>Handled</th>
@@ -38,10 +39,11 @@
             </table>
         @endif
         @if(count($handledMessages) > 0)
-            <h1 class="text-2xl font-bold">Handled</h1>
+            <h1 class="text-2xl font-bold my-6">Handled</h1>
 
             <table class="border-spacing-3">
                 <thead>
+                <th>Lobby Host</th>
                 <th>User</th>
                 <th>Message</th>
                 <th>Handled</th>
@@ -55,5 +57,8 @@
                 </tbody>
             </table>
         @endif
+        <div class="mt-4">
+            {{ $messages->links() }}
+        </div>
     </div>
 </x-layouts.admin>

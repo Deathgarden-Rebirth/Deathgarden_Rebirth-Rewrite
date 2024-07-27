@@ -20,7 +20,7 @@ class ChatMessageController extends AdminToolController
 
     public function index()
     {
-        $badMessages = BadChatMessage::orderBy('handled', 'desc')
+        $badMessages = BadChatMessage::orderBy('handled')
             ->paginate();
 
         return view('admin.tools.chat-messages', ['messages' => $badMessages]);

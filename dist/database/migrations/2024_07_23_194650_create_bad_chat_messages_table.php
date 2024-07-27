@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('bad_chat_messages', function (Blueprint $table) {
             $table->id();
+            $table->foreignUuid('host_user_id')->constrained('users');
             $table->foreignUuid('user_id')->constrained();
             $table->text('message');
             $table->boolean('handled')->default(false);

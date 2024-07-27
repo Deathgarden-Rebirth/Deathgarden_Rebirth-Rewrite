@@ -21,18 +21,24 @@ class ModerationController extends Controller
 
     public function checkChatMessage(CheckChatMessageRequest $request): mixed
     {
+        // Lobby Host that send the request to check the message. We log him too since only the lobby host checks the messages in teh backend.
+        $hostUser = Auth::user();
+        // User that send the chat message
+        $messageUser = User::find($request->userId);
+
         $checker = Builder::blocker($request->message);
 
         if($checker->clean())
             return response('{}');
 
-        $this->logBadMessage(Auth::user(), $request->message);
+        $this->logBadMessage($hostUser, $messageUser, $request->message);
         return response('Bad Message >:(');
     }
 
-    public function logBadMessage(User $user, string $message): void {
+    public function logBadMessage(User $hostUser, User $messageUser, string $message): void {
         $badMessage = new BadChatMessage();
-        $badMessage->user()->associate($user);
+        $badMessage->hostUser()->associate($hostUser);
+        $badMessage->user()->associate($messageUser);
         $badMessage->message = $message;
         $badMessage->save();
     }

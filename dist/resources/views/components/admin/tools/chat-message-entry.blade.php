@@ -5,6 +5,9 @@
     @csrf
     <tr>
         <td class="px-8">
+            {{ $message->created_at }}
+        </td>
+        <td class="px-8">
             <a href="{{ route('user.details', ['user' => $message->hostUser->id]) }}" target="_blank">
                 <div class="col-start-1 flex gap-2 justify-center items-center">
                     <img src="{{ $message->hostUser->avatar_small }}"

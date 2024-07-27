@@ -25,6 +25,7 @@
 
             <table class="border-spacing-3">
                 <thead>
+                <th>Time</th>
                 <th>Lobby Host</th>
                 <th>User</th>
                 <th>Message</th>
@@ -43,6 +44,7 @@
 
             <table class="border-spacing-3">
                 <thead>
+                <th>Time</th>
                 <th>Lobby Host</th>
                 <th>User</th>
                 <th>Message</th>

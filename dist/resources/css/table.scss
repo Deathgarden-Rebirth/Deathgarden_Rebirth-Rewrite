@@ -2,7 +2,7 @@ table {
   @apply w-full rounded-xl;
 
   thead {
-    @apply sticky z-10 top-0 text-gray-900 dark:text-gray-500 bg-slate-400 dark:bg-gray-900 rounded-xl;
+    @apply sticky top-0 text-gray-900 dark:text-gray-500 bg-slate-400 dark:bg-gray-900 rounded-xl;
 
     th {
       @apply text-sm uppercase py-2 first:pl-3 last:pr-3 px-1 sm:px-3 default:text-left ;

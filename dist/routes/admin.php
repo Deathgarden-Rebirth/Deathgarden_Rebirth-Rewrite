@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Catalog\CatalogController;
 use App\Http\Controllers\Web\Admin\DashboardController;
+use App\Http\Controllers\Web\Admin\Tools\ChatMessageController;
 use App\Http\Controllers\Web\Admin\Tools\FileManagerController;
 use App\Http\Controllers\Web\Admin\Tools\GameNewsController;
 use App\Http\Controllers\Web\Admin\Tools\InboxMailerController;
@@ -36,6 +37,9 @@ Route::get('catalog-items', [CatalogController::class, 'catalogItemDropdown'])->
 
 Route::get('mailer', [InboxMailerController::class, 'index'])->name(InboxMailerController::class);
 Route::post('mailer', [InboxMailerController::class, 'send'])->name('mailer.send');
+
+Route::get('chat-filter', [ChatMessageController::class, 'index'])->name(ChatMessageController::class);
+Route::post('chat-filter/handle-message/{message}', [ChatMessageController::class, 'handleMessage'])->name('chat-filter.handle');
 
 Route::fallback(function () {
     return redirect(route('admin.dashboard'));

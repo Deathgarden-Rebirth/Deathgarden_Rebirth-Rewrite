@@ -1,7 +1,7 @@
-<?php
+@php
 
-    use App\Http\Controllers\Web\Admin\Tools\AdminToolController
-?>
+    use App\Http\Controllers\Web\Admin\Tools\AdminToolController;
+@endphp
 
 <x-layouts.admin>
     <div class="flex flex-wrap justify-center align-middle content-center h-full p-10 items-center gap-6">
@@ -11,10 +11,20 @@
                 $user = \Illuminate\Support\Facades\Auth::user();
                 if($user->cant($toolClass::getNeededPermission()))
                     continue;
+
+                $notificationText = $toolClass::getNotificationText()
             @endphp
 
             <a href="{{ route($toolClass) }}" class="justify-center text-center">
-            <div class="bg-slate-300 dark:bg-gray-800 w-48 p-4 rounded-xl flex flex-col items-center h-56 max-h-96">
+            <div class="relative bg-slate-300 dark:bg-gray-800 w-48 p-4 rounded-xl flex flex-col items-center h-56 max-h-96">
+                @if($notificationText !== null)
+                        <div class="absolute -top-[3%] left-[93%] bg-yellow-300 w-6 h-6 rounded-[50%] shadow-glow shadow-yellow-300 flex justify-center items-center"
+                             title="{{ $notificationText }}">
+                            <x-icons.bell class="stroke-black size-5"/>
+                        </div>
+                @endif
+
+
                 <span>
                     {{ $toolClass::getName() }}
                 </span>

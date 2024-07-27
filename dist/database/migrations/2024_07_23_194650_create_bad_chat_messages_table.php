@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignUuid('user_id')->constrained();
             $table->text('message');
             $table->boolean('handled')->default(false);
+            $table->foreignUuid('handled_by_id')->nullable()->constrained('users');
             $table->text('consequences')->nullable();
             $table->timestamps();
         });

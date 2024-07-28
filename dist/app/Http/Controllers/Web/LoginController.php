@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Facades\Socialite;
@@ -27,7 +28,7 @@ class LoginController extends Controller
         $steamServiceConfig = Config::get('services.steam');
 
         if ($launcher === "yes") {
-            $steamServiceConfig['redirect'] = $steamServiceConfig['redirect_launcher'];
+            $steamServiceConfig['redirect'] = $steamServiceConfig['redirect_launcher'] . (!empty($request->getQueryString()) ? "?" . $request->getQueryString() : "");
         }
 
         return Socialite::buildProvider(SteamProvider::class, $steamServiceConfig)->redirect();
@@ -62,8 +63,15 @@ class LoginController extends Controller
 
         $loggedInUser->save();
 
+        $sessionCookie = $_COOKIE[config('session.cookie')] ?? null;
+
+        if ($sessionCookie) {
+            $response = Http::post('http://127.0.0.1:'.request()->input('port').'/auth', [ 'session_cookie' => config('session.cookie') . '=' . $sessionCookie]);
+            //Log::info("Retrieved session cookie: {$sessionCookie}");
+        }
+
         Log::stack(['stack', 'login'])->info('User with SteamID "{id}" successfully logged in via Launcher.', ['id' => $loggedInUser->steam_id]);
 
-        return Redirect::away('http://localhost:'. request()->session()->get('launcher_port') .'/auth');
+        return Redirect::away('http://127.0.0.1:'. request()->input('port') . '/success');
     }
 }

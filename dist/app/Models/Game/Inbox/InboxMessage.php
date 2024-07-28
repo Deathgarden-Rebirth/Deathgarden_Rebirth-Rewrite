@@ -75,7 +75,6 @@ class InboxMessage extends Model
         return $result;
     }
 
-
     public function setClaimables(array $claimables): void {
         $newClaimables = [];
 

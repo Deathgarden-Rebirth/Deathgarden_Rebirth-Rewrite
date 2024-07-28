@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\Auth\SteamAuthController;
 use App\Http\Controllers\Api\Eula\EulaConsentController;
 use App\Http\Controllers\Api\Matchmaking\MatchmakingController;
+use App\Http\Controllers\Api\ModerationController;
 use App\Http\Controllers\Api\Player\ChallengeController;
 use App\Http\Controllers\Api\Player\CurrencyController;
 use App\Http\Controllers\Api\Player\InboxController;
@@ -81,6 +82,8 @@ Route::prefix('v1')->group(function () {
 		Route::put('match/{matchId}/Kill', [MatchmakingController::class, 'kill']);
 		Route::put('match/{matchId}/Quit', [MatchmakingController::class, 'quit']);
         Route::delete('match/{matchId}/user/{userId}', [MatchmakingController::class, 'deleteUserFromMatch']);
+
+        Route::post('feedback', [ModerationController::class, 'playerReport']);
     });
 
 

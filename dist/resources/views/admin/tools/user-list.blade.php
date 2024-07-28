@@ -26,7 +26,6 @@
         </form>
 
         @if($userList->count() > 0)
-
             <table class="border-spacing-3">
                 <thead>
                 <th>User ID</th>

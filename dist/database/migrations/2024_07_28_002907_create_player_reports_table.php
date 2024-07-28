@@ -20,6 +20,9 @@ return new class extends Migration
             $table->text('details');
             $table->uuid('match_id');
             $table->json('player_infos');
+            $table->foreignUuid('handled_by_id')->nullable()->constrained('users');
+            $table->boolean('handled');
+            $table->text('consequences')->nullable();
 
             $table->timestamps();
         });

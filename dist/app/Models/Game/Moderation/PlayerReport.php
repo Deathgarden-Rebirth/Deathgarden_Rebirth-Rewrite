@@ -17,6 +17,11 @@ class PlayerReport extends Model
         'player_infos' => 'array',
     ];
 
+    protected $attributes = [
+        'handled' => false,
+
+    ];
+
     public function reportedUser(): BelongsTo
     {
         return $this->belongsTo(User::class, 'reported_user_id');
@@ -27,6 +32,15 @@ class PlayerReport extends Model
         return $this->belongsTo(User::class, 'reporting_user_id');
     }
 
+    public function handledBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'handled_by_id');
+    }
+
+    /**
+     *
+     * @return Collection|ReportPlayerInfoListEntry[]
+     * */
     public function playerInfos(): Collection {
         $collection = collect();
 

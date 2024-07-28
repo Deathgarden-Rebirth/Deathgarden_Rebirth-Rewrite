@@ -32,4 +32,13 @@ class PlayerReportsController extends AdminToolController
         Session::flash('alert-success', 'Handled report saved successfully.');
         return Redirect::back();
     }
+
+    public static function getNotificationText(): ?string
+    {
+        $unhandledCount = PlayerReport::where('handled', '=', false)->count();
+
+        if($unhandledCount > 0)
+            return 'There are Unhandled Chat Messages';
+        return null;
+    }
 }

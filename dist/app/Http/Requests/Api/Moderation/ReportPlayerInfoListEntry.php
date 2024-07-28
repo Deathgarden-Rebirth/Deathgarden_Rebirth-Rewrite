@@ -26,9 +26,9 @@ class ReportPlayerInfoListEntry
             CharacterState::tryFrom($array['characterState']),
             Faction::tryFrom($array['faction']),
             $array['totalXpEarned'],
-            $array['playtimeInSeconds'],
+            $array['playtimeInSeconds'] ?? $array['playtimeInSec'],
             $array['isReportedPlayer'],
-            $array['isReportingPlayer']);
+            $array['isReportingPlayer'] ?? $array['isReporterPlayer']);
     }
 
     public function getPlayerName(): string|null {

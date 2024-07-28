@@ -1,0 +1,12 @@
+.reward-item {
+  @apply bg-slate-700 border border-gray-500 rounded-md p-4;
+
+  > div {
+    @apply flex gap-4 justify-start p-0;
+
+  }
+
+  > div > span {
+    @apply bg-slate-800 p-2 border border-gray-500 rounded-md;
+  }
+}

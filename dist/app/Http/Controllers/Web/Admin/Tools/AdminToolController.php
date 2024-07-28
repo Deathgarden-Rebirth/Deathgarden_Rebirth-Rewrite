@@ -19,7 +19,7 @@ abstract class AdminToolController extends Controller
 
     public function __construct()
     {
-        View::share('title', static::$name);
+        $this->overrideTitle(static::$name);
     }
 
     /**
@@ -32,7 +32,13 @@ abstract class AdminToolController extends Controller
             FileManagerController::class,
             LogViewerController::class,
             UsersController::class,
+            ChatMessageController::class,
+            InboxMailerController::class,
         ];
+    }
+
+    public static function getNotificationText(): ?string {
+        return null;
     }
 
     final public static function getName(): string
@@ -53,5 +59,9 @@ abstract class AdminToolController extends Controller
     final public static function getNeededPermission(): string
     {
         return static::$neededPermission->value;
+    }
+
+    final protected function overrideTitle(string $title): void {
+        View::share('title', $title);
     }
 }

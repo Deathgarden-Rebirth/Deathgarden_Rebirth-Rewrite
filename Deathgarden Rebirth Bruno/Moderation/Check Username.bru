@@ -1,0 +1,21 @@
+meta {
+  name: Check Username
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/moderation/check/username
+  body: multipartForm
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  User-Agent: TheExit
+}
+
+body:multipart-form {
+  userId: 9b5040a7-00f5-4471-bd3d-231ac41de439
+  username: Vari
+}

@@ -1,0 +1,39 @@
+meta {
+  name: Update Metadata- Player
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/api/v1/extensions/progression/updateMetadataGroup
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+  User-Agent: {{user_agent}}
+  XDEBUG_SESSION: start
+  Accept: application/json
+}
+
+body:json {
+  {
+      "data": {
+          "objectId": "PlayerMetadata",
+          "version": 1,
+          "metadata": {
+              "lastPlayedFaction": "Runner",
+              "lastPlayedRunnerId": {
+                  "tagName": "Runner.Sawbones"
+              },
+              "lastPlayedHunterId": {
+                  "tagName": "Hunter.Poacher"
+              },
+              "shouldPlayWithoutContextualHelp": false,
+              "hasPlayedDeathGarden1": true
+          },
+          "reason": "SetLastPlayedFaction"
+      }
+  }
+}

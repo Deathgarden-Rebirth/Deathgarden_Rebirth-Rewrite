@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="section flex gap-2 justify-center !p-4">
-                    <a href="">
+                    <a href="{{ route('user.inbox', ['user' => $user->id]) }}">
                         <x-inputs.button type="button" title="Not yet Implemented">
                         <span class="flex items-center gap-2 text-xl align-middle">
                             <x-icons.mail class="size-5"/>

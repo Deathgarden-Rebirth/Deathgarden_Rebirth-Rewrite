@@ -1,0 +1,17 @@
+meta {
+  name: Close Match
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{base_url}}/api/v1/match/9b801ad7-391f-4ca0-ad2f-54ae663bf8fd/Close
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  User-Agent: {{user_agent}}
+  ~Accept: application/json
+}

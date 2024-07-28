@@ -1,0 +1,16 @@
+meta {
+  name: Get Eula Accepted
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/api/v1/consent/eula2
+  body: none
+  auth: none
+}
+
+headers {
+  User-Agent: insomnium/0.2.3-a
+  Accept: application/json
+}

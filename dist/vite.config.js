@@ -10,7 +10,8 @@ export default defineConfig({
             input: [
                 'resources/css/app.scss',
                 'resources/js/app.js',
-                ...glob.sync('resources/css/**/*.scss')
+                ...glob.sync('resources/css/**/*.scss'),
+                ...glob.sync('resources/js/**/*.js')
             ],
             refresh: true,
         }),

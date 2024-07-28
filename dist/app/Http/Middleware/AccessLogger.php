@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -23,6 +24,7 @@ class AccessLogger
         if (!Str::contains($request->userAgent(), 'TheExit'))
             return $next($request);
 
+        DB::enableQueryLog();
         $response = $next($request);
 
         $log = new stdClass();
@@ -41,6 +43,7 @@ class AccessLogger
         $log->response = new stdClass();
         $log->response->statusCode = $response->getStatusCode();
         $log->response->body = json_decode($response->getContent());
+        $log->queries = DB::getQueryLog();
 
         $logMessage = $log->method . ' ' . $log->url . "\n" . json_encode($log);
 

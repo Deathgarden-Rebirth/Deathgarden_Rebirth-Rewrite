@@ -1,0 +1,31 @@
+meta {
+  name: Get Challenge Progression Batch
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/api/v1/extensions/challenges/getChallengeProgressionBatch
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+  User-Agent: {{user_agent}}
+  XDEBUG_SESSION: start
+  ~accept: application/json
+}
+
+body:json {
+  {
+    "data": {
+      "userId": "9b719571-5ec6-49cc-9d4a-7fbefffc590f",
+      "challengeIds": [
+        "14C4BE4D4EB6B4625EFC7AA3F0DC4514",
+  			"B4B156CC47C8D987B9BDBEB910B12C9E",
+  			"00c0407c47e60cdb558c67b153e75db6"
+      ]
+    }
+  }
+}

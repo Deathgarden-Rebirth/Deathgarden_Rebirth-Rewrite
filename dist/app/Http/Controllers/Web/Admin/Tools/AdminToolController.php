@@ -34,6 +34,7 @@ abstract class AdminToolController extends Controller
             UsersController::class,
             ChatMessageController::class,
             InboxMailerController::class,
+            PlayerReportsController::class,
         ];
     }
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Web\Admin\Tools;
 
 use App\Enums\Auth\Permissions;
-use App\Http\Requests\Api\Admin\Tools\HandleChatMessageRequest;
+use App\Http\Requests\Api\Admin\Tools\HandleModerationRequest;
 use App\Models\Admin\BadChatMessage;
 use Redirect;
 use Session;
@@ -26,7 +26,7 @@ class ChatMessageController extends AdminToolController
         return view('admin.tools.chat-messages', ['messages' => $badMessages]);
     }
 
-    public function handleMessage(HandleCHatMessageRequest $request, BadChatMessage $message)
+    public function handleMessage(HandleModerationRequest $request, BadChatMessage $message)
     {
         $message->consequences = $request->consequences;
         $message->handled = true;

@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Moderation\CheckChatMessageRequest;
+use App\Http\Requests\Api\Moderation\ReportPlayerRequest;
 use App\Http\Requests\Api\Player\CheckUsernameRequest;
 use App\Http\Responses\Api\Player\CheckUsernameResponse;
 use App\Models\Admin\BadChatMessage;
+use App\Models\Game\Moderation\PlayerReport;
 use App\Models\User\User;
 use ConsoleTVs\Profanity\Builder;
 use Illuminate\Support\Facades\Auth;
@@ -41,5 +43,22 @@ class ModerationController extends Controller
         $badMessage->user()->associate($messageUser);
         $badMessage->message = $message;
         $badMessage->save();
+    }
+
+    public function playerReport(ReportPlayerRequest $request) {
+        $reportingUser = Auth::user();
+
+        $report = new PlayerReport();
+
+        $report->reason = $request->reason;
+        $report->details = $request->details;
+        $report->match_id = $request->matchId;
+        $report->player_infos = $request->playerInfos->toArray();
+
+        $report->reportingUser()->associate($reportingUser);
+        $report->reportedUser()->associate($request->reportedPlayer);
+        $report->save();
+
+        return 'OK';
     }
 }

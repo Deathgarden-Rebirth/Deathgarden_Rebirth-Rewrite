@@ -6,7 +6,7 @@ use App\Enums\Auth\Permissions;
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
-class HandleChatMessageRequest extends FormRequest
+class HandleModerationRequest extends FormRequest
 {
     public string $consequences;
 

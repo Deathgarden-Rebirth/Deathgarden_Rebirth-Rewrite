@@ -1,3 +1,3 @@
-<x-layouts.app>
+<x-layouts.web>
     Deathgarden Rebirth Homepage
-</x-layouts.app>
+</x-layouts.web>

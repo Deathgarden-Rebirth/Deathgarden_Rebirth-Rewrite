@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Catalog\CatalogController;
 use App\Http\Controllers\Api\Matchmaking\MatchmakingController;
+use App\Http\Controllers\Web\Homepage\HomepageController;
 use App\Http\Controllers\Api\PatchController;
 use App\Http\Controllers\Web\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -34,9 +35,7 @@ Route::prefix('patch')->group(function () {
 
 Route::get('{catalogVersion}/catalog', [CatalogController::class, 'getCatalog']);
 
-Route::get('/', function () {
-    return view('web.home');
-});
+Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
 Route::middleware('verify_migration_key')->get('/migrate-database', function () {
     Artisan::call('migrate --no-interaction');

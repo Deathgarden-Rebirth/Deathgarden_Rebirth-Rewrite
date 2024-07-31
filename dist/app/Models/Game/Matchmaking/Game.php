@@ -3,8 +3,14 @@
 namespace App\Models\Game\Matchmaking;
 
 use App\Classes\Matchmaking\MatchmakingPlayerCount;
+use App\Enums\Game\Characters;
+use App\Enums\Game\CharacterState;
+use App\Enums\Game\Faction;
 use App\Enums\Game\Matchmaking\MatchmakingSide;
 use App\Enums\Game\Matchmaking\MatchStatus;
+use App\Http\Requests\Api\Matchmaking\PlayerEndOfMatchRequest;
+use App\Models\Admin\Archive\ArchivedGame;
+use App\Models\Admin\Archive\ArchivedPlayerProgression;
 use App\Models\User\User;
 use Cache;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -13,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\DB;
+use Response;
 
 /**
  * @mixin IdeHelperGame
@@ -93,5 +100,13 @@ class Game extends Model
             $config->hunters - $currentHunterCount,
             $config->runners - $currentRunnerCount,
         );
+    }
+
+    public function archiveGame(Faction $dominantFaction): void
+    {
+        $archived = new ArchivedGame();
+        $archived->id = $this->id;
+        $archived->dominant_faction = $dominantFaction;
+        $archived->save();
     }
 }

@@ -24,7 +24,9 @@ class AccessLogger
         if (!Str::contains($request->userAgent(), 'TheExit'))
             return $next($request);
 
-        DB::enableQueryLog();
+        if(config('database.enable-query-logging'))
+            DB::enableQueryLog();
+
         $response = $next($request);
 
         $log = new stdClass();

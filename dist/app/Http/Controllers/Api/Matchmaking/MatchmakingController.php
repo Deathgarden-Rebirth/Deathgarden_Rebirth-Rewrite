@@ -16,6 +16,8 @@ use App\Http\Responses\Api\Matchmaking\MatchData;
 use App\Http\Responses\Api\Matchmaking\MatchProperties;
 use App\Http\Responses\Api\Matchmaking\QueueData;
 use App\Http\Responses\Api\Matchmaking\QueueResponse;
+use App\Models\Admin\Archive\ArchivedGame;
+use App\Models\Admin\Archive\ArchivedPlayerProgression;
 use App\Models\Game\CharacterData;
 use App\Models\Game\Matchmaking\Game;
 use App\Models\Game\Matchmaking\MatchConfiguration;
@@ -162,21 +164,24 @@ class MatchmakingController extends Controller
         return response('', 200);
     }
 
-    public function deleteUserFromMatch(string $matchId, string $userId)
+    public function deleteUserFromMatch(Game $game, User $user)
     {
-        $foundGame = Game::find($matchId);
-        $userToRemove = User::find($userId);
         $requestUser = Auth::user();
 
         // Block request if it doesn't come from the host
-        if($foundGame === null || $foundGame->creator != $requestUser)
+        if($game->creator->id != $requestUser->id)
             return response('Action not allowed, you are not the creator of the match.', 403);
 
-        $foundGame->players()->detach($userToRemove);
+        $this->removeUserFromGame($user, $game);
+
+        return json_encode(['success' => true]);
     }
 
     public function endOfMatch(EndOfMatchRequest $request)
     {
+        if(ArchivedGame::archivedGameExists($request->matchId))
+            return response('Match Already Closed', 209);
+
         $game = Game::find($request->matchId);
         $user = Auth::user();
 
@@ -185,6 +190,7 @@ class MatchmakingController extends Controller
 
         $game->status = MatchStatus::Killed;
         $game->save();
+        $game->archiveGame($request->dominantFaction);
 
         return json_encode(['success' => true]);
     }
@@ -205,33 +211,68 @@ class MatchmakingController extends Controller
         if($user === null)
             return response('User not found.', 404);
 
-        $playerData = $user->playerData();
-        $characterData = $playerData->characterDataForCharacter($request->characterGroup->getCharacter());
+        $lock = Cache::lock('playerEndOfMatch'.$user->id);
 
-        foreach ($request->experienceEvents as $experienceEvent) {
-            $characterData->addExperience($experienceEvent['amount']);
+        try {
+            // Lock the saving of the playerdata and stuff because the game can send multiple calls sometimes
+            $lock->block(10 ,function () use (&$user, &$request, &$game) {
+                if(ArchivedPlayerProgression::archivedPlayerExists($game->id, $user->id))
+                    return;
+
+                $playerData = $user->playerData();
+                $characterData = $playerData->characterDataForCharacter($request->characterGroup->getCharacter());
+
+                $experienceSum = 0;
+
+                foreach ($request->experienceEvents as $experienceEvent) {
+                    $experienceSum += (int)$experienceEvent['amount'];
+                }
+
+                $characterData->addExperience($experienceSum);
+
+                ++$characterData->readout_version;
+                $characterData->save();
+
+                $gainedCurrencyA = 0;
+                $gainedCurrencyB = 0;
+                $gainedCurrencyC = 0;
+
+                foreach ($request->earnedCurrencies as $earnedCurrency) {
+                    switch ($earnedCurrency['currencyName']) {
+                        case 'CurrencyA':
+                            $gainedCurrencyA += $earnedCurrency['amount'];
+                            break;
+                        case 'CurrencyB':
+                            $gainedCurrencyB += $earnedCurrency['amount'];
+                            break;
+                        case 'CurrencyC':
+                            $gainedCurrencyC += $earnedCurrency['amount'];
+                    }
+                }
+
+                $playerData->currency_a += $gainedCurrencyA;
+                $playerData->currency_b += $gainedCurrencyB;
+                $playerData->currency_c += $gainedCurrencyC;
+
+                ++$playerData->readout_version;
+                $playerData->save();
+
+                ArchivedPlayerProgression::archivePlayerProgression(
+                    $game,
+                    $user,
+                    $request->hasQuit,
+                    $request->characterGroup->getCharacter(),
+                    $request->characterState,
+                    $experienceSum,
+                    $request->experienceEvents,
+                    $gainedCurrencyA,
+                    $gainedCurrencyB,
+                    $gainedCurrencyC,
+                );
+            });
+        } catch (LockTimeoutException $e) {
+            return response('The Player end of match request for this user is currently being processed', 409);
         }
-
-        ++$characterData->readout_version;
-        $characterData->save();
-
-        foreach ($request->earnedCurrencies as $earnedCurrency) {
-            switch ($earnedCurrency['currencyName']) {
-                case 'CurrencyA':
-                    $playerData->currency_a += $earnedCurrency['amount'];
-                    break;
-                case 'CurrencyB':
-                    $playerData->currency_b += $earnedCurrency['amount'];
-                    break;
-                case 'CurrencyC':
-                    $playerData->currency_c += $earnedCurrency['amount'];
-            }
-        }
-
-        ++$playerData->readout_version;
-        $playerData->save();
-
-        $this->removeUserFromGame($user, $game);
 
         // We dont really know what the game wants except for a json object called "player".
         return json_encode(['player' => []], JSON_FORCE_OBJECT);

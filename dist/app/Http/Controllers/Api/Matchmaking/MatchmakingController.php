@@ -164,15 +164,15 @@ class MatchmakingController extends Controller
         return response('', 200);
     }
 
-    public function deleteUserFromMatch(Game $game, User $user)
+    public function deleteUserFromMatch(Game $match, User $user)
     {
         $requestUser = Auth::user();
 
         // Block request if it doesn't come from the host
-        if($game->creator->id != $requestUser->id)
+        if($match->creator->id != $requestUser->id)
             return response('Action not allowed, you are not the creator of the match.', 403);
 
-        $this->removeUserFromGame($user, $game);
+        $this->removeUserFromGame($user, $match);
 
         return json_encode(['success' => true]);
     }

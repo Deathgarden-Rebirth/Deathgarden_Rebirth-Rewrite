@@ -21,6 +21,8 @@ class AccessLogger
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $startTime = microtime(true);
+
         if (!Str::contains($request->userAgent(), 'TheExit'))
             return $next($request);
 
@@ -30,6 +32,7 @@ class AccessLogger
         $response = $next($request);
 
         $log = new stdClass();
+        $log->startTime = $startTime;
         $log->method = $request->method();
         $log->url = $request->fullUrl();
         $log->headers = $request->headers->all();

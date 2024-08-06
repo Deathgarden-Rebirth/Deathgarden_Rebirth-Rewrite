@@ -31,7 +31,6 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Laravel\Prompts\Table;
 
 class MatchmakingController extends Controller
 {
@@ -221,6 +220,11 @@ class MatchmakingController extends Controller
 
                 $playerData = $user->playerData();
                 $characterData = $playerData->characterDataForCharacter($request->characterGroup->getCharacter());
+
+                if($request->hasQuit)
+                    $playerData->quitterState->addQuitterPenalty();
+                else
+                    $playerData->quitterState->addStayedMatch($playerData);
 
                 $experienceSum = 0;
 

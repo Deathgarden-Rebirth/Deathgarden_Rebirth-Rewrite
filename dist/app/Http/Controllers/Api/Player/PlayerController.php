@@ -104,12 +104,7 @@ class PlayerController extends Controller
     {
         $quitterState = Auth::user()->playerData()->quitterState;
 
-        if( $quitterState->strike_refresh_time !== null &&
-            Carbon::parse($quitterState->strike_refresh_time)->isBefore(Carbon::now()))
-        {
-            ++$quitterState->strikes_left;
-            $quitterState->strike_refresh_time = null;
-        }
+        $quitterState->checkStrikeRefresh();
 
         $response = new GetQuitterStateResponse(
             $quitterState->strike_refresh_time === null ? 0 : Carbon::parse($quitterState->strike_refresh_time)->getTimestamp(),
@@ -122,11 +117,7 @@ class PlayerController extends Controller
         );
 
         if ($quitterState->stay_match_streak > $quitterState->stay_match_streak_previous)
-            $response->stayMatchStreakRewards[] = new Reward(
-                RewardType::Currency,
-                20,
-                'CurrencyA',
-            );
+            $response->stayMatchStreakRewards[] = QuitterState::getReward($quitterState->stay_match_streak);
 
         return json_encode($response);
     }

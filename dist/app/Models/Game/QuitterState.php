@@ -24,7 +24,7 @@ class QuitterState extends Model
         'quit_match_streak_previous' => 'int',
         'strikes_left' => 'int',
         'has_quit_once' => 'boolean',
-        'strike_refresh_time' => Carbon::class,
+        'strike_refresh_time' => 'datetime',
     ];
 
     protected $attributes = [

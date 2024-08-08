@@ -58,6 +58,11 @@ class QuitterState extends Model
                 if($this->strikes_left < config('quitter-state.max-available-strikes')) {
                     $this->strike_refresh_time = $currentRefreshTime->add(config('quitter-state.strike-refresh-time'));
                 }
+                else {
+                    $this->strike_refresh_time = null;
+                    $this->save();
+                    break;
+                }
             }
             else {
                 $this->save();
@@ -68,6 +73,7 @@ class QuitterState extends Model
 
     public function addStayedMatch(PlayerData &$playerData): void {
         ++$this->stay_match_streak;
+        $this->has_quit_once = false;
         $rewards = static::getReward($this->stay_match_streak);
 
         foreach ($rewards as $reward) {
@@ -89,12 +95,16 @@ class QuitterState extends Model
         if ($this->strikes_left === 0) {
             $this->stay_match_streak_previous = $this->stay_match_streak;
             $this->stay_match_streak = 0;
-            $this->has_quit_once = true;
         }
         else {
             --$this->strikes_left;
+
+            if($this->strike_refresh_time === null) {
+                $this->strike_refresh_time = Carbon::now()->add(config('quitter-state.strike-refresh-time'));
+            }
         }
 
+        $this->has_quit_once = true;
         $this->save();
     }
 

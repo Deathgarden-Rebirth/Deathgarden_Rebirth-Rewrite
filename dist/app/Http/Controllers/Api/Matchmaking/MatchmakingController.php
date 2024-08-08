@@ -13,12 +13,10 @@ use App\Http\Requests\Api\Matchmaking\QueueRequest;
 use App\Http\Requests\Api\Matchmaking\RegisterMatchRequest;
 use App\Http\Requests\Metrics\MatchmakingRequest;
 use App\Http\Responses\Api\Matchmaking\MatchData;
-use App\Http\Responses\Api\Matchmaking\MatchProperties;
 use App\Http\Responses\Api\Matchmaking\QueueData;
 use App\Http\Responses\Api\Matchmaking\QueueResponse;
 use App\Models\Admin\Archive\ArchivedGame;
 use App\Models\Admin\Archive\ArchivedPlayerProgression;
-use App\Models\Game\CharacterData;
 use App\Models\Game\Matchmaking\Game;
 use App\Models\Game\Matchmaking\MatchConfiguration;
 use App\Models\Game\Matchmaking\QueuedPlayer;
@@ -259,7 +257,7 @@ class MatchmakingController extends Controller
                 $playerData->currency_c += $gainedCurrencyC;
 
                 ++$playerData->readout_version;
-                $playerData->save();
+                $playerData->push();
 
                 ArchivedPlayerProgression::archivePlayerProgression(
                     $game,

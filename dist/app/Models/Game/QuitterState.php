@@ -188,5 +188,7 @@ class QuitterState extends Model
                 ),
             ];
         }
+
+        return [];
     }
 }

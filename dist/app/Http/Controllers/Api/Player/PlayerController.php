@@ -116,8 +116,7 @@ class PlayerController extends Controller
             $quitterState->quit_match_streak_previous,
         );
 
-        if ($quitterState->stay_match_streak > $quitterState->stay_match_streak_previous)
-            $response->stayMatchStreakRewards[] = QuitterState::getReward($quitterState->stay_match_streak);
+        $response->stayMatchStreakRewards = QuitterState::getReward($quitterState->stay_match_streak);
 
         return json_encode($response);
     }

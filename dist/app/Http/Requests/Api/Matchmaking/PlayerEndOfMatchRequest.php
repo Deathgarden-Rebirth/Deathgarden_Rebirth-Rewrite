@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Api\Matchmaking;
 
+use App\Enums\Game\CharacterState;
 use App\Enums\Game\Faction;
 use App\Enums\Game\ItemGroupType;
 use Illuminate\Foundation\Http\FormRequest;
@@ -22,7 +23,7 @@ class PlayerEndOfMatchRequest extends FormRequest
 
     public bool $hasQuit;
 
-    public string $characterState;
+    public CharacterState $characterState;
 
     public string $matchId;
 
@@ -56,7 +57,7 @@ class PlayerEndOfMatchRequest extends FormRequest
             'data.playtime' => 'required|int',
             'data.platform' => 'string',
             'data.hasQuit' => 'required|bool',
-            'data.characterState' => 'required|string',
+            'data.characterState' => ['required', Rule::enum(CharacterState::class)],
             'data.matchId' => 'required|string',
             'data.matchGameMode' => 'required|string',
             'data.experienceEvents' => 'present|array',
@@ -73,7 +74,7 @@ class PlayerEndOfMatchRequest extends FormRequest
         $this->playtime = $this->input('data.playtime', 0);
         $this->platform = $this->input('data.platform', 'None');
         $this->hasQuit = $this->input('data.hasQuit');
-        $this->characterState = $this->input('data.characterState');
+        $this->characterState = CharacterState::tryFrom($this->input('data.characterState'));
         $this->matchId = $this->input('data.matchId');
         $this->gamemode = $this->input('data.matchGameMode');
         $this->experienceEvents = $this->input('data.experienceEvents');

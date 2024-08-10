@@ -17,6 +17,9 @@ return [
 
     'default' => env('DB_CONNECTION', 'mysql'),
 
+    // Enables Query logging for logs the AccesLogger writes.
+    'enable-query-logging' => env('DB_ENABLE_QUERY_LOG', false),
+
     /*
     |--------------------------------------------------------------------------
     | Database Connections

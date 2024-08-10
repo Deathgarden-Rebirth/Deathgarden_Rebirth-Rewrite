@@ -21,13 +21,18 @@ class AccessLogger
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $startTime = microtime(true);
+
         if (!Str::contains($request->userAgent(), 'TheExit'))
             return $next($request);
 
-        DB::enableQueryLog();
+        if(config('database.enable-query-logging'))
+            DB::enableQueryLog();
+
         $response = $next($request);
 
         $log = new stdClass();
+        $log->startTime = $startTime;
         $log->method = $request->method();
         $log->url = $request->fullUrl();
         $log->headers = $request->headers->all();

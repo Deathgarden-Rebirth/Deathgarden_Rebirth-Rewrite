@@ -28,7 +28,9 @@ class InboxMessage extends Model
     ];
 
     protected $attributes = [
-        'claimable' => [],
+        'origin' => null,
+        'expire_at' => null,
+        'claimable' => '[]',
     ];
 
     public function user(): BelongsTo

@@ -54,7 +54,7 @@
                                     <x-icons.mail class="size-4"/>
                                 </x-inputs.button>
                             </a>
-                            @can(\App\Enums\Auth\Permissions::EDIT_USERS->value)
+                            @can(\App\Enums\Auth\Permissions::USER_BANS->value)
                             <a href="{{ route('user.bans', ['user' => $user->id]) }}">
                                 <x-inputs.button type="button" class="px-2 py-1 !text-sm delete" title="Bans">
                                     <x-icons.hammer class="size-4"/>

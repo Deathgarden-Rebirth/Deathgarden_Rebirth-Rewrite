@@ -12,9 +12,9 @@ use Session;
 class PlayerReportsController extends AdminToolController
 {
     protected static string $name = 'Reports';
-    protected static string $description = 'See player reports';
+    protected static string $description = 'View Reported Players';
     protected static string $iconComponent = 'icons.flag';
-    protected static Permissions $neededPermission = Permissions::VIEW_USERS;
+    protected static Permissions $neededPermission = Permissions::PLAYER_REPORTS;
 
     public function index()
     {

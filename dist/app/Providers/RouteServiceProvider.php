@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Middleware\AdminPermissionCheck;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -52,7 +53,7 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware(['api', 'api.session'])
                 ->group(base_path('routes/messages.php'));
 
-            Route::middleware(['web', 'auth'])
+            Route::middleware(['web', 'auth', AdminPermissionCheck::class])
                 ->prefix('admin')
                 ->group(base_path('routes/admin.php'));
         });

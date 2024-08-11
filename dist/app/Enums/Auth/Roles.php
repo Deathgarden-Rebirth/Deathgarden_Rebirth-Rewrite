@@ -6,7 +6,9 @@ use Spatie\Permission\Models\Role;
 
 enum Roles: string
 {
-    case ADMIN = 'admin';
+    case Admin = 'admin';
+
+    case Moderator = 'moderator';
 
     public function getRole(): Role
     {

@@ -10,7 +10,7 @@ class LogViewerController extends AdminToolController
 {
     protected static string $name = 'Logs';
 
-    protected static string $description = 'View Application and Session Logs';
+    protected static string $description = 'View Backend Logs';
 
     protected static string $iconComponent = 'icons.logs';
 

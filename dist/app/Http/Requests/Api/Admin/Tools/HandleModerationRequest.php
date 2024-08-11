@@ -12,7 +12,7 @@ class HandleModerationRequest extends FormRequest
 
     public function authorize(): bool
     {
-        return Auth::check() && Auth::user()->can(Permissions::VIEW_USERS->value);
+        return Auth::check();
     }
 
     public function rules(): array

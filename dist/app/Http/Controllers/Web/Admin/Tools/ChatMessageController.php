@@ -10,13 +10,13 @@ use Session;
 
 class ChatMessageController extends AdminToolController
 {
-    protected static string $name = 'Chat Messages';
+    protected static string $name = 'Chat Profanity Alarm';
 
-    protected static string $description = 'See list of chat messages that triggered the Profanity filter.';
+    protected static string $description = 'View Triggered Chat Messages';
 
     protected static string $iconComponent = 'icons.chat';
 
-    protected static Permissions $neededPermission = Permissions::VIEW_USERS;
+    protected static Permissions $neededPermission = Permissions::CHAT_REPORTS;
 
     public function index()
     {

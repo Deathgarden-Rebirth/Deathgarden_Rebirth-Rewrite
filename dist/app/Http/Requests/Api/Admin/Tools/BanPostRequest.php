@@ -24,7 +24,7 @@ class BanPostRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return Auth::user()?->can(Permissions::EDIT_USERS->value);
+        return Auth::user()?->can(Permissions::USER_BANS->value);
     }
 
     /**

@@ -13,6 +13,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->command('model:prune')->daily();
+        $schedule->command('matchmaking:process')->everyTenSeconds();
+        $schedule->command('matchmaking:cleanup')->everyTwentySeconds();
     }
 
     /**

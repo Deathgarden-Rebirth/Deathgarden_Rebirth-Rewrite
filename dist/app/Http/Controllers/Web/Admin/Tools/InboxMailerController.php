@@ -17,7 +17,7 @@ class InboxMailerController extends AdminToolController
 {
     protected static string $name = 'Mailer';
 
-    protected static string $description = 'Send inbox messages to one or multiple users.';
+    protected static string $description = 'Send Messages to Users';
     protected static string $iconComponent = 'icons.mail';
 
     protected static Permissions $neededPermission = Permissions::INBOX_MAILER;

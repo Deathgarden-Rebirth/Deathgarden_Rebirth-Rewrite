@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class FileManagerController extends AdminToolController
 {
-    protected static string $name = 'File Manager';
+    protected static string $name = 'Pak Manager';
 
-    protected static string $description = 'Add and edit game files the launcher installs.';
+    protected static string $description = 'Deploy Pak Updates for the Launcher';
     protected static string $iconComponent = 'icons.file-manager';
 
     protected static Permissions $neededPermission = Permissions::FILE_UPLOAD;

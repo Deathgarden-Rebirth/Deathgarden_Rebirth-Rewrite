@@ -16,7 +16,7 @@ class GameNewsController extends AdminToolController
 {
     protected static string $name = 'Game News';
 
-    protected static string $description = 'Create and edit in game news.';
+    protected static string $description = 'Create & Edit Game News';
 
     protected static string $iconComponent = 'icons.gamenews';
 

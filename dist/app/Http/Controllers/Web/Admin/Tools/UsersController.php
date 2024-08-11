@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Admin\Tools;
 
 use App\APIClients\HttpMethod;
+use App\Attributes\IgnorePermissionCheck;
 use App\Enums\Auth\Permissions;
 use App\Enums\Game\Characters;
 use App\Enums\Game\Runner;
@@ -24,7 +25,7 @@ class UsersController extends AdminToolController
 {
     protected static string $name = 'Users';
 
-    protected static string $description = 'View and Manage Users';
+    protected static string $description = 'View & Manage Users';
 
     protected static string $iconComponent = 'icons.users';
 
@@ -36,9 +37,6 @@ class UsersController extends AdminToolController
 
     public function index(Request $request)
     {
-        if(!Auth::user()->can(Permissions::VIEW_USERS->value))
-            abort(403, 'No Permission to view this Page');
-
         $searchString = $request->input('search');
         $query = User::orderBy('last_known_username');
 
@@ -67,6 +65,9 @@ class UsersController extends AdminToolController
 
     public function edit(User $user, EditUserRequest $request)
     {
+        if(!Auth::user()->can(Permissions::EDIT_USERS->value))
+            abort(403);
+
         $playerData = $user->playerData();
 
         $playerData->currency_a = $request->currencyA;
@@ -94,10 +95,12 @@ class UsersController extends AdminToolController
         return redirect()->back();
     }
 
+    #[IgnorePermissionCheck]
     public function getUsersForDropdown(Request $request)
     {
-        if(!Auth::check() && Auth::user()->can(Permissions::VIEW_USERS->value))
-            abort(403, 'No Permission to get this Data');
+        // only allow the retrieval of the dropdown if we have the view users permission or inbox mailer because there we need it.
+        if(!Auth::check() || !(Auth::user()->can(Permissions::VIEW_USERS->value) || Auth::user()->can(Permissions::INBOX_MAILER->value)))
+            abort(403);
 
         $searchTerm = $request->input('term');
 
@@ -131,10 +134,8 @@ class UsersController extends AdminToolController
 
     public function reset(User $user)
     {
-        $canReset = Auth::check() && Auth::user()->can(Permissions::EDIT_USERS->value);
-
-        if(!$canReset)
-            abort(403, 'You dont have enough permissions for this action.');
+        if(!Auth::user()->can(Permissions::EDIT_USERS->value))
+            abort(403);
 
         $user->playerData()->delete();
         return redirect()->back();
@@ -142,8 +143,8 @@ class UsersController extends AdminToolController
 
     public function bans(User $user)
     {
-        if(!Auth::user()->can(Permissions::EDIT_USERS->value))
-            abort(403, 'You are not allowed to edit Bans of a User.');
+        if(!Auth::user()->can(Permissions::USER_BANS->value))
+            abort(403);
 
         $bans = $user->bans;
         $this->overrideTitle('Bans for User: '.$user->id.'('.$user->last_known_username.')');
@@ -172,8 +173,8 @@ class UsersController extends AdminToolController
     }
 
     public function createBan(User $user) {
-        if(!Auth::user()->can(Permissions::EDIT_USERS->value))
-            abort(403, 'No Permission to create a Ban.');
+        if(!Auth::user()->can(Permissions::USER_BANS->value))
+            abort(403);
 
         $newBan = new Ban();
         $newBan->ban_reason = 'Placeholder';

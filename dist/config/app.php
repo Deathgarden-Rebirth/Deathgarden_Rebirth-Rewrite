@@ -170,6 +170,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Phattarachai\LaravelMobileDetect\AgentServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -187,6 +188,7 @@ return [
         'Game' => \App\Models\Game\Matchmaking\Game::class,
         'QueuedPlayer' => \App\Models\Game\Matchmaking\QueuedPlayer::class,
         'MatchmakingPlayerCount' => \App\Classes\Matchmaking\MatchmakingPlayerCount::class,
+        'Agent' => Phattarachai\LaravelMobileDetect\Facades\Agent::class,
     ])->toArray(),
 
 ];

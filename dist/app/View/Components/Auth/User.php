@@ -17,6 +17,7 @@ class User extends Component
         public \App\Models\User\User $user,
         public bool $showAvatar = true,
         public bool $showName = true,
+        public bool $reverseOrder = false,
     )
     {
         $this->profileUrl = 'https://steamcommunity.com/profiles/'.$user->steam_id;

@@ -4,6 +4,7 @@
     if(!$attributes->has('href')) {
         $attributes->setAttributes([
             'href' => route('login'),
+            ...$attributes->getAttributes()
         ]);
     }
 @endphp

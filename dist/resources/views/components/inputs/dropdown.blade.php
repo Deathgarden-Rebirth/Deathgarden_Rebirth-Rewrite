@@ -13,7 +13,7 @@
         <option value="{{ $case instanceof BackedEnum ? $case->value : $case }}"
                 @selected($case === $selected)
         >
-            {{ $case instanceof BackedEnum ? $case->value : $case }}
+            {{ $case instanceof StringBackedEnum ? $case->value : $case->name }}
         </option>
     @endforeach
 </select>

@@ -42,7 +42,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 360
         }
       ],
       "eventCostList": [],
@@ -82,7 +82,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 470
         }
       ],
       "eventCostList": [],
@@ -120,7 +120,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 580
         }
       ],
       "eventCostList": [],
@@ -158,11 +158,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 690
         }
       ],
       "eventCostList": [],
@@ -200,11 +196,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 800
         }
       ],
       "eventCostList": [],
@@ -244,11 +236,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 910
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 120
         }
       ],
       "eventCostList": [],
@@ -286,11 +278,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1020
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 230
         }
       ],
       "eventCostList": [],
@@ -328,11 +320,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1130
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 340
         }
       ],
       "eventCostList": [],
@@ -370,11 +362,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1240
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 440
         }
       ],
       "eventCostList": [],
@@ -447,7 +439,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 360
         }
       ],
       "eventCostList": [],
@@ -487,7 +479,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 470
         }
       ],
       "eventCostList": [],
@@ -525,7 +517,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 580
         }
       ],
       "eventCostList": [],
@@ -563,11 +555,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 690
         }
       ],
       "eventCostList": [],
@@ -605,11 +593,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 800
         }
       ],
       "eventCostList": [],
@@ -649,11 +633,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 910
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 120
         }
       ],
       "eventCostList": [],
@@ -691,11 +675,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1020
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 230
         }
       ],
       "eventCostList": [],
@@ -733,11 +717,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1130
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 340
         }
       ],
       "eventCostList": [],
@@ -775,11 +759,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1240
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 440
         }
       ],
       "eventCostList": [],
@@ -813,13 +797,13 @@
     {
       "id": "48072EAA49C83C6F387236955B3C7B6E",
       "displayName": "HT_AutoShotgun_Veteran_001_Jasper_67V",
-      "initialQuantity": 0,
+      "initialQuantity": 1,
       "consumable": false,
       "consumptionReward": [],
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 250
         }
       ],
       "eventCostList": [],
@@ -861,7 +845,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 360
         }
       ],
       "eventCostList": [],
@@ -905,7 +889,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 470
         }
       ],
       "eventCostList": [],
@@ -947,7 +931,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 580
         }
       ],
       "eventCostList": [],
@@ -989,11 +973,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 690
         }
       ],
       "eventCostList": [],
@@ -1035,11 +1015,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 800
         }
       ],
       "eventCostList": [],
@@ -1083,11 +1059,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 910
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 120
         }
       ],
       "eventCostList": [],
@@ -1129,11 +1105,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1020
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 230
         }
       ],
       "eventCostList": [],
@@ -1175,11 +1151,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1130
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 340
         }
       ],
       "eventCostList": [],
@@ -1221,11 +1197,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1240
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 440
         }
       ],
       "eventCostList": [],
@@ -1269,7 +1245,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 250
         }
       ],
       "eventCostList": [],
@@ -1307,7 +1283,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 360
         }
       ],
       "eventCostList": [],
@@ -1347,7 +1323,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 470
         }
       ],
       "eventCostList": [],
@@ -1385,7 +1361,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 580
         }
       ],
       "eventCostList": [],
@@ -1423,11 +1399,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 690
         }
       ],
       "eventCostList": [],
@@ -1465,11 +1437,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 800
         }
       ],
       "eventCostList": [],
@@ -1509,11 +1477,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 910
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 120
         }
       ],
       "eventCostList": [],
@@ -1551,11 +1519,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1020
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 230
         }
       ],
       "eventCostList": [],
@@ -1593,11 +1561,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1130
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 340
         }
       ],
       "eventCostList": [],
@@ -1635,11 +1603,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1240
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 440
         }
       ],
       "eventCostList": [],
@@ -1679,7 +1647,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 250
         }
       ],
       "eventCostList": [],
@@ -1717,7 +1685,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 360
         }
       ],
       "eventCostList": [],
@@ -1757,7 +1725,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 470
         }
       ],
       "eventCostList": [],
@@ -1795,7 +1763,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 580
         }
       ],
       "eventCostList": [],
@@ -1833,11 +1801,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 690
         }
       ],
       "eventCostList": [],
@@ -1875,11 +1839,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
-        },
-        {
-          "currencyId": "CurrencyA",
-          "price": 1
+          "price": 800
         }
       ],
       "eventCostList": [],
@@ -1919,11 +1879,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 910
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 120
         }
       ],
       "eventCostList": [],
@@ -1961,11 +1921,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1020
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 230
         }
       ],
       "eventCostList": [],
@@ -2003,11 +1963,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1130
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 340
         }
       ],
       "eventCostList": [],
@@ -2045,11 +2005,11 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyC",
-          "price": 1
+          "price": 1240
         },
         {
           "currencyId": "CurrencyA",
-          "price": 1
+          "price": 440
         }
       ],
       "eventCostList": [],
@@ -3248,7 +3208,7 @@
         "autoUnlockItemIds": [],
         "itemAssignments": [
           "50D3005B437066E4C4D99F9397CF1B0B",
-          "973C9176404A29F926D13BACB76A2425",
+          "48072EAA49C83C6F387236955B3C7B6E",
           "1098BEE241B1515B44013A87EDB16BDC",
           "EDB6D6B742023AE61AD8718CAC073C0E",
           "F055513D48AACBAC280B2AA00A984180",
@@ -3371,7 +3331,7 @@
           "08DC38B6470A7A5B0BA025B96279DAA8",
           "5159591743CBF0B57EC6FEB3341960D6",
           "08E1B04246C86826FA5FBE9B8030EB01",
-          "0FA5CBDA402FB9FCC8B56CAE69202061",
+          "00CE22624386379A86512A9500B41ABC",
           "B7287C204907B7DDFC7D0EA0B8252E60",
           "7037D4804CB9931A4DDF23A35E321775",
           "1B51D59C47F565A20E743BA187B83642"
@@ -3598,11 +3558,11 @@
           "7A541DCB4F04DAB2E10FAB84395BB967",
           "08DC38B6470A7A5B0BA025B96279DAA8",
           "0703E3634B0E4409623E2D8C06B14C79",
-          "00CE22624386379A86512A9500B41ABC",
+          "0FA5CBDA402FB9FCC8B56CAE69202061",
           "DE624DB646B9EEAA7CBDFF9A62D96293",
           "2046082F4049FFABD5A933A4559B3AE0",
           "97D7970A47CDE0451384D098E7E4A681",
-          "48072EAA49C83C6F387236955B3C7B6E"
+          "973C9176404A29F926D13BACB76A2425"
         ],
         "prestigeLevelRewards": [
           {
@@ -3994,10 +3954,15 @@
     {
       "id": "973C9176404A29F926D13BACB76A2425",
       "displayName": "HT_DefaultShotgun_001_Mauler_190",
-      "initialQuantity": 1,
+      "initialQuantity": 0,
       "consumable": false,
       "consumptionReward": [],
-      "defaultCost": [],
+      "defaultCost": [
+        {
+          "currencyId": "CurrencyC",
+          "price": 1
+        }
+      ],
       "eventCostList": [],
       "metaData": {
         "gameplayTags": [
@@ -8247,7 +8212,7 @@
       "metaData": {
         "gameplayTags": [
           "Customization.HT.Weapon.Shotgun.SHD",
-          "Hunter.Inquisitor"
+          "Hunter.Mass"
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
@@ -12060,15 +12025,10 @@
     {
       "id": "00CE22624386379A86512A9500B41ABC",
       "displayName": "HT_Perk_DroneReactivationTime_001_Wake_Me_Up",
-      "initialQuantity": 0,
+      "initialQuantity": 1,
       "consumable": false,
       "consumptionReward": [],
-      "defaultCost": [
-        {
-          "currencyId": "CurrencyB",
-          "price": 125
-        }
-      ],
+      "defaultCost": [],
       "eventCostList": [],
       "metaData": {
         "gameplayTags": [
@@ -12077,7 +12037,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 2,
+        "minCharacterLevel": 0,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -12940,10 +12900,15 @@
     {
       "id": "AA00BB584A47234168A63D9F14C4C4E8",
       "displayName": "HT_Perk_ExplosiveRangeIncrease_001_Turn_Up_The_Heat",
-      "initialQuantity": 1,
+      "initialQuantity": 0,
       "consumable": false,
       "consumptionReward": [],
-      "defaultCost": [],
+      "defaultCost": [
+          {
+              "currencyId": "CurrencyB",
+              "price": 125
+          }
+      ],
       "eventCostList": [],
       "metaData": {
         "gameplayTags": [
@@ -12952,7 +12917,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 0,
+        "minCharacterLevel": 2,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -24795,7 +24760,7 @@
       "metaData": {
         "gameplayTags": [
           "Customization.HT.Weapon.Shotgun.SHA",
-          "Hunter.Mass"
+          "Hunter.Inquisitor"
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
@@ -25673,8 +25638,8 @@
           "105AE7CE41DBBBE92EEBFBB32FDFEC20",
           "60542B19472C7AACEABFAA83D8112ACA",
           "FD1F569B450C253D3EC750A68A9A177A",
-          "25BF0927456349471A1C77A852342246",
-          "F42C5B4148F22D29DA976BA8667964F4"
+          "1258297B4BCBFB39628E22A58C77EA87",
+          "5A2DD3F6433AB83A725513B868D240CF"
         ],
         "prestigeLevelRewards": [
           {
@@ -25780,8 +25745,8 @@
           "487DEBE247818A01797AF5B3FD04C2B2",
           "C8AF3D534973F82FADBB40BDA96F9DCD",
           "38E5F7F241E2BA1177419BB312FC1ACE",
-          "1A09DB19434DA733AAD3D9B5B1929CD4",
-          "19FB62054E644ECDC831E29FC5B9E501",
+          "C7A898A44F208F9F85CE75969A98242D",
+          "78C4B6734B7C9DD1D2488EBA8EB5A7E4",
           "320652184E1A719DEF1D3C9395EE7344",
           "69055D534DF27180C4B36CAB4B651054"
         ],
@@ -25890,14 +25855,14 @@
           "8EFCD5CC464EBFE1B7B03A984563710A",
           "336D01F84D412B0D0D38F39311CA8D64",
           "6A8FA1C845AE1D7576BD87A53F7ED4A4",
-          "C7A898A44F208F9F85CE75969A98242D",
+          "CAA84E294F02ECF88B08FB96E481194D",
           "487DEBE247818A01797AF5B3FD04C2B2",
           "C8AF3D534973F82FADBB40BDA96F9DCD",
           "F05493F04CF30636487243B5776882D6",
-          "CAA84E294F02ECF88B08FB96E481194D",
+          "19FB62054E644ECDC831E29FC5B9E501",
           "A858CAF640A824508A028D89AFC44366",
-          "1258297B4BCBFB39628E22A58C77EA87",
-          "C9C6D40A4D6A6A5748D5C0A17763C9C1"
+          "1A09DB19434DA733AAD3D9B5B1929CD4",
+          "272369C042147225E364CFA42947859F"
         ],
         "prestigeLevelRewards": [
           {
@@ -26005,7 +25970,7 @@
           "366DFB0841631FE3A1F4FE9BF814CF2C",
           "487DEBE247818A01797AF5B3FD04C2B2",
           "C8AF3D534973F82FADBB40BDA96F9DCD",
-          "78C4B6734B7C9DD1D2488EBA8EB5A7E4",
+          "04650B23493C386FA87E48947D26D79F",
           "75A9B5A34CD7815B6D77248506897122",
           "6340FA564B0C4E692AD174BB743607F5",
           "5681640F41DF9BEF0659C3A951BFC01B",
@@ -26119,7 +26084,7 @@
           "04FC953E40A601200FA1C181A0D3C913",
           "274EB0B34AB39E468BFA878F7E87465B",
           "D495BCB543F2D005B559C888E4BF2B3B",
-          "5A2DD3F6433AB83A725513B868D240CF"
+          "C9C6D40A4D6A6A5748D5C0A17763C9C1"
         ],
         "prestigeLevelRewards": [
           {
@@ -26222,7 +26187,7 @@
           "CE235B2C497B4381DA1742BA22999128",
           "F91593E346415A85CFD0ED9CEBFBBDEA",
           "350B26074604529237BF0CB22B60A9B8",
-          "04650B23493C386FA87E48947D26D79F",
+          "25BF0927456349471A1C77A852342246",
           "487DEBE247818A01797AF5B3FD04C2B2",
           "C8AF3D534973F82FADBB40BDA96F9DCD",
           "5889E8B1404109B1D4623B9DD2057608",
@@ -34892,7 +34857,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 4,
+        "minCharacterLevel": 3,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -35275,10 +35240,15 @@
     {
       "id": "04650B23493C386FA87E48947D26D79F",
       "displayName": "RN_Perk_Collector_HerdMentality_001_Herd_Mentality",
-      "initialQuantity": 1,
+      "initialQuantity": 0,
       "consumable": false,
       "consumptionReward": [],
-      "defaultCost": [],
+        "defaultCost": [
+            {
+                "currencyId": "CurrencyB",
+                "price": 125
+            }
+        ],
       "eventCostList": [],
       "metaData": {
         "gameplayTags": [
@@ -35287,7 +35257,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 0,
+        "minCharacterLevel": 2,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -35687,7 +35657,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 5,
+        "minCharacterLevel": 4,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -36070,15 +36040,10 @@
     {
       "id": "2F3693A4473188D2787CC899A70DC563",
       "displayName": "RN_Perk_Collector_SuddenInsight_001_Sudden_Insight",
-      "initialQuantity": 0,
+      "initialQuantity": 1,
       "consumable": false,
       "consumptionReward": [],
-      "defaultCost": [
-        {
-          "currencyId": "CurrencyB",
-          "price": 125
-        }
-      ],
+      "defaultCost": [],
       "eventCostList": [],
       "metaData": {
         "gameplayTags": [
@@ -36087,7 +36052,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 3,
+        "minCharacterLevel": 0,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -37722,7 +37687,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 4,
+        "minCharacterLevel": 2,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -38557,7 +38522,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 3,
+        "minCharacterLevel": 4,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -40592,7 +40557,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 3,
+        "minCharacterLevel": 4,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -40992,7 +40957,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 4,
+        "minCharacterLevel": 5,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -41392,7 +41357,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 2,
+        "minCharacterLevel": 3,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -42187,7 +42152,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 4,
+        "minCharacterLevel": 3,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -42570,7 +42535,7 @@
     {
       "id": "CAA84E294F02ECF88B08FB96E481194D",
       "displayName": "RN_Perk_Insight_LuckyCharm_001_Lucky_Charm",
-      "initialQuantity": 0,
+      "initialQuantity": 1,
       "consumable": false,
       "consumptionReward": [],
       "defaultCost": [
@@ -42587,7 +42552,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 3,
+        "minCharacterLevel": 0,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -43382,7 +43347,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 2,
+        "minCharacterLevel": 3,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -43765,10 +43730,15 @@
     {
       "id": "C7A898A44F208F9F85CE75969A98242D",
       "displayName": "RN_Perk_Insight_Sniper_001_Sniper",
-      "initialQuantity": 1,
+      "initialQuantity": 0,
       "consumable": false,
       "consumptionReward": [],
-      "defaultCost": [],
+      "defaultCost": [
+          {
+              "currencyId": "CurrencyB",
+              "price": 125
+          }
+      ],
       "eventCostList": [],
       "metaData": {
         "gameplayTags": [
@@ -43777,7 +43747,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 0,
+        "minCharacterLevel": 4,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -44177,7 +44147,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 5,
+        "minCharacterLevel": 4,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
@@ -48202,7 +48172,7 @@
         ],
         "requiredChallengesToComplete": [],
         "minPlayerLevel": 0,
-        "minCharacterLevel": 4,
+        "minCharacterLevel": 5,
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,

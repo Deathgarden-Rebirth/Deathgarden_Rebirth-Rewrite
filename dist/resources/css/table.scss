@@ -9,12 +9,16 @@ table {
     }
   }
 
-  tr:hover td {
-    @apply dark:bg-slate-700 bg-slate-300;
+  tbody tr {
+    @apply text-gray-950 dark:text-white bg-gray-50 dark:bg-slate-800 border-gray-400 dark:border-gray-700;
+
+    &:hover {
+      @apply dark:bg-slate-700 bg-slate-300;
+    }
   }
 
   td {
-    @apply text-gray-950 dark:text-white bg-gray-50 dark:bg-slate-800 px-1 sm:px-3 py-3 border border-gray-400 dark:border-gray-700 first:border-l-0 last:border-r-0;
+    @apply px-1 sm:px-3 py-3 border border-inherit first:border-l-0 last:border-r-0;
 
     &[data-numeric] {
       @apply text-right tabular-nums whitespace-nowrap;

@@ -44,15 +44,9 @@ return [
             'throw' => false,
         ],
 
-        'dg_public' => [
-            'driver' => 'local',
-            'root' => public_path().'/game-files',
-            'visibility' => 'public'
-        ],
-
         'patches' => [
             'driver' => 'local',
-            'root' => resource_path('patches'),
+            'root' => storage_path('app/patches'),
             'throw' => false,
         ],
     ],

@@ -28,14 +28,12 @@ class GameFile extends Model
 
     protected static ?FilesystemAdapter $disk = null;
 
-//    protected static function booted()
-//    {
-//        parent::booted();
-//
-//        static::deleting(function (GameFile $gameFile) {
-//            static::getDisk()->delete($gameFile->getDiskPath());
-//        });
-//    }
+    protected static function booted()
+    {
+        static::deleting(function (GameFile $gameFile) {
+            static::getDisk()->delete($gameFile->getDiskPath());
+        });
+    }
 
     public static function getDisk():FileSystemAdapter {
         return static::$disk ?? static::$disk = Storage::disk('patches');

@@ -59,7 +59,7 @@ class FileManagerController extends AdminToolController
                 $gameFile->hash = $filehash;
                 $gameFile->patchline = $request->input('patchline');
 
-                $file->storeAs(str($gameFile->patchline->name)->lower(), $gameFile->name, ['disk' => 'patches']);
+                GameFile::getDisk()->putFileAs(strtolower($gameFile->patchline->name), $file, $gameFile->name);
                 $uploadedFiles[] = $gameFile->name;
 
                 $gameFile->game_path = $request->game_path[$i];

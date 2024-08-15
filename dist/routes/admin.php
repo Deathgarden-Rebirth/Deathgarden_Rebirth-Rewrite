@@ -8,17 +8,14 @@ use App\Http\Controllers\Web\Admin\Tools\GameNewsController;
 use App\Http\Controllers\Web\Admin\Tools\InboxMailerController;
 use App\Http\Controllers\Web\Admin\Tools\LogViewerController;
 use App\Http\Controllers\Web\Admin\Tools\UsersController;
-use App\Http\Controllers\Web\GameFileController;
 
 Route::redirect('', 'admin/dashboard');
 Route::redirect('logs', 'log-viewer')->name(LogViewerController::class);
 
 Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
 
-//Route::get('file-manager', [GameFileController::class, 'index'])->name(FileManagerController::class);
-//Route::get('file-manager', [GameFileController::class, 'getPatchline'])->name('file.patchline');
-//Route::post('file-manager', [GameFileController::class, 'store'])->name('file.store');
-Route::resource('file-manager', GameFileController::class)->except(['edit', 'create', 'show']);
+Route::redirect('file-manager', 'file-manager.index')->name(FileManagerController::class);
+Route::resource('file-manager', FileManagerController::class)->except(['edit', 'create', 'show']);
 
 Route::get('gamenews', [GameNewsController::class, 'index'])->name(GameNewsController::class);
 Route::post('gamenews/create', [GameNewsController::class, 'create'])->name('gamenews.create');

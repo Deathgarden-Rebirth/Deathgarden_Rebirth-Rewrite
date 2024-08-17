@@ -7,6 +7,14 @@
 @import "modal";
 @import "table";
 
+@layer base {
+  @font-face {
+    font-family: 'Exo 2';
+
+    src: url('../fonts/Exo2-VariableFont_wght.ttf');
+  }
+}
+
 .headline {
   @apply text-2xl font-semibold;
 

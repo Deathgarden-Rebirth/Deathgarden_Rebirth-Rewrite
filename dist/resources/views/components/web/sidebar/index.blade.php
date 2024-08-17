@@ -7,7 +7,7 @@
 
 @endphp
 
-<div class="bg-slate-900 grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] overflow-y-auto"
+<div class="bg-slate-900 grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] overflow-x-auto min-w-max transition-all ease-in-out duration-300"
      x-data="{
         open: false,
         toggle() {
@@ -21,13 +21,21 @@
         }
      }"
 
+     :class="{
+        'w-0': !open,
+        'w-56': open
+     }"
 >
-    <div class="row-start-1 my-4 flex flex-col gap-4">
+    <x-inputs.button type="button" class="size-10 flex justify-center items-center hover:!bg-web-main focus:!border-web-main absolute top-4 left-4"
+                     x-on:click="toggle()">
+        <x-icons.bars class="size-6" x-show="!open" />
+        <x-icons.plus class="size-6 rotate-45" x-show="open" />
+    </x-inputs.button>
+    <div class="row-start-1 my-4 flex flex-col gap-4" x-show="open" >
         <div class="flex mx-4 justify-between items-center" >
-            <x-inputs.button type="button" class="size-10 flex justify-center items-center"
+            <x-inputs.button type="button" class="size-10 flex justify-center items-center hover:!bg-web-main focus:!border-web-main opacity-0 pointer-events-none"
                              x-on:click="toggle()">
-                <x-icons.bars class="size-6" x-show="!open" />
-                <x-icons.plus class="size-6 rotate-45" x-show="open" />
+                <x-icons.plus class="size-6 rotate-45"/>
             </x-inputs.button>
 
             <a href="{{ route('homepage') }}" class="">
@@ -64,7 +72,7 @@
         @auth
             <x-web.sidebar.button
                     href="{{ route('logout') }}"
-                    class="flex justify-between items-center object-scale-down w-full text-rose-500 hover:text-inherit hover:!outline-rose-500 hover:!bg-rose-700">
+                    class="flex justify-between items-center object-scale-down w-full text-web-main hover:text-inherit hover:!outline-web-main hover:!bg-web-main">
                 <span class="font-bold">Logout</span>
                 <x-icons.logout class="max-w-8"/>
             </x-web.sidebar.button>

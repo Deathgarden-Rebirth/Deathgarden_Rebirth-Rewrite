@@ -30,10 +30,10 @@
                 <x-icons.plus class="size-6 rotate-45" x-show="open" />
             </x-inputs.button>
 
-            <a href="{{ route('homepage') }}">
-                <img src="{{ asset('img/logos/DG_BH_Logo.png') }}"
+            <a href="{{ route('homepage') }}" class="">
+                <img src="{{ asset('img/logos/DG_Rebirth_Logo.png') }}"
                      alt="Deathgarden Bloodharvest Logo"
-                     class="h-14 -my-2 ml-4"
+                     class="h-14 -my-2 ml-4 mr-2"
                      x-show="open"
                      x-transition
                 >

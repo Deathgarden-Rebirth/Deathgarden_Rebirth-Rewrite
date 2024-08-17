@@ -7,7 +7,7 @@
 
 @endphp
 
-<div class="bg-slate-900 h-full grid grid-cols-[auto_1fr] grid-rows-[auto_100%]"
+<div class="bg-slate-900 grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] overflow-y-auto"
      x-data="{
         open: false,
         toggle() {

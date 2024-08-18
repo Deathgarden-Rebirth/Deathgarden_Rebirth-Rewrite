@@ -169,9 +169,9 @@ class CatalogPriceConfig
 
     const SKINS_COST = [
         ItemQuality::Basic->value => ['CurrencyB' => 1500],
-        ItemQuality::Specialized->value => ['CurrencyB' => 2500],
-        ItemQuality::Superior->value => ['CurrencyB' => 3500],
-        ItemQuality::Epic->value => ['CurrencyC' => 4500],
+        ItemQuality::Specialized->value => ['CurrencyB' => 3500],
+        ItemQuality::Superior->value => ['CurrencyB' => 4500],
+        ItemQuality::Epic->value => ['CurrencyC' => 5500],
     ];
 
     public static function GetCategoryPriceForLevel(CatalogPriceCategory $category, int|string $level): array {

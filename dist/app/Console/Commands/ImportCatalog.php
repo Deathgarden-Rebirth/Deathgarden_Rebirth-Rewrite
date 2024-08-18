@@ -12,6 +12,7 @@ use App\Models\Game\PrestigeRewardItem;
 use DB;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Type\Hexadecimal;
 use Ramsey\Uuid\Uuid;
 use RecursiveArrayIterator;
@@ -38,10 +39,7 @@ class ImportCatalog extends Command
      */
     public function handle()
     {
-        DB::table('challenges')->delete();
-        DB::table('catalog_items')->delete();
-
-        $catalog = json_decode(file_get_contents(resource_path('js/catalog/catalog.json')), true)['result'];
+        $catalog = json_decode(Storage::disk('local')->get('/catalog/catalog.json'), true)['result'];
 
         $this->info('Strting import of Catalog items...');
 
@@ -56,23 +54,22 @@ class ImportCatalog extends Command
                 $defaultCost[$cost['currencyId']] = $cost['price'];
             }
 
-            $newItem = new CatalogItem([
-                'id' => $uuid->toString(),
-                'display_name' => $item['displayName'],
-                'initial_quantity' => $item['initialQuantity'],
-                'consumable' => $item['consumable'],
-                'default_cost_currency_a' => $defaultCost['CurrencyA'],
-                'default_cost_currency_b' => $defaultCost['CurrencyB'],
-                'default_cost_currency_c' => $defaultCost['CurrencyC'],
-                'purchasable' => $item['purchasable'],
-                'meta_min_player_level' => $item['metaData']['minPlayerLevel'],
-                'meta_min_character_level' => $item['metaData']['minCharacterLevel'],
-                'meta_is_unbreakable_fullset' => $item['metaData']['isUnbreakableFullset'],
-                'meta_origin' => ItemOrigin::tryFrom($item['metaData']['origin']),
-                'meta_quality' => ItemQuality::tryFrom($item['metaData']['quality']),
-                'meta_group_type' => ItemGroupType::tryFrom($item['metaData']['groupType']),
-            ]);
+            $newItem = CatalogItem::findOrNew($uuid->toString());
 
+            $newItem->id = $uuid->toString();
+            $newItem->display_name = $item['displayName'];
+            $newItem->initial_quantity = $item['initialQuantity'];
+            $newItem->consumable = $item['consumable'];
+            $newItem->default_cost_currency_a = $defaultCost['CurrencyA'];
+            $newItem->default_cost_currency_b = $defaultCost['CurrencyB'];
+            $newItem->default_cost_currency_c = $defaultCost['CurrencyC'];
+            $newItem->purchasable = $item['purchasable'];
+            $newItem->meta_min_player_level = $item['metaData']['minPlayerLevel'];
+            $newItem->meta_min_character_level = $item['metaData']['minCharacterLevel'];
+            $newItem->meta_is_unbreakable_fullset = $item['metaData']['isUnbreakableFullset'];
+            $newItem->meta_origin = ItemOrigin::tryFrom($item['metaData']['origin']);
+            $newItem->meta_quality = ItemQuality::tryFrom($item['metaData']['quality']);
+            $newItem->meta_group_type = ItemGroupType::tryFrom($item['metaData']['groupType']);
             $newItem->save();
         }
 
@@ -115,14 +112,13 @@ class ImportCatalog extends Command
 
                 $challengeId = Uuid::fromString($value[0]['ChallengeId']);
 
-                $newChallenge = new Challenge([
-                    'id' => $challengeId->toString(),
-                    'completion_value' => $value[0]['ChallengeCompletionValue'],
-                    'asset_path' => $value[0]['ChallengeAsset']['AssetPathName'],
-                ]);
+                $newChallenge = Challenge::findOrNew($challengeId->toString());
+
+                $newChallenge->id = $challengeId->toString();
+                $newChallenge->completion_value = $value[0]['ChallengeCompletionValue'];
+                $newChallenge->asset_path = $value[0]['ChallengeAsset']['AssetPathName'];
 
                 $this->info('Importing Signature Challenge: '.$value[0]['ChallengeId']);
-
                 $newChallenge->save();
             }
         }
@@ -132,18 +128,22 @@ class ImportCatalog extends Command
 
     private static function checkForAutoUnlockItems(array &$rawItem, CatalogItem &$itemModel)
     {
+        $itemIds = [];
+
         foreach ($rawItem['metaData']['autoUnlockItemIds'] as $id) {
-            $uuid = Uuid::fromHexadecimal(new Hexadecimal($id));
-            $itemModel->autoUnlockItems()->attach($uuid->toString());
+            $itemIds[] = Uuid::fromHexadecimal(new Hexadecimal($id))->toString();
         }
+        $itemModel->autoUnlockItems()->sync($itemIds);
     }
 
     private static function checkForItemAssignments(array &$rawItem, CatalogItem &$itemModel)
     {
+        $assignedItemIds = [];
+
         foreach ($rawItem['metaData']['itemAssignments'] as $id) {
-            $uuid = Uuid::fromHexadecimal(new Hexadecimal($id));
-            $itemModel->itemAssignments()->attach($uuid->toString());
+            $assignedItemIds[] = Uuid::fromHexadecimal(new Hexadecimal($id))->toString();
         }
+        $itemModel->itemAssignments()->sync($assignedItemIds);
     }
 
     private static function checkForBundleItems(array &$rawItem, CatalogItem &$item)
@@ -151,12 +151,15 @@ class ImportCatalog extends Command
         if(!array_key_exists('bundleItems', $rawItem['metaData']))
             return;
 
+        $bundleItems = [];
+
         foreach ($rawItem['metaData']['bundleItems'] as $bundleItem) {
             $uuid = Uuid::fromHexadecimal(new Hexadecimal($bundleItem));
-            $item->bundleItems()->attach($uuid->toString());
+            $bundleItems[] = $uuid->toString();
             $item->meta_has_bundle_items = true;
             $item->has_reward_bundle_items = true;
         }
+        $item->bundleItems()->sync($bundleItems);
     }
 
     private static function checkForPrestigeRewards(array &$rawItem, CatalogItem &$item)
@@ -193,6 +196,8 @@ class ImportCatalog extends Command
 
     private function checkForRequiredChallenges(array &$rawItem, CatalogItem &$item)
     {
+        $requiredChallengeIds = [];
+
         foreach ($rawItem['metaData']['requiredChallengesToComplete'] as $challengeId) {
             $challengeId = Uuid::fromString($challengeId);
             $foundChallenge = Challenge::find($challengeId->toString());
@@ -202,7 +207,9 @@ class ImportCatalog extends Command
                 continue;
             }
 
-            $item->requiredChallenges()->attach($challengeId->toString());
+            $requiredChallengeIds[] = $challengeId->toString();
         }
+
+        $item->requiredChallenges()->sync($requiredChallengeIds);
     }
 }

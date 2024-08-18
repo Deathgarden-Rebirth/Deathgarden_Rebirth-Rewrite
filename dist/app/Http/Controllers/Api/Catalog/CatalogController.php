@@ -16,7 +16,7 @@ class CatalogController extends Controller
 
     public function getCatalog(string $catalogVersion): string
     {
-        return Storage::disk('local')->get('/catalog/' . $catalogVersion . '.json');
+        return Storage::disk('local')->get('/catalog/catalog.json');
     }
 
     public function catalogItemDropdown(Request $request)

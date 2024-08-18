@@ -64,8 +64,8 @@
         @can(Permissions::ADMIN_AREA->value)
             <x-web.sidebar.button href="{{ route('admin.dashboard') }}"
                                   class="flex justify-between items-center object-scale-down w-full">
-                <span class="font-bold">Admin Dashboard</span>
-                <x-icons.gear class="max-w-8"/>
+                <span class="font-bold">Admin<br>Dashboard</span>
+                <x-icons.gear class="size-8"/>
             </x-web.sidebar.button>
         @endcan
 

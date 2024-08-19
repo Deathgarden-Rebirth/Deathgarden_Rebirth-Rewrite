@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: Copy to app directory
-        run: cp * ~/dev/app
+        run: cp -r * ~/dev/app
 
       - name: Copy to app directory
         run: pwd

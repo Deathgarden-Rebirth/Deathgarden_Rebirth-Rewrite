@@ -19,6 +19,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: List a directory
-        run: ls
+      - name: Copy to app directory
+        run: cp * ~/dev/app
+
+      - name: Copy to app directory
+        run: pwd
         

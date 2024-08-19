@@ -1,0 +1,24 @@
+name: Deploy playtester build
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: 🎉 Deploy devlopment build to playtest.playdeathgarden.live
+    runs-on: self-hosted
+    environment: Dev
+    defaults:
+      run:
+        working-directory: ./dist
+
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: List a directory
+        run: ls
+        

@@ -23,7 +23,7 @@
 
      :class="{
         'w-0': !open,
-        'w-56': open
+        'w-56 max-w-max': open
      }"
 >
     <x-inputs.button type="button" class="size-10 flex justify-center items-center hover:!bg-web-main focus:!border-web-main absolute top-4 left-4"
@@ -53,11 +53,15 @@
                 x-show="open" x-transition/>
     </div>
     <div class="row-start-2 flex flex-col text-xl gap-4 px-4" x-show="open" x-transition >
-        <x-web.sidebar.button>
+        <x-web.sidebar.button href="{{ route('download') }}">
             <span class="font-bold">Download</span>
         </x-web.sidebar.button>
 
-        <x-web.sidebar.button>
+        <x-web.sidebar.button href="{{ route('how-to-play') }}">
+                <span class="font-bold">How to Play</span>
+        </x-web.sidebar.button>
+
+        <x-web.sidebar.button >
             <span class="font-bold">Credits</span>
         </x-web.sidebar.button>
 

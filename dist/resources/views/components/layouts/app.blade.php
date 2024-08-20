@@ -8,7 +8,7 @@
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
     @stack('head')
 </head>
-<body class="bg-gray-100 dark:bg-gray-950 font-sans text-gray-950 dark:text-white antialiased">
+<body class="dark bg-gray-100 dark:bg-gray-950 font-sans text-gray-950 dark:text-white antialiased">
 <div class="absolute top-0 w-full my-20 z-50">
     @if(Session::has('alert-error'))
         <x-alerts.error heading="An error occured">{!! Session::get('alert-error') !!}</x-alerts.error>

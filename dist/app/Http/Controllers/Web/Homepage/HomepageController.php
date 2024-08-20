@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Homepage;
 
 use App\Http\Controllers\Controller;
+use App\Models\GameFile;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -17,8 +18,10 @@ class HomepageController extends Controller
 
     public function download(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
+        $files = GameFile::select(['name', 'hash', 'game_path'])->latest()->get();
+
         static::setTitle('Deathgarden Rebirth | Download');
-        return view('web.download');
+        return view('web.download', ['files' => $files]);
     }
 
     public function howToPlay(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application

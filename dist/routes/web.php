@@ -37,6 +37,7 @@ Route::get('{catalogVersion}/catalog', [CatalogController::class, 'getCatalog'])
 
 Route::get('download', [HomepageController::class, 'download'])->name('download');
 Route::get('how-to-play', [HomepageController::class, 'howToPlay'])->name('how-to-play');
+Route::get('eula', [HomepageController::class, 'eula'])->name('eula');
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
 Route::middleware('verify_migration_key')->get('/migrate-database', function () {

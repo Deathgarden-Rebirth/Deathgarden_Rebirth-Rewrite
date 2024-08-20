@@ -61,6 +61,10 @@
                 <span class="font-bold">How to Play</span>
         </x-web.sidebar.button>
 
+        <x-web.sidebar.button href="{{ route('eula') }}">
+            <span class="font-bold">EULA</span>
+        </x-web.sidebar.button>
+
         <x-web.sidebar.button >
             <span class="font-bold">Credits</span>
         </x-web.sidebar.button>

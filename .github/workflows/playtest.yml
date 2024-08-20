@@ -19,9 +19,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Copy to app directory
-        run: cp -r * ~/dev/app
+      - name: Shutdown the application
+        run: cd /home/gh-action/dev/ && docker compose down
 
-      - name: Copy to app directory
-        run: pwd
+      - name: Synchronize to app directory
+        run: |
+          rsync -av --delete \
+            --exclude ".env" \
+            --exclude "storage/" \
+            --exclude "node_modules/" \
+            --exclude "vendor/" \
+            ./ /home/gh-action/dev/app/
+
+      - name: Build and run docker container
+        run: cd /home/gh-action/dev/ && docker compose up --build -d
         

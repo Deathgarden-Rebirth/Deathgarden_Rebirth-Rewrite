@@ -36,15 +36,11 @@
             To learn more how to survive or kill Scavengers inside the Deathgarden, visit our „How To“ page!
         </x-web.text>
 
-        <div class="h-56 mt-8 w-full bg-cover bg-[center_40%]"
-             style="background-image: url('{{ asset('img/backgrounds/background_blur.png') }}')">
-        </div>
-
-        <x-web.headline class="w-full mt-12">
+        <x-web.headline class="w-full mt-12 !text-5xl">
             Frequently Asked Questions
         </x-web.headline>
 
-        <x-web.accordeon headline="How can I play Deathgarden: Rebirth?" class="w-full">
+        <x-web.accordeon headline="How can I play Deathgarden: Rebirth?" class="w-full my-2">
             <x-web.text>
                 To play Deathgarden: Rebirth, you'll need to download the official launcher, which ensures you
                 have the latest updates. For more information, click <a href="{{ route('download') }}" class="weblink">
@@ -53,13 +49,23 @@
             </x-web.text>
         </x-web.accordeon>
 
-        <x-web.accordeon headline="Does it cost money to play Deathgarden: Rebirth?" class="w-full">
+        <x-web.accordeon headline="Can I still launch the game through Steam?" class="w-full my-2">
+            <x-web.text>
+                No, you can no longer launch Deathgarden directly through Steam.
+                To play the game, you must start it through the dedicated launcher.
+            </x-web.text>
+            <x-web.text>
+                This change ensures that you have access to all the latest updates, features, and content.
+            </x-web.text>
+        </x-web.accordeon>
+
+        <x-web.accordeon headline="Does it cost money to play Deathgarden: Rebirth?" class="w-full my-2">
             <x-web.text>
                 No, the game and the Rebirth mod are completely free!
             </x-web.text>
         </x-web.accordeon>
 
-        <x-web.accordeon headline="What personal information is saved?" class="w-full">
+        <x-web.accordeon headline="What personal information is saved?" class="w-full my-2">
             <x-web.text>
                 To launch Deathgarden: Rebirth, we need to create a user account in our database using some
                 public information from your Steam account.
@@ -78,14 +84,14 @@
             </x-web.text>
         </x-web.accordeon>
 
-        <x-web.accordeon headline="This is cool! Can we donate money to the project?" class="w-full">
+        <x-web.accordeon headline="This is cool! Can we donate money to the project?" class="w-full my-2">
             <x-web.text>
                 Due to legal restrictions, we cannot accept any donations. However, you can support us by
                 sharing the project with your friends and others!
             </x-web.text>
         </x-web.accordeon>
 
-        <x-web.accordeon headline="I’m a programmer. Can I view and submit updates to the backend?" class="w-full">
+        <x-web.accordeon headline="I’m a programmer. Can I view and submit updates to the backend?" class="w-full my-2">
             <x-web.text>
                 The backend has a public repository on GitHub. If you find any bugs or want to contribute to
                 certain features, you can submit a pull request.
@@ -96,7 +102,7 @@
             </x-web.text>
         </x-web.accordeon>
 
-        <x-web.accordeon headline="I’m an Unreal Engine mod creator. Can I create mods and use them in-game?" class="w-full">
+        <x-web.accordeon headline="I’m an Unreal Engine mod creator. Can I create mods and use them in-game?" class="w-full my-2">
             <x-web.text>
                 Using self-created mods is against our Terms of Service. However, if you have cool ideas, you
                 can submit a detailed description of your mod and its functionality.
@@ -108,7 +114,7 @@
             </x-web.text>
         </x-web.accordeon>
 
-        <x-web.accordeon headline="I’m a content creator and want to support the game." class="w-full">
+        <x-web.accordeon headline="I’m a content creator. Can I support the game?" class="w-full my-2">
             <x-web.text>
                 That’s awesome! We’re always looking for content creators to promote the game through their
                 social media or streaming channels.

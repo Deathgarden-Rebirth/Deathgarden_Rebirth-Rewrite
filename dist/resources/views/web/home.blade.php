@@ -33,7 +33,10 @@
         </x-web.text>
 
         <x-web.text class="mt-8 font-semibold">
-            To learn more how to survive or kill Scavengers inside the Deathgarden, visit our „How To“ page!
+            To learn more how to survive or kill Scavengers inside the Deathgarden, visit our
+            <a href="{{ route('how-to-play') }}" class="weblink">
+                How To
+            </a> page!
         </x-web.text>
 
         <x-web.headline class="w-full mt-12 !text-5xl">

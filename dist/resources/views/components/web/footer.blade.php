@@ -1,4 +1,7 @@
 <div class="flex flex-col justify-center container mx-auto text-center py-4">
+    <span class="text-2xl font-bold uppercase mb-4">
+        Stay Connected
+    </span>
     <div class="flex gap-6 justify-center">
         <a href="https://x.com/dgrebirth_/"
            class="hover:text-web-main transition-colors"

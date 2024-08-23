@@ -29,6 +29,9 @@ Route::prefix('v1')->middleware('api.session')->group(function () {
     });
 });
 
+Route::get('online-players', [\App\Http\Controllers\Api\StatisticsController::class, 'getOnlinePlayers'])
+    ->name('api.online-players');
+
 Route::fallback(function () {
     return response('route not found', 404);
 })->middleware('api.session');

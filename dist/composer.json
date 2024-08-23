@@ -10,6 +10,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.11",
         "laravel/framework": "^10.10",
+        "laravel/octane": "^2.4",
         "laravel/socialite": "^5.12",
         "laravel/tinker": "^2.8",
         "opcodesio/log-viewer": "^3.1",

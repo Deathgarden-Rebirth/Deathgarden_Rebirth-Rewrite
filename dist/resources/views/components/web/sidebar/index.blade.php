@@ -65,7 +65,7 @@
             <span class="font-bold">EULA</span>
         </x-web.sidebar.button>
 
-        <x-web.sidebar.button >
+        <x-web.sidebar.button href="{{ route('credits') }}">
             <span class="font-bold">Credits</span>
         </x-web.sidebar.button>
 

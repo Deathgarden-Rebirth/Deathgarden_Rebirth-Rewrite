@@ -23,7 +23,7 @@ class User extends Component
         $this->profileUrl = 'https://steamcommunity.com/profiles/'.$user->steam_id;
     }
 
-    public function avatarFull(): string
+    public function avatarFull(): ?string
     {
         return $this->user->avatar_full ?? $this->user->avatar_medium ?? $this->user->avatar_small;
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Homepage;
 
 use App\Http\Controllers\Controller;
 use App\Models\GameFile;
+use App\Models\User\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -34,6 +35,12 @@ class HomepageController extends Controller
     {
         static::setTitle('Deathgarden Rebirth | End User License Agreement');
         return view('web.eula');
+    }
+
+    public function credits(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
+    {
+        static::setTitle('Deathgarden Rebirth | Credits');
+        return view('web.credits');
     }
 
     protected static function setTitle(string $title)

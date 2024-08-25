@@ -29,7 +29,7 @@ class CatalogController extends Controller
         if($searchTerm === null)
             abort(400, 'Search term must be provided.');
 
-        /** @var Collection|LengthAwarePaginator $users */
+        /** @var Collection|LengthAwarePaginator $items */
         $items = CatalogItem::where('display_name', 'LIKE', "%{$searchTerm}%")
             ->select(['id', 'display_name'])
             ->paginate(static::CATALOG_DROPDOWN_PAGINATION_LIMIT);

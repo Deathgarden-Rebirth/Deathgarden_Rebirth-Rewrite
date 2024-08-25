@@ -18,6 +18,7 @@ class RolesAndPermissionsSeeder extends Seeder
         // Create default Roles and Permissions
        $adminRole = Role::findOrCreate(Roles::Admin->value);
        $moderatorRole = Role::findOrCreate(Roles::Moderator->value);
+       $playtesterRole = Role::findOrCreate(Roles::Playtester->value);
 
        $viewAdminAreaPerm = Permission::findOrCreate(Permissions::ADMIN_AREA->value);
        $viewLogPerm = Permission::findOrCreate(Permissions::VIEW_LOG->value);
@@ -53,6 +54,10 @@ class RolesAndPermissionsSeeder extends Seeder
            $userBansPerm,
            $chatReportsPerm,
            $playerReportsPerm,
+       )->save();
+
+       $playtesterRole->givePermissionTo(
+           $viewMaintenanceMode
        )->save();
     }
 }

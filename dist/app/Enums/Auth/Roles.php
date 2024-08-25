@@ -10,6 +10,8 @@ enum Roles: string
 
     case Moderator = 'moderator';
 
+    case Playtester = 'playtester';
+
     public function getRole(): Role
     {
         return Role::findByName($this->value);

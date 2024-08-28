@@ -24,7 +24,11 @@ Route::get('/auth/logout', function () {
 })->name('logout');
 
 Route::get('/auth/callback', [LoginController::class, 'callback'])->name(LoginController::ROUTE_CALLBACK);
-Route::get('/auth/launcherCallback', [LoginController::class, 'launcherCallback']);
+
+Route::prefix('patch')->group(function () {
+    Route::get('files/{hash}', [\App\Http\Controllers\Api\PatchController::class, 'getFile']);
+    Route::get('{patchline_name}/files/{hash}', [\App\Http\Controllers\Api\PatchController::class, 'getFileWithPatchline']);
+});
 
 Route::get('{catalogVersion}/catalog', [\App\Http\Controllers\Api\Catalog\CatalogController::class, 'getCatalog']);
 

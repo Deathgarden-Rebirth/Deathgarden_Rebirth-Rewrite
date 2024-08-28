@@ -27,7 +27,7 @@ class MatchConfigSeeder extends Seeder
         MatchConfiguration::Create([
             'name' => 'Harvest Your Exit - 1v4',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
-            'enabled' => true,
+            'enabled' => false,
             'hunters' => 1,
             'runners' => 4,
             'weight' => 10,
@@ -35,7 +35,7 @@ class MatchConfigSeeder extends Seeder
         MatchConfiguration::Create([
             'name' => 'Harvest Your Exit - 1v6',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
-            'enabled' => true,
+            'enabled' => false,
             'hunters' => 1,
             'runners' => 6,
             'weight' => 10,
@@ -44,7 +44,7 @@ class MatchConfigSeeder extends Seeder
             'name' => 'New Arctic Fortress',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_ARC_Fortress.MatchConfig_ARC_Fortress',
             'enabled' => false,
-            'weight' => 80,
+            'weight' => 50,
         ]);
         MatchConfiguration::Create([
             'name' => 'Demo',
@@ -55,7 +55,7 @@ class MatchConfigSeeder extends Seeder
             'name' => 'Fire in the Sky - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_ARC_BlastFurnace.MatchConfig_ARC_BlastFurnace',
             'enabled' => true,
-            'weight' => 150,
+            'weight' => 100,
         ]);
         MatchConfiguration::Create([
             'name' => 'Fire in the Sky - 2v10',
@@ -161,7 +161,7 @@ class MatchConfigSeeder extends Seeder
             'name' => 'Legions Rest - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_DES_Fortress.MatchConfig_DES_Fortress',
             'enabled' => true,
-            'weight' => 80,
+            'weight' => 100,
         ]);
         MatchConfiguration::Create([
             'name' => 'Legions Rest - 2v10',
@@ -173,8 +173,8 @@ class MatchConfigSeeder extends Seeder
         MatchConfiguration::Create([
             'name' => 'Gold Rush HYE - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_DES_GoldRush.MatchConfig_DES_GoldRush',
-            'enabled' => true,
-            'weight' => 150,
+            'enabled' => false,
+            'weight' => 100,
         ]);
         MatchConfiguration::Create([
             'name' => 'Gold Rush 2v10 - 5 Needles',
@@ -200,7 +200,7 @@ class MatchConfigSeeder extends Seeder
             'name' => 'Blowout - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_DES_Oilfield.MatchConfig_DES_Oilfield',
             'enabled' => true,
-            'weight' => 80,
+            'weight' => 50,
         ]);
         MatchConfiguration::Create([
             'name' => 'Blowout - 2v10',
@@ -213,7 +213,7 @@ class MatchConfigSeeder extends Seeder
             'name' => 'Forest Citadel - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_JUN_Fortress.MatchConfig_JUN_Fortress',
             'enabled' => true,
-            'weight' => 150,
+            'weight' => 50,
         ]);
         MatchConfiguration::Create([
             'name' => 'Forest Citadel - 2v10',
@@ -235,7 +235,8 @@ class MatchConfigSeeder extends Seeder
         MatchConfiguration::Create([
             'name' => 'All Ruin Maps - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_RUI_All.MatchConfig_RUI_All',
-            'enabled' => false,
+            'enabled' => true,
+            'weight' => 100,
         ]);
         MatchConfiguration::Create([
             'name' => 'All Ruin Maps - 2v10',

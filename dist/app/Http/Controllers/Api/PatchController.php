@@ -14,28 +14,6 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class PatchController extends Controller
 {
-    public function getCurrentPatch()
-    {
-        $disk = Storage::disk('patches');
-        $patchFiles = $disk->allFiles('paks');
-
-        if (count($patchFiles) <= 0)
-            return response('No Patches Found', 404);
-
-        $filePath = $disk->path($patchFiles[0]);
-
-        return response()->download($filePath);
-    }
-
-    public function getSignature()
-    {
-        $disk = Storage::disk('patches');
-        if(!$disk->exists('TheExit.sig'))
-            return response('No Patches Found', 404);
-
-        return response()->download($disk->path('TheExit.sig'));
-    }
-
     public function getFileWithPatchline(string $patchline_name, string $hash) : BinaryFileResponse
     {
         $patchline = Patchline::tryFromName(str($patchline_name)->upper());

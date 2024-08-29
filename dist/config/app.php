@@ -126,6 +126,8 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'launcher_version' => env('LAUNCHER_VERSION', 'null'),
+
     /*
     |--------------------------------------------------------------------------
     | Maintenance Mode Driver

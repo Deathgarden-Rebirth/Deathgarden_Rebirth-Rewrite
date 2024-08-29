@@ -26,4 +26,8 @@ class StatisticsController extends Controller
             ));
         });
     }
+
+    public function getLauncherVersion(): ?string {
+        return json_encode(config('app.launcher_version'));
+    }
 }

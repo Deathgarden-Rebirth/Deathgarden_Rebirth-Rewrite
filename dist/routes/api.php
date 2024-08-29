@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\PatchController;
+use App\Http\Controllers\Api\StatisticsController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -12,11 +15,13 @@
 */
 
 Route::prefix('v1')->group(function () {
-    Route::get('patch/files', [\App\Http\Controllers\Api\PatchController::class, 'getGameFileList']);
-    Route::get('patch/{patchlineName}/files', [\App\Http\Controllers\Api\PatchController::class, 'getGameFileList']);
+    Route::get('patch/files', [PatchController::class, 'getGameFileList']);
+    Route::get('patch/{patchlineName}/files', [PatchController::class, 'getGameFileList']);
+
+    Route::get('launcher-version', [StatisticsController::class, 'getLauncherVersion']);
 });
 
-Route::get('online-players', [\App\Http\Controllers\Api\StatisticsController::class, 'getOnlinePlayers'])
+Route::get('online-players', [StatisticsController::class, 'getOnlinePlayers'])
     ->name('api.online-players');
 
 Route::fallback(function () {

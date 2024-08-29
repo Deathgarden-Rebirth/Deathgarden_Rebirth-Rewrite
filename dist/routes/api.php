@@ -19,6 +19,7 @@ Route::prefix('v1')->group(function () {
     Route::get('patch/{patchlineName}/files', [PatchController::class, 'getGameFileList']);
 
     Route::get('launcher-version', [StatisticsController::class, 'getLauncherVersion']);
+    Route::get('launcher-message', [StatisticsController::class, 'getLauncherMessage']);
 });
 
 Route::get('online-players', [StatisticsController::class, 'getOnlinePlayers'])

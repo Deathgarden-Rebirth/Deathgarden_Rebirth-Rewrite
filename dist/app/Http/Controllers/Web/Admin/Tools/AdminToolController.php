@@ -30,6 +30,7 @@ abstract class AdminToolController extends Controller
         return [
             GameNewsController::class,
             FileManagerController::class,
+            LauncherMessageController::class,
             LogViewerController::class,
             UsersController::class,
             ChatMessageController::class,

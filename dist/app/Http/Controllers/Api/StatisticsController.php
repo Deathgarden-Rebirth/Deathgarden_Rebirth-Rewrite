@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Enums\Game\Matchmaking\MatchmakingSide;
 use App\Http\Controllers\Controller;
 use App\Http\Responses\Api\Statistics\OnlinePlayersResponse;
+use App\Models\Admin\LauncherMessage;
 use App\Models\Game\Matchmaking\QueuedPlayer;
 use DB;
 use Illuminate\Support\Facades\Cache;
@@ -29,5 +30,9 @@ class StatisticsController extends Controller
 
     public function getLauncherVersion(): ?string {
         return json_encode(config('app.launcher_version'));
+    }
+
+    public function getLauncherMessage(): ?string {
+        return json_encode(LauncherMessage::getMessage());
     }
 }

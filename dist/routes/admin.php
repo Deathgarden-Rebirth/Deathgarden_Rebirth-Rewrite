@@ -6,6 +6,7 @@ use App\Http\Controllers\Web\Admin\Tools\ChatMessageController;
 use App\Http\Controllers\Web\Admin\Tools\FileManagerController;
 use App\Http\Controllers\Web\Admin\Tools\GameNewsController;
 use App\Http\Controllers\Web\Admin\Tools\InboxMailerController;
+use App\Http\Controllers\Web\Admin\Tools\LauncherMessageController;
 use App\Http\Controllers\Web\Admin\Tools\LogViewerController;
 use App\Http\Controllers\Web\Admin\Tools\PlayerReportsController;
 use App\Http\Controllers\Web\Admin\Tools\UsersController;
@@ -43,6 +44,9 @@ Route::post('chat-filter/handle-message/{message}', [ChatMessageController::clas
 
 Route::get('reports', [PlayerReportsController::class, 'index'])->name(PlayerReportsController::class);
 Route::post('reports/handle-report/{report}', [PlayerReportsController::class, 'handleReport'])->name('reports.handle');
+
+Route::get('launcher-message', [LauncherMessageController::class, 'index'])->name(LauncherMessageController::class);
+Route::post('launcher-message', [LauncherMessageController::class, 'saveMessage'])->name('launcherMessage.save');
 
 Route::fallback(function () {
     return redirect(route('admin.dashboard'));

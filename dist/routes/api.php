@@ -13,7 +13,7 @@
 
 Route::prefix('v1')->group(function () {
     Route::get('patch/files', [\App\Http\Controllers\Api\PatchController::class, 'getGameFileList']);
-    Route::get('patch/{patchline_name}/files', [\App\Http\Controllers\Api\PatchController::class, 'getGameFileList']);
+    Route::get('patch/{patchlineName}/files', [\App\Http\Controllers\Api\PatchController::class, 'getGameFileList']);
 });
 
 Route::get('online-players', [\App\Http\Controllers\Api\StatisticsController::class, 'getOnlinePlayers'])

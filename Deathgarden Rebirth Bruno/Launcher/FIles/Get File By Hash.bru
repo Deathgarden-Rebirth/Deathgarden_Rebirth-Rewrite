@@ -1,0 +1,15 @@
+meta {
+  name: Get File By Hash
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/patch/files/{hash}
+  body: none
+  auth: none
+}
+
+vars:pre-request {
+  hash: 00054F62C24EB46FC613B2A365A7D39344C9792C77E62E3BC75B63914AD61191
+}

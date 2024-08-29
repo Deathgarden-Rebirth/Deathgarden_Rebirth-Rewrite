@@ -2,63 +2,51 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Enums\Auth\Roles;
 use App\Enums\Launcher\Patchline;
 use App\Http\Controllers\Controller;
 use App\Models\GameFile;
+use Auth;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use ReflectionEnumBackedCase;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class PatchController extends Controller
 {
-    public function getFileWithPatchline(string $patchline_name, string $hash) : BinaryFileResponse
+    public function getFileWithPatchline(string $patchlineName, string $hash) : BinaryFileResponse|JsonResponse
     {
-        $patchline = Patchline::tryFromName(str($patchline_name)->upper());
+        $patchline = Patchline::tryFromName(str($patchlineName)->upper());
 
-        $gameFile = GameFile::select(['name'])->where('patchline', $patchline->value)->where('hash', $hash)->latest()->first();
+        $gameFile = GameFile::select(['name'])->wherePatchline($patchline)->whereHash($hash)->latest()->first();
         $disk = Storage::disk('patches');
 
-        $filePath = DIRECTORY_SEPARATOR . str($patchline_name)->lower() . DIRECTORY_SEPARATOR . $gameFile->name;
+        if($gameFile === null)
+            return response()->json('File not found', 404);
 
-        if (empty($gameFile) || !$disk->exists($filePath)) {
+        $filePath = DIRECTORY_SEPARATOR . str($patchlineName)->lower() . DIRECTORY_SEPARATOR . $gameFile->name;
+
+        if (!$disk->exists($filePath)) {
             return response()->json('File not found', 404);
         }
 
         return response()->download($disk->path($filePath));
     }
 
-    function getFile(string $hash) : BinaryFileResponse {
-        return $this->getFileWithPatchline('live', $hash);
+    function getFile(string $hash) : BinaryFileResponse|JsonResponse {
+        return $this->getFileWithPatchline(Patchline::LIVE->name, $hash);
     }
 
-    public function getGameFileList(string $patchline_name = null) : JsonResponse
+    public function getGameFileList(string $patchlineName = null) : JsonResponse
     {
-        $patchline = Patchline::tryFromName(str($patchline_name)->upper());
-        
-        if (empty($patchline_name)) {
-            $patchline = Patchline::LIVE;
-        }
-
+        $patchline = Patchline::tryFromName(str($patchlineName)->upper()) ?? Patchline::LIVE;
 
         if (!$patchline) {
             return response()->json(['error' => 'Invalid patchline'], 404);
         }
 
-        //Hardcoded patchline permissions, can be easily expanded/changed in the future
-        switch ($patchline) {
-            case Patchline::DEV->name:
-                if (!auth()->user()?->hasRole([Roles::ADMIN])) {
-                    return response()->json(['error' => 'Unauthorized'], 401);
-                }
-                break;
-            case Patchline::PLAYTESTER->name:
-                if (!auth()->user()?->hasRole([Roles::ADMIN])) {
-                    return response()->json(['error' => 'Unauthorized'], 401);
-                }
-                break;
+        $neededRole = $patchline->getNeededRole();
+
+        if ($neededRole !== null && ( !Auth::check() || !Auth::user()->hasRole($neededRole->value))) {
+            return response()->json(['error' => 'Unauthorized'], 401);
         }
 
         $gameFiles = GameFile::select(['name', 'hash', 'game_path', 'action'])->where('patchline', $patchline->value)->latest()->get();

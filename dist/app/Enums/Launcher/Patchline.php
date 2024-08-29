@@ -2,6 +2,8 @@
 
 namespace App\Enums\Launcher;
 
+use App\Enums\Auth\Roles;
+
 enum Patchline: int
 {
     case LIVE = 0;
@@ -16,5 +18,13 @@ enum Patchline: int
             }
         }
         return null;
+    }
+
+    public function getNeededRole(): ?Roles {
+        return match($this) {
+            self::LIVE => null,
+            self::DEV => Roles::Admin,
+            self::PLAYTESTER => Roles::Playtester,
+        };
     }
 }

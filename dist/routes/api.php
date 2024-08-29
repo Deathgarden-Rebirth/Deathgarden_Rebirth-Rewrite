@@ -11,22 +11,9 @@
 |
 */
 
-use App\Http\Controllers\Api\PatchController;
-
-Route::prefix('files')->group(function () {
-    Route::get('patch/current', [PatchController::class, 'getCurrentPatch']);
-    Route::get('patch/sig', [PatchController::class, 'getSignature']);
-    Route::get('patch/battleye', [PatchController::class, 'getBattleyePatch']);
-});
-
-Route::get('patch/files', [PatchController::class, 'getGameFileList']);
-
-Route::prefix('v1')->middleware('api.session')->group(function () {
-    Route::get('profile', function() {
-        if (!Auth::check())
-            return response()->json("Unauthorized", 401);
-        return response()->json(Auth::user());
-    });
+Route::prefix('v1')->group(function () {
+    Route::get('patch/files', [\App\Http\Controllers\Api\PatchController::class, 'getGameFileList']);
+    Route::get('patch/{patchlineName}/files', [\App\Http\Controllers\Api\PatchController::class, 'getGameFileList']);
 });
 
 Route::get('online-players', [\App\Http\Controllers\Api\StatisticsController::class, 'getOnlinePlayers'])

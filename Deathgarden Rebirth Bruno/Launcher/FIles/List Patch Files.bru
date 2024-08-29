@@ -1,0 +1,15 @@
+meta {
+  name: List Patch Files For Patchline
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/v1/patch/{{patchline}}/files
+  body: none
+  auth: inherit
+}
+
+vars:pre-request {
+  patchline: live
+}

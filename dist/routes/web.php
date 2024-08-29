@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\Catalog\CatalogController;
 use App\Http\Controllers\Api\Matchmaking\MatchmakingController;
+use App\Http\Controllers\Api\PatchController;
 use App\Http\Controllers\Web\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,9 +26,13 @@ Route::get('/auth/logout', function () {
 })->name('logout');
 
 Route::get('/auth/callback', [LoginController::class, 'callback'])->name(LoginController::ROUTE_CALLBACK);
-Route::get('/auth/launcherCallback', [LoginController::class, 'launcherCallback']);
 
-Route::get('{catalogVersion}/catalog', [\App\Http\Controllers\Api\Catalog\CatalogController::class, 'getCatalog']);
+Route::prefix('patch')->group(function () {
+    Route::get('files/{hash}', [PatchController::class, 'getFile']);
+    Route::get('{patchlineName}/files/{hash}', [PatchController::class, 'getFileWithPatchline']);
+});
+
+Route::get('{catalogVersion}/catalog', [CatalogController::class, 'getCatalog']);
 
 Route::get('/', function () {
     return view('web.home');

@@ -76,8 +76,7 @@
             <x-web.text class="my-2">
                 We only save your SteamID64, Steam profile
                 picture, and current username. This information is stored on a secure server with restricted
-                access. If you'd like to delete your data and player account, please email us at
-                contact@playdeathgarden.live.
+                access.
             </x-web.text>
             <x-web.text>
                 If you'd like to delete your data and player account, please email us at

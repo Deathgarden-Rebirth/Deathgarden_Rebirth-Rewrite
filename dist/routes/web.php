@@ -29,13 +29,14 @@ Route::get('/auth/logout', function () {
 Route::get('/auth/callback', [LoginController::class, 'callback'])->name(LoginController::ROUTE_CALLBACK);
 
 Route::prefix('patch')->group(function () {
-    Route::get('files/{hash}', [PatchController::class, 'getFile']);
+    Route::get('files/{hash}', [PatchController::class, 'getFile'])->name('patch.file');
     Route::get('{patchlineName}/files/{hash}', [PatchController::class, 'getFileWithPatchline']);
 });
 
 Route::get('{catalogVersion}/catalog', [CatalogController::class, 'getCatalog']);
 
 Route::get('download', [HomepageController::class, 'download'])->name('download');
+Route::get('download-launcher', [HomepageController::class, 'downloadLauncher'])->name('download.launcher');
 Route::get('how-to-play', [HomepageController::class, 'howToPlay'])->name('how-to-play');
 Route::get('eula', [HomepageController::class, 'eula'])->name('eula');
 Route::get('credits', [HomepageController::class, 'credits'])->name('credits');

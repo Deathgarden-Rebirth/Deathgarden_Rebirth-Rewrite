@@ -1,7 +1,7 @@
 <x-layouts.web>
     <div class="container flex flex-col justify-center items-center mx-auto py-8 2xl:px-48">
         <img src="{{ asset('img/logos/DG_Rebirth_Logo.png') }}"
-             alt="Deathgarden Rebirth Logo"
+             alt="Deathgarden: Rebirth Logo"
              class="max-h-96"
         >
         <x-web.headline class="w-full mt-8">

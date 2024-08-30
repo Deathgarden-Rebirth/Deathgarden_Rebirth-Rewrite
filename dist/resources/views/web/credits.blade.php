@@ -20,7 +20,7 @@
 
     <x-web.credits-user :userSteamId="0" usernameOverride="ZKWolf" headline="Project Rebirth Founder" class="my-4" :avatarOverride="asset('img/avatars/ZKWolf.webp')">
         <x-web.text>
-            Project Rebirth is not affiliated with Deathgarden Rebirth.<br>
+            Project Rebirth is not affiliated with Deathgarden: Rebirth.<br>
             Project Rebirth’s base code helped during the development of Deathgarden: Rebirth.
         </x-web.text>
     </x-web.credits-user>

@@ -27,7 +27,7 @@ class HomepageController extends Controller
             ->whereAction(FileAction::ADD)
             ->get();
 
-        static::setTitle('Deathgarden Rebirth | Download');
+        static::setTitle('Deathgarden: Rebirth | Download');
         return view('web.download', ['files' => $files]);
     }
 
@@ -42,19 +42,19 @@ class HomepageController extends Controller
 
     public function howToPlay(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
-        static::setTitle('Deathgarden Rebirth | How to Play');
+        static::setTitle('Deathgarden: Rebirth | How to Play');
         return view('web.how-to-play');
     }
 
     public function eula(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
-        static::setTitle('Deathgarden Rebirth | End User License Agreement');
+        static::setTitle('Deathgarden: Rebirth | End User License Agreement');
         return view('web.eula');
     }
 
     public function credits(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
-        static::setTitle('Deathgarden Rebirth | Credits');
+        static::setTitle('Deathgarden: Rebirth | Credits');
         return view('web.credits');
     }
 

@@ -10,7 +10,7 @@
 <x-layouts.web>
     <div class="container flex flex-col justify-center items-center mx-auto py-8 2xl:px-48">
         <x-web.headline class="w-full">
-            Deathgarden Rebirth Launcher
+            Deathgarden: Rebirth Launcher
         </x-web.headline>
 
         <x-web.text class="">

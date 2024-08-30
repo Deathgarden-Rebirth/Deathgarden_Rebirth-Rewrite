@@ -17,12 +17,13 @@ class User extends Component
         public \App\Models\User\User $user,
         public bool $showAvatar = true,
         public bool $showName = true,
+        public bool $reverseOrder = false,
     )
     {
         $this->profileUrl = 'https://steamcommunity.com/profiles/'.$user->steam_id;
     }
 
-    public function avatarFull(): string
+    public function avatarFull(): ?string
     {
         return $this->user->avatar_full ?? $this->user->avatar_medium ?? $this->user->avatar_small;
     }

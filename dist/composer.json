@@ -14,6 +14,7 @@
         "laravel/socialite": "^5.12",
         "laravel/tinker": "^2.8",
         "opcodesio/log-viewer": "^3.1",
+        "phattarachai/laravel-mobile-detect": "^1.0",
         "socialiteproviders/steam": "^4.2",
         "spatie/laravel-permission": "^6.3"
     },

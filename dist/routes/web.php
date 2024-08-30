@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Catalog\CatalogController;
 use App\Http\Controllers\Api\Matchmaking\MatchmakingController;
+use App\Http\Controllers\Web\Homepage\HomepageController;
 use App\Http\Controllers\Api\PatchController;
 use App\Http\Controllers\Web\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -28,15 +29,18 @@ Route::get('/auth/logout', function () {
 Route::get('/auth/callback', [LoginController::class, 'callback'])->name(LoginController::ROUTE_CALLBACK);
 
 Route::prefix('patch')->group(function () {
-    Route::get('files/{hash}', [PatchController::class, 'getFile']);
+    Route::get('files/{hash}', [PatchController::class, 'getFile'])->name('patch.file');
     Route::get('{patchlineName}/files/{hash}', [PatchController::class, 'getFileWithPatchline']);
 });
 
 Route::get('{catalogVersion}/catalog', [CatalogController::class, 'getCatalog']);
 
-Route::get('/', function () {
-    return view('web.home');
-});
+Route::get('download', [HomepageController::class, 'download'])->name('download');
+Route::get('download-launcher', [HomepageController::class, 'downloadLauncher'])->name('download.launcher');
+Route::get('how-to-play', [HomepageController::class, 'howToPlay'])->name('how-to-play');
+Route::get('eula', [HomepageController::class, 'eula'])->name('eula');
+Route::get('credits', [HomepageController::class, 'credits'])->name('credits');
+Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
 Route::middleware('verify_migration_key')->get('/migrate-database', function () {
     Artisan::call('migrate --no-interaction');

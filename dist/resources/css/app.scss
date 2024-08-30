@@ -7,6 +7,14 @@
 @import "modal";
 @import "table";
 
+@layer base {
+  @font-face {
+    font-family: 'Exo 2';
+
+    src: url('../fonts/Exo2-VariableFont_wght.ttf');
+  }
+}
+
 .headline {
   @apply text-2xl font-semibold;
 
@@ -16,4 +24,8 @@
     border-top: 0.1rem solid;
     border-image: linear-gradient(to right, theme('colors.indigo.600') 10%, transparent) 1;
   }
+}
+
+.weblink {
+  @apply text-web-main filter brightness-[120%] font-semibold;
 }

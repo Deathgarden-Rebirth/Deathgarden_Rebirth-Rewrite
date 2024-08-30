@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Api\Matchmaking;
 
-use App\Classes\Matchmaking\MatchmakingPlayerCount;
-use App\Enums\Game\Matchmaking\MatchmakingSide;
 use App\Enums\Game\Matchmaking\MatchStatus;
 use App\Enums\Game\Matchmaking\QueueStatus;
 use App\Http\Controllers\Controller;
@@ -18,13 +16,11 @@ use App\Http\Responses\Api\Matchmaking\QueueResponse;
 use App\Models\Admin\Archive\ArchivedGame;
 use App\Models\Admin\Archive\ArchivedPlayerProgression;
 use App\Models\Game\Matchmaking\Game;
-use App\Models\Game\Matchmaking\MatchConfiguration;
 use App\Models\Game\Matchmaking\QueuedPlayer;
 use App\Models\User\User;
 use Auth;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Cache\LockTimeoutException;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -32,14 +28,6 @@ use Illuminate\Support\Facades\Log;
 
 class MatchmakingController extends Controller
 {
-    const TRY_CREATE_MATCH_INTERVAL_SECONDS = 5;
-
-    // After how many minutes a queued palyer gets removed from  the queue or from an open match in Minutes.
-    const PLAYER_HEARTBEAT_TIMEOUT = 2;
-
-    // After how many minutes a closed game gets deleted automatically when it hasn't been killed normally yet.
-    const GAME_MAX_TIME = 15;
-
     const QUEUE_LOCK = 'queuedPlayers';
 
     public function getRegions()
@@ -49,8 +37,6 @@ class MatchmakingController extends Controller
 
     public function queue(QueueRequest $request)
     {
-        $this->processQueue();
-        $this->cleanupDeadPlayersAndGames();
         if($request->checkOnly)
             return json_encode($this->checkQueueStatus($request));
 
@@ -76,7 +62,7 @@ class MatchmakingController extends Controller
         } catch (LockTimeoutException $e) {
             Log::channel('matchmaking')->emergency('Queue Cancel: Could not acquire Lock for canceling user '.$user->id.'('.$user->last_known_username.')');
         } finally {
-            $lock?->release();
+            $lock->release();
         }
 
         return response('', 204);
@@ -96,8 +82,6 @@ class MatchmakingController extends Controller
         ]);
         $foundGame->updated_at = Carbon::now();
         $foundGame->save();
-
-        $this->cleanupDeadPlayersAndGames();
 
         $response = MatchData::fromGame($foundGame);
         return json_encode($response);
@@ -368,148 +352,6 @@ class MatchmakingController extends Controller
         return $this->checkQueueStatus($request);
     }
 
-    protected function processQueue(): void
-    {
-        // skip when the last time this job run is not older than the interval seconds
-        if(!(Cache::get('tryCreateMatch', 0) < time() - static::TRY_CREATE_MATCH_INTERVAL_SECONDS))
-            return;
-
-        $lock = Cache::lock(static::QUEUE_LOCK, 20);
-
-        // If we cannot acquire the lock, do nothing
-        if(!$lock->get())
-            return;
-
-        // Select all queued Players/party leaders, descending by party size
-        $players = QueuedPlayer::withCount('followingUsers')
-            ->sharedLock()
-            ->whereNull('queued_player_id')
-            ->orderByDesc('following_users_count')
-            ->orderBy('created_at')
-            ->get();
-
-        $runners = new Collection();
-        $hunters = new Collection();
-
-        // Split hunters and runners into separate collections
-        $players->each(function (QueuedPlayer $player) use ($hunters, $runners) {
-            if($player->side === MatchmakingSide::Hunter)
-                $hunters->add($player);
-            else
-                $runners->add($player);
-        });
-
-        $this->tryFillOpenGames($hunters, $runners);
-
-        $playerCount = $this->getTotalPlayersCount($players);
-        $availableMatchConfigs = MatchConfiguration::getAvailableMatchConfigs($playerCount->runners, $playerCount->hunters);
-
-        if($availableMatchConfigs->isEmpty()) {
-            $lock->release();
-            return;
-        }
-
-        $selectedConfig = MatchConfiguration::selectRandomConfigByWeight($availableMatchConfigs);
-
-        // Should never happen, but just to be careful
-        if($selectedConfig === null) {
-            $lock->release();
-            return;
-        }
-
-        $hunterGroupsSet = $this->determineMatchingPlayers($hunters, $selectedConfig->hunters);
-        $runnerGroupsSet = $this->determineMatchingPlayers($runners, $selectedConfig->runners);
-
-        // if we cannot create a match with our current player groups, stop
-        if($runnerGroupsSet === false || $hunterGroupsSet === false) {
-            $lock->release();
-            return;
-        }
-        rsort($runnerGroupsSet, SORT_NUMERIC);
-        rsort($hunterGroupsSet, SORT_NUMERIC);
-
-        $newGame = new Game();
-        $newGame->status = MatchStatus::Created;
-        $newGame->matchConfiguration()->associate($selectedConfig);
-        $newGame->save();
-
-        foreach ($hunterGroupsSet as $groupSize) {
-            $foundQueuedPlayerIndex = $hunters->search(function (QueuedPlayer $hunter) use ($groupSize) {
-                return ($hunter->following_users_count + 1) === $groupSize;
-            });
-
-            $foundHunter = $hunters->pull($foundQueuedPlayerIndex);
-            $newGame->addQueuedPlayer($foundHunter);
-        }
-
-        foreach ($runnerGroupsSet as $groupSize) {
-            $foundQueuedPlayerIndex = $runners->search(function (QueuedPlayer $runner) use ($groupSize) {
-                return ($runner->following_users_count + 1) === $groupSize;
-            });
-            $foundRunner = $runners->pull($foundQueuedPlayerIndex);
-            $newGame->addQueuedPlayer($foundRunner);
-        }
-
-        $newGame->determineHost();
-
-        // Set cached timeat the end of processing and release lock
-        Cache::set('tryCreateMatch', time());
-        $lock->release();
-    }
-
-    protected function tryFillOpenGames(Collection|array &$hunters, Collection|array &$runners)
-    {
-        $openGames = Game::where('status', '=', MatchStatus::Opened->value)->get();
-
-        foreach ($openGames as $game) {
-            $neededPlayers = $game->remainingPlayerCount();
-
-            // game is full and doesn't need filling
-            if($neededPlayers->getTotal() == 0)
-                continue;
-
-            if($neededPlayers->hunters > 0) {
-                $hunterGroupsSet = $this->determineMatchingPlayers($hunters, $neededPlayers->hunters);
-
-                // see if there are any group combinations possible to fill the game
-                if($hunterGroupsSet === false)
-                    continue;
-
-                // use biggest groups first
-                rsort($hunterGroupsSet, SORT_NUMERIC);
-
-                foreach ($hunterGroupsSet as $groupSize) {
-                    $foundQueuedPlayerIndex = $hunters->search(function (QueuedPlayer $hunter) use ($groupSize) {
-                        return ($hunter->following_users_count + 1) === $groupSize;
-                    });
-
-                    $foundHunter = $hunters->pull($foundQueuedPlayerIndex);
-                    $game->addQueuedPlayer($foundHunter);
-                }
-            }
-
-            if($neededPlayers->runners > 0) {
-                $runnerGroupSet = $this->determineMatchingPlayers($runners, $neededPlayers->runners);
-
-                // see if there are any group combinations possible to fill the game
-                if($runnerGroupSet === false)
-                    continue;
-
-                // use biggest groups first
-                rsort($runnerGroupSet, SORT_NUMERIC);
-
-                foreach ($runnerGroupSet as $groupSize) {
-                    $foundQueuedPlayerIndex = $runners->search(function (QueuedPlayer $runner) use ($groupSize) {
-                        return ($runner->following_users_count + 1) === $groupSize;
-                    });
-
-                    $foundRunner = $runners->pull($foundQueuedPlayerIndex);
-                    $game->addQueuedPlayer($foundRunner);
-                }
-            }
-        }
-    }
-
     protected function removeUserFromGame(User $user, Game $game)
     {
         $game->players()->detach($user);
@@ -520,74 +362,4 @@ class MatchmakingController extends Controller
         $game->delete();
     }
 
-    protected function cleanupDeadPlayersAndGames(): void
-    {
-        // skip when the last time this job ran is not older than the interval seconds
-        if(!(Cache::get('cleanupDeadPlayersAndGames', 0) < time() - static::PLAYER_HEARTBEAT_TIMEOUT))
-            return;
-
-        // Delete queued players that haven't sent a queue resquest in the given period of time,
-        // which means they crashed or closed the game without sending cancle.
-        QueuedPlayer::where('updated_at', '<', Carbon::now()->subMinutes(static::PLAYER_HEARTBEAT_TIMEOUT))
-            ->delete();
-
-        Game::where('status', '=', MatchStatus::Closed->value)
-            ->where('updated_at', '<', Carbon::now()->subMinutes(static::GAME_MAX_TIME))
-            ->delete();
-
-        // Select User Ids that joined a game and haven't sent the match request for a period of time
-        // This porpably means they crashed or never joined the game in the first place.
-        $usersToRemove = DB::table('game_user')->join('games', 'game_user.game_id', '=', 'games.id')
-            ->whereIn('games.status', [
-                MatchStatus::Created->value,
-                MatchStatus::Opened->value,
-            ])
-            ->where('game_user.updated_at', '<', Carbon::now()->subMinutes(static::PLAYER_HEARTBEAT_TIMEOUT))
-            ->get(['user_id']);
-
-        $userIdArray = [];
-        foreach ($usersToRemove as $user) {
-            $userIdArray[] = $user->user_id;
-        }
-
-        // Delete a game if one of the to be removed players is the host.
-        Game::whereIn('creator_user_id', $userIdArray)->delete();
-
-        // Delete them afterwards.
-        DB::table('game_user')->whereIn('user_id', $userIdArray)->delete();
-
-    }
-
-    /**
-     * @param Collection $queuedPlayers
-     * @param int $target
-     * @return array|false
-     */
-    private function determineMatchingPlayers(Collection &$queuedPlayers, int $target): array|false
-    {
-        $availableNumbers = [];
-        $queuedPlayers->each(function (QueuedPlayer $player) use (&$availableNumbers) {
-            $availableNumbers[] = $player->following_users_count + 1;
-        });
-
-        $result = MatchmakingPlayerCount::findSubsetsOfSum($availableNumbers, $target, true);
-
-        if(count($result) > 0)
-            return $result;
-        return false;
-    }
-    
-    private function getTotalPlayersCount(Collection &$queuedPlayerCollection): MatchmakingPlayerCount
-    {
-        $count = new MatchmakingPlayerCount();
-        foreach ($queuedPlayerCollection as $player) {
-            /** @var QueuedPlayer $player */
-
-            if($player->side == MatchmakingSide::Hunter)
-                $count->hunters += $player->following_users_count + 1;
-            else
-                $count->runners += $player->following_users_count + 1;
-        }
-        return $count;
-    }
 }

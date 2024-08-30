@@ -74,7 +74,7 @@
                 <x-web.text>
                     <ol class="list-decimal list-inside [li]:my-2">
                         <li>
-                            <span class="font-bold">Check if Deathgarden: Rebirth is already in your Steam Library.</span>
+                            <span class="font-bold">Check if Deathgarden: BLOODHARVEST is already in your Steam Library.</span>
                         </li>
                         <li>
                             If not, press <span class="font-bold">Win + R</span> on your keyboard (or use the Linux equivalent such as Alt+F2 to open a command runner).

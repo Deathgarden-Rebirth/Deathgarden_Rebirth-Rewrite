@@ -9,6 +9,7 @@ use App\Models\Admin\LauncherMessage;
 use App\Models\Game\Matchmaking\QueuedPlayer;
 use DB;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Response;
 
 class StatisticsController extends Controller
 {
@@ -20,7 +21,7 @@ class StatisticsController extends Controller
             $queuedRunners = QueuedPlayer::whereSide(MatchmakingSide::Runner)->count();
             $inGamePlayers = DB::table('game_user')->count();
 
-            return json_encode(new OnlinePlayersResponse(
+            return Response::json(new OnlinePlayersResponse(
                 $queuedRunners,
                 $queuedHunters,
                 $inGamePlayers,

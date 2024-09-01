@@ -128,6 +128,8 @@ return [
 
     'launcher_version' => env('LAUNCHER_VERSION', 'null'),
 
+    'roles_allowed_to_play' => env('ROLES_ALLOWED_TO_PLAY', '') === '' ? null : explode(',', env('ROLES_ALLOWED_TO_PLAY', 'null')),
+
     /*
     |--------------------------------------------------------------------------
     | Maintenance Mode Driver

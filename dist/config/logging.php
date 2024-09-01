@@ -79,6 +79,13 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'dg_purchase_error' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/purchase/error.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
         'inbox_traffic' => [
             'driver' => 'daily',
             'path' => storage_path('logs/inbox_traffic.log'),

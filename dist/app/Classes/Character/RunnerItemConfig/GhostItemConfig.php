@@ -113,6 +113,16 @@ class GhostItemConfig extends CharacterItemConfig
         'ABD448BD42E784491FDE48AD31284348',
         'B51AB8F74BE289E478C494B34BA50A4D',
         'F0D91E24477BAE4066E2F7B03DFDB3B4',
+        'e68f006e674f4017b598ef252165473d',
+        '98aeba83c0eb476da9e35e900e335529',
+        'dcea92fd781545babc913a7199c0de80',
+        'cf4cfb74e08248fba7cf50371a2f1bc2',
+        'c1ceea68e81847d5bb8fda79e4cbfc6f',
+        'f1967ce0df8e4731961103b584cb1698',
+        '299eae9fb1714b25bc7042872a254c1e',
+        '625090bd30bb4ced9aca38b22d6fb49b',
+        'c102659ce1524984b6282b8e86c1608c',
+        '6ad41583acc64f538066e363fa4f76d9',
     ];
 
     protected static array $defaultEquippedPowers = [

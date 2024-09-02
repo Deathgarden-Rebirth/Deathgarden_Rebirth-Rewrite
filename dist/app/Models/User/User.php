@@ -41,7 +41,7 @@ class User extends AuthUser
     {
         // Shared Lock alone didn't prevent sometimes duplicate playerData entries.
         // Hopefully this lock will work.
-        $lock = Cache::lock(static::PLAYER_DATA_LOCK, 5);
+        $lock = Cache::lock(static::PLAYER_DATA_LOCK . $this->id, 5);
 
         try {
             $lock->block(5);

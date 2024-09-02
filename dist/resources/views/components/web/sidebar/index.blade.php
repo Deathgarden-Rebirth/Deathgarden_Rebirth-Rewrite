@@ -7,7 +7,7 @@
 
 @endphp
 
-<div class="bg-slate-900 grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] overflow-x-auto min-w-max transition-all ease-in-out duration-300"
+<div class="bg-slate-900 grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] overflow-x-auto min-w-max transition-[width] ease-in-out duration-300"
      x-data="{
         open: false,
         toggle() {

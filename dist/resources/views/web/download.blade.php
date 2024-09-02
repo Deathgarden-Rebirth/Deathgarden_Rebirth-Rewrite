@@ -25,7 +25,7 @@
 
         <a href="{{ route('download.launcher') }}" target="_blank">
             <x-inputs.button type="button"
-                             class="my-12 !px-8 !py-6 !bg-web-main hover:scale-110 !transition-all !border-web-main">
+                             class="my-12 !px-8 !py-6 !bg-web-main hover:scale-110 !transition-transform !border-web-main">
             <span class="text-3xl font-semibold">
                 Download for Windows
             </span>

@@ -10,7 +10,7 @@
 
         <a href="{{ route('download') }}">
             <x-inputs.button type="button"
-                             class="my-4 !px-10 !py-8 !bg-web-main hover:scale-110 !transition-all !border-web-main">
+                             class="my-4 !px-10 !py-8 !bg-web-main hover:scale-110 !transition-transform !border-web-main">
             <span class="text-3xl font-bold">
                 PLAY NOW
             </span>

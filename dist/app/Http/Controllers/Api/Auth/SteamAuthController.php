@@ -31,6 +31,13 @@ class SteamAuthController extends Controller
         }
 
         $foundUser = User::firstOrCreate(['steam_id' => $steamResponse->steamId], ['source' => 'GAME', 'steam_id' => $steamResponse->steamId]);
+
+        if(!$this->checkIfPlayAllowed($foundUser)) {
+            $log->notice('User with SteamID "{id}" denied login. User has not sufficent roele', ['id' => $steamResponse->steamId]);
+            return response('Unauthorized: Not Allowed', 401);
+        }
+
+
         Auth::login($foundUser);
 
         $this->fillSteamData($foundUser);
@@ -63,5 +70,11 @@ class SteamAuthController extends Controller
         $user->avatar_medium = $player->avatarMedium;
         $user->avatar_full = $player->avatarFull;
         $user->save();
+    }
+
+    protected function checkIfPlayAllowed(User &$user): bool {
+        if(config('app.roles_allowed_to_play') === null)
+            return true;
+        return $user->hasAnyRole(config('app.roles_allowed_to_play'));
     }
 }

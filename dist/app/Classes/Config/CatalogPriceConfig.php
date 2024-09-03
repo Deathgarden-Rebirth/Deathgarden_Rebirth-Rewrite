@@ -16,154 +16,166 @@ class CatalogPriceConfig
 {
     const WEAPON_COSTS = [
         1 => [
-            'CurrencyC' => 350,
+            'CurrencyC' => 500,
         ],
         2 => [
-            'CurrencyC' => 460,
+            'CurrencyC' => 610,
         ],
         3 => [
-            'CurrencyC' => 570,
+            'CurrencyC' => 720,
+            'CurrencyB' => 150,
         ],
         4 => [
-            'CurrencyC' => 680,
+            'CurrencyC' => 830,
+            'CurrencyB' => 200,
         ],
         5 => [
-            'CurrencyC' => 790,
+            'CurrencyC' => 1000,
+            'CurrencyB' => 250,
         ],
         6 => [
-            'CurrencyC' => 900,
+            'CurrencyC' => 1110,
+            'CurrencyB' => 300,
         ],
         7 => [
-            'CurrencyC' => 1010,
-            'CurrencyA' => 220,
+            'CurrencyC' => 1220,
+            'CurrencyB' => 350,
         ],
         8 => [
-            'CurrencyC' => 1120,
-            'CurrencyA' => 330,
+            'CurrencyC' => 1330,
+            'CurrencyB' => 400,
         ],
         9 => [
-            'CurrencyC' => 1230,
-            'CurrencyA' => 440,
+            'CurrencyC' => 1440,
+            'CurrencyB' => 450,
         ],
         10 => [
-            'CurrencyC' => 1340,
-            'CurrencyA' => 540,
+            'CurrencyC' => 1550,
+            'CurrencyB' => 500,
         ],
     ];
 
     const VAMBRACE_COSTS = [
         1 => [
-            'CurrencyC' => 350,
+            'CurrencyC' => 500,
         ],
         2 => [
-            'CurrencyC' => 460,
+            'CurrencyC' => 610,
         ],
         3 => [
-            'CurrencyC' => 570,
+            'CurrencyC' => 720,
+            'CurrencyB' => 150,
         ],
         4 => [
-            'CurrencyC' => 680,
+            'CurrencyC' => 830,
+            'CurrencyB' => 200,
         ],
         5 => [
-            'CurrencyC' => 790,
+            'CurrencyC' => 1000,
+            'CurrencyB' => 250,
         ],
         6 => [
-            'CurrencyC' => 900,
+            'CurrencyC' => 1110,
+            'CurrencyB' => 300,
         ],
         7 => [
-            'CurrencyC' => 1010,
-            'CurrencyA' => 220,
+            'CurrencyC' => 1220,
+            'CurrencyB' => 350,
         ],
         8 => [
-            'CurrencyC' => 1120,
-            'CurrencyA' => 330,
+            'CurrencyC' => 1330,
+            'CurrencyB' => 400,
         ],
         9 => [
-            'CurrencyC' => 1230,
-            'CurrencyA' => 440,
+            'CurrencyC' => 1440,
+            'CurrencyB' => 450,
         ],
         10 => [
-            'CurrencyC' => 1340,
-            'CurrencyA' => 540,
+            'CurrencyC' => 1550,
+            'CurrencyB' => 500,
         ],
     ];
 
     const POWERS_COST = [
         1 => [
-            'CurrencyC' => 350,
+            'CurrencyC' => 500,
         ],
         2 => [
-            'CurrencyC' => 460,
+            'CurrencyC' => 610,
         ],
         3 => [
-            'CurrencyC' => 570,
+            'CurrencyC' => 720,
+            'CurrencyB' => 150,
         ],
         4 => [
-            'CurrencyC' => 680,
+            'CurrencyC' => 830,
+            'CurrencyB' => 200,
         ],
         5 => [
-            'CurrencyC' => 790,
+            'CurrencyC' => 1000,
+            'CurrencyB' => 250,
         ],
         6 => [
-            'CurrencyC' => 900,
+            'CurrencyC' => 1110,
+            'CurrencyB' => 300,
         ],
         7 => [
-            'CurrencyC' => 1010,
-            'CurrencyA' => 220,
+            'CurrencyC' => 1220,
+            'CurrencyB' => 350,
         ],
         8 => [
-            'CurrencyC' => 1120,
-            'CurrencyA' => 330,
+            'CurrencyC' => 1330,
+            'CurrencyB' => 400,
         ],
         9 => [
-            'CurrencyC' => 1230,
-            'CurrencyA' => 440,
+            'CurrencyC' => 1440,
+            'CurrencyB' => 450,
         ],
         10 => [
-            'CurrencyC' => 1340,
-            'CurrencyA' => 540,
+            'CurrencyC' => 1550,
+            'CurrencyB' => 500,
         ],
     ];
 
     const PERKS_COST = [
         1 => [
-            'CurrencyA' => 450,
+            'CurrencyB' => 450,
         ],
         2 => [
-            'CurrencyA' => 560,
+            'CurrencyB' => 560,
         ],
         3 => [
-            'CurrencyA' => 670,
-            'CurrencyB' => 310,
+            'CurrencyA' => 100,
+            'CurrencyB' => 670,
         ],
         4 => [
-            'CurrencyA' => 780,
-            'CurrencyB' => 420,
+            'CurrencyA' => 150,
+            'CurrencyB' => 780,
         ],
         5 => [
-            'CurrencyA' => 890,
-            'CurrencyB' => 530,
+            'CurrencyA' => 200,
+            'CurrencyB' => 890,
         ],
         6 => [
-            'CurrencyA' => 1000,
-            'CurrencyB' => 640,
+            'CurrencyA' => 250,
+            'CurrencyB' => 1000,
         ],
         7 => [
-            'CurrencyA' => 1110,
-            'CurrencyB' => 750,
+            'CurrencyA' => 300,
+            'CurrencyB' => 1110,
         ],
         8 => [
-            'CurrencyA' => 1220,
-            'CurrencyB' => 860,
+            'CurrencyA' => 350,
+            'CurrencyB' => 1220,
         ],
         9 => [
-            'CurrencyA' => 1330,
-            'CurrencyB' => 970,
+            'CurrencyA' => 400,
+            'CurrencyB' => 1330,
         ],
         10 => [
-            'CurrencyA' => 1440,
-            'CurrencyB' => 1080,
-            'CurrencyC' => 700,
+            'CurrencyA' => 450,
+            'CurrencyB' => 1440,
+            'CurrencyC' => 1000,
         ],
     ];
 

@@ -18,6 +18,8 @@ class MatchmakingCleanup extends Command
     // After how many minutes a closed game gets deleted automatically when it hasn't been killed normally yet.
     const GAME_MAX_TIME = 15;
 
+    const CREATED_GAME_TIMEOUT = 30;
+
     /**
      * The name and signature of the console command.
      *
@@ -44,6 +46,11 @@ class MatchmakingCleanup extends Command
 
         Game::where('status', '=', MatchStatus::Closed->value)
             ->where('updated_at', '<', Carbon::now()->subMinutes(static::GAME_MAX_TIME))
+            ->delete();
+
+        // delete games where the hunter crashed on loading into the arena, leaving the game stuck at created
+        Game::where('status', '=', MatchStatus::Created)
+            ->where('created_at', '<', Carbon::now()->subSeconds(static::CREATED_GAME_TIMEOUT))
             ->delete();
 
         // Select User Ids that joined a game and haven't sent the match request for a period of time

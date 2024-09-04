@@ -10,6 +10,7 @@ use App\Http\Controllers\Web\Admin\Tools\LauncherMessageController;
 use App\Http\Controllers\Web\Admin\Tools\LogViewerController;
 use App\Http\Controllers\Web\Admin\Tools\PlayerReportsController;
 use App\Http\Controllers\Web\Admin\Tools\UsersController;
+use App\Http\Controllers\Web\Admin\Tools\VersioningController;
 
 Route::redirect('', 'admin/dashboard');
 Route::redirect('logs', 'log-viewer')->name(LogViewerController::class);
@@ -47,6 +48,9 @@ Route::post('reports/handle-report/{report}', [PlayerReportsController::class, '
 
 Route::get('launcher-message', [LauncherMessageController::class, 'index'])->name(LauncherMessageController::class);
 Route::post('launcher-message', [LauncherMessageController::class, 'saveMessage'])->name('launcherMessage.save');
+
+Route::get('versioning', [VersioningController::class, 'index'])->name(VersioningController::class);
+Route::post('versioning', [VersioningController::class, 'save'])->name('versioning.save');
 
 Route::fallback(function () {
     return redirect(route('admin.dashboard'));

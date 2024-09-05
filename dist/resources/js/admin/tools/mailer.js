@@ -5,8 +5,6 @@ $('#users').prop('disabled', $('#allUsers').is(':checked'));
 $('#allUsers').on('change', (event) => {
     let elem = $(event.target);
 
-    console.log(elem);
-    console.log(elem.prop('checked'));
     $('#users').prop('disabled', elem.is(':checked'));
 });
 

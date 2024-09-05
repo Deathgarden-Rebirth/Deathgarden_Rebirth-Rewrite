@@ -84,7 +84,6 @@ class ItemSelector {
             addCurrencyButton.on('click', () => {
                 let type = $(element).find('.add-currency-type').val();
                 let amount = $(element).find('.add-currency-amount').val();
-                console.log(amount);
 
                 // Check if we have selected something and if it exists already
                 if(amount === '' || selector.rewardItemContainer.find('input[value="' + type + '"]').length > 0)

@@ -103,7 +103,6 @@ class PlayerData extends Model
                     Characters::Ghost->value,
                     Characters::Sawbones->value,
                     Characters::Inquisitor->value,
-                    Characters::Mass->value,
                 ]
             ]);
         });

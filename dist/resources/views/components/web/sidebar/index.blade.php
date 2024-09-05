@@ -17,7 +17,6 @@
         init() {
             let localString = localStorage.getItem('sidebarStatus') ?? {{ $initalOpen ? 'true' : 'false' }};
             this.open = localString === 'true';
-            console.log(this.open);
         }
      }"
 

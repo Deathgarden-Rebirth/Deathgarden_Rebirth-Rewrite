@@ -71,7 +71,7 @@
 
             <x-web.text class="mt-4 ">
                 If you find any other issues, please share them on our
-                <a href="https://discord.gg/7MqudBGyyp/" target="_blank" class="weblink"> Discord </a>
+                <a href="https://discord.gg/7MqudBGyyp" target="_blank" class="weblink"> Discord </a>
                 in the dedicated bug report section or send us an email to
                 <a href="mailto:contact@playdeathgarden.live" target="_blank" class="weblink">
                     contact@playdeathgarden.live

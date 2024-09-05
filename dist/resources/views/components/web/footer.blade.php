@@ -15,7 +15,7 @@
         >
             <x-icons.twitch class="size-8"/>
         </a>
-        <a href="https://discord.gg/7MqudBGyyp/"
+        <a href="https://discord.gg/7MqudBGyyp"
            class="hover:text-web-main transition-colors"
            title="Discord"
         >

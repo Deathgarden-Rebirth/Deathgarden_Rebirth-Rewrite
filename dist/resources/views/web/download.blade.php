@@ -242,7 +242,7 @@
                     </li>
                 </ul>
                 If nothing else works, please contact someone with the “Deathgarden: Rebirth Devs” role in
-                <a href="https://discord.gg/7MqudBGyyp/" target="_blank" class="weblink">
+                <a href="https://discord.gg/7MqudBGyyp" target="_blank" class="weblink">
                     Discord
                 </a> or send us an email to: <a href="mailto:contact@playdeathgarden.live" target="_blank" class="weblink">
                     contact@playdeathgarden.live

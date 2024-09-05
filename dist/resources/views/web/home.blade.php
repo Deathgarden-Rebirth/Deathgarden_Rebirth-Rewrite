@@ -39,7 +39,7 @@
             </a> page!
         </x-web.text>
 
-        <x-web.headline class="w-full mt-12 !text-5xl">
+        <x-web.headline class="w-full mt-12 !text-5xl" id="faq">
             Frequently Asked Questions
         </x-web.headline>
 
@@ -52,6 +52,28 @@
             </x-web.text>
         </x-web.accordeon>
 
+        <x-web.accordeon headline="Does it cost money to play Deathgarden: Rebirth?" class="w-full my-2">
+            <x-web.text>
+                No, the game and the Rebirth mod are completely free!
+            </x-web.text>
+        </x-web.accordeon>
+
+        <x-web.accordeon headline="Why aren't my characters loading, and why am I getting an &quot;Unknown Matchmaking Error&quot;?" class="w-full my-2">
+            <x-web.text>
+                If your game is not in sync with the latest update, certain features, like the catalog (including
+                characters, prices, and other content), will not load correctly.
+            </x-web.text>
+            <x-web.text>
+                Additionally, you may encounter matchmaking errors that prevent you from joining or playing games until your mod is updated through the Launcher.
+            </x-web.text>
+        </x-web.accordeon>
+
+        <x-web.accordeon headline="Is my progress getting restored from the past?" class="w-full my-2">
+            <x-web.text>
+                No. We can’t restore the progress from the past / the other backend. Every player starts from zero.
+            </x-web.text>
+        </x-web.accordeon>
+
         <x-web.accordeon headline="Can I still launch the game through Steam?" class="w-full my-2">
             <x-web.text>
                 No, you can no longer launch Deathgarden directly through Steam.
@@ -59,12 +81,6 @@
             </x-web.text>
             <x-web.text>
                 This change ensures that you have access to all the latest updates, features, and content.
-            </x-web.text>
-        </x-web.accordeon>
-
-        <x-web.accordeon headline="Does it cost money to play Deathgarden: Rebirth?" class="w-full my-2">
-            <x-web.text>
-                No, the game and the Rebirth mod are completely free!
             </x-web.text>
         </x-web.accordeon>
 

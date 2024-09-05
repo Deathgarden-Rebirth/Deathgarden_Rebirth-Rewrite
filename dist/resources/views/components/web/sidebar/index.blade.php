@@ -53,24 +53,28 @@
                 x-show="open" x-transition/>
     </div>
     <div class="row-start-2 flex flex-col text-xl gap-4 px-4" x-show="open" x-transition >
-        <x-web.sidebar.button href="{{ route('download') }}">
+        <x-web.sidebar.button routeName="download">
             <span class="font-bold">Download</span>
         </x-web.sidebar.button>
 
-        <x-web.sidebar.button href="{{ route('how-to-play') }}">
+        <x-web.sidebar.button routeName="how-to-play">
                 <span class="font-bold">How to Play</span>
         </x-web.sidebar.button>
 
-        <x-web.sidebar.button href="{{ route('eula') }}">
+        <x-web.sidebar.button href="{{ route('known-issues') }}" routeName="known-issues">
+            <span class="font-bold">Known Issues</span>
+        </x-web.sidebar.button>
+
+        <x-web.sidebar.button routeName="eula">
             <span class="font-bold">EULA</span>
         </x-web.sidebar.button>
 
-        <x-web.sidebar.button href="{{ route('credits') }}">
+        <x-web.sidebar.button routeName="credits">
             <span class="font-bold">Credits</span>
         </x-web.sidebar.button>
 
         @can(Permissions::ADMIN_AREA->value)
-            <x-web.sidebar.button href="{{ route('admin.dashboard') }}"
+            <x-web.sidebar.button routeName="admin.dashboard"
                                   class="flex justify-between items-center object-scale-down w-full">
                 <span class="font-bold">Admin<br>Dashboard</span>
                 <x-icons.gear class="size-8"/>
@@ -79,7 +83,7 @@
 
         @auth
             <x-web.sidebar.button
-                    href="{{ route('logout') }}"
+                    routeName="logout"
                     class="flex justify-between items-center object-scale-down w-full text-web-main hover:text-inherit hover:!outline-web-main hover:!bg-web-main">
                 <span class="font-bold">Logout</span>
                 <x-icons.logout class="max-w-8"/>

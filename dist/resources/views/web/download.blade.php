@@ -23,6 +23,8 @@
             Please note that you'll still need to have Steam open to log in.
         </x-web.text>
 
+        <img class="max-h-[600px] my-8 border rounded-md border-web-main" src="{{ asset('img/launcher_img.png') }}" alt="Deathgarden: Rebirth Launcher">
+
         <a href="{{ route('download.launcher') }}" target="_blank">
             <x-inputs.button type="button"
                              class="my-12 !px-8 !py-6 !bg-web-main hover:scale-110 !transition-transform !border-web-main">
@@ -197,6 +199,67 @@
                 There are no Files uploaded yet.
             @endif
         </x-web.accordeon>
+
+        <x-web.headline class="w-full mt-12 !text-4xl" id="faq">
+            Frequently Asked Questions
+        </x-web.headline>
+
+        <x-web.accordeon headline="Steam installed Deathgarden. Why can’t the Launcher find the installation?" class="w-full my-2">
+            <x-web.text>
+                Restart the Launcher. If the launcher still can’t detect the installation, you can click on “Browse”
+                and go manually to the installation Path of Deathgarden.
+            </x-web.text>
+            <x-web.text>
+                The launcher will then verify the installation.
+            </x-web.text>
+        </x-web.accordeon>
+
+        <x-web.accordeon headline="Why does verifying take so long?" class="w-full my-2">
+            <x-web.text>
+                It can take up to 30-60 seconds to verify the installation.
+                If the button turns red again, you can click on “Patch” and then on “Update” to install the latest mod updates.
+            </x-web.text>
+        </x-web.accordeon>
+
+        <x-web.accordeon headline="I start the game through the Launcher and getting a “Can’t connect to the First-Party Platform Error”?" class="w-full my-2">
+            <x-web.text>
+                If this happens, there are some ways to fix the issue:
+                <ul class="list-disc list-inside ml-4 my-2">
+                    <li>
+                        Check if Steam is open
+                    </li>
+                    <li>
+                        Restart Steam
+                    </li>
+                    <li>
+                        Start the Deathgarden: Rebirth Launcher as Administrator
+                    </li>
+                    <li>
+                        Verify the Integrity of the Game Files through Steam + perform the Launcher setup steps again
+                    </li>
+                    <li>
+                        Re-Install the game through Steam + perform the Launcher setup steps again.
+                    </li>
+                </ul>
+                If nothing else works, please contact someone with the “Deathgarden: Rebirth Devs” role in
+                <a href="https://discord.gg/7MqudBGyyp/" target="_blank" class="weblink">
+                    Discord
+                </a> or send us an email to: <a href="mailto:contact@playdeathgarden.live" target="_blank" class="weblink">
+                    contact@playdeathgarden.live
+                </a>
+            </x-web.text>
+        </x-web.accordeon>
+
+        <x-web.accordeon headline="Why aren't my characters loading, and why am I getting an &quot;Unknown Matchmaking Error&quot;?" class="w-full my-2">
+            <x-web.text>
+                If your game is not in sync with the latest update, certain features, like the catalog (including
+                characters, prices, and other content), will not load correctly.
+            </x-web.text>
+            <x-web.text>
+                Additionally, you may encounter matchmaking errors that prevent you from joining or playing games until your mod is updated through the Launcher.
+            </x-web.text>
+        </x-web.accordeon>
+
 
 
     </div>

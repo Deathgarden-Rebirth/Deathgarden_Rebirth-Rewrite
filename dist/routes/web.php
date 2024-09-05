@@ -38,6 +38,7 @@ Route::get('{catalogVersion}/catalog', [CatalogController::class, 'getCatalog'])
 Route::get('download', [HomepageController::class, 'download'])->name('download');
 Route::get('download-launcher', [HomepageController::class, 'downloadLauncher'])->name('download.launcher');
 Route::get('how-to-play', [HomepageController::class, 'howToPlay'])->name('how-to-play');
+Route::get('known-issues', [HomepageController::class, 'knownIssues'])->name('known-issues');
 Route::get('eula', [HomepageController::class, 'eula'])->name('eula');
 Route::get('credits', [HomepageController::class, 'credits'])->name('credits');
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');

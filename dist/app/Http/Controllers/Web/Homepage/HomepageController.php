@@ -46,6 +46,12 @@ class HomepageController extends Controller
         return view('web.how-to-play');
     }
 
+    public function knownIssues(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
+    {
+        static::setTitle('Deathgarden: Rebirth | Known Issues');
+        return view('web.known-issues');
+    }
+
     public function eula(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
         static::setTitle('Deathgarden: Rebirth | End User License Agreement');

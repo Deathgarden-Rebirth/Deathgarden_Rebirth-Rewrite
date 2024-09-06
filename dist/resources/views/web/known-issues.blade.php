@@ -72,7 +72,7 @@
             </ul>
 
             <x-web.text class="mt-4 ">
-                If you find any other issues, please share them in the #dg-rebirth-bug-reports channel of our <a href="https://discord.gg/7MqudBGyyp" target="_blank" class="weblink"> Discord </a> server or send us an send us an email to
+                If you find any other issues, please share them in the #dg-rebirth-bug-reports channel of our <a href="https://discord.gg/7MqudBGyyp" target="_blank" class="weblink"> Discord </a> server or send us an email to
                 <a href="mailto:contact@playdeathgarden.live" target="_blank" class="weblink">
                     contact@playdeathgarden.live
                 </a> with more information.

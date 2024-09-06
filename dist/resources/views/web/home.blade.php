@@ -46,7 +46,7 @@
         <x-web.accordeon headline="How can I play Deathgarden: Rebirth?" class="w-full my-2">
             <x-web.text>
                 To play Deathgarden: Rebirth, you will need to download the official launcher. 
-				The launcher will ensure that you have the latest patches required to connect to the servers. For more information, click <a href="{{ route('download') }}" class="weblink">here.
+				The launcher will ensure that you have the latest patches required to connect to the servers. For more information, click <a href="{{ route('download') }}" class="weblink">here
                 </a>.
             </x-web.text>
         </x-web.accordeon>

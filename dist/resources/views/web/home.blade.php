@@ -46,8 +46,8 @@
         <x-web.accordeon headline="How can I play Deathgarden: Rebirth?" class="w-full my-2">
             <x-web.text>
                 To play Deathgarden: Rebirth, you will need to download the official launcher. 
-				The launcher will ensure that you have the latest patches required to connect to the servers. For more information, click <a href="{{ route('download') }}" class="weblink">here
-                </a>.
+				The launcher will ensure that you have the latest patches required to connect to the servers. For more information, click <a href="{{ route('download') }}" class="weblink">here.
+                </a>
             </x-web.text>
         </x-web.accordeon>
 
@@ -128,12 +128,11 @@
         <x-web.accordeon headline="I’m a content creator, how can I support the game?" class="w-full my-2">
             <x-web.text>
                 Thank you for your interest! 
-				We are always looking for content creators to promote the game through their social media or streaming platforms.
+				We are always looking for content creators to promote the game through their social media or streaming platforms. <br>
             </x-web.text>
             <x-web.text>
                If you would like to be a Partnered Creator, please send a brief introduction along with your social/streaming links to <a href="mailto:contact@playdeathgarden.live" class="weblink">contact@playdeathgarden.live
-			   
-                </a>.
+                </a>
                Our team will review and contact you if your application has been approved. 
 			   Partnered Creators will receive in-game goodies and occasional promotions in the in-game news section!
             </x-web.text>

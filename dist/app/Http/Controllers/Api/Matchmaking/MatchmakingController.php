@@ -338,6 +338,11 @@ class MatchmakingController extends Controller
                 }
             }
 
+            // Delete any active matches where the newly queued user is the creator.
+            Game::where('creator_user_id', '=', $user->id)
+                ->whereIn('status', [MatchStatus::Opened, MatchStatus::Created])
+                ->delete();
+
             $queued = QueuedPlayer::firstOrCreate(['user_id' => $user->id]);
             $queued->leader()->disassociate();
             $queued->side = $request->side;

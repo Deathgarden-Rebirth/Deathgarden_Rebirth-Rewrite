@@ -10,6 +10,8 @@ use App\Models\Game\Matchmaking\MatchConfiguration;
 use App\Models\Game\Matchmaking\QueuedPlayer;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
+use Log;
+use Psr\Log\LoggerInterface;
 
 class ProcessMatchmaking extends Command
 {
@@ -27,6 +29,8 @@ class ProcessMatchmaking extends Command
      */
     protected $description = 'Command description';
 
+    protected static LoggerInterface $log;
+
     /**
      * Execute the console command.
      */
@@ -41,8 +45,10 @@ class ProcessMatchmaking extends Command
             ->get();
 
         // If there are no players in the queue, stop here.
-        if($players->isEmpty())
+        if($players->isEmpty()){
+            static::log()->info('No Users in Queue, Stopping');
             return;
+        }
 
         $runners = new Collection();
         $hunters = new Collection();
@@ -54,6 +60,13 @@ class ProcessMatchmaking extends Command
             else
                 $runners->add($player);
         });
+
+        static::log()->info('Users in Queue:'. json_encode([
+                'hunters' => $hunters->toArray(),
+                'runners' => $runners->toArray(),
+            ],
+            JSON_PRETTY_PRINT
+        ));
 
         $this->tryFillOpenGames($hunters, $runners);
 
@@ -84,6 +97,8 @@ class ProcessMatchmaking extends Command
         $newGame->matchConfiguration()->associate($selectedConfig);
         $newGame->save();
 
+        static::log()->info('New game created: '. json_encode($newGame->toArray(), JSON_PRETTY_PRINT));
+
         foreach ($hunterGroupsSet as $groupSize) {
             $foundQueuedPlayerIndex = $hunters->search(function (QueuedPlayer $hunter) use ($groupSize) {
                 return ($hunter->following_users_count + 1) === $groupSize;
@@ -108,6 +123,8 @@ class ProcessMatchmaking extends Command
     {
         $openGames = Game::where('status', '=', MatchStatus::Opened->value)->get();
 
+        static::log()->info('Found Open Matches:' . json_encode($openGames->toArray(),JSON_PRETTY_PRINT));
+
         foreach ($openGames as $game) {
             $neededPlayers = $game->remainingPlayerCount();
 
@@ -131,6 +148,12 @@ class ProcessMatchmaking extends Command
                     });
 
                     $foundHunter = $hunters->pull($foundQueuedPlayerIndex);
+                    static::log()->info('Filled hunter slot on open game.'. json_encode([
+                            'hunter' => $foundHunter,
+                            'game' => $game,
+                        ],
+                        JSON_PRETTY_PRINT)
+                    );
                     $game->addQueuedPlayer($foundHunter);
                 }
             }
@@ -151,6 +174,12 @@ class ProcessMatchmaking extends Command
                     });
 
                     $foundRunner = $runners->pull($foundQueuedPlayerIndex);
+                    static::log()->info('Filled runner slot on open game.'. json_encode([
+                            'hunter' => $foundHunter,
+                            'game' => $game,
+                        ],
+                            JSON_PRETTY_PRINT)
+                    );
                     $game->addQueuedPlayer($foundRunner);
                 }
             }
@@ -188,5 +217,10 @@ class ProcessMatchmaking extends Command
         if(count($result) > 0)
             return $result;
         return false;
+    }
+
+    public static function log(): LoggerInterface
+    {
+        return static::$log ?? static::$log = Log::channel('matchmaking');
     }
 }

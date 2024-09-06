@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\DB;
 class MatchmakingCleanup extends Command
 {
     // After how many minutes a queued palyer gets removed from the queue or from an open match in Minutes.
-    const PLAYER_HEARTBEAT_TIMEOUT = 1;
+    const PLAYER_HEARTBEAT_TIMEOUT = 0.25;
 
     // After how many minutes a closed game gets deleted automatically when it hasn't been killed normally yet.
-    const GAME_MAX_TIME = 15;
+    const GAME_MAX_TIME = 11;
 
     const CREATED_GAME_TIMEOUT = 30;
 

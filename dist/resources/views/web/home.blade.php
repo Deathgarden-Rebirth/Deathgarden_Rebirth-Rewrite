@@ -131,7 +131,8 @@
 				We are always looking for content creators to promote the game through their social media or streaming platforms. <br>
             </x-web.text>
             <x-web.text>
-               If you would like to be a Partnered Creator, please send a brief introduction along with your social/streaming links to <a href="mailto:contact@playdeathgarden.live" class="weblink">contact@playdeathgarden.live
+               If you would like to be a Partnered Creator, please send a brief introduction along with your social/streaming links to <a href="mailto:contact@playdeathgarden.live" class="weblink">contact@playdeathgarden.live.
+			   
                 </a>
                Our team will review and contact you if your application has been approved. 
 			   Partnered Creators will receive in-game goodies and occasional promotions in the in-game news section!

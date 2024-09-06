@@ -53,7 +53,7 @@
 
         <x-web.accordeon headline="Does it cost any money to play Deathgarden: Rebirth?" class="w-full my-2">
             <x-web.text>
-                Deathgarden: Rebirth is a completely *free-to-play* experience.
+                Deathgarden: Rebirth is a completely <span class="font-bold">*free-to-play*</span> experience.
             </x-web.text>
         </x-web.accordeon>
 

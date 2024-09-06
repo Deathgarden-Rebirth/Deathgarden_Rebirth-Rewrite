@@ -17,6 +17,14 @@
                         Note: Look <a href="{{ route('download') }}#faq" class="weblink">here</a> for more information on how to fix this issue!
                     </x-web.text>
                 </li>
+				<li >
+                    <x-web.text>
+                        [Monitoring] Matchmaking may crash and players receiving "Unknnown Matchmaking Errors"
+                    </x-web.text>
+                    <x-web.text class="font-semibold">
+                        Note: When this happens, cancel the matchmaking, wait a minute and try again. We will monitor the Matchmaking and deploy fixes if needed.
+                    </x-web.text>
+                </li>
 				<li>
                     <x-web.text>
                         The character loadouts are not loading / I am receiving an “Unknown Matchmaking Error”.

@@ -33,6 +33,14 @@
                         Solution: As the host, return to the Locker Room and queue for a new match.
                     </x-web.text>
                 </li>
+				<li >
+                    <x-web.text>
+                        [Not fixabel] Hunter challenges might not be getting tracked.
+                    </x-web.text>
+                    <x-web.text class="font-semibold">
+                        Solution: While inside the <span class="font-bold">Arena,</span> switch to a different Hunter and then switch back to the one you want to play.
+                    </x-web.text>
+                </li>
 				<li>
                     <x-web.text>
                         The character loadouts are not loading / I am receiving an “Unknown Matchmaking Error”.

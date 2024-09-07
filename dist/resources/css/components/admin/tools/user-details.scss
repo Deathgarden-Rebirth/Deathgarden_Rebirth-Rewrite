@@ -1,0 +1,29 @@
+.user-details {
+  .section {
+    @apply dark:bg-slate-700 container mx-auto my-4 p-2 md:p-6 md:pt-4 rounded-xl;
+
+    h1 {
+      column-span: all;
+      @apply text-2xl font-semibold;
+
+      &::after {
+        @apply block w-full mt-2;
+        content: "";
+        border-top: 0.1rem solid;
+        border-image: linear-gradient(to right, theme('colors.indigo.600') 10%, transparent) 1;
+      }
+    }
+  }
+
+  .attribute {
+    @apply flex flex-col lg:flex-row w-full align-middle items-center mt-2 lg:mt-0;
+
+    label {
+      @apply w-48 font-bold inline-block text-center lg:text-left;
+    }
+
+    > span {
+      @apply block py-2 px-4 bg-slate-800 rounded-md border border-gray-500;
+    }
+  }
+}

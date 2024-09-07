@@ -1,0 +1,23 @@
+meta {
+  name: Mark Messages As List
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/api/v1/messages/v2/markAs
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "messageList": [
+      {
+        "received": 2,
+        "recipientId": "9b70b902-1a13-474b-b5d3-4de3d07ad971"
+      }
+    ],
+    "flag": "READ"
+  }
+}

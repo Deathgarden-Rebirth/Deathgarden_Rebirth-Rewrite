@@ -46,7 +46,7 @@ return [
 
         'patches' => [
             'driver' => 'local',
-            'root' => resource_path('patches'),
+            'root' => storage_path('app/patches'),
             'throw' => false,
         ],
     ],

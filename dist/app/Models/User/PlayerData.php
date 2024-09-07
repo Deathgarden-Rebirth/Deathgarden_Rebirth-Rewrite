@@ -11,11 +11,14 @@ use App\Helper\Uuid\UuidHelper;
 use App\Models\Game\CatalogItem;
 use App\Models\Game\Challenge;
 use App\Models\Game\CharacterData;
+use App\Models\Game\QuitterState;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Artisan;
 
 
 /**
@@ -27,12 +30,12 @@ class PlayerData extends Model
 
     protected $attributes = [
         'has_played_tutorial' => false,
-        'has_played_dg_1' => true,
-        'currency_a' => 0,
-        'currency_b' => 0,
-        'currency_c' => 0,
+        'has_played_dg_1' => false,
+        'currency_a' => 1000,
+        'currency_b' => 500,
+        'currency_c' => 500,
         'last_faction' => Faction::Runner,
-        'last_hunter' => Hunter::Poacher,
+        'last_hunter' => Hunter::Inquisitor,
         'last_runner' => Runner::Smoke,
         'readout_version' => 1,
         'runner_faction_level' => 1,
@@ -89,6 +92,19 @@ class PlayerData extends Model
                 }
                 catch (QueryException $e) {}
             }
+
+            $playerData->quitterState()->create();
+
+            // Add Default Characters
+            Artisan::call('game:add-characters-to-user', [
+                'user' => $playerData->user_id,
+                'characters' => [
+                    Characters::Smoke->value,
+                    Characters::Ghost->value,
+                    Characters::Sawbones->value,
+                    Characters::Inquisitor->value,
+                ]
+            ]);
         });
     }
 
@@ -121,6 +137,11 @@ class PlayerData extends Model
         return $this->belongsToMany(Challenge::class)->withPivot(['progress']);
     }
 
+    public function quitterState(): HasOne
+    {
+        return $this->hasOne(QuitterState::class);
+    }
+
     public function getCumulativeExperience(): int
     {
         $characterData = $this->characterData;
@@ -133,12 +154,36 @@ class PlayerData extends Model
         return $experience;
     }
 
+    public function addFactionExperience(Faction $faction): PlayerData
+    {
+        if($faction === Faction::Runner) {
+            ++$this->runner_faction_experience;
+
+            if($this->runner_faction_experience >= static::getRemainingFactionExperience($this->runner_faction_level)) {
+                ++$this->runner_faction_level;
+                $this->runner_faction_experience = 0;
+            }
+        }
+        else if($faction === Faction::Hunter) {
+            ++$this->hunter_faction_experience;
+
+            if($this->hunter_faction_experience >= static::getRemainingFactionExperience($this->hunter_faction_level)) {
+                ++$this->hunter_faction_level;
+                $this->hunter_faction_experience = 0;
+            }
+        }
+
+        return $this;
+    }
+
     public static function getRemainingFactionExperience(int $level): int
     {
-         if($level <= 26)
+         if($level < 10)
+             return 2;
+         if($level < 20)
              return 3;
-         if($level <= 53)
-             return 4;
+        if($level < 50)
+            return 4;
          return 5;
     }
 }

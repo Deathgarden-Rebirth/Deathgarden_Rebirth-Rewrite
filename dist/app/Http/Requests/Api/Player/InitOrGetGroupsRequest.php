@@ -11,6 +11,8 @@ class InitOrGetGroupsRequest extends FormRequest
 
     public bool $skipMetadataGroups;
 
+    public ?string $playerId;
+
 
     /**
      * Determine if the user is authorized to make this request.
@@ -30,6 +32,7 @@ class InitOrGetGroupsRequest extends FormRequest
         return [
             'data.skipProgressionGroups' => 'bool|required',
             'data.skipMetadataGroups' => 'bool|required',
+            'data.playerId' => 'string'
         ];
     }
 
@@ -37,5 +40,6 @@ class InitOrGetGroupsRequest extends FormRequest
     {
         $this->skipProgressionGroups = $this->input('data.skipProgressionGroups');
         $this->skipMetadataGroups = $this->input('data.skipMetadataGroups');
+        $this->playerId = $this->input('data.playerId');
     }
 }

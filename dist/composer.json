@@ -5,13 +5,16 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
+        "consoletvs/profanity": "^3.5",
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.11",
         "laravel/framework": "^10.10",
+        "laravel/octane": "^2.4",
         "laravel/socialite": "^5.12",
         "laravel/tinker": "^2.8",
         "opcodesio/log-viewer": "^3.1",
+        "phattarachai/laravel-mobile-detect": "^1.0",
         "socialiteproviders/steam": "^4.2",
         "spatie/laravel-permission": "^6.3"
     },

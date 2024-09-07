@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\PatchController;
+use App\Http\Controllers\Api\StatisticsController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -11,14 +14,16 @@
 |
 */
 
-use App\Http\Controllers\Api\PatchController;
+Route::prefix('v1')->group(function () {
+    Route::get('patch/files', [PatchController::class, 'getGameFileList']);
+    Route::get('patch/{patchlineName}/files', [PatchController::class, 'getGameFileList']);
 
-Route::prefix('files')->group(function () {
-    Route::get('patch/current', [PatchController::class, 'getCurrentPatch']);
-    Route::get('patch/sig', [PatchController::class, 'getSignature']);
-    Route::get('patch/battleye', [PatchController::class, 'getBattleyePatch']);
+    Route::get('launcher-version', [StatisticsController::class, 'getLauncherVersion']);
+    Route::get('launcher-message', [StatisticsController::class, 'getLauncherMessage']);
 });
 
+Route::get('online-players', [StatisticsController::class, 'getOnlinePlayers'])
+    ->name('api.online-players');
 
 Route::fallback(function () {
     return response('route not found', 404);

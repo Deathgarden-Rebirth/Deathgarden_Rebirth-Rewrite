@@ -12,7 +12,7 @@ class GetBanStatusResponse
 
     public BanInfo $BanInfo;
 
-    public function __construct(bool $isBanned = false, ?Ban &$ban= null)
+    public function __construct(bool $isBanned = false, ?Ban $ban= null)
     {
         $this->IsBanned = $isBanned;
 

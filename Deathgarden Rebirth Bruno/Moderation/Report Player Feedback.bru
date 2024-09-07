@@ -1,0 +1,44 @@
+meta {
+  name: Report Player Feedback
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/api/v1/feedback
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "type": "PlayerReport",
+      "entityId": "9b70b902-1a13-474b-b5d3-4de3d07ad971",
+      "platformId": "PC",
+      "reason": "HackingExploiting",
+      "details": "Er spielt die Olle Granny mit dem Cookie Launcher. Dieser Pleb Noob",
+      "gameSpecificData": {
+        "matchId": "9c9fcd07-9d6a-4cdd-bc8c-db28911e70d8",
+        "playerInfoList": [
+          {
+            "playerId": "9b70b902-1a13-474b-b5d3-4de3d07ad971",
+            "characterState": "InArena",
+            "faction": "Hunter",
+            "totalXpEarned": 0,
+            "playtimeInSec": 34.59732437133789,
+            "isReportedPlayer": true,
+            "isReporterPlayer": false
+          },
+          {
+            "playerId": "9b70b8bd-0c86-4e77-bbc7-b8084e3372e0",
+            "characterState": "InArena",
+            "faction": "Runner",
+            "totalXpEarned": 0,
+            "playtimeInSec": 34.59732437133789,
+            "isReportedPlayer": false,
+            "isReporterPlayer": true
+          }
+        ]
+      }
+    }
+}

@@ -1,0 +1,22 @@
+meta {
+  name: Get Inventory
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{base_url}}/api/v1/inventories
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  User-Agent: {{user_agent}}
+}
+
+body:json {
+  {
+  	"limit": 500
+  }
+}

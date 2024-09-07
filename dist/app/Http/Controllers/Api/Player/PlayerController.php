@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Player;
 
 use App\Classes\Config\SpecialUnlocksItemsConfig;
+use App\Enums\Auth\Permissions;
 use App\Enums\Game\RewardType;
 use App\Helper\Uuid\UuidHelper;
 use App\Http\Controllers\Controller;
@@ -11,14 +12,18 @@ use App\Http\Requests\Api\Player\ResetCharacterProgressionForPrestigeRequest;
 use App\Http\Requests\Api\Player\UnlockSpecialitemsRequest;
 use App\Http\Responses\Api\General\Reward;
 use App\Http\Responses\Api\Player\GetBanStatusResponse;
+use App\Http\Responses\Api\Player\GetQuitterStateResponse;
 use App\Http\Responses\Api\Player\ResetCharacterProgressionForPrestigeResponse;
 use App\Models\Game\CatalogItem;
 use App\Models\Game\Challenge;
 use App\Models\Game\CharacterData;
 use App\Models\Game\PickedChallenge;
 use App\Models\Game\PrestigeReward;
+use App\Models\Game\QuitterState;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\UniqueConstraintViolationException;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Ramsey\Uuid\Uuid;
@@ -29,10 +34,14 @@ class PlayerController extends Controller
     {
         $user = Auth::user();
 
-        if ($user->ban === null)
+        $banCheckQuery = $user->bans()
+            ->where('start_date', '<', Carbon::now()->toDateTimeString())
+            ->where('end_date', '>', Carbon::now()->toDateTimeString());
+
+        if (!$banCheckQuery->exists())
             return json_encode(new GetBanStatusResponse(false));
 
-        return json_encode(new GetBanStatusResponse(true, $user->ban));
+        return json_encode(new GetBanStatusResponse(true, $banCheckQuery->first()));
     }
 
     public function getInventory(GetInventoryRequest $request)
@@ -89,6 +98,27 @@ class PlayerController extends Controller
         $user->playerData()->inventory()->syncWithoutDetaching($itemsToAdd);
 
         return json_encode(['unlockedItems' => UuidHelper::convertFromUuidToHexCollection($itemsToAdd)]);
+    }
+
+    public function getQuitterState()
+    {
+        $quitterState = Auth::user()->playerData()->quitterState;
+
+        $quitterState->checkStrikeRefresh();
+
+        $response = new GetQuitterStateResponse(
+            $quitterState->strike_refresh_time === null ? 0 : Carbon::parse($quitterState->strike_refresh_time)->getTimestamp(),
+            $quitterState->strikes_left,
+            $quitterState->stay_match_streak,
+            $quitterState->stay_match_streak_previous,
+            $quitterState->has_quit_once,
+            $quitterState->quit_match_streak,
+            $quitterState->quit_match_streak_previous,
+        );
+
+        $response->stayMatchStreakRewards = QuitterState::getReward($quitterState->stay_match_streak);
+
+        return json_encode($response);
     }
 
     public function resetCharacterProgressionForPrestige(ResetCharacterProgressionForPrestigeRequest $request)

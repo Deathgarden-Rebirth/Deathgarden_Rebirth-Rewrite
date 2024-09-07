@@ -2,40 +2,58 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Enums\Launcher\Patchline;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\GameFile;
+use Auth;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class PatchController extends Controller
 {
-    public function getCurrentPatch()
+    public function getFileWithPatchline(string $patchlineName, string $hash) : BinaryFileResponse|JsonResponse
     {
+        $patchline = Patchline::tryFromName(str($patchlineName)->upper());
+
+        $gameFile = GameFile::select(['name'])->wherePatchline($patchline)->whereHash($hash)->latest()->first();
         $disk = Storage::disk('patches');
-        $patchFiles = $disk->allFiles('paks');
 
-        if (count($patchFiles) <= 0)
-            return response('No Patches Found', 404);
+        if($gameFile === null)
+            return response()->json('File not found', 404);
 
-        $filePath = $disk->path($patchFiles[0]);
+        $filePath = DIRECTORY_SEPARATOR . str($patchlineName)->lower() . DIRECTORY_SEPARATOR . $gameFile->name;
 
-        return response()->download($filePath);
+        if (!$disk->exists($filePath)) {
+            return response()->json('File not found', 404);
+        }
+
+        return response()->download($disk->path($filePath));
     }
 
-    public function getSignature()
-    {
-        $disk = Storage::disk('patches');
-        if(!$disk->exists('TheExit.sig'))
-            return response('No Patches Found', 404);
-
-        return response()->download($disk->path('TheExit.sig'));
+    function getFile(string $hash) : BinaryFileResponse|JsonResponse {
+        return $this->getFileWithPatchline(Patchline::LIVE->name, $hash);
     }
 
-    public function getBattleyePatch()
+    public function getGameFileList(string $patchlineName = null) : JsonResponse
     {
-        $disk = Storage::disk('patches');
-        if(!$disk->exists('bottleEye/BEClient_x64.dll'))
-            return response('No Patch Found', 404);
+        $patchline = Patchline::tryFromName(str($patchlineName)->upper()) ?? Patchline::LIVE;
 
-        return response()->download($disk->path('bottleEye/BEClient_x64.dll'));
+        if (!$patchline) {
+            return response()->json(['error' => 'Invalid patchline'], 404);
+        }
+
+        $neededRole = $patchline->getNeededRole();
+
+        if ($neededRole !== null && ( !Auth::check() || !Auth::user()->hasRole($neededRole->value))) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        $gameFiles = GameFile::select(['name', 'hash', 'game_path', 'action'])->where('patchline', $patchline->value)->latest()->get();
+
+        if (count($gameFiles) <= 0)
+            return response()->json(['error' => 'No files found'], 404);
+
+        return response()->json($gameFiles, 200);
     }
 }

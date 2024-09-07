@@ -18,6 +18,7 @@ use App\Models\User\PlayerData;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Uuid;
 
 class PurchaseController extends Controller
@@ -101,13 +102,29 @@ class PurchaseController extends Controller
 
         $itemToBuy = CatalogItem::find($request->objectId);
 
-        if(!$this->hasCompletedChallengeForItem($itemToBuy, $playerData))
+        if(!$this->hasCompletedChallengeForItem($itemToBuy, $playerData)) {
+            Log::channel('dg_purchase_error')->error(json_encode([
+                'errorReason' => 'Challenge not completed',
+                'user' => $user->id . " ($user->last_known_username)",
+                'playerData' => $playerData->attributesToArray(),
+                'itemToBuy' => $itemToBuy->display_name,
+            ],
+                JSON_PRETTY_PRINT));
             return response('Not completed required challenge/s', 418);
+        }
 
         if( $playerData->currency_a < ($itemToBuy->default_cost_currency_a * $quantityToBuy) ||
             $playerData->currency_b < ($itemToBuy->default_cost_currency_b * $quantityToBuy) ||
-            $playerData->currency_c < ($itemToBuy->default_cost_currency_c * $quantityToBuy))
+            $playerData->currency_c < ($itemToBuy->default_cost_currency_c * $quantityToBuy)) {
+            Log::channel('dg_purchase_error')->error(json_encode([
+                'errorReason' => 'Not enough Currency',
+                'user' => $user->id . " ($user->last_known_username)",
+                'playerData' => $playerData->attributesToArray(),
+                'itemToBuy' => $itemToBuy->display_name,
+            ],
+                JSON_PRETTY_PRINT));
             return response('Not enough Currency', 418);
+        }
 
         try {
             $playerData->inventory()->syncWithoutDetaching($itemToBuy);
@@ -117,6 +134,9 @@ class PurchaseController extends Controller
             AccessLogger::getSessionLogConfig()->notice($message.json_encode([
                     'item to buy' => $itemToBuy,
                 ]));
+            Log::channel('dg_purchase_error')->notice($message.json_encode([
+                    'item to buy' => $itemToBuy,
+            ]));
             return response('Item already in inventory.', 418);
         }
 

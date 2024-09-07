@@ -3,26 +3,22 @@
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-import { createApp, h } from 'vue'
-import { createInertiaApp } from '@inertiajs/vue3'
-
+import modal from 'jquery-modal';
 import axios from 'axios';
-window.axios = axios;
+import Alpine from 'alpinejs';
+import jQuery from 'jquery';
+import select2 from 'select2';
 
+window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-createInertiaApp({
-    resolve: name => {
-        const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
-        return pages[`./Pages/${name}.vue`]
-    },
-    setup({ el, App, props, plugin }) {
-        createApp({ render: () => h(App, props) })
-            .use(plugin)
-            .mount(el)
-    },
-})
+window.Alpine = Alpine;
+Alpine.start();
 
+window.$ = window.jQuery = jQuery();
+window.$.modal = modal;
+
+select2();
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

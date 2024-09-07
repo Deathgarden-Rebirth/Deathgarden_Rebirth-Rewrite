@@ -1,0 +1,27 @@
+meta {
+  name: Init or Get Groups
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{base_url}}/api/v1/extensions/progression/initOrGetGroups
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+  User-Agent: {{user_agent}}
+  XDEBUG_SESSION: start
+  ~accept: application/json
+}
+
+body:json {
+  {
+  	"data": {
+  		"skipProgressionGroups": false,
+  		"skipMetadataGroups": false
+  	}
+  }
+}

@@ -126,6 +126,8 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'roles_allowed_to_play' => env('ROLES_ALLOWED_TO_PLAY', '') === '' ? null : explode(',', env('ROLES_ALLOWED_TO_PLAY', 'null')),
+
     /*
     |--------------------------------------------------------------------------
     | Maintenance Mode Driver
@@ -168,6 +170,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Phattarachai\LaravelMobileDetect\AgentServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -182,7 +185,10 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'Game' => \App\Models\Game\Matchmaking\Game::class,
+        'QueuedPlayer' => \App\Models\Game\Matchmaking\QueuedPlayer::class,
+        'MatchmakingPlayerCount' => \App\Classes\Matchmaking\MatchmakingPlayerCount::class,
+        'Agent' => Phattarachai\LaravelMobileDetect\Facades\Agent::class,
     ])->toArray(),
 
 ];

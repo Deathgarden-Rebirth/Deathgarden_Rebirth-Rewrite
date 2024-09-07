@@ -1,0 +1,18 @@
+meta {
+  name: Remove user from Match
+  type: http
+  seq: 9
+}
+
+delete {
+  url: {{base_url}}/api/v1/match/aaaaaaa-aaaaa/user/userId
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  User-Agent: {{user_agent}}
+  XDEBUG_SESSION: start
+  ~Accept: application/json
+}

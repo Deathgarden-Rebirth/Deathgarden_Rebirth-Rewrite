@@ -31,13 +31,16 @@ class SteamAuthController extends Controller
         }
 
         $foundUser = User::firstOrCreate(['steam_id' => $steamResponse->steamId], ['source' => 'GAME', 'steam_id' => $steamResponse->steamId]);
+
+        if(!$this->checkIfPlayAllowed($foundUser)) {
+            $log->notice('User with SteamID "{id}" denied login. User has not sufficent roele', ['id' => $steamResponse->steamId]);
+            return response('Unauthorized: Not Allowed', 401);
+        }
+
+
         Auth::login($foundUser);
 
-        $name = static::getPlayerName($steamResponse->steamId);
-        if($name !== false) {
-            $foundUser->last_known_username = $name;
-            $foundUser->save();
-        }
+        $this->fillSteamData($foundUser);
 
         $log->info('User with SteamID "{id}" ({name}) successfully logged in.', ['id' => $steamResponse->steamId, 'name' => $foundUser->last_known_username]);
 
@@ -46,15 +49,32 @@ class SteamAuthController extends Controller
         return json_encode($response);
     }
 
-    protected function getPlayerName(int $steamId): string|false
+    /**
+     * Fills in some steam data like the name and avatar url's
+     *
+     * @param User $user
+     * @return void
+     */
+    protected function fillSteamData(User &$user): void
     {
-        $steamUserRequest = new GetPlayerSummariesRequest([$steamId]);
-
+        $steamUserRequest = new GetPlayerSummariesRequest([$user->steam_id]);
         $result = $steamUserRequest->getPlayerSummaries();
 
         if($result === false)
-            return false;
+            return;
 
-        return $result->getPlayer($steamId)->personName;
+        $player = $result->getPlayer($user->steam_id);
+
+        $user->last_known_username = $player->personName;
+        $user->avatar_small = $player->avatar;
+        $user->avatar_medium = $player->avatarMedium;
+        $user->avatar_full = $player->avatarFull;
+        $user->save();
+    }
+
+    protected function checkIfPlayAllowed(User &$user): bool {
+        if(config('app.roles_allowed_to_play') === null)
+            return true;
+        return $user->hasAnyRole(config('app.roles_allowed_to_play'));
     }
 }

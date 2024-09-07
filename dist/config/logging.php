@@ -121,6 +121,13 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'matchmaking_cleanup' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/matchmaking_cleanup/cleanup.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),

@@ -14,65 +14,73 @@
                         The game can’t connect to the First-Party Platform.
                     </x-web.text>
                     <x-web.text class="font-semibold">
-                        Note: Look <a href="{{ route('download') }}#faq" class="weblink">here</a> for more information to fix this issue!
+                        Note: Look <a href="{{ route('download') }}#faq" class="weblink">here</a> for more information on how to fix this issue!
                     </x-web.text>
                 </li>
-                <li>
+				<li >
                     <x-web.text>
-                        The Players loadout is not getting loaded and is getting “Unknown Matchmaking Error”.
+                        [Monitoring - Very Rare] Matchmaking may crash and players receiving "Unknnown Matchmaking Errors"
                     </x-web.text>
                     <x-web.text class="font-semibold">
-                        Note: Look at the <a href="{{ route('homepage') }}#faq" class="weblink">FAQ</a> to find out how to fix this issue.
+                        Note: When this happens, cancel the matchmaking, wait a minute and try again. We will monitor the Matchmaking and deploy fixes if needed.
                     </x-web.text>
                 </li>
-                <li>
+				<li>
                     <x-web.text>
-                        Game may crash when swapping to fast Characters / Loadouts (not fixable)
-                    </x-web.text>
-                </li>
-                <li>
-                    <x-web.text>
-                        The Veteran have different FoV’s when swapping weapons (not fixable)
-                    </x-web.text>
-                </li>
-                <li>
-                    <x-web.text>
-                        After spending currency, the items widget not getting updated to show you that you don’t
-                        have enough currency to buy the item. The player will get an “Purchase Error” (UI not fixable)
-                    </x-web.text>
-                </li>
-                <li>
-                    <x-web.text>
-                        The Tally Screen shows no progression progress. (not fixable)
+                        The character loadouts are not loading / I am receiving an “Unknown Matchmaking Error”.
                     </x-web.text>
                     <x-web.text class="font-semibold">
-                        Note: Progression is still getting granted!
+                        Note: Look at the <a href="{{ route('homepage') }}#faq" class="weblink">FAQ</a> for more information on how to fix this issue!
                     </x-web.text>
                 </li>
-                <li>
+				<li>
                     <x-web.text>
-                        Hexagons may not get loaded for the Scavengers. (not fixable)
+                        [Not fixable] The Tally Screen displays incorrect/zero progression progress.
                     </x-web.text>
                     <x-web.text class="font-semibold">
-                        Note: This happens when you have a slow PC / poor connection to the Hunter.
+                        Note: Progression is still granted as intended!
+                    </x-web.text>
+                </li>
+				<li>
+                    <x-web.text>
+                        [Not fixable] Hexagons/Tiles are not loading once in-game.
+                    </x-web.text>
+                    <x-web.text class="font-semibold">
+                        Note: This happens when your PC is suffering from poor performance or your latency to the Hunter is too high.
                     </x-web.text>
                 </li>
                 <li>
                     <x-web.text>
-                        Players may get stuck in certain UI elements (Very rare. Not fixable)
+                        [Not Fixable] Certain Blood Needles may display the incorrect amount of blood needed to complete the objective.
+                    </x-web.text>
+					<x-web.text class="font-semibold">
+                        Note: Note: The correct amount of blood is still displayed in the top-left corner of the heads-up display (HUD).
                     </x-web.text>
                 </li>
                 <li>
                     <x-web.text>
-                        The Blood Needle UI-Element shows “100” charges needed and doesn't update the value. (not fixable)
+                        [Not Fixable] Game may crash when swapping too quickly between characters or loadouts.
+                    </x-web.text>
+                </li>
+                <li>
+                    <x-web.text>
+                        [Not Fixable] The Veteran has different field of views (FoV) when swapping between weapons.
+                    </x-web.text>
+                </li>
+                <li>
+                    <x-web.text>
+                        [Not Fixable] After spending currency, the item icons may not update and display that you do not have enough currency to purchase any remaining items. Instead the player will receive a “Purchase Error”.
+                    </x-web.text>
+                </li>
+                <li>
+                    <x-web.text>
+                        [Not Fixable] Players may occasionally get stuck in certain UI elements.
                     </x-web.text>
                 </li>
             </ul>
 
             <x-web.text class="mt-4 ">
-                If you find any other issues, please share them on our
-                <a href="https://discord.gg/7MqudBGyyp" target="_blank" class="weblink"> Discord </a>
-                in the dedicated bug report section or send us an email to
+                If you find any other issues, please share them in the #dg-rebirth-bug-reports channel of our <a href="https://discord.gg/7MqudBGyyp" target="_blank" class="weblink"> Discord </a> server or send us an email to
                 <a href="mailto:contact@playdeathgarden.live" target="_blank" class="weblink">
                     contact@playdeathgarden.live
                 </a> with more information.

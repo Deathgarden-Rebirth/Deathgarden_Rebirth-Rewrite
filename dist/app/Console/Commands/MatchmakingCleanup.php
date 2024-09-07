@@ -9,15 +9,17 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class MatchmakingCleanup extends Command
 {
     // After how many minutes a queued palyer gets removed from the queue or from an open match in Minutes.
-    const PLAYER_HEARTBEAT_TIMEOUT = 1;
+    const PLAYER_HEARTBEAT_TIMEOUT = 0.5;
 
     // After how many minutes a closed game gets deleted automatically when it hasn't been killed normally yet.
-    const GAME_MAX_TIME = 15;
+    const GAME_MAX_TIME = 11;
 
+    // In Seconds
     const CREATED_GAME_TIMEOUT = 30;
 
     /**
@@ -39,19 +41,28 @@ class MatchmakingCleanup extends Command
      */
     public function handle()
     {
+        $log = Log::channel('matchmaking_cleanup');
+
         // Delete queued players that haven't sent a queue resquest in the given period of time,
         // which means they crashed or closed the game without sending cancle.
-        QueuedPlayer::where('updated_at', '<', Carbon::now()->subMinutes(static::PLAYER_HEARTBEAT_TIMEOUT))
+        $cleanedQueuedPlayers = QueuedPlayer::where('updated_at', '<', Carbon::now()->subSeconds(static::PLAYER_HEARTBEAT_TIMEOUT * 60))
             ->delete();
 
-        Game::where('status', '=', MatchStatus::Closed->value)
-            ->where('updated_at', '<', Carbon::now()->subMinutes(static::GAME_MAX_TIME))
+        $log->info('Queued players: ' . json_encode($cleanedQueuedPlayers, JSON_PRETTY_PRINT));
+
+        $deletedClosedGames =  Game::where('status', '=', MatchStatus::Closed->value)
+            ->where('updated_at', '<', Carbon::now()->subSeconds(static::GAME_MAX_TIME * 60))
             ->delete();
+
+        $log->info('Deleted Closed games: ' . json_encode($deletedClosedGames, JSON_PRETTY_PRINT));
+
 
         // delete games where the hunter crashed on loading into the arena, leaving the game stuck at created
-        Game::where('status', '=', MatchStatus::Created)
+        $deletedCreatedGames = Game::where('status', '=', MatchStatus::Created)
             ->where('created_at', '<', Carbon::now()->subSeconds(static::CREATED_GAME_TIMEOUT))
             ->delete();
+
+        $log->info('Deleted Stuck Created games: ' . json_encode($deletedCreatedGames, JSON_PRETTY_PRINT));
 
         // Select User Ids that joined a game and haven't sent the match request for a period of time
         // This porpably means they crashed or never joined the game in the first place.
@@ -60,13 +71,15 @@ class MatchmakingCleanup extends Command
                 MatchStatus::Created->value,
                 MatchStatus::Opened->value,
             ])
-            ->where('game_user.updated_at', '<', Carbon::now()->subMinutes(static::PLAYER_HEARTBEAT_TIMEOUT))
+            ->where('game_user.updated_at', '<', Carbon::now()->subSeconds(static::PLAYER_HEARTBEAT_TIMEOUT * 60))
             ->get(['user_id']);
 
         $userIdArray = [];
         foreach ($usersToRemove as $user) {
             $userIdArray[] = $user->user_id;
         }
+
+        $log->info('Deleting players that are in a mach, but didnt send a heartbeat: ' . json_encode($usersToRemove, JSON_PRETTY_PRINT));
 
         // Delete a game if one of the to be removed players is the host.
         Game::whereIn('creator_user_id', $userIdArray)->delete();

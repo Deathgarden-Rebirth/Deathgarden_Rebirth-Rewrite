@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User\User;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,27 +65,36 @@ class AccessLogger
     {
         $user = Auth::user();
         if (!Session::has('sessionLogConfig')) {
-            $username = $user?->last_known_username ?? '';
-            static::cleanupUsername($username);
             $logConfig = [
                 'driver' => 'single',
-                'path' => storage_path('logs/sessions/' . $username . '_' . Str::substr(Session::getId(), 0, 12) . '.log')
+                'path' => static::getSessionLogPath($user),
             ];
             Session::put('sessionLogConfig', $logConfig);
         } else
             $logConfig = Session::get('sessionLogConfig');
 
-        if($user !== null && str_starts_with(basename($logConfig['path']), '_')) {
+        if($user !== null && str_starts_with(basename($logConfig['path']), '__UNKNOWN')) {
             $oldPath = $logConfig['path'];
-            $username = $user->last_known_username;
-            static::cleanupUsername($username);
-            $newPath = storage_path('logs/sessions/'.$username.basename($oldPath));
+            $newPath = static::getSessionLogPath($user);
+
+            if(!file_exists(dirname($newPath)))
+                mkdir(dirname($newPath), 0777, true);
+
             rename($oldPath, $newPath);
             $logConfig['path'] = $newPath;
             Session::put('sessionLogConfig', $logConfig);
         }
 
         return Log::build($logConfig);
+    }
+
+    public static function getSessionLogPath(?User $user): string {
+        $username = $user?->last_known_username ?? '__UNKNOWN';
+        static::cleanupUsername($username);
+        $userid = $user?->id ?? 'no-id';
+        $session = Str::substr(Session::getId(), 0, 12);
+
+        return storage_path("logs/sessions/{$username}_$userid/{$username}_$session.log");
     }
 
     public static function cleanupUsername(string &$username): void

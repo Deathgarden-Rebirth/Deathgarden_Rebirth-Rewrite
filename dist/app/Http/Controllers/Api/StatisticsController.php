@@ -7,6 +7,7 @@ use App\Enums\Game\Matchmaking\MatchStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Responses\Api\Statistics\OnlinePlayersResponse;
 use App\Models\Admin\LauncherMessage;
+use App\Models\Admin\Versioning\LauncherVersion;
 use App\Models\Game\Matchmaking\Game;
 use App\Models\Game\Matchmaking\QueuedPlayer;
 use DB;
@@ -37,7 +38,7 @@ class StatisticsController extends Controller
     }
 
     public function getLauncherVersion(): ?string {
-        return json_encode(config('app.launcher_version'));
+        return json_encode(LauncherVersion::get()?->launcherVersion);
     }
 
     public function getLauncherMessage(): ?string {

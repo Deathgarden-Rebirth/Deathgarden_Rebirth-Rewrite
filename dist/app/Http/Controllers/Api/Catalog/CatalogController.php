@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Catalog;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Versioning\CurrentCatalogVersion;
 use App\Models\Game\CatalogItem;
 use Auth;
 use Illuminate\Database\Eloquent\Collection;
@@ -16,6 +17,9 @@ class CatalogController extends Controller
 
     public function getCatalog(string $catalogVersion): string
     {
+        if($catalogVersion !== CurrentCatalogVersion::get()?->catalogVersion)
+            abort(404);
+
         return Storage::disk('local')->get('/catalog/catalog.json');
     }
 

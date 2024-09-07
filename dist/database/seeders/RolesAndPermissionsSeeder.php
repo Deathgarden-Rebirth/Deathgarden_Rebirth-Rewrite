@@ -54,6 +54,7 @@ class RolesAndPermissionsSeeder extends Seeder
            $userBansPerm,
            $chatReportsPerm,
            $playerReportsPerm,
+           $viewMaintenanceMode,
        )->save();
 
        $playtesterRole->givePermissionTo(

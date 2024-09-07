@@ -10,6 +10,8 @@ use App\Models\Game\Matchmaking\MatchConfiguration;
 use App\Models\Game\Matchmaking\QueuedPlayer;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
+use Log;
+use Psr\Log\LoggerInterface;
 
 class ProcessMatchmaking extends Command
 {
@@ -27,6 +29,8 @@ class ProcessMatchmaking extends Command
      */
     protected $description = 'Command description';
 
+    protected static LoggerInterface $log;
+
     /**
      * Execute the console command.
      */
@@ -41,8 +45,10 @@ class ProcessMatchmaking extends Command
             ->get();
 
         // If there are no players in the queue, stop here.
-        if($players->isEmpty())
+        if($players->isEmpty()){
+            static::log()->info('No Users in Queue, Stopping');
             return;
+        }
 
         $runners = new Collection();
         $hunters = new Collection();
@@ -55,7 +61,21 @@ class ProcessMatchmaking extends Command
                 $runners->add($player);
         });
 
+        static::log()->info('Users in Queue:'. json_encode([
+                'hunters' => $hunters->toArray(),
+                'runners' => $runners->toArray(),
+            ],
+            JSON_PRETTY_PRINT
+        ));
+
         $this->tryFillOpenGames($hunters, $runners);
+
+        static::log()->info('Users in Queue after trying to fill:'. json_encode([
+                'hunters' => $hunters->toArray(),
+                'runners' => $runners->toArray(),
+            ],
+                JSON_PRETTY_PRINT
+            ));
 
         $playerCount = $this->getTotalPlayersCount($players);
         $availableMatchConfigs = MatchConfiguration::getAvailableMatchConfigs($playerCount->runners, $playerCount->hunters);
@@ -84,6 +104,8 @@ class ProcessMatchmaking extends Command
         $newGame->matchConfiguration()->associate($selectedConfig);
         $newGame->save();
 
+        static::log()->info('New game created: '. json_encode($newGame->toArray(), JSON_PRETTY_PRINT));
+
         foreach ($hunterGroupsSet as $groupSize) {
             $foundQueuedPlayerIndex = $hunters->search(function (QueuedPlayer $hunter) use ($groupSize) {
                 return ($hunter->following_users_count + 1) === $groupSize;
@@ -108,7 +130,10 @@ class ProcessMatchmaking extends Command
     {
         $openGames = Game::where('status', '=', MatchStatus::Opened->value)->get();
 
+        static::log()->info('Found Open Matches:' . json_encode($openGames->toArray(),JSON_PRETTY_PRINT));
+
         foreach ($openGames as $game) {
+            static::log()->info("Game $game->id current players: ". json_encode($game->players));
             $neededPlayers = $game->remainingPlayerCount();
 
             // game is full and doesn't need filling
@@ -116,6 +141,7 @@ class ProcessMatchmaking extends Command
                 continue;
 
             if($neededPlayers->hunters > 0) {
+                static::log()->info("Game $game->id needs a hunter");
                 $hunterGroupsSet = $this->determineMatchingPlayers($hunters, $neededPlayers->hunters);
 
                 // see if there are any group combinations possible to fill the game
@@ -124,6 +150,7 @@ class ProcessMatchmaking extends Command
 
                 // use biggest groups first
                 rsort($hunterGroupsSet, SORT_NUMERIC);
+                static::log()->info("Game $game->id Try fill game group sets: ". json_encode($runnerGroupSet));
 
                 foreach ($hunterGroupsSet as $groupSize) {
                     $foundQueuedPlayerIndex = $hunters->search(function (QueuedPlayer $hunter) use ($groupSize) {
@@ -131,11 +158,18 @@ class ProcessMatchmaking extends Command
                     });
 
                     $foundHunter = $hunters->pull($foundQueuedPlayerIndex);
+                    static::log()->info('Filled hunter slot on open game.'. json_encode([
+                            'hunter' => $foundHunter,
+                            'game' => $game,
+                        ],
+                        JSON_PRETTY_PRINT)
+                    );
                     $game->addQueuedPlayer($foundHunter);
                 }
             }
 
             if($neededPlayers->runners > 0) {
+                static::log()->info("Game $game->id needs a runner");
                 $runnerGroupSet = $this->determineMatchingPlayers($runners, $neededPlayers->runners);
 
                 // see if there are any group combinations possible to fill the game
@@ -145,12 +179,20 @@ class ProcessMatchmaking extends Command
                 // use biggest groups first
                 rsort($runnerGroupSet, SORT_NUMERIC);
 
+                static::log()->info("Game $game->id Try fill game group sets: ". json_encode($runnerGroupSet));
+
                 foreach ($runnerGroupSet as $groupSize) {
                     $foundQueuedPlayerIndex = $runners->search(function (QueuedPlayer $runner) use ($groupSize) {
                         return ($runner->following_users_count + 1) === $groupSize;
                     });
 
                     $foundRunner = $runners->pull($foundQueuedPlayerIndex);
+                    static::log()->info('Filled runner slot on open game.'. json_encode([
+                            'runner' => $foundRunner,
+                            'game' => $game,
+                        ],
+                            JSON_PRETTY_PRINT)
+                    );
                     $game->addQueuedPlayer($foundRunner);
                 }
             }
@@ -188,5 +230,10 @@ class ProcessMatchmaking extends Command
         if(count($result) > 0)
             return $result;
         return false;
+    }
+
+    public static function log(): LoggerInterface
+    {
+        return static::$log ?? static::$log = Log::channel('matchmaking');
     }
 }

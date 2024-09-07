@@ -15,6 +15,7 @@ use App\Http\Responses\Api\Matchmaking\QueueData;
 use App\Http\Responses\Api\Matchmaking\QueueResponse;
 use App\Models\Admin\Archive\ArchivedGame;
 use App\Models\Admin\Archive\ArchivedPlayerProgression;
+use App\Models\Admin\Versioning\CurrentGameVersion;
 use App\Models\Game\Matchmaking\Game;
 use App\Models\Game\Matchmaking\QueuedPlayer;
 use App\Models\User\User;
@@ -37,6 +38,9 @@ class MatchmakingController extends Controller
 
     public function queue(QueueRequest $request)
     {
+        if($request->category !== CurrentGameVersion::get()?->gameVersion)
+            abort(403, 'Too old mod version');
+
         if($request->checkOnly)
             return json_encode($this->checkQueueStatus($request));
 
@@ -333,6 +337,11 @@ class MatchmakingController extends Controller
                     $this->removeUserFromGame($user, $game);
                 }
             }
+
+            // Delete any active matches where the newly queued user is the creator.
+            Game::where('creator_user_id', '=', $user->id)
+                ->whereIn('status', [MatchStatus::Opened, MatchStatus::Created])
+                ->delete();
 
             $queued = QueuedPlayer::firstOrCreate(['user_id' => $user->id]);
             $queued->leader()->disassociate();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\Homepage;
 use App\Enums\Launcher\FileAction;
 use App\Enums\Launcher\Patchline;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Versioning\LauncherVersion;
 use App\Models\GameFile;
 use App\Models\User\User;
 use Illuminate\Contracts\View\Factory;
@@ -34,8 +35,8 @@ class HomepageController extends Controller
     public function downloadLauncher()
     {
         // Put launcher .exe into storage/app folder
-        if(Storage::disk('local')->exists('launcher.exe'))
-            return Response::download(Storage::disk('local')->path('launcher.exe'));
+        if(Storage::disk('local')->exists('Deathgarden Launcher_'.LauncherVersion::get()?->launcherVersion.'.exe'))
+            return Response::download(Storage::disk('local')->path('Deathgarden Launcher_'.LauncherVersion::get()?->launcherVersion.'.exe'));
 
         abort(404);
     }

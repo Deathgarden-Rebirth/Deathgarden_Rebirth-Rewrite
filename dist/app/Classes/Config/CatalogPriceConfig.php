@@ -4,7 +4,8 @@ namespace App\Classes\Config;
 
 use App\Enums\Game\ItemQuality;
 
-enum CatalogPriceCategory {
+enum CatalogPriceCategory
+{
     case Weapon;
     case Vambrace;
     case Powers;
@@ -19,39 +20,36 @@ class CatalogPriceConfig
             'CurrencyC' => 500,
         ],
         2 => [
-            'CurrencyC' => 610,
+            'CurrencyC' => 750,
         ],
         3 => [
-            'CurrencyC' => 720,
-            'CurrencyB' => 150,
+            'CurrencyC' => 1000,
         ],
         4 => [
-            'CurrencyC' => 830,
-            'CurrencyB' => 200,
+            'CurrencyC' => 1250,
         ],
         5 => [
-            'CurrencyC' => 1000,
-            'CurrencyB' => 250,
+            'CurrencyC' => 1500,
         ],
         6 => [
-            'CurrencyC' => 1110,
-            'CurrencyB' => 300,
+            'CurrencyA' => 425,
+            'CurrencyC' => 1300,
         ],
         7 => [
-            'CurrencyC' => 1220,
-            'CurrencyB' => 350,
+            'CurrencyA' => 525,
+            'CurrencyC' => 1400,
         ],
         8 => [
-            'CurrencyC' => 1330,
-            'CurrencyB' => 400,
+            'CurrencyA' => 625,
+            'CurrencyC' => 1500,
         ],
         9 => [
-            'CurrencyC' => 1440,
-            'CurrencyB' => 450,
+            'CurrencyA' => 725,
+            'CurrencyC' => 1600,
         ],
         10 => [
-            'CurrencyC' => 1550,
-            'CurrencyB' => 500,
+            'CurrencyA' => 825,
+            'CurrencyC' => 1700,
         ],
     ];
 
@@ -60,39 +58,36 @@ class CatalogPriceConfig
             'CurrencyC' => 500,
         ],
         2 => [
-            'CurrencyC' => 610,
+            'CurrencyC' => 750,
         ],
         3 => [
-            'CurrencyC' => 720,
-            'CurrencyB' => 150,
+            'CurrencyC' => 1000,
         ],
         4 => [
-            'CurrencyC' => 830,
-            'CurrencyB' => 200,
+            'CurrencyC' => 1250,
         ],
         5 => [
-            'CurrencyC' => 1000,
-            'CurrencyB' => 250,
+            'CurrencyC' => 1500,
         ],
         6 => [
-            'CurrencyC' => 1110,
-            'CurrencyB' => 300,
+            'CurrencyA' => 425,
+            'CurrencyC' => 1300,
         ],
         7 => [
-            'CurrencyC' => 1220,
-            'CurrencyB' => 350,
+            'CurrencyA' => 525,
+            'CurrencyC' => 1400,
         ],
         8 => [
-            'CurrencyC' => 1330,
-            'CurrencyB' => 400,
+            'CurrencyA' => 625,
+            'CurrencyC' => 1500,
         ],
         9 => [
-            'CurrencyC' => 1440,
-            'CurrencyB' => 450,
+            'CurrencyA' => 725,
+            'CurrencyC' => 1600,
         ],
         10 => [
-            'CurrencyC' => 1550,
-            'CurrencyB' => 500,
+            'CurrencyA' => 825,
+            'CurrencyC' => 1700,
         ],
     ];
 
@@ -101,92 +96,86 @@ class CatalogPriceConfig
             'CurrencyC' => 500,
         ],
         2 => [
-            'CurrencyC' => 610,
+            'CurrencyC' => 750,
         ],
         3 => [
-            'CurrencyC' => 720,
-            'CurrencyB' => 150,
+            'CurrencyC' => 1000,
         ],
         4 => [
-            'CurrencyC' => 830,
-            'CurrencyB' => 200,
+            'CurrencyC' => 1250,
         ],
         5 => [
-            'CurrencyC' => 1000,
-            'CurrencyB' => 250,
+            'CurrencyC' => 1500,
         ],
         6 => [
-            'CurrencyC' => 1110,
-            'CurrencyB' => 300,
+            'CurrencyA' => 425,
+            'CurrencyC' => 1300,
         ],
         7 => [
-            'CurrencyC' => 1220,
-            'CurrencyB' => 350,
+            'CurrencyA' => 525,
+            'CurrencyC' => 1400,
         ],
         8 => [
-            'CurrencyC' => 1330,
-            'CurrencyB' => 400,
+            'CurrencyA' => 625,
+            'CurrencyC' => 1500,
         ],
         9 => [
-            'CurrencyC' => 1440,
-            'CurrencyB' => 450,
+            'CurrencyA' => 725,
+            'CurrencyC' => 1600,
         ],
         10 => [
-            'CurrencyC' => 1550,
-            'CurrencyB' => 500,
+            'CurrencyA' => 825,
+            'CurrencyC' => 1700,
         ],
     ];
 
     const PERKS_COST = [
         1 => [
-            'CurrencyB' => 450,
+            'CurrencyB' => 500,
         ],
         2 => [
-            'CurrencyB' => 560,
+            'CurrencyB' => 750,
         ],
         3 => [
-            'CurrencyA' => 100,
-            'CurrencyB' => 670,
-        ],
-        4 => [
-            'CurrencyA' => 150,
-            'CurrencyB' => 780,
-        ],
-        5 => [
-            'CurrencyA' => 200,
-            'CurrencyB' => 890,
-        ],
-        6 => [
-            'CurrencyA' => 250,
             'CurrencyB' => 1000,
         ],
+        4 => [
+            'CurrencyB' => 1250,
+        ],
+        5 => [
+            'CurrencyB' => 1500,
+        ],
+        6 => [
+            'CurrencyA' => 425,
+            'CurrencyB' => 1300,
+        ],
         7 => [
-            'CurrencyA' => 300,
-            'CurrencyB' => 1110,
+            'CurrencyA' => 525,
+            'CurrencyB' => 1400,
         ],
         8 => [
-            'CurrencyA' => 350,
-            'CurrencyB' => 1220,
+            'CurrencyA' => 625,
+            'CurrencyB' => 1500,
         ],
         9 => [
-            'CurrencyA' => 400,
-            'CurrencyB' => 1330,
+            'CurrencyA' => 725,
+            'CurrencyB' => 1600,
         ],
         10 => [
-            'CurrencyA' => 450,
-            'CurrencyB' => 1440,
-            'CurrencyC' => 1000,
+            'CurrencyA' => 825,
+            'CurrencyB' => 1700,
         ],
     ];
 
     const SKINS_COST = [
-        ItemQuality::Basic->value => ['CurrencyB' => 1500],
-        ItemQuality::Specialized->value => ['CurrencyB' => 3500],
-        ItemQuality::Superior->value => ['CurrencyB' => 4500],
-        ItemQuality::Epic->value => ['CurrencyC' => 5500],
+        ItemQuality::Basic->value => ['CurrencyC' => 3500],
+        ItemQuality::Specialized->value => ['CurrencyC' => 5500],
+        ItemQuality::Superior->value => ['CurrencyC' => 5500],
+        ItemQuality::Epic->value => ['CurrencyC' => 6250],
     ];
 
-    public static function GetCategoryPriceForLevel(CatalogPriceCategory $category, int|string $level): array {
+    public static function GetCategoryPriceForLevel(CatalogPriceCategory $category, int|string $level): array
+    {
         return match ($category) {
             CatalogPriceCategory::Weapon => static::convertConfigToCatalog(static::WEAPON_COSTS[$level]),
             CatalogPriceCategory::Vambrace => static::convertConfigToCatalog(static::VAMBRACE_COSTS[$level]),
@@ -196,7 +185,8 @@ class CatalogPriceConfig
         };
     }
 
-    protected static function convertConfigToCatalog(array $config): array {
+    protected static function convertConfigToCatalog(array $config): array
+    {
         $result = [];
 
         foreach ($config as $currencyId => $amount) {

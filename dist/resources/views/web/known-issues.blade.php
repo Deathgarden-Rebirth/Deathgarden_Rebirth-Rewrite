@@ -4,7 +4,7 @@
             Known Issues
         </x-web.headline>
         <x-web.text>
-            Last Updated: 09/06/2024
+            Last Updated: 09/07/2024
         </x-web.text>
 
         <x-web.text>
@@ -25,12 +25,44 @@
                         Note: When this happens, cancel the matchmaking, wait a minute and try again. We will monitor the Matchmaking and deploy fixes if needed.
                     </x-web.text>
                 </li>
+				<li >
+                    <x-web.text>
+                        [Not fixabel] The required players' needle icon in the Ready Room disappear when the lobby is broken and got cleared by the backend.
+                    </x-web.text>
+                    <x-web.text class="font-semibold">
+                        Solution: As the host, return to the Locker Room and queue for a new match.
+                    </x-web.text>
+                </li>
+				<li >
+                    <x-web.text>
+                        [Not fixabel] Hunter challenges might not be getting tracked.
+                    </x-web.text>
+                    <x-web.text class="font-semibold">
+                        Solution: While inside the <span class="font-bold">Arena,</span> switch to a different Hunter and then switch back to the one you want to play.
+                    </x-web.text>
+                </li>
 				<li>
                     <x-web.text>
                         The character loadouts are not loading / I am receiving an “Unknown Matchmaking Error”.
                     </x-web.text>
                     <x-web.text class="font-semibold">
                         Note: Look at the <a href="{{ route('homepage') }}#faq" class="weblink">FAQ</a> for more information on how to fix this issue!
+                    </x-web.text>
+                </li>
+                <li >
+                    <x-web.text>
+                        [Not fixabel] The connection to a friend's Locker Room is failing.
+                    </x-web.text>
+                    <x-web.text class="font-semibold">
+                        Note: The RWF lobby leader must wait until all friends have finished their match before leaving the Arena to avoid this issue. If the error occurs, all players should restart their game.
+                    </x-web.text>
+                </li>
+				<li >
+                    <x-web.text>
+                        [Not fixabel] Claimed inbox drop items are not appearing in the player's inventory.
+                    </x-web.text>
+                    <x-web.text class="font-semibold">
+                        Note: The items appear either after restarting the game or after playing one match!
                     </x-web.text>
                 </li>
 				<li>

@@ -213,6 +213,18 @@
                 The launcher will then verify the installation.
             </x-web.text>
         </x-web.accordeon>
+		
+		<x-web.accordeon headline="Why is my launcher stuck on patching and updating?" class="w-full my-2">
+            <x-web.text>
+                This happens when you are not using the latest version of the Launcher. Download the latest version to fix this issue.
+            </x-web.text>
+        </x-web.accordeon>
+		
+		<x-web.accordeon headline="Why won't my game start, and why am I getting an exception error in the launcher?" class="w-full my-2">
+            <x-web.text>
+                This occurs when the launcher is not running with administrator rights.
+            </x-web.text>
+        </x-web.accordeon>
 
         <x-web.accordeon headline="Why does verifying take so long?" class="w-full my-2">
             <x-web.text>
@@ -250,13 +262,12 @@
             </x-web.text>
         </x-web.accordeon>
 
-        <x-web.accordeon headline="Why aren't my characters loading, and why am I getting an &quot;Unknown Matchmaking Error&quot;?" class="w-full my-2">
+       <x-web.accordeon headline="Why aren’t my characters loading, and why am I getting an “Unknown Matchmaking Error”?" class="w-full my-2">
             <x-web.text>
-                If your game is not in sync with the latest update, certain features, like the catalog (including
-                characters, prices, and other content), will not load correctly.
+                If you do not have the latest patch installed, certain features like the item catalog (which includes characters, prices, and other content) will not load or display correctly.
             </x-web.text>
             <x-web.text>
-                Additionally, you may encounter matchmaking errors that prevent you from joining or playing games until your mod is updated through the Launcher.
+                Additionally, you will be unable to join or create any matches until your version is updated through the official Deathgarden: Rebirth launcher.
             </x-web.text>
         </x-web.accordeon>
 

@@ -25,6 +25,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Ramsey\Uuid\Uuid;
 
@@ -216,8 +217,13 @@ class PlayerController extends Controller
      */
     protected function checkPrestigePrerequisites(CharacterData $characterData, CatalogItem $characterItem): bool
     {
-        if($characterData->prestige_level >= 4)
+        $log = Log::channel('prestige_debug');
+        $log->info("Checking Requirements for {$characterData->playerData->user_id}");
+
+        if($characterData->prestige_level >= 4) {
+            $log->warning('Prestige forbidden, already at max prestige');
             return false;
+        }
 
         $config = $characterData->character->getCharacter()->getItemConfigClass();
         $allCharacterItems = CatalogItem::find(UuidHelper::convertFromHexToUuidCollecton($config::getAllItems(), true));
@@ -232,8 +238,10 @@ class PlayerController extends Controller
         $missingItem = false;
 
         foreach ($itemsToCheck as $item) {
-            if ($characterData->playerData->inventory()->find($item->id) === null)
+            if ($characterData->playerData->inventory()->find($item->id) === null) {
+                $log->warning("User still needs to unlock item $item->display_name");
                 $missingItem = true;
+            }
         }
 
         if($missingItem)
@@ -245,7 +253,10 @@ class PlayerController extends Controller
         if( $playerData->currency_a < $prestigeReward->cost_currency_a ||
             $playerData->currency_b < $prestigeReward->cost_currency_b ||
             $playerData->currency_c < $prestigeReward->cost_currency_c)
+        {
+            $log->warning("user doesn't have enough currency");
             return false;
+        }
 
         return true;
     }

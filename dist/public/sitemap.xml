@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://playdeathgarden.live/</loc>
+        <lastmod>2024-09-07T17:24:15+00:00</lastmod>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>https://playdeathgarden.live/download</loc>
+        <lastmod>2024-09-07T17:24:15+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://playdeathgarden.live/how-to-play</loc>
+        <lastmod>2024-09-07T17:24:15+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://playdeathgarden.live/known-issues</loc>
+        <lastmod>2024-09-07T17:24:15+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://playdeathgarden.live/eula</loc>
+        <lastmod>2024-09-07T17:24:15+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://playdeathgarden.live/credits</loc>
+        <lastmod>2024-09-07T17:24:15+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+</urlset>

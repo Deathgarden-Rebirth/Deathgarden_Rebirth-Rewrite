@@ -107,6 +107,13 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'prestige_debug' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/challenges/prestige.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
         'challenge_new' => [
             'driver' => 'single',
             'path' => storage_path('logs/challenges/challenge_new.log'),

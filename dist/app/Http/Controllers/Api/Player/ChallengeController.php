@@ -97,14 +97,14 @@ class ChallengeController extends Controller
         }
     }
 
-    protected function addProgressToChallenge(string $challengeId, int $progressToAdd, User $user): void
+    protected function addProgressToChallenge(string $challengeId, int $newProgress, User $user): void
     {
         /** @var Challenge|null $foundChallenge */
         $foundChallenge = $user->playerData()->challenges()->find($challengeId);
 
         if($foundChallenge !== null) {
             $foundChallenge->playerData()->updateExistingPivot($user->playerData()->id, [
-                'progress' => $foundChallenge->pivot->progress + $progressToAdd,
+                'progress' => $newProgress,
             ]);
             return;
         }
@@ -113,7 +113,7 @@ class ChallengeController extends Controller
         if($foundChallenge === null)
             return;
 
-        $foundChallenge->progress += $progressToAdd;
+        $foundChallenge->progress = $newProgress;
         $foundChallenge->save();
     }
 

@@ -8,7 +8,7 @@
             End User License Agreement (EULA) for Deathgarden: Rebirth
         </x-web.headline>
         <x-web.text class="">
-            <span class="font-bold">Effective Date:</span> 08/19/2024
+            <span class="font-bold">Effective Date:</span> 09/12/2024
         </x-web.text>
 
         <x-web.headline class="mt-8 w-full">
@@ -85,6 +85,15 @@
                 Frequently leaving matches prematurely or exiting the Tally screen early as a host to prevent
                 other players from receiving their progression is prohibited. Such behavior may result in
                 temporary or permanent game bans.
+            </x-web.text>
+			<x-web.text class="mt-4 !text-2xl">
+                4.6 Intentional Self-Elimination
+            </x-web.text>
+            <x-web.text class="mt-1">
+                Deliberately causing your in-game death to leave a match without a valid reason (e.g., jumping off the map) is strictly forbidden.
+				This behavior, when done excess, is viewed as abandoning your team and detracts from the overall gameplay experience for all participants.
+				Each instance must be reported through the in-game reporting system, and supporting evidence should be sent to our email at: <a href="mailto:contact@playdeathgarden.live" class="weblink">contact@playdeathgarden.live.</a>
+				Repeated offenses may result in warnings and potential penalties, including account suspension or bans.
             </x-web.text>
         </x-web.text>
 

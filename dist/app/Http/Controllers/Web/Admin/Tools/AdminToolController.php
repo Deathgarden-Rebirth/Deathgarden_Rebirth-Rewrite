@@ -33,6 +33,7 @@ abstract class AdminToolController extends Controller
             VersioningController::class,
             LauncherMessageController::class,
             LogViewerController::class,
+            MatchConfigurationController::class,
             UsersController::class,
             ChatMessageController::class,
             InboxMailerController::class,

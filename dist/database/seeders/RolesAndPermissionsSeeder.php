@@ -31,6 +31,7 @@ class RolesAndPermissionsSeeder extends Seeder
        $inboxMailerPerm = Permission::findOrCreate(Permissions::INBOX_MAILER->value);
        $chatReportsPerm = Permission::findOrCreate(Permissions::CHAT_REPORTS->value);
        $playerReportsPerm = Permission::findOrCreate(Permissions::PLAYER_REPORTS->value);
+       $matchConfigPerm = Permission::findOrCreate(Permissions::MATCH_CONFIGIURATION->value);
 
        $adminRole->givePermissionTo(
            $viewAdminAreaPerm,
@@ -44,6 +45,7 @@ class RolesAndPermissionsSeeder extends Seeder
            $inboxMailerPerm,
            $chatReportsPerm,
            $playerReportsPerm,
+           $matchConfigPerm,
        )->save();
 
        $moderatorRole->givePermissionTo(

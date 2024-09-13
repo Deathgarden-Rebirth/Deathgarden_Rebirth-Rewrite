@@ -15,6 +15,7 @@ use App\Http\Responses\Api\Matchmaking\QueueData;
 use App\Http\Responses\Api\Matchmaking\QueueResponse;
 use App\Models\Admin\Archive\ArchivedGame;
 use App\Models\Admin\Archive\ArchivedPlayerProgression;
+use App\Models\Admin\CurrencyMultipliers;
 use App\Models\Admin\Versioning\CurrentGameVersion;
 use App\Models\Game\Matchmaking\Game;
 use App\Models\Game\Matchmaking\QueuedPlayer;
@@ -215,7 +216,8 @@ class MatchmakingController extends Controller
                 $experienceSum = 0;
 
                 foreach ($request->experienceEvents as $experienceEvent) {
-                    $experienceSum += (int)$experienceEvent['amount'];
+                    // Multiply the amount by the Multiplier of the type
+                    $experienceSum += (int)($experienceEvent->amount * $experienceEvent->type->getMultiplier());
                 }
 
                 $characterData->addExperience($experienceSum);
@@ -226,17 +228,18 @@ class MatchmakingController extends Controller
                 $gainedCurrencyA = 0;
                 $gainedCurrencyB = 0;
                 $gainedCurrencyC = 0;
+                $currencyMultipliers = CurrencyMultipliers::get();
 
                 foreach ($request->earnedCurrencies as $earnedCurrency) {
                     switch ($earnedCurrency['currencyName']) {
                         case 'CurrencyA':
-                            $gainedCurrencyA += $earnedCurrency['amount'];
+                            $gainedCurrencyA += (int)($earnedCurrency['amount'] * $currencyMultipliers->currencyA);
                             break;
                         case 'CurrencyB':
-                            $gainedCurrencyB += $earnedCurrency['amount'];
+                            $gainedCurrencyB += (int)($earnedCurrency['amount'] * $currencyMultipliers->currencyB);
                             break;
                         case 'CurrencyC':
-                            $gainedCurrencyC += $earnedCurrency['amount'];
+                            $gainedCurrencyC += (int)($earnedCurrency['amount'] * $currencyMultipliers->currencyC);
                     }
                 }
 

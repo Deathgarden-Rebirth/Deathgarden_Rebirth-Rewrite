@@ -4,7 +4,7 @@
             Known Issues
         </x-web.headline>
         <x-web.text>
-            Last Updated: 09/07/2024
+            Last Updated: 09/14/2024
         </x-web.text>
 
         <x-web.text>
@@ -27,7 +27,7 @@
                 </li>
 				<li >
                     <x-web.text>
-                        [Not fixabel] The required players' needle icon in the Ready Room disappear when the lobby is broken and got cleared by the backend.
+                        [Not fixable] The required players' needle icon in the Ready Room disappear when the lobby is broken and got cleared by the backend.
                     </x-web.text>
                     <x-web.text class="font-semibold">
                         Solution: As the host, return to the Locker Room and queue for a new match.
@@ -35,7 +35,7 @@
                 </li>
 				<li >
                     <x-web.text>
-                        [Not fixabel] Hunter challenges might not be getting tracked.
+                        [Not fixable] Hunter challenges might not be getting tracked.
                     </x-web.text>
                     <x-web.text class="font-semibold">
                         Solution: While inside the <span class="font-bold">Arena,</span> switch to a different Hunter and then switch back to the one you want to play.
@@ -51,7 +51,7 @@
                 </li>
                 <li >
                     <x-web.text>
-                        [Not fixabel] The connection to a friend's Locker Room is failing.
+                        [Not fixable] The connection to a friend's Locker Room is failing.
                     </x-web.text>
                     <x-web.text class="font-semibold">
                         Note: The RWF lobby leader must wait until all friends have finished their match before leaving the Arena to avoid this issue. If the error occurs, all players should restart their game.
@@ -59,10 +59,39 @@
                 </li>
 				<li >
                     <x-web.text>
-                        [Not fixabel] Claimed inbox drop items are not appearing in the player's inventory.
+                        [Not fixable] Occasionally, the Hunter's weapon spawns at the center of the map, making it difficult to see where the bullets are coming from during a chase as a Scavenger.
+                    </x-web.text>
+                </li>
+				<li >
+                    <x-web.text>
+                        [Not fixable] When loaded into the Arena, the audio is muffled.
+                    </x-web.text>
+                    <x-web.text class="font-semibold">
+						[Solution] Press F1 or open the 'Change Character' menu within the Arena to resolve the issue.
+                    </x-web.text>
+                </li>
+				<li >
+                    <x-web.text>
+                        [Not fixable] The Sawbones Perk 'Splash' assists may sometimes not be tracked.
+                    </x-web.text>
+                    <x-web.text class="font-semibold">
+						[Solution] We recommend using Clones for the challenge, as supporting other Scavengers in chases only sometimes triggers challenge progress.
+                    </x-web.text>
+                </li>
+				<li >
+                    <x-web.text>
+                        [Not fixable] Claimed inbox drop items are not appearing in the player's inventory.
                     </x-web.text>
                     <x-web.text class="font-semibold">
                         Note: The items appear either after restarting the game or after playing one match!
+                    </x-web.text>
+                </li>
+				<li >
+                    <x-web.text>
+                        [In Investigation] The Matchmaking ETA is showing '0 seconds'.
+                    </x-web.text>
+                    <x-web.text class="font-semibold">
+                        Note: If the ETA shows '0 seconds,' it means you are still in the queue. If there is no ETA displayed, your queue is likely broken. In that case, we recommend canceling the queue and trying again. The team is currently investigating how to display an accurate ETA in minutes.
                     </x-web.text>
                 </li>
 				<li>

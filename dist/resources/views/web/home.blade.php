@@ -2,7 +2,7 @@
     <div class="container flex flex-col justify-center items-center mx-auto py-8 2xl:px-48">
         <img src="{{ asset('img/logos/DG_Rebirth_Logo.png') }}"
              alt="Deathgarden: Rebirth Logo"
-             class="max-h-96"
+             class="max-h-96 aspect-[1268/672]"
         >
         <span class="font-extrabold text-4xl my-10">
             EVEN DEATH CAN'T STOP US

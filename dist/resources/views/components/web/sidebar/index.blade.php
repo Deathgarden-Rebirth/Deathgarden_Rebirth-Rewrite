@@ -27,10 +27,10 @@
 >
     <x-inputs.button type="button" class="size-10 flex justify-center items-center hover:!bg-web-main focus:!border-web-main absolute top-4 left-4"
                      x-on:click="toggle()">
-        <x-icons.bars class="size-6" x-show="!open" />
+        <x-icons.bars class="size-6" x-show="!open" style="display:none;"/>
         <x-icons.plus class="size-6 rotate-45" x-show="open" />
     </x-inputs.button>
-    <div class="row-start-1 my-4 flex flex-col gap-4" x-show="open" >
+    <div class="row-start-1 my-4 flex flex-col gap-4" x-show="open">
         <div class="flex mx-4 justify-between items-center" >
             <x-inputs.button type="button" class="size-10 flex justify-center items-center hover:!bg-web-main focus:!border-web-main opacity-0 pointer-events-none"
                              x-on:click="toggle()">
@@ -40,7 +40,7 @@
             <a href="{{ route('homepage') }}" class="">
                 <img src="{{ asset('img/logos/DG_Rebirth_Logo.png') }}"
                      alt="Deathgarden Bloodharvest Logo"
-                     class="h-14 -my-2 ml-4 mr-2"
+                     class="h-14 aspect-[1268/672] -my-2 ml-4 mr-2"
                      x-show="open"
                      x-transition
                 >

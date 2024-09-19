@@ -26,6 +26,7 @@ class StatisticsController extends Controller
                 ->join('games', 'game_user.game_id', '=', 'games.id')
                 ->whereIn('games.status', [
                     MatchStatus::Closed,
+                    MatchStatus::Opened,
                     MatchStatus::Created,
                 ])->count();
 

@@ -8,7 +8,7 @@
             End User License Agreement (EULA) for Deathgarden: Rebirth
         </x-web.headline>
         <x-web.text class="">
-            <span class="font-bold">Effective Date:</span> 09/12/2024
+            <span class="font-bold">Effective Date:</span> 09/27/2024
         </x-web.text>
 
         <x-web.headline class="mt-8 w-full">
@@ -111,7 +111,8 @@
         </x-web.headline>
         <x-web.text>
             To provide you with the Game, we collect certain information from your Steam account,
-            including your <span class="italic">SteamID64, Steam profile picture</span>, and current <span class="italic">username</span>.
+            including your <span class="italic">SteamID64, Steam profile picture</span>, and current <span class="italic">username</span>. 
+			This information is stored on a secure server with restricted access. If you'd like to delete your data and player account, please email us at: <a href="mailto:contact@playdeathgarden.live" class="weblink">contact@playdeathgarden.live</a>
         </x-web.text>
 
         <x-web.headline class="mt-8 w-full">

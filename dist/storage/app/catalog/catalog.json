@@ -7042,7 +7042,12 @@
       "initialQuantity": 0,
       "consumable": false,
       "consumptionReward": [],
-      "defaultCost": [],
+        "defaultCost": [
+            {
+                "currencyId": "CurrencyB",
+                "price": 100000
+            }
+        ],
       "eventCostList": [],
       "metaData": {
         "gameplayTags": [
@@ -7070,7 +7075,7 @@
       },
       "unique": false,
       "nonSecure": false,
-      "purchasable": true
+      "purchasable": false
     },
     {
       "id": "70A09B4348F9DA5B1EEF0786DB1911AC",
@@ -34091,7 +34096,12 @@
       "initialQuantity": 0,
       "consumable": false,
       "consumptionReward": [],
-      "defaultCost": [],
+        "defaultCost": [
+            {
+                "currencyId": "CurrencyB",
+                "price": 100000
+            }
+        ],
       "eventCostList": [],
       "metaData": {
         "gameplayTags": [
@@ -34104,14 +34114,12 @@
         "freeForUserCreatedAfter": 0,
         "freeForUserCreatedBefore": 0,
         "isUnbreakableFullset": false,
-        "origin": "DeathGarden1",
+        "origin": "None",
         "quality": "Legacy",
         "groupType": "",
         "followingItem": "",
         "prerequisiteItem": "",
-        "autoUnlockItemIds": [
-          "C300E3A84E571D549E014B9051A18BE8"
-        ],
+        "autoUnlockItemIds": [],
         "bundleItems": [],
         "rewardBundleItems": [],
         "itemAssignments": [],
@@ -34121,7 +34129,7 @@
       },
       "unique": false,
       "nonSecure": false,
-      "purchasable": true
+      "purchasable": false
     },
     {
       "id": "ACDEC4034E1500A32A6383B1B093DDA1",

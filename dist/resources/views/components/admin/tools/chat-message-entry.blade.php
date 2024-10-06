@@ -1,6 +1,10 @@
 @php
+    use App\Models\Admin\Archive\ArchivedGame;
     /** @var \App\Models\Admin\BadChatMessage $message */
+
+    $match = ArchivedGame::find($message->match_id);
 @endphp
+
 <form action="{{ route('chat-filter.handle', ['message' => $message->id]) }}" method="post" id="{{ $message->id }}form">
     @csrf
     <tr>
@@ -33,6 +37,26 @@
             <div class="bg-slate-700 border border-slate-500 p-2 rounded-md">
                 {{ $message->message }}
             </div>
+            @if($match !== null)
+                <x-inputs.button
+                        type="button"
+                        href="#{{ $message->match_id }}-chat"
+                        rel="modal:open"
+                >
+                    @if($match === null)
+                        not found :(
+                    @else
+                        match chat
+                    @endif
+                </x-inputs.button>
+                <div id="{{ $match->id }}-chat" class="modal">
+                    <div class="flex flex-col items-center gap-5">
+            <span>
+                {{ json_encode($match->chat_messages) }}
+            </span>
+                    </div>
+                </div>
+            @endif
         </td>
         <td>
             @if($message->handled)
@@ -120,3 +144,5 @@
         @endif
     </tr>
 </form>
+
+

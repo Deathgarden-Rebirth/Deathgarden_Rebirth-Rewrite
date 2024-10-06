@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Enums\Game\Faction;
 use App\Enums\Game\Matchmaking\MatchStatus;
 use App\Models\Game\Matchmaking\Game;
 use App\Models\Game\Matchmaking\QueuedPlayer;
@@ -39,7 +40,7 @@ class MatchmakingCleanup extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         $log = Log::channel('matchmaking_cleanup');
 
@@ -50,12 +51,18 @@ class MatchmakingCleanup extends Command
 
         $log->info('Queued players: ' . json_encode($cleanedQueuedPlayers, JSON_PRETTY_PRINT));
 
-        $deletedClosedGames =  Game::where('status', '=', MatchStatus::Closed->value)
+        $closedGamesToKill =  Game::where('status', '=', MatchStatus::Closed->value)
             ->where('updated_at', '<', Carbon::now()->subSeconds(static::GAME_MAX_TIME * 60))
-            ->delete();
+            ->get();
 
-        $log->info('Deleted Closed games: ' . json_encode($deletedClosedGames, JSON_PRETTY_PRINT));
+        foreach ($closedGamesToKill as $game) {
+            //archive the games set to closed, so we don't lose the chat history
+            $game->archiveGame(Faction::None);
+            $game->status = MatchStatus::Killed;
+            $game->save();
+        }
 
+        $log->info('Closed games set to Killed: ' . json_encode($closedGamesToKill->getQueueableIds(), JSON_PRETTY_PRINT));
 
         // delete games where the hunter crashed on loading into the arena, leaving the game stuck at created
         $deletedCreatedGames = Game::where('status', '=', MatchStatus::Created)

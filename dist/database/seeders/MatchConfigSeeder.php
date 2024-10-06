@@ -26,7 +26,7 @@ class MatchConfigSeeder extends Seeder
         ]);
         MatchConfiguration::Create([
             'name' => 'Harvest Your Exit - 1v4',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v4.MatchConfig_Demo_HarvestYourExit_1v4',
+            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
             'enabled' => false,
             'hunters' => 1,
             'runners' => 4,

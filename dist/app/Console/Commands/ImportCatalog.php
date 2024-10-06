@@ -123,6 +123,45 @@ class ImportCatalog extends Command
             }
         }
 
+        $achievementChallenges = [
+            [
+                'id' => 'e51981b9-46be-e3d4-5c5c-41b2fcff310b',
+                'value' => 500,
+                'path' => '/Game/Challenges/Challenge_Deliver_Runner.Challenge_Deliver_Runner',
+            ],
+            [
+                'id' => 'efab89e6-465d-1163-d62a-07b11048f2b6',
+                'value' => 50,
+                'path' => '/Game/Challenges/Challenge_JustPlay.Challenge_JustPlay',
+            ],
+            [
+                'id' => '2caebb35-4d50-6d7c-43b9-41bc1da775a0',
+                'value' => 10,
+                'path' => '/Game/Challenges/Progression/General/Challenge_Exit_Runner.Challenge_Exit_Runner',
+            ],
+            [
+                'id' => 'aad05b9d-4647-1dc8-11bb-e0ba91916ab7',
+                'value' => 50,
+                'path' => '/Game/Challenges/Challenge_Down_Hunter.Challenge_Down_Hunter',
+            ],
+            [
+                'id' => 'ba2d4a54-45cb-7027-6a8f-5d9e1afce080',
+                'value' => 100,
+                'path' => '/Game/Challenges/Challenge_DroneCharger_Hunter.Challenge_DroneCharger_Hunter',
+            ],
+        ];
+
+        foreach ($achievementChallenges as $challenge) {
+            $newChallenge = Challenge::findOrNew($challenge['id']);
+
+            $newChallenge->id = $challenge['id'];
+            $newChallenge->completion_value = $challenge['value'];
+            $newChallenge->asset_path = $challenge['path'];
+
+            $this->info('Importing Achievement Challenge: '.$challenge['id']);
+            $newChallenge->save();
+        }
+
         $this->info('Finished importing challenges.');
     }
 

@@ -7009,7 +7009,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyB",
-          "price": 1000000
+          "price": 150000
         }
       ],
       "eventCostList": [],
@@ -7039,7 +7039,7 @@
       },
       "unique": false,
       "nonSecure": false,
-      "purchasable": false
+      "purchasable": true
     },
     {
       "id": "70A09B4348F9DA5B1EEF0786DB1911AC",
@@ -23643,7 +23643,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyB",
-          "price": 1000000
+          "price": 150000
         }
       ],
       "eventCostList": [],
@@ -23673,7 +23673,7 @@
       },
       "unique": false,
       "nonSecure": false,
-      "purchasable": false
+      "purchasable": true
     },
     {
       "id": "0D41325B4AA5488AE5BA96A11E8CC51B",
@@ -32285,7 +32285,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyB",
-          "price": 1000000
+          "price": 150000
         }
       ],
       "eventCostList": [],
@@ -32315,7 +32315,7 @@
       },
       "unique": false,
       "nonSecure": false,
-      "purchasable": false
+      "purchasable": true
     },
     {
       "id": "ACDEC4034E1500A32A6383B1B093DDA1",
@@ -50408,7 +50408,7 @@
       "defaultCost": [
         {
           "currencyId": "CurrencyB",
-          "price": 1000000
+          "price": 150000
         }
       ],
       "eventCostList": [],
@@ -50438,7 +50438,7 @@
       },
       "unique": false,
       "nonSecure": false,
-      "purchasable": false
+      "purchasable": true
     },
     {
       "id": "5819C08947495D9EB1A2A1BDEBD22715",

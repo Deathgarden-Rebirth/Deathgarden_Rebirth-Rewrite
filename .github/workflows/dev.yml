@@ -1,4 +1,4 @@
-name: Deploy development build
+name: Deploy Development Build
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     name: 🎉 Deploy devlopment build to dev.playdeathgarden.live
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     environment: Dev
     defaults:
       run:
@@ -19,72 +19,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install lftp
-        run: sudo apt-get install lftp
+      - name: Shutdown the application
+        run: cd /home/gh-action/live/ && docker compose down
 
-      - name: Validate composer.json and composer.lock
-        run: composer validate
-
-      - name: 🧳 Cache Composer dependencies
-        id: composer-cache
-        uses: actions/cache@v4
-        with:
-          path: vendor
-          key: ${{ runner.os }}-node-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        if: steps.composer-cache.outputs.cache-hit != 'true'
-        run: composer install --prefer-dist --no-progress --ignore-platform-reqs
-
-      - name: Use Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: ./dist/package-lock.json
-          
-      - name: 🔨 Build Project
+      - name: Synchronize to app directory
         run: |
-          npm install
-          npm run build
-          
-      - name: Generate maintenance file
-        run: php artisan down
-        
-      - name: Generate vendor archive
-        run: php artisan zip:create ./vendor vendor
+          rsync -av --delete \
+            --exclude ".env" \
+            --exclude "storage/" \
+            --exclude "node_modules/" \
+            --exclude "vendor/" \
+            ./ /home/gh-action/live/app/
 
-      - name: Generate temporary migration key
-        id: migration_key
-        run: |
-          echo "migrationKey=$(php artisan migration_key:generate)" >> $GITHUB_OUTPUT
-        
-      #- name: Generate public vendor archive
-      #  run: php artisan zip:create ./public/assets/vendor vendor_public
-
-      - name: 📂 Upload to server
-        run: |
-          echo Connecting to FTP server
-          lftp ${{ secrets.FTP_HOST }} -u '${{ secrets.FTP_USER }}','${{ secrets.FTP_PASS }}' -e "set ftp:ssl-force no; set ssl:verify-certificate false;
-          echo Uploading maintenance file
-          put -O ./storage/framework storage/framework/down;
-          put -O ./storage/framework storage/framework/maintenance.php;
-          echo Backup config file
-          mv .env .env_back;
-          echo Uploading files
-          mirror -p --parallel=10 --reverse --continue --dereference --only-newer --delete --verbose=3 --exclude ^.git/ --exclude ^.github/ --exclude ^node_modules/ --exclude ^vendor/ --exclude ^public/assets/vendor --exclude ^.env_back --exclude ^public/game-files/ --exclude ^.htaccess . ./;
-          echo Renaming directories
-          rm ./storage/framework/down;
-          rm ./storage/framework/maintenance.php;
-          echo Moving config file
-          mv .env_back .env;
-          quit;"
-          
-      - name: Extract vendor and public vendor archives
-        run: wget --debug -qO- ${{ vars.URL_VENDOR_UNZIP }}
-        
-      - name: Run migrations and seeders
-        run: wget --debug -qO- ${{ secrets.URL_MIGRATIONS }}?migration_key=${{ steps.migration_key.outputs.migrationKey }}
+      - name: Build and run docker container
+        run: cd /home/gh-action/live/ && docker compose up --build -d
         

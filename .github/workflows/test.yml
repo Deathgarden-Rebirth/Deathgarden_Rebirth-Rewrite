@@ -1,0 +1,36 @@
+name: Deploy Test Build
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: 🎉 Deploy devlopment build to dev.playdeathgarden.live
+    runs-on: self-hosted
+    environment: Dev
+    defaults:
+      run:
+        working-directory: ./dist
+
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Shutdown the application
+        run: cd /home/gh-action/live/ && docker compose down
+
+      - name: Synchronize to app directory
+        run: |
+          rsync -av --delete \
+            --exclude ".env" \
+            --exclude "storage/" \
+            --exclude "node_modules/" \
+            --exclude "vendor/" \
+            ./ /home/gh-action/live/app/
+
+      - name: Build and run docker container
+        run: cd /home/gh-action/live/ && docker compose up --build -d
+        

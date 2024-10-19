@@ -78,7 +78,9 @@ class InitOrGetGroupsResponse
         $newGroup->equippedPerks = UuidHelper::convertFromUuidToHexCollection($characterData->equippedPerks()->allRelatedIds())->toArray();
         $newGroup->equippedWeapons = UuidHelper::convertFromUuidToHexCollection($characterData->equippedWeapons()->allRelatedIds())->toArray();
         $newGroup->equipment = UuidHelper::convertFromUuidToHexCollection($characterData->equipment()->allRelatedIds())->toArray();
-        $newGroup->equippedBonuses = UuidHelper::convertFromUuidToHexCollection($characterData->equippedBonuses()->allRelatedIds())->toArray();
+
+        // Since players cannot change their equipped powers or passives(bonuses), we can just read them from the config.
+        $newGroup->equippedBonuses = $itemConfigClass::getDefaultEquippedBonuses();
         $newGroup->equippedPowers = $itemConfigClass::getDefaultPowers();
         $newGroup->prestigeLevel = $characterData->prestige_level;
 

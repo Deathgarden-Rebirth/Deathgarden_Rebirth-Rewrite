@@ -186,7 +186,7 @@ class PlayerController extends Controller
         // first detach all character items
         $inventory->detach($allItemsToRemove);
         //then attach the defaults again
-        $inventory->attach([...$defaultItems, $config::getCharacterId()->toString()]);
+        $inventory->syncWithoutDetaching([...$defaultItems, $config::getCharacterId()->toString()]);
 
         // Remove signature challenges
         foreach ($allItemsToRemove as $item) {

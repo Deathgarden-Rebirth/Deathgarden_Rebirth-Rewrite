@@ -96,9 +96,6 @@ class MetadataController extends Controller
         $convertedIds = UuidHelper::convertFromHexToUuidCollecton($request->metadata['equippedWeapons'], true);
         $characterData->equippedWeapons()->sync($convertedIds);
 
-        $convertedIds = UuidHelper::convertFromHexToUuidCollecton($request->metadata['equippedBonuses'], true);
-        $characterData->equippedBonuses()->sync($convertedIds);
-
         foreach ($request->metadata['pickedChallenges'] as $picked) {
             $itemId = Uuid::fromHexadecimal(new Hexadecimal($picked['itemId']));
             $pickedChallenge = $characterData->getPicketChallengeForItem($itemId);

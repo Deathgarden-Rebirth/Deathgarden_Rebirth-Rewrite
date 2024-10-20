@@ -25,7 +25,7 @@ class InkedItemConfig extends CharacterItemConfig
     ];
 
     protected static array $defaultEquippedBonuses = [
-        'EDB6D6B742023AE61AD8718CAC073C0E',
+        '92B767F442A89C87CC3C9CB5D279D6EA',
         'CBE325ABBD44C58723A7268F7FB90D49',
     ];
 

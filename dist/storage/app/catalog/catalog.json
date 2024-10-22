@@ -7045,7 +7045,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyB",
-                    "price": 150000
+                    "price": 100000
                 }
             ],
             "eventCostList": [],
@@ -24875,7 +24875,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyB",
-                    "price": 150000
+                    "price": 100000
                 }
             ],
             "eventCostList": [],
@@ -33909,7 +33909,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyB",
-                    "price": 150000
+                    "price": 100000
                 }
             ],
             "eventCostList": [],
@@ -53636,7 +53636,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyB",
-                    "price": 150000
+                    "price": 100000
                 }
             ],
             "eventCostList": [],

@@ -36,7 +36,7 @@ class PlayerData extends Model
         'currency_b' => 500,
         'currency_c' => 500,
         'last_faction' => Faction::Runner,
-        'last_hunter' => Hunter::Inquisitor,
+        'last_hunter' => Hunter::Mass,
         'last_runner' => Runner::Smoke,
         'readout_version' => 1,
         'runner_faction_level' => 1,
@@ -108,7 +108,7 @@ class PlayerData extends Model
                     Characters::Smoke->value,
                     Characters::Ghost->value,
                     Characters::Sawbones->value,
-                    Characters::Inquisitor->value,
+                    Characters::Mass->value,
                 ]
             ]);
         });

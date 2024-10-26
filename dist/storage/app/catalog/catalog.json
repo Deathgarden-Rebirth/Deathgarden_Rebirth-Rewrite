@@ -59773,6 +59773,37 @@
             "unique": false,
             "nonSecure": false,
             "purchasable": true
+        },
+        {
+            "id": "FBC30B38CC44B9E99626D8B877E36D39",
+            "displayName": "HT_Bonus_ExtraTopping_Extra_Toppings",
+            "initialQuantity": 1,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Bonus"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "",
+                "prerequisiteItem": "",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
         }
     ]
 }

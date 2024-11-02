@@ -18,7 +18,6 @@ enum ItemGroupType: string
     case HunterInquisitor = 'HunterGroupB';
     case HunterPoacher = 'HunterGroupC';
     case HunterVeteran = 'HunterGroupD';
-    case HunterBounty = 'HunterGroupE';
 
     // Not used by game but needed for InitOrGetGroups
     case PlayerProgression = 'PlayerProgression';
@@ -37,7 +36,6 @@ enum ItemGroupType: string
             ItemGroupType::HunterInquisitor => Characters::Inquisitor,
             ItemGroupType::HunterPoacher => Characters::Poacher,
             ItemGroupType::HunterVeteran => Characters::Mass,
-            ItemGroupType::HunterBounty => Characters::Bounty,
             default => false,
         };
     }

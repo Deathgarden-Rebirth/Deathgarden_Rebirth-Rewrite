@@ -11,7 +11,6 @@ enum Characters: string
     case Poacher = 'Poacher';
     case Inquisitor = 'Inquisitor';
     case Mass = 'Mass';
-    case Bounty = 'Bounty';
 
     // Runners
     case Smoke = 'Smoke';
@@ -62,7 +61,6 @@ enum Characters: string
             'c50fffbf-4686-6131-82f4-5890651797ce' => Characters::Stalker,
             'ef96a202-4988-4d43-7b87-a6a4bde81b7f' => Characters::Poacher,
             '606129dc-45ab-9d16-b69e-2fa5c99a9835' => Characters::Mass,
-            '78ef106c-8c3e-44d6-abf0-b30161ddb74b' => Characters::Bounty,
             '759e44dd-469c-2841-75c2-d6a1ab0b0fa7' => Characters::Dash,
             '56b7b6f6-4737-12d0-b7a2-f992bb2c16cd' => Characters::Smoke,
             '234ffd46-4c55-514b-6c1e-738645993caa' => Characters::Ghost,

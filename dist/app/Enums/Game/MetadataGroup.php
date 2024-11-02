@@ -1,4 +1,4 @@
-<?php
+w<?php
 
 namespace App\Enums\Game;
 
@@ -15,6 +15,7 @@ enum MetadataGroup: string
     case Inquisitor = 'HunterGroupB';
     case Poacher = 'HunterGroupC';
     case Veteran = 'HunterGroupD';
+    case Bounty = 'HunterGroupE';
 
     case Profile = 'ProfileMetadata';
 

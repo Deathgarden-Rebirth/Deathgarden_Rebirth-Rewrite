@@ -19,6 +19,10 @@ class HomepageController extends Controller
 {
     public function index(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
+        CompView::share('metaDescription', 'After five years, the game has been brought back to life by the
+            community and is now playable again, featuring new balance changes for an improved
+            experience.');
+        CompView::share('metaKeywords', ['Deathgarden', 'Rebirth']);
         return view('web.home');
     }
 
@@ -29,6 +33,8 @@ class HomepageController extends Controller
             ->get();
 
         static::setTitle('Deathgarden: Rebirth | Download');
+        CompView::share('metaKeywords', ['Deathgarden', 'Rebirth', 'Download', 'Launcher']);
+        CompView::share('metaDescription', 'Download the official Deathgarden: Rebirth launcher to easily install and update the Deathgarden: Rebirth mod.');
         return view('web.download', ['files' => $files]);
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api\Matchmaking;
 
 use App\Enums\Game\CharacterState;
+use App\Enums\Game\ExperienceEventType;
 use App\Enums\Game\Faction;
 use App\Enums\Game\ItemGroupType;
 use Illuminate\Foundation\Http\FormRequest;
@@ -29,6 +30,9 @@ class PlayerEndOfMatchRequest extends FormRequest
 
     public string $gamemode;
 
+    /**
+     * @var ExperienceEvent[]
+     */
     public array $experienceEvents;
 
     public array $earnedCurrencies;
@@ -61,6 +65,8 @@ class PlayerEndOfMatchRequest extends FormRequest
             'data.matchId' => 'required|string',
             'data.matchGameMode' => 'required|string',
             'data.experienceEvents' => 'present|array',
+            'data.experienceEvents.*.type' => ['sometimes', Rule::enum(ExperienceEventType::class)],
+            'data.experienceEvents.*.amount' => 'sometimes|int',
             'data.earnedCurrencies' => 'present|array',
             'data.completedChallenges' => 'present|array',
         ];
@@ -77,7 +83,15 @@ class PlayerEndOfMatchRequest extends FormRequest
         $this->characterState = CharacterState::tryFrom($this->input('data.characterState'));
         $this->matchId = $this->input('data.matchId');
         $this->gamemode = $this->input('data.matchGameMode');
-        $this->experienceEvents = $this->input('data.experienceEvents');
+
+        $this->experienceEvents = [];
+        foreach ($this->input('data.experienceEvents') as $event) {
+            $this->experienceEvents[] = new ExperienceEvent(
+                ExperienceEventType::tryFrom($event['type']),
+                $event['amount'],
+            );
+        }
+
         $this->earnedCurrencies = $this->input('data.earnedCurrencies');
         $this->completedChallenges = $this->input('data.completedChallenges');
     }

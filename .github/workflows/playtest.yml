@@ -1,4 +1,4 @@
-name: Deploy playtester build
+name: Deploy Live Build
 
 on:
   # Allows you to run this workflow manually from the Actions tab

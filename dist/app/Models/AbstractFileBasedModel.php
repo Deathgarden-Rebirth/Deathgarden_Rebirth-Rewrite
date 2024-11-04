@@ -30,12 +30,16 @@ abstract class AbstractFileBasedModel
             function () {
                 $data = static::getDisk()->get(static::FILE_NAME);
 
-                return $data === null ? null : unserialize($data);
+                return $data === null ? static::getDefault() : unserialize($data);
             }
         );
     }
 
     protected static function getDisk(): FilesystemAdapter {
         return static::$disk ?? static::$disk = Storage::disk('local');
+    }
+
+    protected static function getDefault(): ?static {
+        return null;
     }
 }

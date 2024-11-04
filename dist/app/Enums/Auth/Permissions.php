@@ -16,4 +16,5 @@ enum Permissions: string
     case INBOX_MAILER = 'inbox-mailer';
     case CHAT_REPORTS = 'chat-reports';
     case PLAYER_REPORTS = 'player-reports';
+    case MATCH_CONFIGIURATION = 'match-configuration';
 }

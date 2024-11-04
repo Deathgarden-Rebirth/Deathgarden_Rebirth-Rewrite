@@ -15,7 +15,7 @@ class MatchConfigSeeder extends Seeder
     {
         DB::table('match_configurations')->delete();
         MatchConfiguration::Create([
-            'name' => 'Slums',
+            'name' => 'Curefew 1v5 - Slums',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_SLU_DownTown.MatchConfig_SLU_DownTown',
             'enabled' => false,
         ]);
@@ -43,11 +43,11 @@ class MatchConfigSeeder extends Seeder
         MatchConfiguration::Create([
             'name' => 'New Arctic Fortress',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_ARC_Fortress.MatchConfig_ARC_Fortress',
-            'enabled' => false,
+            'enabled' => true,
             'weight' => 50,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Demo',
+            'name' => 'Survival 1v5 - All Maps',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo.MatchConfig_Demo',
             'enabled' => false,
         ]);
@@ -55,7 +55,7 @@ class MatchConfigSeeder extends Seeder
             'name' => 'Fire in the Sky - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_ARC_BlastFurnace.MatchConfig_ARC_BlastFurnace',
             'enabled' => true,
-            'weight' => 100,
+            'weight' => 200,
         ]);
         MatchConfiguration::Create([
             'name' => 'Fire in the Sky - 2v10',
@@ -171,7 +171,7 @@ class MatchConfigSeeder extends Seeder
             'runners' => 10,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Gold Rush HYE - 1v5',
+            'name' => 'Gold Rush - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_DES_GoldRush.MatchConfig_DES_GoldRush',
             'enabled' => false,
             'weight' => 100,
@@ -184,10 +184,10 @@ class MatchConfigSeeder extends Seeder
             'runners' => 10,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Dust & Blood HYE',
+            'name' => 'Dust & Blood - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_DES_Mayan.MatchConfig_DES_Mayan',
             'enabled' => true,
-            'weight' => 200,
+            'weight' => 100,
         ]);
         MatchConfiguration::Create([
             'name' => 'Dust & Blood 2v10 - 5 Needles',
@@ -200,7 +200,7 @@ class MatchConfigSeeder extends Seeder
             'name' => 'Blowout - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_DES_Oilfield.MatchConfig_DES_Oilfield',
             'enabled' => true,
-            'weight' => 50,
+            'weight' => 100,
         ]);
         MatchConfiguration::Create([
             'name' => 'Blowout - 2v10',
@@ -233,39 +233,39 @@ class MatchConfigSeeder extends Seeder
             'enabled' => false,
         ]);
         MatchConfiguration::Create([
-            'name' => 'All Ruin Maps - 1v5',
+            'name' => 'First Strike - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_RUI_All.MatchConfig_RUI_All',
             'enabled' => true,
             'weight' => 100,
         ]);
         MatchConfiguration::Create([
-            'name' => 'All Ruin Maps - 2v10',
+            'name' => 'First Strike - 2v10',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_RUI_All_2Hunters.MatchConfig_RUI_All_2Hunters',
             'enabled' => false,
             'hunters' => 2,
             'runners' => 10,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Washington Tombstone - 1v5',
+            'name' => 'Tombstone - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_WA_Cemetery.MatchConfig_WA_Cemetery',
             'enabled' => true,
-            'weight' => 200,
+            'weight' => 140,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Washington Tombstone - 2v10',
+            'name' => 'Tombstone - 2v10',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_WA_Cemetery_2Hunters.MatchConfig_WA_Cemetery_2Hunters',
             'enabled' => false,
             'hunters' => 2,
             'runners' => 10,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Washington Rivers - 1v5',
+            'name' => 'Salt Creek - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_WA_Rivers.MatchConfig_WA_Rivers',
             'enabled' => true,
             'weight' => 200,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Washington Rivers - 2v10',
+            'name' => 'Salt Creek - 2v10',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_WA_Rivers_2Hunters.MatchConfig_WA_Rivers_2Hunters',
             'enabled' => false,
             'hunters' => 2,

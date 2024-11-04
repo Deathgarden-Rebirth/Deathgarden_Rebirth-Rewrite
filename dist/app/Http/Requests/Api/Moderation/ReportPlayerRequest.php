@@ -48,7 +48,7 @@ class ReportPlayerRequest extends FormRequest
             'entityId' => 'required|string|exists:'.User::class.',id',
             'platformId' => 'required|string',
             'reason' => ['required', Rule::enum(PlayerReportReason::class)],
-            'details' => 'required|string',
+            'details' => 'nullable|string',
             'gameSpecificData.matchId' => 'required|string',
             'gameSpecificData.playerInfoList.*.playerId' => 'required|string',
             'gameSpecificData.playerInfoList.*.characterState' => ['required', Rule::enum(CharacterState::class)],
@@ -65,9 +65,9 @@ class ReportPlayerRequest extends FormRequest
     {
         $this->type = $this->input('type');
         $this->reportedPlayer = User::find($this->input('entityId'));
-        $this->platformId = $this->input('platformId');
+        $this->platform = $this->input('platformId');
         $this->reason = PlayerReportReason::tryFrom($this->input('reason'));
-        $this->details = $this->input('details');
+        $this->details = $this->input('details') ?? '';
 
         $this->matchId = $this->input('gameSpecificData.matchId');
         $playerInfos = $this->input('gameSpecificData.playerInfoList');

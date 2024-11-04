@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
 
 
 /**
@@ -54,7 +55,7 @@ class PlayerData extends Model
 
     protected static function booted(): void
     {
-        static::created(function ( PlayerData $playerData) {
+        static::created(function (PlayerData $playerData) {
             foreach (Runner::cases() as $runner) {
                 $playerData->characterData()->create(['character' => Characters::from($runner->value)]);
                 // Add Default items into inventory
@@ -68,10 +69,13 @@ class PlayerData extends Model
                     ...$configClass::getDefaultEquippedPerks(),
                 ];
 
+                $itemIds = UuidHelper::convertFromHexToUuidCollecton($itemIds, true);
                 try {
-                    $playerData->inventory()->attach(UuidHelper::convertFromHexToUuidCollecton($itemIds)->toArray());
+                    $playerData->inventory()->syncWithoutDetaching($itemIds);
+                } catch (QueryException $e) {
+                    Log::channel('single')->error($e->getMessage());
                 }
-                catch (QueryException $e) {}
+
             }
 
             foreach (Hunter::cases() as $hunter) {
@@ -87,10 +91,12 @@ class PlayerData extends Model
                     ...$configClass::getDefaultEquippedPerks(),
                 ];
 
+                $itemIds = UuidHelper::convertFromHexToUuidCollecton($itemIds, true);
                 try {
-                    $playerData->inventory()->attach(UuidHelper::convertFromHexToUuidCollecton($itemIds));
+                    $playerData->inventory()->syncWithoutDetaching($itemIds);
+                } catch (QueryException $e) {
+                    Log::channel('single')->error($e->getMessage());
                 }
-                catch (QueryException $e) {}
             }
 
             $playerData->quitterState()->create();
@@ -156,10 +162,10 @@ class PlayerData extends Model
 
     public function addFactionExperience(Faction $faction): PlayerData
     {
-        if($faction === Faction::Runner) {
+        if ($faction === Faction::Runner) {
             ++$this->runner_faction_experience;
 
-            if($this->runner_faction_experience >= static::getRemainingFactionExperience($this->runner_faction_level)) {
+            if ($this->runner_faction_experience >= static::getRemainingFactionExperience($this->runner_faction_level)) {
                 ++$this->runner_faction_level;
                 $this->runner_faction_experience = 0;
             }
@@ -167,7 +173,7 @@ class PlayerData extends Model
         else if($faction === Faction::Hunter) {
             ++$this->hunter_faction_experience;
 
-            if($this->hunter_faction_experience >= static::getRemainingFactionExperience($this->hunter_faction_level)) {
+            if ($this->hunter_faction_experience >= static::getRemainingFactionExperience($this->hunter_faction_level)) {
                 ++$this->hunter_faction_level;
                 $this->hunter_faction_experience = 0;
             }
@@ -178,12 +184,12 @@ class PlayerData extends Model
 
     public static function getRemainingFactionExperience(int $level): int
     {
-         if($level < 10)
-             return 2;
-         if($level < 20)
-             return 3;
-        if($level < 50)
+        if ($level < 10)
+            return 2;
+        if ($level < 20)
+            return 3;
+        if ($level < 50)
             return 4;
-         return 5;
+        return 5;
     }
 }

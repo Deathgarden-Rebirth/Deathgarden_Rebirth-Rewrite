@@ -16,16 +16,14 @@ class VersioningController extends AdminToolController
 {
     protected static string $name = 'Versioning';
 
-    protected static string $description = 'Manage the Launcher & Game Versions.';
+    protected static string $description = 'Manage the Launcher & Game Versions';
     protected static string $iconComponent = 'icons.arrow-left-right';
 
     protected static Permissions $neededPermission = Permissions::FILE_UPLOAD;
 
     public function index()
     {
-        return view('admin.tools.versioning', [
-            'message' => LauncherMessage::getMessage(),
-        ]);
+        return view('admin.tools.versioning');
     }
 
     public function save(SaveVersioningRequest $request) {

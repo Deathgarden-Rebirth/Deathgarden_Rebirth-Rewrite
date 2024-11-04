@@ -1655,412 +1655,6 @@
             "purchasable": true
         },
         {
-            "id": "2732AE1E44D10CF38EE2BE9A5927AA6F",
-            "displayName": "HT_AutoSniper_Guardian_001_MowZer_320",
-            "initialQuantity": 0,
-            "consumable": false,
-            "consumptionReward": [],
-            "defaultCost": [
-                {
-                    "currencyId": "CurrencyC",
-                    "price": 500
-                }
-            ],
-            "eventCostList": [],
-            "metaData": {
-                "gameplayTags": [
-                    "Customization.HT.Weapon.SniperRifle.SRA",
-                    "Weapon.SniperRifle",
-                    "WeaponVariation.A"
-                ],
-                "requiredChallengesToComplete": [],
-                "minPlayerLevel": 0,
-                "minCharacterLevel": 0,
-                "freeForUserCreatedAfter": 0,
-                "freeForUserCreatedBefore": 0,
-                "isUnbreakableFullset": false,
-                "origin": "None",
-                "quality": "Basic",
-                "groupType": "",
-                "followingItem": "0B14DB78493FC642908A88AD910F66FA",
-                "prerequisiteItem": "",
-                "autoUnlockItemIds": [],
-                "itemAssignments": [],
-                "prestigeLevelRewards": []
-            },
-            "unique": false,
-            "nonSecure": false,
-            "purchasable": true
-        },
-        {
-            "id": "0B14DB78493FC642908A88AD910F66FA",
-            "displayName": "HT_AutoSniper_Guardian_002_MowZer_320",
-            "initialQuantity": 0,
-            "consumable": false,
-            "consumptionReward": [],
-            "defaultCost": [
-                {
-                    "currencyId": "CurrencyC",
-                    "price": 750
-                }
-            ],
-            "eventCostList": [],
-            "metaData": {
-                "gameplayTags": [
-                    "Customization.HT.Weapon.SniperRifle.SRA",
-                    "Weapon.SniperRifle",
-                    "WeaponVariation.A"
-                ],
-                "requiredChallengesToComplete": [
-                    "702074B04572D0ECF67FA9BF1AE5DD7E"
-                ],
-                "minPlayerLevel": 0,
-                "minCharacterLevel": 0,
-                "freeForUserCreatedAfter": 0,
-                "freeForUserCreatedBefore": 0,
-                "isUnbreakableFullset": false,
-                "origin": "None",
-                "quality": "Basic",
-                "groupType": "",
-                "followingItem": "E414C42947C4DFC2763EDBB5BCC08629",
-                "prerequisiteItem": "2732AE1E44D10CF38EE2BE9A5927AA6F",
-                "autoUnlockItemIds": [],
-                "itemAssignments": [],
-                "prestigeLevelRewards": []
-            },
-            "unique": false,
-            "nonSecure": false,
-            "purchasable": true
-        },
-        {
-            "id": "E414C42947C4DFC2763EDBB5BCC08629",
-            "displayName": "HT_AutoSniper_Guardian_003_MowZer_320",
-            "initialQuantity": 0,
-            "consumable": false,
-            "consumptionReward": [],
-            "defaultCost": [
-                {
-                    "currencyId": "CurrencyC",
-                    "price": 1000
-                }
-            ],
-            "eventCostList": [],
-            "metaData": {
-                "gameplayTags": [
-                    "Customization.HT.Weapon.SniperRifle.SRA",
-                    "Weapon.SniperRifle",
-                    "WeaponVariation.A"
-                ],
-                "requiredChallengesToComplete": [],
-                "minPlayerLevel": 0,
-                "minCharacterLevel": 0,
-                "freeForUserCreatedAfter": 0,
-                "freeForUserCreatedBefore": 0,
-                "isUnbreakableFullset": false,
-                "origin": "None",
-                "quality": "Basic",
-                "groupType": "",
-                "followingItem": "FC5AC36C4D43405F92A3ED84B2923A24",
-                "prerequisiteItem": "0B14DB78493FC642908A88AD910F66FA",
-                "autoUnlockItemIds": [],
-                "itemAssignments": [],
-                "prestigeLevelRewards": []
-            },
-            "unique": false,
-            "nonSecure": false,
-            "purchasable": true
-        },
-        {
-            "id": "FC5AC36C4D43405F92A3ED84B2923A24",
-            "displayName": "HT_AutoSniper_Guardian_004_MowZer_320",
-            "initialQuantity": 0,
-            "consumable": false,
-            "consumptionReward": [],
-            "defaultCost": [
-                {
-                    "currencyId": "CurrencyC",
-                    "price": 1250
-                }
-            ],
-            "eventCostList": [],
-            "metaData": {
-                "gameplayTags": [
-                    "Customization.HT.Weapon.SniperRifle.SRA",
-                    "Weapon.SniperRifle",
-                    "WeaponVariation.A"
-                ],
-                "requiredChallengesToComplete": [],
-                "minPlayerLevel": 0,
-                "minCharacterLevel": 0,
-                "freeForUserCreatedAfter": 0,
-                "freeForUserCreatedBefore": 0,
-                "isUnbreakableFullset": false,
-                "origin": "None",
-                "quality": "Basic",
-                "groupType": "",
-                "followingItem": "8FB116484CE9929D07267C9E7E7581A9",
-                "prerequisiteItem": "E414C42947C4DFC2763EDBB5BCC08629",
-                "autoUnlockItemIds": [],
-                "itemAssignments": [],
-                "prestigeLevelRewards": []
-            },
-            "unique": false,
-            "nonSecure": false,
-            "purchasable": true
-        },
-        {
-            "id": "8FB116484CE9929D07267C9E7E7581A9",
-            "displayName": "HT_AutoSniper_Guardian_005_MowZer_320",
-            "initialQuantity": 0,
-            "consumable": false,
-            "consumptionReward": [],
-            "defaultCost": [
-                {
-                    "currencyId": "CurrencyC",
-                    "price": 1500
-                }
-            ],
-            "eventCostList": [],
-            "metaData": {
-                "gameplayTags": [
-                    "Customization.HT.Weapon.SniperRifle.SRA",
-                    "Weapon.SniperRifle",
-                    "WeaponVariation.A"
-                ],
-                "requiredChallengesToComplete": [],
-                "minPlayerLevel": 0,
-                "minCharacterLevel": 0,
-                "freeForUserCreatedAfter": 0,
-                "freeForUserCreatedBefore": 0,
-                "isUnbreakableFullset": false,
-                "origin": "None",
-                "quality": "Basic",
-                "groupType": "",
-                "followingItem": "DB8F73C54CC7C390B3E0FDB451ED3E1C",
-                "prerequisiteItem": "FC5AC36C4D43405F92A3ED84B2923A24",
-                "autoUnlockItemIds": [],
-                "itemAssignments": [],
-                "prestigeLevelRewards": []
-            },
-            "unique": false,
-            "nonSecure": false,
-            "purchasable": true
-        },
-        {
-            "id": "DB8F73C54CC7C390B3E0FDB451ED3E1C",
-            "displayName": "HT_AutoSniper_Guardian_006_MowZer_320",
-            "initialQuantity": 0,
-            "consumable": false,
-            "consumptionReward": [],
-            "defaultCost": [
-                {
-                    "currencyId": "CurrencyA",
-                    "price": 425
-                },
-                {
-                    "currencyId": "CurrencyC",
-                    "price": 1300
-                }
-            ],
-            "eventCostList": [],
-            "metaData": {
-                "gameplayTags": [
-                    "Customization.HT.Weapon.SniperRifle.SRA",
-                    "Weapon.SniperRifle",
-                    "WeaponVariation.A"
-                ],
-                "requiredChallengesToComplete": [
-                    "ADA907B24D8DCBD28848F18B6D15FF57"
-                ],
-                "minPlayerLevel": 0,
-                "minCharacterLevel": 0,
-                "freeForUserCreatedAfter": 0,
-                "freeForUserCreatedBefore": 0,
-                "isUnbreakableFullset": false,
-                "origin": "None",
-                "quality": "Basic",
-                "groupType": "",
-                "followingItem": "64F742034DF9120418116B8D432F8C85",
-                "prerequisiteItem": "8FB116484CE9929D07267C9E7E7581A9",
-                "autoUnlockItemIds": [],
-                "itemAssignments": [],
-                "prestigeLevelRewards": []
-            },
-            "unique": false,
-            "nonSecure": false,
-            "purchasable": true
-        },
-        {
-            "id": "64F742034DF9120418116B8D432F8C85",
-            "displayName": "HT_AutoSniper_Guardian_007_MowZer_320",
-            "initialQuantity": 0,
-            "consumable": false,
-            "consumptionReward": [],
-            "defaultCost": [
-                {
-                    "currencyId": "CurrencyA",
-                    "price": 525
-                },
-                {
-                    "currencyId": "CurrencyC",
-                    "price": 1400
-                }
-            ],
-            "eventCostList": [],
-            "metaData": {
-                "gameplayTags": [
-                    "Customization.HT.Weapon.SniperRifle.SRA",
-                    "Weapon.SniperRifle",
-                    "WeaponVariation.A"
-                ],
-                "requiredChallengesToComplete": [],
-                "minPlayerLevel": 0,
-                "minCharacterLevel": 0,
-                "freeForUserCreatedAfter": 0,
-                "freeForUserCreatedBefore": 0,
-                "isUnbreakableFullset": false,
-                "origin": "None",
-                "quality": "Basic",
-                "groupType": "",
-                "followingItem": "BAD66B384C24C1714ED63EB8907EDF73",
-                "prerequisiteItem": "DB8F73C54CC7C390B3E0FDB451ED3E1C",
-                "autoUnlockItemIds": [],
-                "itemAssignments": [],
-                "prestigeLevelRewards": []
-            },
-            "unique": false,
-            "nonSecure": false,
-            "purchasable": true
-        },
-        {
-            "id": "BAD66B384C24C1714ED63EB8907EDF73",
-            "displayName": "HT_AutoSniper_Guardian_008_MowZer_320",
-            "initialQuantity": 0,
-            "consumable": false,
-            "consumptionReward": [],
-            "defaultCost": [
-                {
-                    "currencyId": "CurrencyA",
-                    "price": 625
-                },
-                {
-                    "currencyId": "CurrencyC",
-                    "price": 1500
-                }
-            ],
-            "eventCostList": [],
-            "metaData": {
-                "gameplayTags": [
-                    "Customization.HT.Weapon.SniperRifle.SRA",
-                    "Weapon.SniperRifle",
-                    "WeaponVariation.A"
-                ],
-                "requiredChallengesToComplete": [],
-                "minPlayerLevel": 0,
-                "minCharacterLevel": 0,
-                "freeForUserCreatedAfter": 0,
-                "freeForUserCreatedBefore": 0,
-                "isUnbreakableFullset": false,
-                "origin": "None",
-                "quality": "Basic",
-                "groupType": "",
-                "followingItem": "38947A1E490F3F66255C2F9EFDE5D2C4",
-                "prerequisiteItem": "64F742034DF9120418116B8D432F8C85",
-                "autoUnlockItemIds": [],
-                "itemAssignments": [],
-                "prestigeLevelRewards": []
-            },
-            "unique": false,
-            "nonSecure": false,
-            "purchasable": true
-        },
-        {
-            "id": "38947A1E490F3F66255C2F9EFDE5D2C4",
-            "displayName": "HT_AutoSniper_Guardian_009_MowZer_320",
-            "initialQuantity": 0,
-            "consumable": false,
-            "consumptionReward": [],
-            "defaultCost": [
-                {
-                    "currencyId": "CurrencyA",
-                    "price": 725
-                },
-                {
-                    "currencyId": "CurrencyC",
-                    "price": 1600
-                }
-            ],
-            "eventCostList": [],
-            "metaData": {
-                "gameplayTags": [
-                    "Customization.HT.Weapon.SniperRifle.SRA",
-                    "Weapon.SniperRifle",
-                    "WeaponVariation.A"
-                ],
-                "requiredChallengesToComplete": [],
-                "minPlayerLevel": 0,
-                "minCharacterLevel": 0,
-                "freeForUserCreatedAfter": 0,
-                "freeForUserCreatedBefore": 0,
-                "isUnbreakableFullset": false,
-                "origin": "None",
-                "quality": "Basic",
-                "groupType": "",
-                "followingItem": "170A5A454E82E7BCDD4117B478CC5929",
-                "prerequisiteItem": "BAD66B384C24C1714ED63EB8907EDF73",
-                "autoUnlockItemIds": [],
-                "itemAssignments": [],
-                "prestigeLevelRewards": []
-            },
-            "unique": false,
-            "nonSecure": false,
-            "purchasable": true
-        },
-        {
-            "id": "170A5A454E82E7BCDD4117B478CC5929",
-            "displayName": "HT_AutoSniper_Guardian_010_MowZer_320",
-            "initialQuantity": 0,
-            "consumable": false,
-            "consumptionReward": [],
-            "defaultCost": [
-                {
-                    "currencyId": "CurrencyA",
-                    "price": 825
-                },
-                {
-                    "currencyId": "CurrencyC",
-                    "price": 1700
-                }
-            ],
-            "eventCostList": [],
-            "metaData": {
-                "gameplayTags": [
-                    "Customization.HT.Weapon.SniperRifle.SRA",
-                    "Weapon.SniperRifle",
-                    "WeaponVariation.A"
-                ],
-                "requiredChallengesToComplete": [
-                    "9B3DF194466FF239257F1289F7BC4A71"
-                ],
-                "minPlayerLevel": 0,
-                "minCharacterLevel": 0,
-                "freeForUserCreatedAfter": 0,
-                "freeForUserCreatedBefore": 0,
-                "isUnbreakableFullset": false,
-                "origin": "None",
-                "quality": "Basic",
-                "groupType": "",
-                "followingItem": "",
-                "prerequisiteItem": "38947A1E490F3F66255C2F9EFDE5D2C4",
-                "autoUnlockItemIds": [],
-                "itemAssignments": [],
-                "prestigeLevelRewards": []
-            },
-            "unique": false,
-            "nonSecure": false,
-            "purchasable": true
-        },
-        {
             "id": "5159591743CBF0B57EC6FEB3341960D6",
             "displayName": "HT_BareFist_Item_Shock",
             "initialQuantity": 1,
@@ -3239,7 +2833,7 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
+                                "currencyId": "CurrencyC",
                                 "price": 10000
                             }
                         ],
@@ -3254,8 +2848,8 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
-                                "price": 10000
+                                "currencyId": "CurrencyC",
+                                "price": 20000
                             }
                         ],
                         "rewards": [
@@ -3269,8 +2863,8 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
-                                "price": 10000
+                                "currencyId": "CurrencyC",
+                                "price": 30000
                             }
                         ],
                         "rewards": [
@@ -3284,8 +2878,8 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
-                                "price": 10000
+                                "currencyId": "CurrencyC",
+                                "price": 40000
                             }
                         ],
                         "rewards": [
@@ -3352,7 +2946,7 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
+                                "currencyId": "CurrencyC",
                                 "price": 10000
                             }
                         ],
@@ -3367,8 +2961,8 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
-                                "price": 10000
+                                "currencyId": "CurrencyC",
+                                "price": 20000
                             }
                         ],
                         "rewards": [
@@ -3382,8 +2976,8 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
-                                "price": 10000
+                                "currencyId": "CurrencyC",
+                                "price": 30000
                             }
                         ],
                         "rewards": [
@@ -3397,8 +2991,8 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
-                                "price": 10000
+                                "currencyId": "CurrencyC",
+                                "price": 40000
                             }
                         ],
                         "rewards": [
@@ -3465,7 +3059,7 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
+                                "currencyId": "CurrencyC",
                                 "price": 10000
                             }
                         ],
@@ -3480,8 +3074,8 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
-                                "price": 10000
+                                "currencyId": "CurrencyC",
+                                "price": 20000
                             }
                         ],
                         "rewards": [
@@ -3495,8 +3089,8 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
-                                "price": 10000
+                                "currencyId": "CurrencyC",
+                                "price": 30000
                             }
                         ],
                         "rewards": [
@@ -3510,8 +3104,8 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
-                                "price": 10000
+                                "currencyId": "CurrencyC",
+                                "price": 40000
                             }
                         ],
                         "rewards": [
@@ -3580,7 +3174,7 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
+                                "currencyId": "CurrencyC",
                                 "price": 10000
                             }
                         ],
@@ -3595,8 +3189,8 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
-                                "price": 10000
+                                "currencyId": "CurrencyC",
+                                "price": 20000
                             }
                         ],
                         "rewards": [
@@ -3610,8 +3204,8 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
-                                "price": 10000
+                                "currencyId": "CurrencyC",
+                                "price": 30000
                             }
                         ],
                         "rewards": [
@@ -3625,8 +3219,8 @@
                     {
                         "costs": [
                             {
-                                "currencyId": "CurrencyB",
-                                "price": 10000
+                                "currencyId": "CurrencyC",
+                                "price": 40000
                             }
                         ],
                         "rewards": [
@@ -6419,7 +6013,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -6444,7 +6038,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -6460,7 +6054,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -6485,7 +6079,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -6501,7 +6095,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -6526,7 +6120,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -6542,7 +6136,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -6615,7 +6209,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -6756,7 +6350,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -6781,7 +6375,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -7150,7 +6744,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -7166,7 +6760,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -7191,7 +6785,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -7207,7 +6801,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -7232,7 +6826,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -7248,7 +6842,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -7412,7 +7006,12 @@
             "initialQuantity": 0,
             "consumable": false,
             "consumptionReward": [],
-            "defaultCost": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 100000
+                }
+            ],
             "eventCostList": [],
             "metaData": {
                 "gameplayTags": [
@@ -7462,7 +7061,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "HeartAndMinds",
-                "quality": "Epic",
+                "quality": "Legacy",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -7503,7 +7102,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -7528,7 +7127,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -7569,7 +7168,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -7585,7 +7184,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -7626,7 +7225,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -7651,7 +7250,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -7667,7 +7266,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -7692,7 +7291,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -7708,7 +7307,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -7733,7 +7332,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -7749,7 +7348,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -7774,7 +7373,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -7790,7 +7389,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -7973,7 +7572,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "HunterProgression",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -7998,7 +7597,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -8039,7 +7638,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -8055,7 +7654,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -8096,7 +7695,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "HunterProgression",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -8121,7 +7720,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -8137,7 +7736,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -8173,7 +7772,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -8268,7 +7867,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -8309,7 +7908,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -8350,7 +7949,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -8366,7 +7965,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -8391,7 +7990,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -8407,7 +8006,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -8432,7 +8031,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -8448,7 +8047,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -8631,7 +8230,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "HunterProgression",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -8656,7 +8255,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -8697,7 +8296,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -8713,7 +8312,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -8754,7 +8353,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "HunterProgression",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -8779,7 +8378,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -8795,7 +8394,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -8958,7 +8557,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -9015,7 +8614,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -9056,7 +8655,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -9097,7 +8696,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -9122,7 +8721,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -9138,7 +8737,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -9477,7 +9076,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -9534,7 +9133,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -9575,7 +9174,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -9616,7 +9215,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -9641,7 +9240,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -9657,7 +9256,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -9694,7 +9293,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": true,
                 "origin": "DlcT800",
-                "quality": "Legendary",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -9759,7 +9358,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -9816,7 +9415,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -9857,7 +9456,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -9898,7 +9497,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -9923,7 +9522,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -9939,7 +9538,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -9976,7 +9575,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": true,
                 "origin": "DlcT800",
-                "quality": "Basic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -10012,7 +9611,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -10048,7 +9647,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -10073,7 +9672,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -10130,7 +9729,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -10171,7 +9770,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -10212,7 +9811,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -10237,7 +9836,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -10253,7 +9852,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -10364,7 +9963,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": true,
                 "origin": "DlcT800",
-                "quality": "Basic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -20104,7 +19703,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "DlcT800",
-                "quality": "Basic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -20308,7 +19907,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "DlcT800",
-                "quality": "Basic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -20376,7 +19975,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "DlcT800",
-                "quality": "Basic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -20777,7 +20376,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -20793,7 +20392,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -20818,7 +20417,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -20834,7 +20433,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -20859,7 +20458,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -20916,7 +20515,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -20957,7 +20556,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21070,7 +20669,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21095,7 +20694,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -21111,7 +20710,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21136,7 +20735,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -21177,7 +20776,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -21193,7 +20792,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21234,7 +20833,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21302,7 +20901,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21338,7 +20937,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21447,7 +21046,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21472,7 +21071,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -21488,7 +21087,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21513,7 +21112,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -21554,7 +21153,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -21570,7 +21169,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21611,7 +21210,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21724,7 +21323,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21749,7 +21348,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -21765,7 +21364,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21790,7 +21389,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -21831,7 +21430,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -21847,7 +21446,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -21888,7 +21487,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -23568,7 +23167,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -23584,7 +23183,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -23645,7 +23244,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -23661,7 +23260,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -23962,7 +23561,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -24019,7 +23618,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -24038,10 +23637,15 @@
         {
             "id": "C60F25CA442307AE91D878B26783C988",
             "displayName": "HT_VETERAN_Head_HLWN001_Item_Jack_o_Lantern",
-            "initialQuantity": 1,
+            "initialQuantity": 0,
             "consumable": false,
             "consumptionReward": [],
-            "defaultCost": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 100000
+                }
+            ],
             "eventCostList": [],
             "metaData": {
                 "gameplayTags": [
@@ -24055,7 +23659,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Basic",
+                "quality": "Legacy",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -24152,7 +23756,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -24193,7 +23797,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -24209,7 +23813,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -24234,7 +23838,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -24250,7 +23854,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -24291,7 +23895,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -24332,7 +23936,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -24429,7 +24033,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -24470,7 +24074,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -24486,7 +24090,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -24511,7 +24115,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -24527,7 +24131,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -24568,7 +24172,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -24609,7 +24213,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -24670,7 +24274,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -24711,7 +24315,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -24824,7 +24428,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -24865,7 +24469,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -24881,7 +24485,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -24906,7 +24510,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -24922,7 +24526,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -24963,7 +24567,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -25004,7 +24608,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -25537,7 +25141,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 20000
                             }
                         ],
                         "rewards": [
@@ -25552,7 +25156,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 30000
                             }
                         ],
                         "rewards": [
@@ -25567,7 +25171,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 40000
                             }
                         ],
                         "rewards": [
@@ -25646,7 +25250,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 20000
                             }
                         ],
                         "rewards": [
@@ -25661,7 +25265,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 30000
                             }
                         ],
                         "rewards": [
@@ -25676,7 +25280,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 40000
                             }
                         ],
                         "rewards": [
@@ -25760,7 +25364,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 20000
                             }
                         ],
                         "rewards": [
@@ -25775,7 +25379,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 30000
                             }
                         ],
                         "rewards": [
@@ -25790,7 +25394,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 40000
                             }
                         ],
                         "rewards": [
@@ -25872,7 +25476,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 20000
                             }
                         ],
                         "rewards": [
@@ -25887,7 +25491,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 30000
                             }
                         ],
                         "rewards": [
@@ -25902,7 +25506,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 40000
                             }
                         ],
                         "rewards": [
@@ -25982,7 +25586,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 20000
                             }
                         ],
                         "rewards": [
@@ -25997,7 +25601,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 30000
                             }
                         ],
                         "rewards": [
@@ -26012,7 +25616,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 40000
                             }
                         ],
                         "rewards": [
@@ -26092,7 +25696,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 20000
                             }
                         ],
                         "rewards": [
@@ -26107,7 +25711,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 30000
                             }
                         ],
                         "rewards": [
@@ -26122,7 +25726,7 @@
                         "costs": [
                             {
                                 "currencyId": "CurrencyC",
-                                "price": 10000
+                                "price": 40000
                             }
                         ],
                         "rewards": [
@@ -26602,7 +26206,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Basic",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -26684,7 +26288,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -26833,7 +26437,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -26874,7 +26478,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -26899,7 +26503,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -26915,7 +26519,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -26940,7 +26544,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -26981,7 +26585,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -26997,7 +26601,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -27038,7 +26642,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -27079,7 +26683,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -27104,7 +26708,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -27120,7 +26724,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -27145,7 +26749,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -27186,7 +26790,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -27202,7 +26806,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -27459,7 +27063,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -27500,7 +27104,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -27525,7 +27129,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -27541,7 +27145,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -27566,7 +27170,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -27607,7 +27211,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -27623,7 +27227,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -27772,7 +27376,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -27813,7 +27417,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -27838,7 +27442,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -27854,7 +27458,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -27879,7 +27483,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -27920,7 +27524,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -27936,7 +27540,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -28455,7 +28059,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -28640,7 +28244,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -28665,7 +28269,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -28706,7 +28310,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 4500
                 }
             ],
             "eventCostList": [],
@@ -28722,7 +28326,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Rare",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -28747,7 +28351,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 4500
                 }
             ],
             "eventCostList": [],
@@ -28763,7 +28367,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Rare",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -28804,7 +28408,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -28829,7 +28433,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -28845,7 +28449,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -28870,7 +28474,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -28886,7 +28490,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -28927,7 +28531,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -28952,7 +28556,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -28993,7 +28597,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 4500
                 }
             ],
             "eventCostList": [],
@@ -29009,7 +28613,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Rare",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29034,7 +28638,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 4500
                 }
             ],
             "eventCostList": [],
@@ -29050,7 +28654,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Rare",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29091,7 +28695,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29116,7 +28720,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -29132,7 +28736,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29157,7 +28761,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -29173,7 +28777,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29428,7 +29032,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29453,7 +29057,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -29494,7 +29098,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 4500
                 }
             ],
             "eventCostList": [],
@@ -29510,7 +29114,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Rare",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29535,7 +29139,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 4500
                 }
             ],
             "eventCostList": [],
@@ -29551,7 +29155,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Rare",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29592,7 +29196,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29617,7 +29221,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -29633,7 +29237,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29658,7 +29262,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -29674,7 +29278,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29710,7 +29314,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29859,7 +29463,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29884,7 +29488,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -29925,7 +29529,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 4500
                 }
             ],
             "eventCostList": [],
@@ -29941,7 +29545,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Rare",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -29966,7 +29570,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 4500
                 }
             ],
             "eventCostList": [],
@@ -29982,7 +29586,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Rare",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -30023,7 +29627,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -30048,7 +29652,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -30064,7 +29668,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -30089,7 +29693,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -30105,7 +29709,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -30458,7 +30062,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -30474,7 +30078,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -30531,7 +30135,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -30547,7 +30151,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -30572,7 +30176,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -30588,7 +30192,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -30613,7 +30217,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -30629,7 +30233,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -30742,7 +30346,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -30783,7 +30387,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -30808,7 +30412,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -30849,7 +30453,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -30865,7 +30469,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -30890,7 +30494,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -30906,7 +30510,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -30931,7 +30535,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -30947,7 +30551,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -30972,7 +30576,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -30988,7 +30592,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31013,7 +30617,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -31029,7 +30633,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31070,7 +30674,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31111,7 +30715,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31136,7 +30740,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -31177,7 +30781,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -31193,7 +30797,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31218,7 +30822,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -31234,7 +30838,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31374,7 +30978,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31399,7 +31003,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -31415,7 +31019,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31440,7 +31044,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -31456,7 +31060,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31481,7 +31085,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -31497,7 +31101,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31538,7 +31142,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31579,7 +31183,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31604,7 +31208,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -31645,7 +31249,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -31661,7 +31265,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31686,7 +31290,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -31702,7 +31306,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31863,7 +31467,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -31879,7 +31483,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31904,7 +31508,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -31920,7 +31524,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -31945,7 +31549,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -31961,7 +31565,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -32074,7 +31678,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -32115,7 +31719,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -32140,7 +31744,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -32181,7 +31785,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -32197,7 +31801,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -32222,7 +31826,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -32238,7 +31842,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -32500,12 +32104,7 @@
             "initialQuantity": 0,
             "consumable": false,
             "consumptionReward": [],
-            "defaultCost": [
-                {
-                    "currencyId": "CurrencyC",
-                    "price": 5500
-                }
-            ],
+            "defaultCost": [],
             "eventCostList": [],
             "metaData": {
                 "gameplayTags": [
@@ -32518,8 +32117,8 @@
                 "freeForUserCreatedAfter": 0,
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
-                "origin": "None",
-                "quality": "Superior",
+                "origin": "Event",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -32659,7 +32258,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "HeartAndMinds",
-                "quality": "Epic",
+                "quality": "Legacy",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -32683,7 +32282,12 @@
             "initialQuantity": 0,
             "consumable": false,
             "consumptionReward": [],
-            "defaultCost": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 100000
+                }
+            ],
             "eventCostList": [],
             "metaData": {
                 "gameplayTags": [
@@ -32696,14 +32300,12 @@
                 "freeForUserCreatedAfter": 0,
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
-                "origin": "DeathGarden1",
+                "origin": "None",
                 "quality": "Legacy",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
-                "autoUnlockItemIds": [
-                    "C300E3A84E571D549E014B9051A18BE8"
-                ],
+                "autoUnlockItemIds": [],
                 "bundleItems": [],
                 "rewardBundleItems": [],
                 "itemAssignments": [],
@@ -32740,7 +32342,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -32781,7 +32383,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -32806,7 +32408,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -32822,7 +32424,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -32847,7 +32449,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -32863,7 +32465,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -32888,7 +32490,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -32945,7 +32547,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -32970,7 +32572,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -32986,7 +32588,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -33027,7 +32629,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -33052,7 +32654,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -33093,7 +32695,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -33109,7 +32711,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -33254,7 +32856,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -33279,7 +32881,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -33295,7 +32897,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -33336,7 +32938,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -33361,7 +32963,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -33402,7 +33004,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -33418,7 +33020,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -33454,7 +33056,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -33703,7 +33305,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -33728,7 +33330,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -33744,7 +33346,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -33785,7 +33387,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -33810,7 +33412,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -33851,7 +33453,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -33867,7 +33469,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -48672,7 +48274,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -48765,7 +48367,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -48781,7 +48383,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -48806,7 +48408,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -48822,7 +48424,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -48847,7 +48449,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -48863,7 +48465,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -48960,7 +48562,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -48976,7 +48578,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49001,7 +48603,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -49058,7 +48660,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49083,7 +48685,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -49099,7 +48701,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49124,7 +48726,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -49165,7 +48767,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -49181,7 +48783,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49206,7 +48808,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -49263,7 +48865,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49288,7 +48890,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -49304,7 +48906,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49329,7 +48931,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -49402,7 +49004,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -49418,7 +49020,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49443,7 +49045,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -49459,7 +49061,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49484,7 +49086,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -49500,7 +49102,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49597,7 +49199,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -49613,7 +49215,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49638,7 +49240,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -49695,7 +49297,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49720,7 +49322,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -49736,7 +49338,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49761,7 +49363,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -49802,7 +49404,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -49818,7 +49420,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49843,7 +49445,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -49859,7 +49461,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49884,7 +49486,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -49900,7 +49502,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49957,7 +49559,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -49973,7 +49575,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -49998,7 +49600,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -50014,7 +49616,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -50039,7 +49641,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 6250
+                    "price": 7500
                 }
             ],
             "eventCostList": [],
@@ -50055,7 +49657,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Epic",
+                "quality": "Ultra",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -50152,7 +49754,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -50168,7 +49770,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -50193,7 +49795,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -50250,7 +49852,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -50275,7 +49877,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -50291,7 +49893,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -50316,7 +49918,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -50677,7 +50279,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -50699,12 +50301,7 @@
             "initialQuantity": 0,
             "consumable": false,
             "consumptionReward": [],
-            "defaultCost": [
-                {
-                    "currencyId": "CurrencyC",
-                    "price": 5500
-                }
-            ],
+            "defaultCost": [],
             "eventCostList": [],
             "metaData": {
                 "gameplayTags": [
@@ -50717,8 +50314,8 @@
                 "freeForUserCreatedAfter": 0,
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
-                "origin": "None",
-                "quality": "Superior",
+                "origin": "Event",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -50754,7 +50351,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -50805,10 +50402,15 @@
         {
             "id": "38290AD04CA1A8F54F69FEA5419BE040",
             "displayName": "RN_SUBAI_Head_HLWN001_Item_Broken_Doll",
-            "initialQuantity": 1,
+            "initialQuantity": 0,
             "consumable": false,
             "consumptionReward": [],
-            "defaultCost": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 100000
+                }
+            ],
             "eventCostList": [],
             "metaData": {
                 "gameplayTags": [
@@ -50822,7 +50424,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Basic",
+                "quality": "Legacy",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -50899,7 +50501,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -50924,7 +50526,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -50940,7 +50542,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -50965,7 +50567,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -51022,7 +50624,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51047,7 +50649,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -51063,7 +50665,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51172,7 +50774,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51197,7 +50799,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -51213,7 +50815,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51238,7 +50840,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -51295,7 +50897,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51320,7 +50922,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -51336,7 +50938,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51445,7 +51047,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51470,7 +51072,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -51486,7 +51088,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51511,7 +51113,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -51568,7 +51170,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51593,7 +51195,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -51609,7 +51211,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51645,7 +51247,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "Event",
-                "quality": "Superior",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51754,7 +51356,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51779,7 +51381,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -51795,7 +51397,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51820,7 +51422,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 3500
                 }
             ],
             "eventCostList": [],
@@ -51877,7 +51479,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Superior",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",
@@ -51902,7 +51504,7 @@
             "defaultCost": [
                 {
                     "currencyId": "CurrencyC",
-                    "price": 5500
+                    "price": 6250
                 }
             ],
             "eventCostList": [],
@@ -51918,7 +51520,7 @@
                 "freeForUserCreatedBefore": 0,
                 "isUnbreakableFullset": false,
                 "origin": "None",
-                "quality": "Specialized",
+                "quality": "Epic",
                 "groupType": "",
                 "followingItem": "",
                 "prerequisiteItem": "",

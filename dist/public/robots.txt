@@ -1,5 +1,2 @@
 User-agent: *
-Disallow:
-Disallow: /cgi-bin/
-Disallow: /admin/
 Sitemap: https://playdeathgarden.live/sitemap.xml

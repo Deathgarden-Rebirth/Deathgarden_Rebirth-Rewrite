@@ -4,14 +4,11 @@ namespace App\Http\Controllers\Web\Admin\Tools;
 
 use App\Enums\Auth\Permissions;
 use App\Enums\Launcher\Patchline;
-use App\Http\Controllers\Controller;
 use App\Models\GameFile;
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 
 class FileManagerController extends AdminToolController
 {
@@ -29,6 +26,7 @@ class FileManagerController extends AdminToolController
             'files.*' => 'required|file',
             'patchline' => 'required|integer',
             'gamepath.*' => 'required|string',
+            'is_additional' => 'required|integer',
         ]);
 
         $duplicateFiles = [];
@@ -37,35 +35,42 @@ class FileManagerController extends AdminToolController
 
 
         // Handle file upload logic
-        if ($request->hasFile('files')) {
-            for($i = 0; $i < count($request->file('files')); $i++) {
-                $file = $request->file('files')[$i];
+        if (!$request->hasFile('files')) {
+            Session::flash('alert-error', 'Failed to upload files. No files were provided.');
+            return redirect()->back();
+        }
 
-                $filename = $file->getClientOriginalName();
-                $filehash = str(hash_file('sha256', $file->getRealPath()))->upper();
+        for ($i = 0; $i < count($request->file('files')); $i++) {
+            $file = $request->file('files')[$i];
 
-                $gameFile = GameFile::where('name', $filename)->where('patchline', $request->input('patchline'))->first() ?? new GameFile;
+            $filename = $file->getClientOriginalName();
+            $filehash = str(hash_file('sha256', $file->getRealPath()))->upper();
 
-                if ($gameFile->hash == $filehash) {
-                    $duplicateFiles[] = $gameFile->name;
-                    continue;
-                }
+            $gameFile = GameFile::where('filename', $filename)->where('patchline', $request->input('patchline'))->first() ?? new GameFile;
 
-                if (isset($gameFile->id)) {
-                    $overwrittenFiles[] = $gameFile->name;
-                }
-
-                $gameFile->name = $filename;
-                $gameFile->hash = $filehash;
-                $gameFile->patchline = $request->input('patchline');
-
-                GameFile::getDisk()->putFileAs(strtolower($gameFile->patchline->name), $file, $gameFile->name);
-                $uploadedFiles[] = $gameFile->name;
-
-                $gameFile->game_path = $request->game_path[$i];
-                $gameFile->action = $request->file_action[$i];
-                $gameFile->save();
+            if ($gameFile->hash == $filehash) {
+                $duplicateFiles[] = $gameFile->filename;
+                continue;
             }
+
+            if (isset($gameFile->id)) {
+                $overwrittenFiles[] = $gameFile->filename;
+            }
+
+            $gameFile->filename = $filename;
+            $gameFile->hash = $filehash;
+            $gameFile->patchline = $request->input('patchline');
+
+            $gameFile->name = $request->input('game_mod_name')[$i];
+            $gameFile->description = $request->input('game_mod_description')[$i];
+            $gameFile->is_additional = $request->input('is_additional');
+
+            GameFile::getDisk()->putFileAs(strtolower($gameFile->patchline->name), $file, $gameFile->filename);
+            $uploadedFiles[] = $gameFile->filename;
+
+            $gameFile->game_path = $request->game_path[$i];
+            $gameFile->action = $request->file_action[$i];
+            $gameFile->save();
         }
 
         if (count($uploadedFiles) === 0) {
@@ -95,10 +100,11 @@ class FileManagerController extends AdminToolController
     public function index(Request $request) : View {
         $patchline = Patchline::tryFrom($request->input('patchline')) ?? Patchline::LIVE;
 
-        $files = GameFile::latest()->where('patchline', $patchline)->get();
+        $files = GameFile::latest()->where('patchline', $patchline)->where('is_additional', (bool)$request->input('additional_files'))->get();
 
         return view('admin.tools.file-manager', [
             'patchline' => $patchline,
+            'showAdditionalFiles' => (bool)$request->input('additional_files'),
             'files' => $files,
         ]);
     }
@@ -107,9 +113,9 @@ class FileManagerController extends AdminToolController
         $file_manager->action = (int)!$file_manager->action->value;
 
         if($file_manager->save()) {
-            Session::flash('alert-success', 'File ' . $file_manager->name . ' was successfully marked for ' . ($file_manager->action->value ? 'add' : 'delete'));
+            Session::flash('alert-success', 'File ' . $file_manager->filename . ' was successfully marked for ' . ($file_manager->action->value ? 'add' : 'delete'));
         } else {
-            Session::flash('alert-error', 'Failed to mark file ' . $file_manager->name . ' for ' . ($file_manager->action->value ? 'add' : 'delete'));
+            Session::flash('alert-error', 'Failed to mark file ' . $file_manager->filename . ' for ' . ($file_manager->action->value ? 'add' : 'delete'));
         }
 
         return redirect()->back();
@@ -118,7 +124,7 @@ class FileManagerController extends AdminToolController
     public function destroy(GameFile $file_manager) : RedirectResponse {
         $file_manager->delete();
 
-        Session::flash('alert-success', 'File ' . $file_manager->name . ' was successfully deleted');
+        Session::flash('alert-success', 'File ' . $file_manager->filename . ' was successfully deleted');
 
         return redirect()->back();
     }

@@ -18,6 +18,9 @@ Route::prefix('v1')->group(function () {
     Route::get('patch/files', [PatchController::class, 'getGameFileList']);
     Route::get('patch/{patchlineName}/files', [PatchController::class, 'getGameFileList']);
 
+    Route::get('patch/mods', [PatchController::class, 'getGameModFileList']);
+    Route::get('patch/{patchlineName}/mods', [PatchController::class, 'getGameModFileList']);
+
     Route::get('launcher-version', [StatisticsController::class, 'getLauncherVersion']);
     Route::get('launcher-message', [StatisticsController::class, 'getLauncherMessage']);
 });

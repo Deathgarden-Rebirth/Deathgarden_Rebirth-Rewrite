@@ -16,7 +16,7 @@ class PatchController extends Controller
     {
         $patchline = Patchline::tryFromName(str($patchlineName)->upper());
 
-        $gameFile = GameFile::select(['name'])->wherePatchline($patchline)->whereHash($hash)->latest()->first();
+        $gameFile = GameFile::select(['filename'])->wherePatchline($patchline)->whereHash($hash)->latest()->first();
         $disk = Storage::disk('patches');
 
         if($gameFile === null)
@@ -49,7 +49,33 @@ class PatchController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $gameFiles = GameFile::select(['name', 'hash', 'game_path', 'action'])->where('patchline', $patchline->value)->latest()->get();
+        $gameFiles = GameFile::select(['filename', 'hash', 'game_path', 'action'])
+            ->where('patchline', $patchline->value)
+            ->where('is_additional', 0)->latest()->get();
+
+        if (count($gameFiles) <= 0)
+            return response()->json(['error' => 'No files found'], 404);
+
+        return response()->json($gameFiles, 200);
+    }
+
+    public function getGameModFileList(string $patchlineName = null) : JsonResponse
+    {
+        $patchline = Patchline::tryFromName(str($patchlineName)->upper()) ?? Patchline::LIVE;
+
+        if (!$patchline) {
+            return response()->json(['error' => 'Invalid patchline'], 404);
+        }
+
+        $neededRole = $patchline->getNeededRole();
+
+        if ($neededRole !== null && ( !Auth::check() || !Auth::user()->hasRole($neededRole->value))) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        $gameFiles = GameFile::select(['name', 'description', 'filename', 'hash', 'game_path', 'action'])
+            ->where('patchline', $patchline->value)
+            ->where('is_additional', 1)->latest()->get();
 
         if (count($gameFiles) <= 0)
             return response()->json(['error' => 'No files found'], 404);

@@ -40,7 +40,7 @@ class GameFile extends Model
     }
 
     public function getDiskPath(): string {
-        return strtolower($this->patchline->name).'/'.$this->name;
+        return strtolower($this->patchline->name).'/'.$this->filename;
     }
 
     public function fileExists(): bool

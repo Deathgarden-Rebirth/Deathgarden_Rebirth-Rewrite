@@ -61,8 +61,14 @@ class FileManagerController extends AdminToolController
             $gameFile->hash = $filehash;
             $gameFile->patchline = $request->input('patchline');
 
-            $gameFile->name = $request->input('game_mod_name')[$i];
-            $gameFile->description = $request->input('game_mod_description')[$i];
+            if (filled($request->input('game_mod_name'))) {
+                $gameFile->name = $request->input('game_mod_name')[$i];
+            }
+
+            if (filled($request->input('game_mod_description'))) {
+                $gameFile->description = $request->input('game_mod_description')[$i];
+            }
+            
             $gameFile->is_additional = $request->input('is_additional');
 
             GameFile::getDisk()->putFileAs(strtolower($gameFile->patchline->name), $file, $gameFile->filename);

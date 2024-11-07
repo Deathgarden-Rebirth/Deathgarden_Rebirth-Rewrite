@@ -22,7 +22,7 @@ class PatchController extends Controller
         if($gameFile === null)
             return response()->json('File not found', 404);
 
-        $filePath = DIRECTORY_SEPARATOR . str($patchlineName)->lower() . DIRECTORY_SEPARATOR . $gameFile->name;
+        $filePath = DIRECTORY_SEPARATOR . str($patchlineName)->lower() . DIRECTORY_SEPARATOR . $gameFile->filename;
 
         if (!$disk->exists($filePath)) {
             return response()->json('File not found', 404);

@@ -2,6 +2,7 @@
 
 namespace App\Classes\Frontend;
 
+use App\View\Components\Auth\User;
 use Illuminate\Support\Carbon;
 use JsonSerializable;
 
@@ -14,6 +15,11 @@ class ChatMessage implements JsonSerializable
         public string $message,
     )
     {}
+
+    public function getUser(): ?\App\Models\User\User
+    {
+        return \App\Models\User\User::find($this->userId);
+    }
 
     public function jsonSerialize(): array
     {

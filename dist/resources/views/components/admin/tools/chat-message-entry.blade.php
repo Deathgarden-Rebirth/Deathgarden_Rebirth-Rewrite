@@ -1,6 +1,10 @@
 @php
+    use App\Models\Admin\Archive\ArchivedGame;
     /** @var \App\Models\Admin\BadChatMessage $message */
+
+    $match = ArchivedGame::find($message->match_id);
 @endphp
+
 <form action="{{ route('chat-filter.handle', ['message' => $message->id]) }}" method="post" id="{{ $message->id }}form">
     @csrf
     <tr>
@@ -29,7 +33,7 @@
                 </div>
             </a>
         </td>
-        <td>
+        <td class="flex gap-2 w-min">
             <div class="bg-slate-700 border border-slate-500 p-2 rounded-md">
                 {{ $message->message }}
             </div>
@@ -49,7 +53,28 @@
         </td>
         @if($message->handled)
             <td>
+                <div class="flex flex-col gap-4 items-center justify-center">
                 <div class="bg-slate-700 border border-slate-500 p-2 rounded-md whitespace-pre">{{ $message->consequences ?? '---' }}</div>
+                @if($match !== null)
+                    <x-inputs.button
+                            class="text-nowrap"
+                            type="button"
+                            href="#{{ $message->match_id }}-chat"
+                            rel="modal:open"
+                    >
+                        @if($match === null)
+                            not found :(
+                        @else
+                            match chat
+                        @endif
+                    </x-inputs.button>
+                    <div id="{{ $match->id }}-chat" class="modal !max-w-full w-[calc(min-content_+_50%]">
+                        <div class="flex flex-col items-center gap-5 ">
+                            <x-admin.match-info :game="$match"/>
+                        </div>
+                    </div>
+                @endif
+                </div>
             </td>
             <td>
                 @if($message->handledBy === null)
@@ -88,6 +113,25 @@
                             <x-icons.mail class="size-6"/>
                         </x-inputs.button>
                     </a>
+                    @if($match !== null)
+                        <x-inputs.button
+                                class="text-nowrap"
+                                type="button"
+                                href="#{{ $message->match_id }}-chat"
+                                rel="modal:open"
+                        >
+                            @if($match === null)
+                                not found :(
+                            @else
+                                match chat
+                            @endif
+                        </x-inputs.button>
+                        <div id="{{ $match->id }}-chat" class="modal !max-w-full w-[calc(min-content_+_50%]">
+                            <div class="flex flex-col items-center gap-5 ">
+                                <x-admin.match-info :game="$match"/>
+                            </div>
+                        </div>
+                    @endif
                 </div>
 
                 <div id="{{ $message->id }}handle-modal" class="modal">
@@ -120,3 +164,5 @@
         @endif
     </tr>
 </form>
+
+

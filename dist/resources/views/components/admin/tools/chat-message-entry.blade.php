@@ -33,7 +33,7 @@
                 </div>
             </a>
         </td>
-        <td class="flex gap-2 w-min">
+        <td>
             <div class="bg-slate-700 border border-slate-500 p-2 rounded-md">
                 {{ $message->message }}
             </div>

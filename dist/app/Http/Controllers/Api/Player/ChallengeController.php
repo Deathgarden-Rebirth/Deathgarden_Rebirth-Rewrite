@@ -8,13 +8,19 @@ use App\Http\Requests\Api\Player\ExecuteChallengeProgressionBatchRequest;
 use App\Http\Requests\Api\Player\GetChallengeProgressionBatchRequest;
 use App\Http\Responses\Api\Player\Challenges\ChallengeProgressionBatchResponse;
 use App\Http\Responses\Api\Player\Challenges\ChallengeProgressionEntry;
+use App\Http\Responses\Api\Player\Challenges\GetChallengesEntry;
 use App\Models\Game\Challenge;
 use App\Models\Game\Matchmaking\Game;
 use App\Models\Game\PickedChallenge;
+use App\Models\Game\TimedChallenge;
 use App\Models\User\User;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Str;
 use Illuminate\Validation\UnauthorizedException;
 use Ramsey\Uuid\Uuid;
 
@@ -28,7 +34,26 @@ class ChallengeController extends Controller
      */
     public function getChallenges()
     {
-        return json_encode(['challenges' => []]);
+        $user = Auth::user();
+        $timedChallenges = TimedChallenge::where('start_time', '<', Carbon::now())
+            ->where('end_time', '>', Carbon::now())->get();
+
+        $challenges = [];
+        $timedChallenges->each(function (TimedChallenge $challenge) use (&$challenges, $user) {
+            $challenges[] = new GetChallengesEntry(
+                $challenge->id,
+                $challenge->start_time,
+                $challenge->end_time,
+                $challenge->type,
+                $challenge->completion_value,
+                $challenge->faction,
+                $challenge->blueprint_path,
+                $challenge->rewards,
+                $challenge->hasPlayerClaimed($user->playerData()->id),
+            );
+        });
+
+        return Response::json(['challenges' => $challenges]);
     }
 
     public function getProgressionBatch(GetChallengeProgressionBatchRequest $request)
@@ -36,12 +61,23 @@ class ChallengeController extends Controller
         $user = User::findOrFail($request->userId);
         $playerData = $user->playerData();
 
+        $timedChallengeIds = [];
+
+        foreach ($request->challengeIds as $index => $id) {
+            if(Str::startsWith($id, GetChallengesEntry::ID_PREFIX)) {
+                $timedChallengeIds[] = Str::remove(GetChallengesEntry::ID_PREFIX, $id);
+                unset($request->challengeIds[$index]);
+            }
+        }
+
         $challengeIdsToCheck = UuidHelper::convertFromHexToUuidCollecton($request->challengeIds, true);
 
         /** @var Challenge[]|Collection $challengesToCheck */
         $challengesToCheck = Challenge::findMany($challengeIdsToCheck);
         /** @var PickedChallenge[]|Collection $pickedChallengesToCheck */
         $pickedChallengesToCheck = PickedChallenge::findMany($challengeIdsToCheck);
+        /** @var TimedChallenge[]|Collection $timedChallengesToCheck */
+        $timedChallengesToCheck = TimedChallenge::findMany($timedChallengeIds);
 
         $response = new ChallengeProgressionBatchResponse();
 
@@ -57,6 +93,20 @@ class ChallengeController extends Controller
             $response->progressionBatch[] = $newEntry;
         }
 
+        foreach ($timedChallengesToCheck as $challenge) {
+            $progress = $challenge->getProgressForPlayer($playerData->id);
+
+            $entry = new ChallengeProgressionEntry(
+                GetChallengesEntry::ID_PREFIX . $challenge->id,
+                $challenge->progress >= $challenge->completion_value,
+                $progress,
+            );
+
+            $entry->rewardsClaimed = $challenge->rewards;
+
+            $response->progressionBatch[] = $entry;
+        }
+
         foreach ($pickedChallengesToCheck as $challenge) {
             $response->progressionBatch[] = new ChallengeProgressionEntry(
                 Uuid::fromString($challenge->id)->getHex()->toString(),
@@ -64,6 +114,8 @@ class ChallengeController extends Controller
                 $challenge->progress,
             );
         }
+
+        foreach ($challengesToCheck as $challenge) {}
 
         return json_encode($response);
     }

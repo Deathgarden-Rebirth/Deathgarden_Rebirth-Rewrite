@@ -12,6 +12,7 @@ use App\Models\Game\CatalogItem;
 use App\Models\Game\Challenge;
 use App\Models\Game\CharacterData;
 use App\Models\Game\QuitterState;
+use App\Models\Game\TimedChallenge;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -141,6 +142,10 @@ class PlayerData extends Model
     public function challenges(): BelongsToMany
     {
         return $this->belongsToMany(Challenge::class)->withPivot(['progress']);
+    }
+
+    public function timedChallenges(): BelongsToMany {
+        return $this->belongsToMany(TimedChallenge::class)->withPivot(['progress', 'claimed']);
     }
 
     public function quitterState(): HasOne

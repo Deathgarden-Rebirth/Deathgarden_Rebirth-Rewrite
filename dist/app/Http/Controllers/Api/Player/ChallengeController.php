@@ -135,7 +135,11 @@ class ChallengeController extends Controller
         $processedChallenges = [];
 
         foreach ($request->operations as $operation) {
-            $challengeId = Uuid::fromString($operation['challengeId'])->toString();
+            $challengeId = $operation['challengeId'];
+
+            if(!Str::startsWith($challengeId, GetChallengesEntry::ID_PREFIX)) {
+                $challengeId = Uuid::fromString($operation['challengeId'])->toString();
+            }
 
             // Skip if we already processed this challenge because the completed ones are always first in the array.
             if(in_array($challengeId, $processedChallenges))
@@ -152,7 +156,7 @@ class ChallengeController extends Controller
     protected function addProgressToChallenge(string $challengeId, int $newProgress, User $user): void
     {
         if(Str::startsWith($challengeId, GetChallengesEntry::ID_PREFIX)) {
-            $foundChallenge = Challenge::find(Str::remove(GetChallengesEntry::ID_PREFIX, $challengeId));
+            $foundChallenge = TimedChallenge::find(Str::remove(GetChallengesEntry::ID_PREFIX, $challengeId));
         }
         else {
             /** @var Challenge|null $foundChallenge */
@@ -178,7 +182,7 @@ class ChallengeController extends Controller
     {
         // If the Challenge id starts with the Prefix, handle it as a timed challenge.
         if(Str::startsWith($challengeId, GetChallengesEntry::ID_PREFIX)) {
-            $foundChallenge = Challenge::find(Str::remove(GetChallengesEntry::ID_PREFIX, $challengeId));
+            $foundChallenge = TimedChallenge::find(Str::remove(GetChallengesEntry::ID_PREFIX, $challengeId));
         }
         else {
             /** @var Challenge|null $foundChallenge */

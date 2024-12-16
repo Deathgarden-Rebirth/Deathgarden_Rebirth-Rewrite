@@ -33,8 +33,8 @@ class GetChallengesEntry implements \JsonSerializable
         $json = [
             'lifetime' =>
                 [
-                    'creationTime' => $this->startTime->toJSON(),
-                    'expirationTime' => $this->endTime->toJSON(),
+                    'creationTime' => $this->startTime->toIso8601ZuluString(),
+                    'expirationTime' => $this->endTime->toIso8601ZuluString(),
                 ],
             'challengeType' => $this->type,
             'challengeId' => $this->getChallengeId(),

@@ -151,8 +151,13 @@ class ChallengeController extends Controller
 
     protected function addProgressToChallenge(string $challengeId, int $newProgress, User $user): void
     {
-        /** @var Challenge|null $foundChallenge */
-        $foundChallenge = $user->playerData()->challenges()->find($challengeId);
+        if(Str::startsWith($challengeId, GetChallengesEntry::ID_PREFIX)) {
+            $foundChallenge = Challenge::find(Str::remove(GetChallengesEntry::ID_PREFIX, $challengeId));
+        }
+        else {
+            /** @var Challenge|null $foundChallenge */
+            $foundChallenge = $user->playerData()->challenges()->find($challengeId);
+        }
 
         if($foundChallenge !== null) {
             $foundChallenge->playerData()->updateExistingPivot($user->playerData()->id, [
@@ -171,8 +176,14 @@ class ChallengeController extends Controller
 
     protected function setChallengeAsCompleted(string $challengeId, User $user)
     {
-        /** @var Challenge|null $foundChallenge */
-        $foundChallenge = $user->playerData()->challenges()->find($challengeId);
+        // If the Challenge id starts with the Prefix, handle it as a timed challenge.
+        if(Str::startsWith($challengeId, GetChallengesEntry::ID_PREFIX)) {
+            $foundChallenge = Challenge::find(Str::remove(GetChallengesEntry::ID_PREFIX, $challengeId));
+        }
+        else {
+            /** @var Challenge|null $foundChallenge */
+            $foundChallenge = $user->playerData()->challenges()->find($challengeId);
+        }
 
         if($foundChallenge !== null) {
             $foundChallenge->playerData()->updateExistingPivot($user->playerData()->id, [

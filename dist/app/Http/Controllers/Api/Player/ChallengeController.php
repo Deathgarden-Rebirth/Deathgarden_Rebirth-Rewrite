@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Api\Player;
 
+use App\Enums\Game\RewardType;
 use App\Helper\Uuid\UuidHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Player\ExecuteChallengeProgressionBatchRequest;
 use App\Http\Requests\Api\Player\GetChallengeProgressionBatchRequest;
+use App\Http\Responses\Api\General\Reward;
 use App\Http\Responses\Api\Player\Challenges\ChallengeProgressionBatchResponse;
 use App\Http\Responses\Api\Player\Challenges\ChallengeProgressionEntry;
 use App\Http\Responses\Api\Player\Challenges\GetChallengesEntry;
@@ -13,10 +15,12 @@ use App\Models\Game\Challenge;
 use App\Models\Game\Matchmaking\Game;
 use App\Models\Game\PickedChallenge;
 use App\Models\Game\TimedChallenge;
+use App\Models\User\PlayerData;
 use App\Models\User\User;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Response;
@@ -180,9 +184,11 @@ class ChallengeController extends Controller
 
     protected function setChallengeAsCompleted(string $challengeId, User $user)
     {
+        $isTimed = false;
         // If the Challenge id starts with the Prefix, handle it as a timed challenge.
         if(Str::startsWith($challengeId, GetChallengesEntry::ID_PREFIX)) {
             $foundChallenge = TimedChallenge::find(Str::remove(GetChallengesEntry::ID_PREFIX, $challengeId));
+            $isTimed = true;
         }
         else {
             /** @var Challenge|null $foundChallenge */
@@ -190,9 +196,26 @@ class ChallengeController extends Controller
         }
 
         if($foundChallenge !== null) {
-            $foundChallenge->playerData()->updateExistingPivot($user->playerData()->id, [
+            $pivotToEdit = [
                 'progress' => $foundChallenge->completion_value,
-            ]);
+            ];
+
+            if($isTimed) {
+                $playerData = $user->playerData();
+                $hasClaimed = $foundChallenge->hasPlayerClaimed($playerData->id);
+
+                if(!$hasClaimed) {
+                    $rewardsToAdd = $foundChallenge->getRewards();
+
+                    foreach($rewardsToAdd as $reward) {
+                        $this->addReward($reward, $playerData);
+                    }
+                    $playerData->save();
+                    $pivotToEdit['claimed'] = true;
+                }
+            }
+
+            $foundChallenge->playerData()->updateExistingPivot($user->playerData()->id, $pivotToEdit);
             $foundChallenge->save();
             return;
         }
@@ -203,5 +226,34 @@ class ChallengeController extends Controller
 
         $foundChallenge->progress = $foundChallenge->completion_value;
         $foundChallenge->save();
+    }
+
+    protected function addReward(Reward $reward, PlayerData &$playerData): void
+    {
+        if ($reward->type === RewardType::Currency) {
+            switch ($reward->id) {
+                case 'CurrencyA':
+                    $playerData->currency_a += $reward->amount;
+                    break;
+                case 'CurrencyB':
+                    $playerData->currency_b += $reward->amount;
+                    break;
+                case 'CurrencyC':
+                    $playerData->currency_c += $reward->amount;
+                    break;
+                default:
+                    return;
+            }
+        }
+        else if ($reward->type === RewardType::Inventory) {
+            $itemUuid = Uuid::fromString($reward->id)->toString();
+
+            try {
+                // Since we can only have one occurrence of an item in the inventory, and an exception gets thrown when we try to add the same item twice
+                $playerData->inventory()->attach($itemUuid);
+            } catch (UniqueConstraintViolationException $e) {
+
+            }
+        }
     }
 }

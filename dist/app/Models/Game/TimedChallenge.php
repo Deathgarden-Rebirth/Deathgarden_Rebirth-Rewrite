@@ -4,6 +4,8 @@ namespace App\Models\Game;
 
 use App\Enums\Game\ChallengeType;
 use App\Enums\Game\Faction;
+use App\Enums\Game\RewardType;
+use App\Http\Responses\Api\General\Reward;
 use App\Models\User\PlayerData;
 use Carbon\Carbon;
 use Eloquent;
@@ -43,6 +45,25 @@ class TimedChallenge extends Model
             return $foundPlayerData->pivot->claimed;
 
         return false;
+    }
+
+    /**
+     * @return Reward[]
+     */
+    public function getRewards(): array {
+        if ($this->rewards === null)
+            return [];
+
+        $result = [];
+        foreach ($this->rewards as $reward) {
+            $result[] = new Reward(
+                RewardType::tryFrom($reward['type']),
+                $reward['amount'],
+                $reward['id'],
+            );
+        }
+
+        return $result;
     }
 
     public function playerData(): BelongsToMany

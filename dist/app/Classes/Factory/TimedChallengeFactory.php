@@ -57,31 +57,31 @@ abstract class TimedChallengeFactory
 
     const DAILY_REWARDS = [
         'CurrencyA' => [
-            'min' => 100,
-            'max' => 250,
+            'min' => 300,
+            'max' => 500,
         ],
         'CurrencyB' => [
-            'min' => 100,
-            'max' => 250,
+            'min' => 600,
+            'max' => 1000,
         ],
         'CurrencyC' => [
-            'min' => 250,
-            'max' => 500,
+            'min' => 500,
+            'max' => 900,
         ],
     ];
 
     const WEEKLY_REWARDS = [
         'CurrencyA' => [
-            'min' => 1000,
-            'max' => 1500,
+            'min' => 2000,
+            'max' => 3000,
         ],
         'CurrencyB' => [
-            'min' => 1000,
-            'max' => 1500,
+            'min' => 4000,
+            'max' => 6000,
         ],
         'CurrencyC' => [
-            'min' => 1500,
-            'max' => 2000,
+            'min' => 3000,
+            'max' => 5000,
         ],
     ];
 

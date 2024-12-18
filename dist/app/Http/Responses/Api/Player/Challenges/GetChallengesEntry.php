@@ -45,8 +45,8 @@ class GetChallengesEntry implements \JsonSerializable
 
         $rewards = [];
         foreach ($this->rewards as &$reward) {
-            $reward['claimed'] = $this->claimed;
-            $reward['weight'] = 100;
+            $rewards['claimed'] = $this->claimed;
+            $rewards['weight'] = 100;
             $rewards[] = $reward;
         }
         $json['rewards'] = $rewards;

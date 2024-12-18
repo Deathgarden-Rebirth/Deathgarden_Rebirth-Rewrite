@@ -115,7 +115,7 @@ abstract class TimedChallengeFactory
         else
             $challenge->end_time = $startTime->copy()->addWeek();
 
-        $challenge->rewards = static::pickReward($type);
+        $challenge->rewards = [static::pickReward($type)];
 
         return $challenge;
     }
@@ -125,8 +125,8 @@ abstract class TimedChallengeFactory
         ChallengeType $type,
     ): array {
         $challengeArray = match ($faction) {
-            Faction::Hunter => static::AVAILABLE_DAILY_HUNTER,
-            Faction::Runner => static::AVAILABLE_DAILY_RUNNER,
+            Faction::Hunter => $type === ChallengeType::Daily ? static::AVAILABLE_DAILY_HUNTER : static::AVAILABLE_WEEKLY_HUNTER,
+            Faction::Runner => $type === ChallengeType::Daily ?  static::AVAILABLE_DAILY_RUNNER : static::AVAILABLE_WEEKLY_RUNNER,
             default => null,
         };
 

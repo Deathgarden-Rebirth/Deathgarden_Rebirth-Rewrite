@@ -7,6 +7,7 @@ use App\Helper\Uuid\UuidHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Player\ExecuteChallengeProgressionBatchRequest;
 use App\Http\Requests\Api\Player\GetChallengeProgressionBatchRequest;
+use App\Http\Requests\Api\Player\GetChallengesRequest;
 use App\Http\Responses\Api\General\Reward;
 use App\Http\Responses\Api\Player\Challenges\ChallengeProgressionBatchResponse;
 use App\Http\Responses\Api\Player\Challenges\ChallengeProgressionEntry;
@@ -36,11 +37,13 @@ class ChallengeController extends Controller
      *
      * @return false|string
      */
-    public function getChallenges()
+    public function getChallenges(GetChallengesRequest $request)
     {
-        $user = Auth::user();
+        $user = $request->user;
         $timedChallenges = TimedChallenge::where('start_time', '<', Carbon::now())
-            ->where('end_time', '>', Carbon::now())->get();
+            ->where('end_time', '>', Carbon::now())
+            ->where('type', $request->type)
+            ->get();
 
         $challenges = [];
         $timedChallenges->each(function (TimedChallenge $challenge) use (&$challenges, $user) {

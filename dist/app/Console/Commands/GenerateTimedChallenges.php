@@ -42,6 +42,11 @@ class GenerateTimedChallenges extends Command
     {
         $dailyToday = Carbon::today();
         $dailyToday->setTime(static::INTERVAL_HOUR, static::INTERVAL_MINUTE);
+
+        // Put the current Daily a day in the past when the current time the job runs is still before the new Daily
+        if(Carbon::now()->isBefore($dailyToday))
+            $dailyToday->subDay();
+
         $dailyTomorrow = $dailyToday->copy()->addDay();
         $currentWeekly = Carbon::parse('last '.static::WEEKLY_INTERVAL_DAY);
         $currentWeekly->setTime(static::INTERVAL_HOUR, static::INTERVAL_MINUTE);

@@ -135,6 +135,13 @@ return [
             'replace_placeholders' => true,
         ],
 
+        'challengeCreation' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/challengeCreation.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),

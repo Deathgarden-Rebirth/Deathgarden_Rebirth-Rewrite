@@ -49,7 +49,7 @@
       "RequiredChallengesToComplete": [
         {
           "ChallengeId": "DE925104-43074D9D-B518B7A9-3A3A2FD9",
-          "ChallengeCompletionValue": 600.0,
+          "ChallengeCompletionValue": 90.0,
           "ChallengeAsset": {
             "AssetPathName": "/Game/Challenges/Progression/Challenge_HealFaster_Runner.Challenge_HealFaster_Runner",
             "SubPathString": ""

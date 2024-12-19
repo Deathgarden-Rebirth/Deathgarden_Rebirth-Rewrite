@@ -53,7 +53,7 @@
       "RequiredChallengesToComplete": [
         {
           "ChallengeId": "43AB4B23-4479F000-2C8D798F-583CF6F4",
-          "ChallengeCompletionValue": 300.0,
+          "ChallengeCompletionValue": 120.0,
           "ChallengeAsset": {
             "AssetPathName": "/Game/Challenges/Progression/Challenge_HackedCratesExplode_Hunter.Challenge_HackedCratesExplode_Hunter",
             "SubPathString": ""

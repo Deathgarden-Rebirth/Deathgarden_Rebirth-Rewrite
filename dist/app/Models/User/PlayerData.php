@@ -12,6 +12,7 @@ use App\Models\Game\CatalogItem;
 use App\Models\Game\Challenge;
 use App\Models\Game\CharacterData;
 use App\Models\Game\QuitterState;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use App\Models\Game\TimedChallenge;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -53,6 +54,8 @@ class PlayerData extends Model
         'has_played_tutorial' => 'boolean',
         'has_played_dg_1' => 'boolean',
     ];
+
+    const CURRENCY_CAP = 50000;
 
     protected static function booted(): void
     {
@@ -196,5 +199,23 @@ class PlayerData extends Model
         if ($level < 50)
             return 4;
         return 5;
+    }
+
+    public function currencyA(): Attribute {
+        return Attribute::make(
+            set: fn (int $value) => min($value, static::CURRENCY_CAP),
+        );
+    }
+
+    public function currencyB(): Attribute {
+        return Attribute::make(
+            set: fn (int $value) => min($value, static::CURRENCY_CAP),
+        );
+    }
+
+    public function currencyC(): Attribute {
+        return Attribute::make(
+            set: fn (int $value) => min($value, static::CURRENCY_CAP),
+        );
     }
 }

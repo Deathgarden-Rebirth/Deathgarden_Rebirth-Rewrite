@@ -4,7 +4,7 @@ namespace App\Enums\Game;
 
 enum RewardType: string
 {
-    case Currency = 'Currency';
-    case Inventory = 'Inventory';
-    case Progression = 'Progression';
+    case Currency = 'currency';
+    case Inventory = 'inventory';
+    case Progression = 'progression';
 }

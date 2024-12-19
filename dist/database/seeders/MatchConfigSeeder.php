@@ -15,46 +15,53 @@ class MatchConfigSeeder extends Seeder
     {
         DB::table('match_configurations')->delete();
         MatchConfiguration::Create([
+            'name' => 'Matchconfig_Dev - 1v1',
+            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
+            'hunters' => 1,
+            'runners' => 1,
+            'enabled' => false,
+        ]);
+        MatchConfiguration::Create([
+            'name' => 'Matchconfig - 1v5',
+            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
+            'enabled' => false,
+        ]);
+        MatchConfiguration::Create([
+            'name' => 'Matchconfig - 1v4',
+            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_2v10_4Needles.MatchConfig_Demo_2v10_4Needles',
+            'enabled' => true,
+            'weight' => 40,
+            'hunters' => 1,
+            'runners' => 4,
+        ]);
+        MatchConfiguration::Create([
+            'name' => 'Matchconfig - 1v6',
+            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_2v8_4Needles.MatchConfig_Demo_2v8_4Needles',
+            'hunters' => 1,
+            'runners' => 6,
+            'enabled' => true,
+            'weight' => 500,
+        ]);
+        MatchConfiguration::Create([
+            'name' => 'Halloween Mode - Survival',
+            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit.MatchConfig_Demo_HarvestYourExit',
+            'enabled' => false,
+        ]);
+        MatchConfiguration::Create([
             'name' => 'Curefew 1v5 - Slums',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_SLU_DownTown.MatchConfig_SLU_DownTown',
             'enabled' => false,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Harvest Your Exit - 1v5',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
-            'enabled' => false,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'Harvest Your Exit - 1v4',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
-            'enabled' => false,
-            'hunters' => 1,
-            'runners' => 4,
-            'weight' => 10,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'Harvest Your Exit - 1v6',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
-            'enabled' => false,
-            'hunters' => 1,
-            'runners' => 6,
-            'weight' => 10,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'New Arctic Fortress',
+            'name' => 'Frosthold Citadel',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_ARC_Fortress.MatchConfig_ARC_Fortress',
-            'enabled' => true,
-            'weight' => 50,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'Survival 1v5 - All Maps',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo.MatchConfig_Demo',
             'enabled' => false,
+            'weight' => 50,
         ]);
         MatchConfiguration::Create([
             'name' => 'Fire in the Sky - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_ARC_BlastFurnace.MatchConfig_ARC_BlastFurnace',
-            'enabled' => true,
+            'enabled' => false,
             'weight' => 200,
         ]);
         MatchConfiguration::Create([
@@ -101,51 +108,6 @@ class MatchConfigSeeder extends Seeder
             'runners' => 10,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Custom',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Custom.MatchConfig_Custom',
-            'enabled' => false,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'Custom Match',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_CustomMatch.MatchConfig_CustomMatch',
-            'enabled' => false,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'Survival 2v10 - 4 Needles',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_2v10_4Needles.MatchConfig_Demo_2v10_4Needles',
-            'enabled' => false,
-            'hunters' => 2,
-            'runners' => 10,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'Survival 2v10 - 5 Needles',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_2v10_5Needles.MatchConfig_Demo_2v10_5Needles',
-            'enabled' => false,
-            'hunters' => 2,
-            'runners' => 10,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'Survival 2v8 - 4 Needles',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_2v8_4Needles.MatchConfig_Demo_2v8_4Needles',
-            'enabled' => false,
-            'hunters' => 2,
-            'runners' => 8,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'Survival 2v8 - 5 Needles',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_2v8_5Needles.MatchConfig_Demo_2v8_5Needles',
-            'enabled' => false,
-            'hunters' => 2,
-            'runners' => 8,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'Harvest Your Exit - 2v10',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit.MatchConfig_Demo_HarvestYourExit',
-            'enabled' => false,
-            'hunters' => 2,
-            'runners' => 10,
-        ]);
-        MatchConfiguration::Create([
             'name' => 'Barren City - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_DES_City.MatchConfig_DES_City',
             'enabled' => false,
@@ -160,7 +122,7 @@ class MatchConfigSeeder extends Seeder
         MatchConfiguration::Create([
             'name' => 'Legions Rest - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_DES_Fortress.MatchConfig_DES_Fortress',
-            'enabled' => true,
+            'enabled' => false,
             'weight' => 100,
         ]);
         MatchConfiguration::Create([
@@ -186,7 +148,7 @@ class MatchConfigSeeder extends Seeder
         MatchConfiguration::Create([
             'name' => 'Dust & Blood - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_DES_Mayan.MatchConfig_DES_Mayan',
-            'enabled' => true,
+            'enabled' => false,
             'weight' => 100,
         ]);
         MatchConfiguration::Create([
@@ -199,7 +161,7 @@ class MatchConfigSeeder extends Seeder
         MatchConfiguration::Create([
             'name' => 'Blowout - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_DES_Oilfield.MatchConfig_DES_Oilfield',
-            'enabled' => true,
+            'enabled' => false,
             'weight' => 100,
         ]);
         MatchConfiguration::Create([
@@ -212,7 +174,7 @@ class MatchConfigSeeder extends Seeder
         MatchConfiguration::Create([
             'name' => 'Forest Citadel - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_JUN_Fortress.MatchConfig_JUN_Fortress',
-            'enabled' => true,
+            'enabled' => false,
             'weight' => 50,
         ]);
         MatchConfiguration::Create([
@@ -223,19 +185,9 @@ class MatchConfigSeeder extends Seeder
             'runners' => 10,
         ]);
         MatchConfiguration::Create([
-            'name' => 'New Maps',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_NewMaps.MatchConfig_NewMaps',
-            'enabled' => false,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'All New Arctic Maps',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_PRM_Special.MatchConfig_PRM_Special',
-            'enabled' => false,
-        ]);
-        MatchConfiguration::Create([
             'name' => 'First Strike - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_RUI_All.MatchConfig_RUI_All',
-            'enabled' => true,
+            'enabled' => false,
             'weight' => 100,
         ]);
         MatchConfiguration::Create([
@@ -246,13 +198,13 @@ class MatchConfigSeeder extends Seeder
             'runners' => 10,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Tombstone - 1v5',
+            'name' => 'Echoes From The Past - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_WA_Cemetery.MatchConfig_WA_Cemetery',
-            'enabled' => true,
+            'enabled' => false,
             'weight' => 140,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Tombstone - 2v10',
+            'name' => 'Echoes From The Past - 2v10',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_WA_Cemetery_2Hunters.MatchConfig_WA_Cemetery_2Hunters',
             'enabled' => false,
             'hunters' => 2,
@@ -261,7 +213,7 @@ class MatchConfigSeeder extends Seeder
         MatchConfiguration::Create([
             'name' => 'Salt Creek - 1v5',
             'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_WA_Rivers.MatchConfig_WA_Rivers',
-            'enabled' => true,
+            'enabled' => false,
             'weight' => 200,
         ]);
         MatchConfiguration::Create([
@@ -270,20 +222,6 @@ class MatchConfigSeeder extends Seeder
             'enabled' => false,
             'hunters' => 2,
             'runners' => 10,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'Harvest Your Exit - 1v1 (DEV)',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
-            'hunters' => 1,
-            'runners' => 1,
-            'enabled' => false,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'Harvest Your Exit - 1v6 (EXPERIMENTAL)',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
-            'hunters' => 1,
-            'runners' => 6,
-            'enabled' => false,
         ]);
     }
 }

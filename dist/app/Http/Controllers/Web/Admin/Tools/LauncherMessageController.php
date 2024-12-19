@@ -11,7 +11,7 @@ class LauncherMessageController extends AdminToolController
 {
     protected static string $name = 'Launcher Message';
 
-    protected static string $description = 'Set the Launcher message';
+    protected static string $description = 'Set the Launcher Message';
     protected static string $iconComponent = 'icons.patch-exclamation';
 
     protected static Permissions $neededPermission = Permissions::FILE_UPLOAD;

@@ -53,7 +53,7 @@
       "RequiredChallengesToComplete": [
         {
           "ChallengeId": "CF29BA96-4B65E429-DD2B559A-4D335CD3",
-          "ChallengeCompletionValue": 38.0,
+          "ChallengeCompletionValue": 15.0,
           "ChallengeAsset": {
             "AssetPathName": "/Game/Challenges/Progression/Challenge_Hacker_Hunter.Challenge_Hacker_Hunter",
             "SubPathString": ""

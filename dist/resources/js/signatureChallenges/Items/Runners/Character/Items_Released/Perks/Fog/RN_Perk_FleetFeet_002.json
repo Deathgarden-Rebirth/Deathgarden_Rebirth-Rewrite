@@ -49,7 +49,7 @@
       "RequiredChallengesToComplete": [
         {
           "ChallengeId": "FD314A69-4D049989-202D01BC-36269F44",
-          "ChallengeCompletionValue": 150.0,
+          "ChallengeCompletionValue": 100.0,
           "ChallengeAsset": {
             "AssetPathName": "/Game/Challenges/Progression/Challenge_FleetFeet_Runner.Challenge_FleetFeet_Runner",
             "SubPathString": ""

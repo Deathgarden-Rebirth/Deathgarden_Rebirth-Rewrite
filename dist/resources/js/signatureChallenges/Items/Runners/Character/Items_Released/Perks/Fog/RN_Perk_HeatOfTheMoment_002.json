@@ -49,7 +49,7 @@
       "RequiredChallengesToComplete": [
         {
           "ChallengeId": "4F99C439-49B5CAC8-7BCEB487-7B7FAB64",
-          "ChallengeCompletionValue": 60.0,
+          "ChallengeCompletionValue": 50.0,
           "ChallengeAsset": {
             "AssetPathName": "/Game/Challenges/Progression/Challenge_HeatOfTheMoment_Runner.Challenge_HeatOfTheMoment_Runner",
             "SubPathString": ""

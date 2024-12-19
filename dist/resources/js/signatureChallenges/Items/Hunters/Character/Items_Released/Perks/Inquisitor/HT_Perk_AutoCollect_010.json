@@ -49,7 +49,7 @@
       "RequiredChallengesToComplete": [
         {
           "ChallengeId": "6DFAA855-48F1C349-CE1E6A9F-29188FCF",
-          "ChallengeCompletionValue": 250.0,
+          "ChallengeCompletionValue": 100.0,
           "ChallengeAsset": {
             "AssetPathName": "/Game/Challenges/Progression/Challenge_Autocollect_Hunter.Challenge_Autocollect_Hunter",
             "SubPathString": ""

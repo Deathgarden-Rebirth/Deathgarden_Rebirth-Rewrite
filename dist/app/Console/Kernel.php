@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('model:prune')->daily();
         $schedule->command('matchmaking:process')->everyFiveSeconds();
         $schedule->command('matchmaking:cleanup')->everyFifteenSeconds();
+        $schedule->command('app:generate-timed-challenges')->daily();
     }
 
     /**

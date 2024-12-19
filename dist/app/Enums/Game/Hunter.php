@@ -41,7 +41,10 @@ enum Hunter: string
         };
     }
 
-    public function getItemConfigClass(): string|CharacterItemConfig
+    /**
+     * @return class-string<CharacterItemConfig>
+     */
+    public function getItemConfigClass(): string
     {
         return match ($this) {
             Hunter::Stalker => StalkerItemConfig::class,

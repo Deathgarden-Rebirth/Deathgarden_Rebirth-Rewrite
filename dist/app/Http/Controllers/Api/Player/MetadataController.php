@@ -140,6 +140,17 @@ class MetadataController extends Controller
         $convertedIds = UuidHelper::convertFromHexToUuidCollecton($request->metadata['equippedWeapons'], true);
         $characterData->equippedWeapons()->sync($convertedIds);
 
+        $characterConfig = $characterData->character->getCharacter()->getItemConfigClass();
+        $defaultCompletedIds = [
+            ...$characterConfig::getDefaultEquippedBonuses(),
+            ...$characterConfig::getDefaultEquippedWeapons(),
+            ...$characterConfig::getDefaultEquipment(),
+            ...$characterConfig::getDefaultPowers(),
+            ...$characterConfig::getDefaultEquippedPerks(),
+        ];
+
+        $defaultCompletedIds = UuidHelper::convertFromHexToUuidCollecton($defaultCompletedIds, true);
+
         foreach ($request->metadata['pickedChallenges'] as $picked) {
             $itemId = Uuid::fromHexadecimal(new Hexadecimal($picked['itemId']));
             $pickedChallenge = $characterData->getPicketChallengeForItem($itemId);
@@ -153,11 +164,16 @@ class MetadataController extends Controller
                 $assetPath = $challenge['challengeAsset'];
                 $completionValue = static::reducePickedChallengeCompletionValue($assetPath, $challenge['challengeCompletionValue']);
 
-                $newPicked = new PickedChallenge([
+                $attributes = [
                     'id' => $challengeId->toString(),
                     'completion_value' => $completionValue,
                     'asset_path' => $assetPath,
-                ]);
+                ];
+
+                if($defaultCompletedIds->has($itemId->toString()))
+                    $attributes['progress'] = $completionValue;
+
+                $newPicked = new PickedChallenge($attributes);
 
                 $newPicked->characterData()->associate($characterData);
                 $newPicked->catalogItem()->associate($itemId->toString());

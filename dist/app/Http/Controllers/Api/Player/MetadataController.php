@@ -219,7 +219,7 @@ class MetadataController extends Controller
         string $originalAmount,
     ): int {
         if(isset(static::PICKED_CHALLENGE_REDUCTION_MAPPING[$challengeBlueprint]))
-            return $originalAmount * (static::PICKED_CHALLENGE_REDUCTION_MAPPING[$challengeBlueprint] / 100);
+            return $originalAmount - (static::PICKED_CHALLENGE_REDUCTION_MAPPING[$challengeBlueprint] / 100 * $originalAmount);
         return $originalAmount;
     }
 }

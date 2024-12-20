@@ -70,6 +70,7 @@ class PlayerData extends Model
                     ...$configClass::getDefaultEquippedWeapons(),
                     ...$configClass::getDefaultEquipment(),
                     ...$configClass::getDefaultPowers(),
+                    ...$configClass::getDefaultWeapons(),
                     ...$configClass::getDefaultEquippedPerks(),
                 ];
 
@@ -92,6 +93,7 @@ class PlayerData extends Model
                     ...$configClass::getDefaultEquippedWeapons(),
                     ...$configClass::getDefaultEquipment(),
                     ...$configClass::getDefaultPowers(),
+                    ...$configClass::getDefaultWeapons(),
                     ...$configClass::getDefaultEquippedPerks(),
                 ];
 

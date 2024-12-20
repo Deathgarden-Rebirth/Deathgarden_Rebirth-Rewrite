@@ -179,6 +179,7 @@ class PlayerController extends Controller
             ...$config::getDefaultEquippedPerks(),
             ...$config::getDefaultPowers(),
             ...$config::getDefaultEquippedWeapons(),
+            ...$config::getDefaultWeapons(),
             ...$config::getDefaultEquippedBonuses(),
         ], true);
         $inventory = $characterData->playerData->inventory();

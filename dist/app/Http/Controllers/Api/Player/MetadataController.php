@@ -146,6 +146,7 @@ class MetadataController extends Controller
             ...$characterConfig::getDefaultEquippedWeapons(),
             ...$characterConfig::getDefaultEquipment(),
             ...$characterConfig::getDefaultPowers(),
+            ...$characterConfig::getDefaultWeapons(),
             ...$characterConfig::getDefaultEquippedPerks(),
         ];
 

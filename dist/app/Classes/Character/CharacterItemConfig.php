@@ -54,7 +54,6 @@ abstract class CharacterItemConfig
     {
         return [
             ...static::$defaultEquippedWeapons,
-            ...static::$additionalWeapons,
         ];
     }
 
@@ -73,6 +72,13 @@ abstract class CharacterItemConfig
         return [
             ...static::$defaultEquippedPowers,
             ...static::$additionalPowers,
+        ];
+    }
+
+    public static function getDefaultWeapons(): array {
+        return [
+            ...static::$defaultEquippedWeapons,
+            ...static::$additionalWeapons,
         ];
     }
 

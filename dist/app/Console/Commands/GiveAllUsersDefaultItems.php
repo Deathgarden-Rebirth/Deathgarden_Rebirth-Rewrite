@@ -53,6 +53,7 @@ class GiveAllUsersDefaultItems extends Command
             ...$config::getDefaultEquippedWeapons(),
             ...$config::getDefaultEquipment(),
             ...$config::getDefaultPowers(),
+            ...$config::getDefaultWeapons(),
             ...$config::getDefaultEquippedPerks(),
         ];
 

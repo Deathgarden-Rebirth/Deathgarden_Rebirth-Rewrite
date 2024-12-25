@@ -131,49 +131,49 @@ class CatalogPriceConfig
 
     const PERKS_COST = [
         1 => [
+            'CurrencyA' => 800,
             'CurrencyB' => 500,
-            'CurrencyC' => 125,
         ],
         2 => [
-            'CurrencyB' => 750,
-            'CurrencyC' => 750,
+            'CurrencyA' => 1200,
+            'CurrencyB' => 800,
         ],
         3 => [
-            'CurrencyB' => 1000,
-            'CurrencyC' => 1000,
+            'CurrencyA' => 1800,
+            'CurrencyB' => 1200,
         ],
         4 => [
-            'CurrencyB' => 1250,
-            'CurrencyC' => 1250,
+            'CurrencyA' => 2300,
+            'CurrencyB' => 1600,
         ],
         5 => [
-            'CurrencyB' => 1500,
-            'CurrencyC' => 1500,
+            'CurrencyA' => 2900,
+            'CurrencyB' => 2000,
         ],
         6 => [
-            'CurrencyA' => 500,
-            'CurrencyB' => 1300,
-            'CurrencyC' => 1300,
+            'CurrencyA' => 3400,
+            'CurrencyB' => 2500,
+            'CurrencyC' => 1800,
         ],
         7 => [
-            'CurrencyA' => 750,
-            'CurrencyB' => 1400,
-            'CurrencyC' => 1400,
+            'CurrencyA' => 4000,
+            'CurrencyB' => 3000,
+            'CurrencyC' => 1800,
         ],
         8 => [
-            'CurrencyA' => 875,
-            'CurrencyB' => 1500,
-            'CurrencyC' => 1500,
+            'CurrencyA' => 4800,
+            'CurrencyB' => 3500,
+            'CurrencyC' => 3600,
         ],
         9 => [
-            'CurrencyA' => 1000,
-            'CurrencyB' => 1600,
-            'CurrencyC' => 1600,
+            'CurrencyA' => 5500,
+            'CurrencyB' => 4000,
+            'CurrencyC' => 5000,
         ],
         10 => [
-            'CurrencyA' => 1250,
-            'CurrencyB' => 1700,
-            'CurrencyC' => 1700,
+            'CurrencyA' => 6200,
+            'CurrencyB' => 4500,
+            'CurrencyC' => 6500,
         ],
     ];
 

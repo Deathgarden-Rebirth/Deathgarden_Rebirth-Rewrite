@@ -50,6 +50,8 @@ class HomepageController extends Controller
     public function patchNotes(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
         static::setTitle('Deathgarden: Rebirth | Patch Notes');
+        CompView::share('metaKeywords', ['Deathgarden', 'Rebirth', 'patch', 'patchnnotes', 'patch notes']);
+        CompView::share('metaDescription', 'Stay up to date with all the changes, improvements, and updates in Deathgarden: Rebirth. Below is a complete archive of every patch since the mods release.');
         return view('web.patch-notes');
     }
 

@@ -18,7 +18,8 @@
 		<x-web.text>
 			Release Date: December 22, 2024
         <x-web.text class="font-semibold">
-            <a href="https://docs.google.com/document/d/1JeT_RCmg4nJSNBxZLOlKKuhdNY9MTELIUzbdtAjBC9k/edit?usp=sharing" class="weblink" target="_blank" rel="noopener noreferrer">
-        </x-web.text>
+			<a href="https://docs.google.com/document/d/1JeT_RCmg4nJSNBxZLOlKKuhdNY9MTELIUzbdtAjBC9k/edit?usp=sharing" class="weblink" target="_blank" rel="noopener noreferrer"> View Full Patch Notes </a>
+		</x-web.text>
+
     </div>
 </x-layouts.web>

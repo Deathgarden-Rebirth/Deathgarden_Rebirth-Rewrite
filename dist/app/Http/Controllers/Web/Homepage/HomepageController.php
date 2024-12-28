@@ -47,6 +47,12 @@ class HomepageController extends Controller
         abort(404);
     }
 
+    public function patchNotes(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
+    {
+        static::setTitle('Deathgarden: Rebirth | Patch Notes');
+        return view('web.patch-notes');
+    }
+
     public function howToPlay(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
         static::setTitle('Deathgarden: Rebirth | How to Play');

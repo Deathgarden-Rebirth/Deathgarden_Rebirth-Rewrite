@@ -35,6 +35,12 @@
             Creates and designs graphics. Moderates the Discord and game.
         </x-web.text>
     </x-web.credits-user>
+	
+	<x-web.credits-user :userSteamId="76561198033792162" headline="Narrative & Matchmaking Design" class="my-4">
+        <x-web.text>
+            Contributed to Deathgarden: Rebirth's narrative and matchmaking algorithm design.
+        </x-web.text>
+    </x-web.credits-user>
     <x-web.credits-user :userSteamId="0" usernameOverride="RealDrSalt" headline="Moderator"
                         :avatarOverride="asset('img/avatars/dr_salt.png')">
         <x-web.text>
@@ -54,6 +60,12 @@
     <x-web.credits-user :userSteamId="76561198808246076" headline="Moderator" class="my-4">
         <x-web.text>
             Moderates the Discord and game.
+        </x-web.text>
+    </x-web.credits-user>
+	
+	<x-web.credits-user :userSteamId="76561198247538620" headline="French Localization Support" class="my-4">
+        <x-web.text>
+            Improved and refined the French translation for Deathgarden: Rebirth.
         </x-web.text>
     </x-web.credits-user>
 

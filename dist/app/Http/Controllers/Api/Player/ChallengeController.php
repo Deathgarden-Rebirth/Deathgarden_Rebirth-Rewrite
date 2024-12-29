@@ -177,9 +177,12 @@ class ChallengeController extends Controller
             return;
         }
 
+        /** @var PickedChallenge $foundChallenge */
         $foundChallenge = PickedChallenge::find($challengeId);
         if($foundChallenge === null)
             return;
+
+        $newProgress = $newProgress >= MetadataController::reducePickedChallengeCompletionValue($foundChallenge->asset_path, $foundChallenge->completion_value) ? $foundChallenge->completion_value : $newProgress;
 
         $foundChallenge->progress = $newProgress;
         $foundChallenge->save();

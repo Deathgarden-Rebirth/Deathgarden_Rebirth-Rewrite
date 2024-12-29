@@ -6,6 +6,7 @@ use App\Classes\Character\CharacterItemConfig;
 use App\Enums\Game\Characters;
 use App\Helper\Uuid\UuidHelper;
 use App\Models\User\PlayerData;
+use App\Models\User\User;
 use Illuminate\Console\Command;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Log;
@@ -17,7 +18,7 @@ class GiveAllUsersDefaultItems extends Command
      *
      * @var string
      */
-    protected $signature = 'app:give-all-users-default-items';
+    protected $signature = 'app:give-all-users-default-items {userId?}';
 
     /**
      * The console command description.
@@ -31,7 +32,11 @@ class GiveAllUsersDefaultItems extends Command
      */
     public function handle()
     {
-        $playerDatas = PlayerData::all();
+        $userId = $this->argument('userId');
+        if($userId === null)
+            $playerDatas = PlayerData::all();
+        else
+            $playerDatas = [User::findOrFail($userId)->playerData()];
 
         foreach ($playerDatas as $playerData) {
             foreach (Characters::cases() as $case) {

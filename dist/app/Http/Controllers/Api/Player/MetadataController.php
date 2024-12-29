@@ -163,7 +163,7 @@ class MetadataController extends Controller
             foreach ($picked['list'] as $challenge) {
                 $challengeId = Uuid::fromHexadecimal(new Hexadecimal($challenge['challengeId']));
                 $assetPath = $challenge['challengeAsset'];
-                $completionValue = static::reducePickedChallengeCompletionValue($assetPath, $challenge['challengeCompletionValue']);
+                $completionValue = $challenge['challengeCompletionValue'];
 
                 $attributes = [
                     'id' => $challengeId->toString(),
@@ -231,6 +231,13 @@ class MetadataController extends Controller
         return false;
     }
 
+    /**
+     * Reduces the Completion value of the given challenge.
+     *
+     * @param string $challengeBlueprint
+     * @param string $originalAmount
+     * @return int
+     */
     public static function reducePickedChallengeCompletionValue(
         string $challengeBlueprint,
         string $originalAmount,

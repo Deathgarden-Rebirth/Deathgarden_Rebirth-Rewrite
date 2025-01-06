@@ -44,6 +44,12 @@ return [
             'throw' => false,
         ],
 
+        'logs' => [
+            'driver' => 'local',
+            'root' => storage_path('logs'),
+            'throw' => false,
+        ],
+
         'patches' => [
             'driver' => 'local',
             'root' => storage_path('app/patches'),

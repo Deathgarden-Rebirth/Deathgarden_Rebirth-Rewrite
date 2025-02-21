@@ -4,7 +4,7 @@
             Patch Notes History
         </x-web.headline>
         <x-web.text>
-            Last Updated: 12/28/2024
+            Last Updated: 02/21/2025
         </x-web.text>
 		
 		<x-web.text>
@@ -12,7 +12,39 @@
 		Below is a complete archive of every patch since the mod's release. Click the links to view the full patch notes.
         </x-web.text>
 
-        <x-web.accordeon class="w-full mt-4" headline="Patch 1.2.0.1 - Dark Instinct Hotfix #1">
+        <x-web.accordeon class="w-full mt-4" headline="Patch 1.2.0.3 - Dark Instinct Hotfix #3">
+			<x-web.text>
+				<span class="font-bold mb-4 block">
+					Release Date: February 21, 2025
+				</span>
+				This patch adjust the balance of the Jasper 67V Auto Shotgun and improves Inked's support orientated Perks.
+			</x-web.text>
+			<x-web.text class="font-semibold mt-4">
+            <a href="https://docs.google.com/document/d/1s_29d3x9FK3Ah8dSrkrp_Q5zt7QgLzP_zFxRAF7AouA/edit?usp=sharing" 
+               class="weblink" target="_blank" rel="noopener noreferrer">
+               View Full Patch Notes
+            </a>
+			</x-web.text>
+		</x-web.accordeon>
+		
+		<x-web.accordeon class="w-full mt-4" headline="Patch 1.2.0.2 - End of Year Balance Update">
+			<x-web.text>
+				<span class="font-bold mb-4 block">
+					Release Date: December 29, 2024
+				</span>
+				As we wrap up 2024, we’re excited to bring you the last patch of the year,
+				featuring some key balance changes. We’ve increased the blood charges for Survival and Harvest Your Exit in 1v4 to ensure a more strategic challenge for Scavengers. 
+				Additionally, we've made adjustments to weapons like the Wyvern's Breath ST22 Sniper Rifle and Mowzer 320 Auto Sniper to enhance consistency and smoothen gameplay
+			</x-web.text>
+			<x-web.text class="font-semibold mt-4">
+            <a href="https://docs.google.com/document/d/1eKNyuJCBJqF3CkKKIBH6JXKFASg0jBuB1CvuTeku3mw/edit?usp=sharing" 
+               class="weblink" target="_blank" rel="noopener noreferrer">
+               View Full Patch Notes
+            </a>
+			</x-web.text>
+		</x-web.accordeon>
+		
+		<x-web.accordeon class="w-full mt-4" headline="Patch 1.2.0.1 - Dark Instinct Hotfix #1">
 			<x-web.text>
 				<span class="font-bold mb-4 block">
 					Release Date: December 22, 2024

@@ -12,7 +12,7 @@
 		Below is a complete archive of every patch since the mod's release. Click the links to view the full patch notes.
         </x-web.text>
 
-        <x-web.accordeon class="w-full mt-4" headline="Patch 1.2.0.4 - Dark Instinct Hotfix #3">
+        <x-web.accordeon class="w-full mt-4" headline="Patch 1.2.0.4 - Dark Instinct Hotfix #4">
             <x-web.text>
 				<span class="font-bold mb-4 block">
 					Release Date: March 29, 2025

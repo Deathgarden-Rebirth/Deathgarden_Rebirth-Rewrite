@@ -83,7 +83,7 @@ class ProcessMatchmaking extends Command
         if($availableMatchConfigs->isEmpty())
             return;
 
-        $selectedConfig = MatchConfiguration::selectRandomConfigByWeight($availableMatchConfigs);
+        $selectedConfig = MatchConfiguration::selectMatchConfig($availableMatchConfigs, $playerCount->runners, $playerCount->hunters);
 
         // Should never happen, but just to be careful
         if($selectedConfig === null)

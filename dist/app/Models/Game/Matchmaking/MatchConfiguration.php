@@ -38,28 +38,11 @@ class MatchConfiguration extends Model
      */
     public static function getAvailableMatchConfigs(int $runnerCount, int $hunterCount): Collection
     {
-        $availableMatchConfigs = null
-
-        if($hunterCount == 1 and $runnerCount >= 6) {
-        $availableMatchConfigs = MatchConfiguration::where('runners', '>=', 6)
-                ->where('hunters', '=', $hunterCount)
-                ->where('enabled', '=', true)
-                ->get();
-        } elseif ($hunterCount == 1 and $runnerCount >= 4) {
-            $availableMatchConfigs = MatchConfiguration::where('runners', '=', $runnerCount)
-                ->where('hunters', '=', $hunterCount)
-                ->where('enabled', '=', true)
-                ->get();
-        }
-
-        if ($availableMatchConfigs === null or $availableMatchConfigs->isEmpty())
-            return MatchConfiguration::where('runners', '<=', $runnerCount)
+        $scavCompareMethod = $runnerCount >= 6 ? '>=' : ($runnerCount >= 4 ? '=' : '<=');
+        return MatchConfiguration::where('runners', $scavCompareMethod , min($runnerCount, 6))
                 ->where('hunters', '<=', $hunterCount)
-                ->where('enabled', '=', true)
+                ->whereEnabled(true)
                 ->get();
-        } else {
-        return $availableMatchConfigs
-        }
     }
 
     public static function selectRandomConfigByWeight(Collection &$collection): MatchConfiguration|null

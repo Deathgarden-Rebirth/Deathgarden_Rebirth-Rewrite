@@ -1,3 +1,5 @@
+import sys
+import json
 import pulp
 
 # Define problem parameters
@@ -18,6 +20,10 @@ group_time_multiplier = {
     2 : 0.9,
     3 : 0.8
 }
+
+print(sys.argv[1])
+print(json.loads(sys.argv[1])['test'])
+exit()
 
 if len(group_weights) != n:
     raise ValueError("Number of Runner groups must match number of group weights")

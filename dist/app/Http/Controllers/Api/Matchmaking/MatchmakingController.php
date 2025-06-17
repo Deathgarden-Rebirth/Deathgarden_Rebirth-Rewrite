@@ -368,7 +368,8 @@ class MatchmakingController extends Controller
     {
         $game->players()->detach($user);
 
-        if($game->players->count() !== 0)
+        // Delete the game if the creator deletes themselfes sice we had one case where the matchmaking broke due to a game being stuck like this.
+        if($game->players->count() !== 0 && $game->creator_user_id !== $user->id)
             return;
 
         $game->delete();

@@ -44,8 +44,24 @@ class MatchConfiguration extends Model
             ->get();
     }
 
-    public static function selectRandomConfigByWeight(Collection &$collection): MatchConfiguration|null
+    public static function selectMatchConfig(Collection &$collection, int $runnerCount, int $hunterCount): MatchConfiguration|null
     {
+        $filteredConfigs = new Collection();
+
+        if ($hunterCount === 1 && $runnerCount >= 6){
+            $filteredConfigs = $collection->filter(function (MatchConfiguration $config) use ($runnerCount, $hunterCount) {
+                return $config->runners >= 6 && $config->hunters === $hunterCount;
+            });
+        }
+        else if ($hunterCount === 1 && $runnerCount >= 4){
+            $filteredConfigs = $collection->filter(function (MatchConfiguration $config) use ($runnerCount, $hunterCount) {
+                return $config->runners === $runnerCount && $config->hunters === $hunterCount;
+            });
+        }
+
+        if ($filteredConfigs->isNotEmpty())
+            $collection = $filteredConfigs;
+
         $weightSum = $collection->sum('weight');
         $random = random_int(1, $weightSum);
         $selectWalk = 0;

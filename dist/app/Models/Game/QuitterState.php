@@ -117,7 +117,7 @@ class QuitterState extends Model
             return [
                 new Reward(
                     RewardType::Currency,
-                    50,
+                    150,
                     'CurrencyA',
                 ),
             ];
@@ -126,7 +126,7 @@ class QuitterState extends Model
             return [
                 new Reward(
                     RewardType::Currency,
-                    100,
+                    300,
                     'CurrencyA',
                 ),
                 new Reward(
@@ -145,7 +145,7 @@ class QuitterState extends Model
             return [
                 new Reward(
                     RewardType::Currency,
-                    150,
+                    450,
                     'CurrencyA',
                 ),
                 new Reward(
@@ -164,7 +164,7 @@ class QuitterState extends Model
             return [
                 new Reward(
                     RewardType::Currency,
-                    200,
+                    600,
                     'CurrencyA',
                 ),
                 new Reward(
@@ -183,7 +183,7 @@ class QuitterState extends Model
             return [
                 new Reward(
                     RewardType::Currency,
-                    250,
+                    750,
                     'CurrencyA',
                 ),
                 new Reward(

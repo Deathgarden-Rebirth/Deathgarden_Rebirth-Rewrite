@@ -17,12 +17,14 @@ use Psr\Log\LoggerInterface;
 
 class ProcessMatchmaking extends Command
 {
-    /**
-     * How long the matchmakign shoudl wait when only one 1v4 or 1v5 could be made before actually making it.
-     */
-    const ONE_VS_FOUR_AND_FIVE_WAIT_TIME = 20;
+    public static int $repeatTimeSeconds;
 
-    const ONE_VS_FOUR_AND_VS_FIVE_FIST_ATTEMPT_CACHE_KEY = 'matchmaking_attempt_1v4_1v5';
+    /**
+     * How long the matchmaking should wait when only one 1v4 or 1v5 could be made before actually making it.
+     */
+    const ONE_VS_FOUR_AND_FIVE_WAIT_TIME = 10;
+
+    const ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY = 'matchmaking_attempt_1v4_1v5';
 
     /**
      * The name and signature of the console command.
@@ -91,21 +93,21 @@ class ProcessMatchmaking extends Command
         // If we only have one Hunter and could make a 1v4 or 1v5 we want to wait a bit before making a match.
         // because there could be some runners not being fast enough in queue or the matchmaking command running unfortunatly while players are queuing up.
         if ($playerCount->hunters === 1 && ($playerCount->runners === 4 || $playerCount->runners === 5)) {
-            if (Cache::has(static::ONE_VS_FOUR_AND_VS_FIVE_FIST_ATTEMPT_CACHE_KEY)) {
+            if (Cache::has(static::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY)) {
                 /** @var Carbon $firstAttempt */
-                $firstAttempt = Cache::get(static::ONE_VS_FOUR_AND_VS_FIVE_FIST_ATTEMPT_CACHE_KEY);
+                $firstAttempt = Cache::get(static::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY);
                 if ($firstAttempt->diffInSeconds(Carbon::now()) < static::ONE_VS_FOUR_AND_FIVE_WAIT_TIME){
                     return;
                 }
-                Cache::forget(static::ONE_VS_FOUR_AND_VS_FIVE_FIST_ATTEMPT_CACHE_KEY);
+                Cache::forget(static::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY);
             }
             else {
-                Cache::set(static::ONE_VS_FOUR_AND_VS_FIVE_FIST_ATTEMPT_CACHE_KEY, Carbon::now());
+                Cache::set(static::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY, Carbon::now());
                 return;
             }
         }
         else {
-            Cache::forget(static::ONE_VS_FOUR_AND_VS_FIVE_FIST_ATTEMPT_CACHE_KEY);
+            Cache::forget(static::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY);
         }
 
         $availableMatchConfigs = MatchConfiguration::getAvailableMatchConfigs($playerCount->runners, $playerCount->hunters);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Matchmaking;
 
+use App\Console\Commands\ProcessMatchmaking;
 use App\Enums\Game\Matchmaking\MatchStatus;
 use App\Enums\Game\Matchmaking\QueueStatus;
 use App\Http\Controllers\Controller;
@@ -277,7 +278,7 @@ class MatchmakingController extends Controller
         $foundQueuedPlayer = QueuedPlayer::firstWhere('user_id', '=', $user->id);
 
         // If we found a queued Player, return his status
-        if($foundQueuedPlayer !== null) {
+        if ($foundQueuedPlayer !== null) {
             // Set Last queue call time to remove players that maybe crashed or something
             // if they haven't sent a queue request in a long time.
             $foundQueuedPlayer->updated_at = Carbon::now();
@@ -287,7 +288,7 @@ class MatchmakingController extends Controller
             $response->status = QueueStatus::Queued;
             $response->queueData = new QueueData(
                 1,
-                10
+                static::getETA(),
             );
 
             return $response;
@@ -297,12 +298,13 @@ class MatchmakingController extends Controller
         // Only search for Created or open matches
         $foundGame = $user->activeGames();
         // If they also aren't in a game, add them to the queue again
-        if($foundGame->count() < 1) {
+        if ($foundGame->count() < 1) {
             $this->addPlayerToQueue($request);
             $response = new QueueResponse();
             $response->status = QueueStatus::Queued;
             $response->queueData = new QueueData(
                 1,
+                static::getETA(),
             );
 
             return $response;
@@ -316,10 +318,10 @@ class MatchmakingController extends Controller
 
         $response = new QueueResponse();
 
-        if($foundGame->status === MatchStatus::Opened) {
+        if ($foundGame->status === MatchStatus::Opened) {
             $response->queueData = new QueueData(
                 1,
-                1
+                static::getETA(),
             );
         }
         $response->status = QueueStatus::Matched;
@@ -334,7 +336,7 @@ class MatchmakingController extends Controller
             $user = Auth::user();
 
             // Remove user from any game he has previously joined.
-            if($user->activeGames()->exists()) {
+            if ($user->activeGames()->exists()) {
                 $games = $user->activeGames()->get();
                 foreach ($games as $game) {
                     $this->removeUserFromGame($user, $game);
@@ -369,10 +371,25 @@ class MatchmakingController extends Controller
         $game->players()->detach($user);
 
         // Delete the game if the creator deletes themselfes sice we had one case where the matchmaking broke due to a game being stuck like this.
-        if($game->players->count() !== 0 && $game->creator_user_id !== $user->id)
+        if ($game->players->count() !== 0 && $game->creator_user_id !== $user->id)
             return;
 
         $game->delete();
     }
 
+    protected static function getETA(): int {
+        if(Cache::has(ProcessMatchmaking::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY)) {
+            /** @var Carbon $firstAttempt */
+            $firstAttempt = Cache::get(ProcessMatchmaking::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY);
+            $predictedMatchTime = $firstAttempt;
+
+            while ($firstAttempt->diffInSeconds($predictedMatchTime) < ProcessMatchmaking::ONE_VS_FOUR_AND_FIVE_WAIT_TIME) {
+                $predictedMatchTime->addSeconds(ProcessMatchmaking::$repeatTimeSeconds);
+            }
+
+            return $predictedMatchTime->getTimestamp();
+        }
+
+        return -1;
+    }
 }

@@ -17,6 +17,7 @@ use App\Http\Responses\Api\Matchmaking\QueueResponse;
 use App\Models\Admin\Archive\ArchivedGame;
 use App\Models\Admin\Archive\ArchivedPlayerProgression;
 use App\Models\Admin\CurrencyMultipliers;
+use App\Models\Admin\MatchmakingSettings;
 use App\Models\Admin\Versioning\CurrentGameVersion;
 use App\Models\Game\Matchmaking\Game;
 use App\Models\Game\Matchmaking\QueuedPlayer;
@@ -40,10 +41,10 @@ class MatchmakingController extends Controller
 
     public function queue(QueueRequest $request)
     {
-        if($request->category !== CurrentGameVersion::get()?->gameVersion)
+        if ($request->category !== CurrentGameVersion::get()?->gameVersion)
             abort(403, 'Too old mod version');
 
-        if($request->checkOnly)
+        if ($request->checkOnly)
             return json_encode($this->checkQueueStatus($request));
 
         return json_encode($this->addPlayerToQueue($request));
@@ -53,20 +54,20 @@ class MatchmakingController extends Controller
     {
         $user = Auth::user();
 
-        if($user->id !== $request->playerId || $request->endState !== 'Cancelled')
+        if ($user->id !== $request->playerId || $request->endState !== 'Cancelled')
             return response('', 204);
 
         $lock = Cache::lock(static::QUEUE_LOCK, 10);
 
         try {
-            $lock->block(20 ,function () use (&$user) {
+            $lock->block(20, function () use (&$user) {
                 // Delete the player from the Queue
                 QueuedPlayer::where('user_id', '=', $user->id)->delete();
                 // And also from any game they are matched for.
                 DB::table('game_user')->where('user_id', '=', $user->id)->delete();
             });
         } catch (LockTimeoutException $e) {
-            Log::channel('matchmaking')->emergency('Queue Cancel: Could not acquire Lock for canceling user '.$user->id.'('.$user->last_known_username.')');
+            Log::channel('matchmaking')->emergency('Queue Cancel: Could not acquire Lock for canceling user ' . $user->id . '(' . $user->last_known_username . ')');
         } finally {
             $lock->release();
         }
@@ -78,7 +79,7 @@ class MatchmakingController extends Controller
     {
         $foundGame = Game::find($matchId);
 
-        if($foundGame === null)
+        if ($foundGame === null)
             return ['status' => 'Error', 'message' => 'Match not found.'];
 
         $user = Auth::user();
@@ -103,24 +104,24 @@ class MatchmakingController extends Controller
         return json_encode(MatchData::fromGame($foundGame));
     }
 
-	public function close($matchId)
-	{
-		$foundGame = Game::find($matchId);
-		$foundGame->status = MatchStatus::Closed;
-		$foundGame->save();
+    public function close($matchId)
+    {
+        $foundGame = Game::find($matchId);
+        $foundGame->status = MatchStatus::Closed;
+        $foundGame->save();
 
-		return json_encode(MatchData::fromGame($foundGame));
-	}
+        return json_encode(MatchData::fromGame($foundGame));
+    }
 
     /*
      * Set a game to Quit state, Maybe exists but unsure since it never showed up in the request logs.
      */
-	public function quit($matchId)
-	{
-		$foundGame = Game::find($matchId);
+    public function quit($matchId)
+    {
+        $foundGame = Game::find($matchId);
         $user = Auth::user();
 
-        if($foundGame->creator === $user) {
+        if ($foundGame->creator === $user) {
             $foundGame->status = MatchStatus::Destroyed;
             $foundGame->save();
         }
@@ -129,17 +130,17 @@ class MatchmakingController extends Controller
         }
 
         return response(null, 204);
-	}
+    }
 
-	public function kill($matchId)
-	{
-		$foundGame = Game::find($matchId);
+    public function kill($matchId)
+    {
+        $foundGame = Game::find($matchId);
 
         $response = json_encode(MatchData::fromGame($foundGame));
         $foundGame->delete();
 
-		return $response;
-	}
+        return $response;
+    }
 
     public function seedFileGet(string $gameVersion, string $seed, string $mapName)
     {
@@ -156,7 +157,7 @@ class MatchmakingController extends Controller
         $requestUser = Auth::user();
 
         // Block request if it doesn't come from the host
-        if($match->creator->id != $requestUser->id)
+        if ($match->creator->id != $requestUser->id)
             return response('Action not allowed, you are not the creator of the match.', 403);
 
         $this->removeUserFromGame($user, $match);
@@ -166,13 +167,13 @@ class MatchmakingController extends Controller
 
     public function endOfMatch(EndOfMatchRequest $request)
     {
-        if(ArchivedGame::archivedGameExists($request->matchId))
+        if (ArchivedGame::archivedGameExists($request->matchId))
             return response('Match Already Closed', 209);
 
         $game = Game::find($request->matchId);
         $user = Auth::user();
 
-        if($game->creator != $user)
+        if ($game->creator != $user)
             return response('you are not the creator of the match.', 403);
 
         $game->status = MatchStatus::Killed;
@@ -187,7 +188,7 @@ class MatchmakingController extends Controller
         $user = Auth::user();
         $game = Game::find($request->matchId);
 
-        if($game === null)
+        if ($game === null)
             return response('Match not found.', 404);
 
         if ($game->creator != $user)
@@ -195,21 +196,21 @@ class MatchmakingController extends Controller
 
         $user = User::find($request->playerId);
 
-        if($user === null)
+        if ($user === null)
             return response('User not found.', 404);
 
-        $lock = Cache::lock('playerEndOfMatch'.$user->id);
+        $lock = Cache::lock('playerEndOfMatch' . $user->id);
 
         try {
             // Lock the saving of the playerdata and stuff because the game can send multiple calls sometimes
             $lock->block(10 ,function () use (&$user, &$request, &$game) {
-                if(ArchivedPlayerProgression::archivedPlayerExists($game->id, $user->id))
+                if (ArchivedPlayerProgression::archivedPlayerExists($game->id, $user->id))
                     return;
 
                 $playerData = $user->playerData();
                 $characterData = $playerData->characterDataForCharacter($request->characterGroup->getCharacter());
 
-                if($request->hasQuit)
+                if ($request->hasQuit)
                     $playerData->quitterState->addQuitterPenalty();
                 else
                     $playerData->quitterState->addStayedMatch($playerData);
@@ -379,10 +380,11 @@ class MatchmakingController extends Controller
 
     protected static function getETA(): int {
         if(Cache::has(ProcessMatchmaking::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY)) {
+            $matchmakingSettings = MatchmakingSettings::get();
             /** @var Carbon $firstAttempt */
             $firstAttempt = Cache::get(ProcessMatchmaking::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY);
             $predictedMatchTime = $firstAttempt->copy();
-            while ($firstAttempt->diffInSeconds($predictedMatchTime) < ProcessMatchmaking::ONE_VS_FOUR_AND_FIVE_WAIT_TIME) {
+            while ($firstAttempt->diffInSeconds($predictedMatchTime) < $matchmakingSettings->matchWaitingTime) {
                 $predictedMatchTime->addSeconds(ProcessMatchmaking::$repeatTimeSeconds);
             }
 

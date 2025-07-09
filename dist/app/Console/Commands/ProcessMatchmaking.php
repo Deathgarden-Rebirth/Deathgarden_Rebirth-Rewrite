@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Classes\Matchmaking\MatchmakingPlayerCount;
 use App\Enums\Game\Matchmaking\MatchmakingSide;
 use App\Enums\Game\Matchmaking\MatchStatus;
+use App\Models\Admin\MatchmakingSettings;
 use App\Models\Game\Matchmaking\Game;
 use App\Models\Game\Matchmaking\MatchConfiguration;
 use App\Models\Game\Matchmaking\QueuedPlayer;
@@ -18,11 +19,6 @@ use Psr\Log\LoggerInterface;
 class ProcessMatchmaking extends Command
 {
     public static int $repeatTimeSeconds = 20;
-
-    /**
-     * How long the matchmaking should wait when only one 1v4 or 1v5 could be made before actually making it.
-     */
-    const ONE_VS_FOUR_AND_FIVE_WAIT_TIME = 10;
 
     const ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY = 'matchmaking_attempt_1v4_1v5';
 
@@ -47,6 +43,7 @@ class ProcessMatchmaking extends Command
      */
     public function handle(): void
     {
+        $matchmakingSettings = MatchmakingSettings::get();
         // Select all queued Players/party leaders, descending by party size
         $players = QueuedPlayer::withCount('followingUsers')
             ->sharedLock()
@@ -96,7 +93,7 @@ class ProcessMatchmaking extends Command
             if (Cache::has(static::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY)) {
                 /** @var Carbon $firstAttempt */
                 $firstAttempt = Cache::get(static::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY);
-                if ($firstAttempt->diffInSeconds(Carbon::now()) < static::ONE_VS_FOUR_AND_FIVE_WAIT_TIME){
+                if ($firstAttempt->diffInSeconds(Carbon::now()) < $matchmakingSettings->matchWaitingTime){
                     return;
                 }
                 Cache::forget(static::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY);

@@ -381,13 +381,12 @@ class MatchmakingController extends Controller
         if(Cache::has(ProcessMatchmaking::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY)) {
             /** @var Carbon $firstAttempt */
             $firstAttempt = Cache::get(ProcessMatchmaking::ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY);
-            $predictedMatchTime = $firstAttempt;
-
+            $predictedMatchTime = $firstAttempt->copy();
             while ($firstAttempt->diffInSeconds($predictedMatchTime) < ProcessMatchmaking::ONE_VS_FOUR_AND_FIVE_WAIT_TIME) {
                 $predictedMatchTime->addSeconds(ProcessMatchmaking::$repeatTimeSeconds);
             }
 
-            return $predictedMatchTime->getTimestamp();
+            return Carbon::now()->diffInSeconds($predictedMatchTime) * 1000;
         }
 
         return -1;

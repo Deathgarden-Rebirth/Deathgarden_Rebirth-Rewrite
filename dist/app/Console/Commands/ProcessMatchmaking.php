@@ -17,7 +17,7 @@ use Psr\Log\LoggerInterface;
 
 class ProcessMatchmaking extends Command
 {
-    public static int $repeatTimeSeconds;
+    public static int $repeatTimeSeconds = 20;
 
     /**
      * How long the matchmaking should wait when only one 1v4 or 1v5 could be made before actually making it.

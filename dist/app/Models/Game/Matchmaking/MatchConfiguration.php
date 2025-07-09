@@ -38,6 +38,9 @@ class MatchConfiguration extends Model
      */
     public static function getAvailableMatchConfigs(int $runnerCount, int $hunterCount): Collection
     {
+        if ($hunterCount === 1 && ($runnerCount === 4 || $runnerCount === 5))
+            sleep(10);
+        
         return MatchConfiguration::where('runners', '<=', $runnerCount)
             ->where('hunters', '<=', $hunterCount)
             ->where('enabled', '=', true)

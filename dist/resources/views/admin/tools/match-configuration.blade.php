@@ -3,14 +3,15 @@
 
     $experienceMultipliers = \App\Models\Admin\ExperienceMultipliers::get();
     $currencyMultipliers = \App\Models\Admin\CurrencyMultipliers::get();
+    $matchmakingSettings = \App\Models\Admin\MatchmakingSettings::get();
 @endphp
 
 <x-layouts.admin>
     <div class="container mx-auto border bg-slate-800 border-slate-500 rounded-xl  p-4 my-6">
         <div class="flex flex-col gap-4 px-4 lg:[&>form>div]:px-52 [&>form>div]:flex [&>form>div]:justify-between [&>form>div]:items-center [&>form_label]:text-xl">
-            <form action="{{ route('match-configuration.save.experience') }}" method="post">
+            <form action="{{ route('match-configuration.save.experience') }}" method="post" class="[&>div]:m-2">
                 @csrf
-                <span class="headline">
+                <span class="headline mb-2">
                     Experience Multipliers
                 </span>
 
@@ -139,7 +140,7 @@
                     Save
                 </x-inputs.button>
             </form>
-            <form action="{{ route('match-configuration.save.currency') }}" method="post" class="mt-8">
+            <form action="{{ route('match-configuration.save.currency') }}" method="post" class="mt-8 [&>div]:m-2">
                 @csrf
                 <span class="headline">
                     Currency Multipliers
@@ -183,6 +184,29 @@
                             name="currencyC"
                             value="{{ $currencyMultipliers->currencyC }}"
                             step="0.01"
+                            required
+                    />
+                </div>
+                <x-inputs.button class="save mt-2">
+                    Save
+                </x-inputs.button>
+            </form>
+            <form action="{{ route('match-configuration.save.matchmaking') }}" method="post" class="mt-8 [&>div]:m-2">
+                @csrf
+                <span class="headline mb-2">
+                    Matchmaking Settings
+                </span>
+
+                <div>
+                    <label for="matchmakingWaitingTime">
+                        1v4 and 1v5 matchmaking wait duration
+                    </label>
+
+                    <x-inputs.number
+                            id="matchmakingWaitingTime"
+                            name="matchmakingWaitingTime"
+                            value="{{ $matchmakingSettings->matchWaitingTime }}"
+                            step="1"
                             required
                     />
                 </div>

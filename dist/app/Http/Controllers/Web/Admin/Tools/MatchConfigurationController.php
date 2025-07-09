@@ -7,10 +7,12 @@ use App\Enums\Game\ExperienceEventType;
 use App\Http\Requests\Api\Admin\Tools\SaveCurrencyConfiguration;
 use App\Http\Requests\Api\Admin\Tools\SaveLauncherMessageRequest;
 use App\Http\Requests\Api\Admin\Tools\SaveMatchConfigurationRequest;
+use App\Http\Requests\Api\Admin\Tools\SaveMatchmakingConfigurationRequest;
 use App\Http\Requests\Api\Admin\Tools\SaveVersioningRequest;
 use App\Models\Admin\CurrencyMultipliers;
 use App\Models\Admin\ExperienceMultipliers;
 use App\Models\Admin\LauncherMessage;
+use App\Models\Admin\MatchmakingSettings;
 use App\Models\Admin\Versioning\CurrentCatalogVersion;
 use App\Models\Admin\Versioning\CurrentContentVersion;
 use App\Models\Admin\Versioning\CurrentGameVersion;
@@ -68,6 +70,22 @@ class MatchConfigurationController extends AdminToolController
             Session::flash('alert-success', 'Configuration saved successfully.');
         } catch (\Exception $e) {
             Session::flash('alert-error', 'Configuration could not be saved, something went wrong: ' . $e->getMessage());
+        }
+
+        return back();
+    }
+
+    public function saveMatchmaking(SaveMatchmakingConfigurationRequest $request) {
+        $matchmakingConfig = MatchmakingSettings::get();
+
+        try {
+            $matchmakingConfig->matchWaitingTime = $request->matchmakingWaitingTime;
+            $matchmakingConfig->save();
+
+            Session::flash('alert-success', 'Matchmaking configuration saved successfully.');
+        }
+        catch (\Exception $e) {
+            Session::flash('alert-error', 'Matchmaking configuration could not be saved, something went wrong: ' . $e->getMessage());
         }
 
         return back();

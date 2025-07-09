@@ -80,6 +80,7 @@ class ProcessMatchmaking extends Command
         $playerCount = $this->getTotalPlayersCount($players);
         if ($playerCount->hunters === 1 && ($playerCount->runners === 4 || $playerCount->runners === 5))
             sleep(10);
+            $playerCount = $this->getTotalPlayersCount($players);
         $availableMatchConfigs = MatchConfiguration::getAvailableMatchConfigs($playerCount->runners, $playerCount->hunters);
 
         if($availableMatchConfigs->isEmpty())

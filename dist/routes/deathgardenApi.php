@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Auth\SteamAuthController;
 use App\Http\Controllers\Api\Eula\EulaConsentController;
+use App\Http\Controllers\Api\LeaderboardController;
 use App\Http\Controllers\Api\Matchmaking\MatchmakingController;
 use App\Http\Controllers\Api\ModerationController;
 use App\Http\Controllers\Api\Player\ChallengeController;
@@ -66,6 +67,8 @@ Route::prefix('v1')->group(function () {
         Route::post('extensions/challenges/executeChallengeProgressionOperationBatch', [ChallengeController::class, 'executeChallengeProgressionBatch']);
 
         Route::post('extensions/quitters/getQuitterState', [PlayerController::class, 'getQuitterState']);
+
+        Route::post('extensions/leaderboard/getScores', [LeaderboardController::class, 'getScores']);
 
         Route::get('wallet/currencies', [CurrencyController::class, 'getCurrencies']);
 

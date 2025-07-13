@@ -30,6 +30,7 @@ class InquisitorItemConfig extends CharacterItemConfig
     protected static array $defaultEquippedBonuses = [
         '1098BEE241B1515B44013A87EDB16BDC',
         'EDB6D6B742023AE61AD8718CAC073C0E',
+        '23DE0078A94D22C56B258BBD41DE6157',
     ];
 
     protected static array $defaultEquippedPowers = [

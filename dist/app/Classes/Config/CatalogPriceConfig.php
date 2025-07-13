@@ -131,61 +131,61 @@ class CatalogPriceConfig
 
     const PERKS_COST = [
         1 => [
-            'CurrencyA' => 800,
-            'CurrencyB' => 500,
+            'CurrencyA' => 600,
+            'CurrencyB' => 700,
         ],
         2 => [
-            'CurrencyA' => 1000,
-            'CurrencyB' => 800,
+            'CurrencyA' => 800,
+            'CurrencyB' => 1000,
         ],
         3 => [
-            'CurrencyA' => 1200,
-            'CurrencyB' => 1200,
+            'CurrencyA' => 1000,
+            'CurrencyB' => 1400,
         ],
         4 => [
-            'CurrencyA' => 1400,
-            'CurrencyB' => 1600,
-            'CurrencyC' => 500,
+            'CurrencyA' => 1200,
+            'CurrencyB' => 1700,
+            'CurrencyC' => 600,
         ],
         5 => [
-            'CurrencyA' => 1800,
-            'CurrencyB' => 2000,
-            'CurrencyC' => 1500,
+            'CurrencyA' => 1400,
+            'CurrencyB' => 2100,
+            'CurrencyC' => 1600,
         ],
         6 => [
-            'CurrencyA' => 2200,
-            'CurrencyB' => 2500,
-            'CurrencyC' => 2000,
+            'CurrencyA' => 1600,
+            'CurrencyB' => 2600,
+            'CurrencyC' => 2100,
         ],
         7 => [
-            'CurrencyA' => 2600,
-            'CurrencyB' => 3000,
-            'CurrencyC' => 3000,
+            'CurrencyA' => 1800,
+            'CurrencyB' => 3100,
+            'CurrencyC' => 3100,
         ],
         8 => [
-            'CurrencyA' => 3100,
-            'CurrencyB' => 3500,
-            'CurrencyC' => 4000,
+            'CurrencyA' => 2000,
+            'CurrencyB' => 3600,
+            'CurrencyC' => 4100,
         ],
         9 => [
-            'CurrencyA' => 3700,
-            'CurrencyB' => 4000,
+            'CurrencyA' => 2200,
+            'CurrencyB' => 4200,
             'CurrencyC' => 5000,
         ],
         10 => [
-            'CurrencyA' => 4200,
-            'CurrencyB' => 4500,
-            'CurrencyC' => 6500,
+            'CurrencyA' => 2500,
+            'CurrencyB' => 5000,
+            'CurrencyC' => 6000,
         ],
     ];
 
     const SKINS_COST = [
-        ItemQuality::Basic->value => ['CurrencyA' => 1250, 'CurrencyC'=> 2500],
-        ItemQuality::Specialized->value => ['CurrencyA' => 2500, 'CurrencyC' => 3500],
-        ItemQuality::Rare->value => ['CurrencyA' => 3250, 'CurrencyC' => 4500],
-        ItemQuality::Superior->value => ['CurrencyA' => 4000, 'CurrencyC' => 5500],
-        ItemQuality::Epic->value => ['CurrencyA' => 4500, 'CurrencyC' => 6250],
-        ItemQuality::Ultra->value => ['CurrencyA' => 5000, 'CurrencyC' => 7500],
+        ItemQuality::Basic->value => ['CurrencyA' => 500, 'CurrencyC'=> 3250],
+        ItemQuality::Specialized->value => ['CurrencyA' => 1250, 'CurrencyC' => 4500],
+        ItemQuality::Rare->value => ['CurrencyA' => 2000, 'CurrencyC' => 5000],
+        ItemQuality::Superior->value => ['CurrencyA' => 2500, 'CurrencyC' => 5500],
+        ItemQuality::Epic->value => ['CurrencyA' => 3000, 'CurrencyC' => 6500],
+        ItemQuality::Ultra->value => ['CurrencyA' => 4500, 'CurrencyC' => 7500],
     ];
 
     public static function GetCategoryPriceForLevel(CatalogPriceCategory $category, int|string $level): array

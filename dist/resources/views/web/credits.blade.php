@@ -25,6 +25,12 @@
         </x-web.text>
     </x-web.credits-user>
 
+    <x-web.credits-user :userSteamId="76561198198583022" headline="Code Insights Contributor" class="my-4">
+        <x-web.text>
+            Provided key observations on system behavior and architecture.
+        </x-web.text>
+    </x-web.credits-user>
+
     <x-web.credits-user :userSteamId="76561198129051713" headline="Community Lead & Game Designer" class="my-4">
         <x-web.text>
             Manages community communication and designs balance changes.
@@ -35,7 +41,7 @@
             Creates and designs graphics. Moderates the Discord and game.
         </x-web.text>
     </x-web.credits-user>
-	
+
 	<x-web.credits-user :userSteamId="76561198033792162" headline="Narrative & Matchmaking Design" class="my-4">
         <x-web.text>
             Contributed to Deathgarden: Rebirth's narrative and matchmaking algorithm design.
@@ -62,7 +68,7 @@
             Moderates the Discord and game.
         </x-web.text>
     </x-web.credits-user>
-	
+
 	<x-web.credits-user :userSteamId="76561198247538620" headline="French Localization Support" class="my-4">
         <x-web.text>
             Improved and refined the French translation for Deathgarden: Rebirth.

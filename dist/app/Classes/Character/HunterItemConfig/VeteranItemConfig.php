@@ -30,6 +30,7 @@ class VeteranItemConfig extends CharacterItemConfig
     protected static array $defaultEquippedBonuses = [
         '791F12E047DA9E26E246E3859C3F587E',
         '03783FB54D88B7D88DD4509FCBBAFE68',
+        '1098BEE241B1515B44013A87EDB16BDC',
     ];
 
     protected static array $defaultEquippedPowers = [

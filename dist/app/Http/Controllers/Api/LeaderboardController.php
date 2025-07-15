@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Enums\Game\Faction;
+use App\Enums\Game\Hunter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Leaderboard\GetScoresRequest;
 use App\Models\Admin\Archive\ArchivedPlayerProgression;
 use App\Models\User\User;
 use Carbon\Carbon;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -15,18 +17,49 @@ use stdClass;
 
 class LeaderboardController extends Controller
 {
+    const HUNTER_CHARACTER_LIST = [
+        Hunter::Inquisitor,
+        Hunter::Stalker,
+        Hunter::Poacher,
+        Hunter::Mass
+    ];
+
     public function getScores(GetScoresRequest $request)
     {
         $user = \Auth::user();
 
+        $dateFilter = Carbon::now()->startOfMonth();
+
+        dump($request->playerIds);
+
+        $subSubQuery = ArchivedPlayerProgression::query();
+        $subSubQuery->select(['user_id'])->addSelect(DB::raw('MAX(gained_experience) as gained_experience'));
+        $subSubQuery->whereDate('created_at', '>=', $dateFilter);
+        $subSubQuery->groupBy('user_id');
+        $subSubQuery->orderByDesc('gained_experience');
+
         $query = ArchivedPlayerProgression::query();
-//        $query->whereDate('created_at', '>=', Carbon::now()->subMonth());
         $query->orderBy('gained_experience', 'desc');
-        $query->select(['gained_experience', 'user_id'])->addSelect(DB::raw('ROW_NUMBER() OVER (PARTITION BY ORDER BY gained_experience) AS rank'));
+        $query->select(['user_id', 'gained_experience'])
+            ->addSelect(DB::raw('ROW_NUMBER() OVER (ORDER BY gained_experience DESC) AS "rank"'));
+        $query->fromSub($subSubQuery, 'a');
 
-        $mainQuery = ArchivedPlayerProgression::query()->from($query);
+        $whereQuery = DB::query();
+        $whereQuery->where('user_id', $request->playerIds[0]);
+        $whereQuery->fromSub($query, 'c');
+        $whereQuery->selectRaw('c.rank + 1 AS "user_rank"');
 
-        dd($query->get());
+        $mainQuery = ArchivedPlayerProgression::query();
+        $mainQuery->fromSub($query, 'b');
+        $mainQuery->where('rank', '<=', function (Builder $whereQuery) use ($request, $query) {
+            $whereQuery->where('user_id', $request->playerIds[0]);
+            $whereQuery->fromSub($query, 'c');
+            $whereQuery->selectRaw('(c.rank + 1)');
+        });
+        $mainQuery->orderByDesc('rank');
+        $mainQuery->limit(5);
+
+        dd($mainQuery->toRawSql());
 
 
 

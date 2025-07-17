@@ -18,7 +18,7 @@ use Psr\Log\LoggerInterface;
 
 class ProcessMatchmaking extends Command
 {
-    public static int $repeatTimeSeconds = 20;
+    public static int $repeatTimeSeconds = 10;
 
     const ONE_VS_FOUR_AND_VS_FIVE_FIRST_ATTEMPT_CACHE_KEY = 'matchmaking_attempt_1v4_1v5';
 

@@ -9,6 +9,12 @@
         >
             <x-icons.twitter-x class="size-8"/>
         </a>
+		<a href="https://www.tiktok.com/@deathgardenrebirth"
+           class="hover:text-web-main transition-colors"
+           title="TikTok"
+        >
+            <x-icons.tiktok class="size-8"/>
+        </a>
         <a href="https://twitch.com/dgrebirth_/"
            class="hover:text-web-main transition-colors"
            title="Twitch"

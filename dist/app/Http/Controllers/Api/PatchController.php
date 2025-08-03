@@ -35,7 +35,7 @@ class PatchController extends Controller
         return $this->getFileWithPatchline(Patchline::LIVE->name, $hash);
     }
 
-    public function getGameFileList(string $patchlineName = null) : JsonResponse
+    public function getGameFileList(?string $patchlineName = null) : JsonResponse
     {
         $patchline = Patchline::tryFromName(str($patchlineName)->upper()) ?? Patchline::LIVE;
 
@@ -49,17 +49,35 @@ class PatchController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $gameFiles = GameFile::select(['filename', 'hash', 'game_path', 'action'])
-            ->where('patchline', $patchline->value)
-            ->where('is_additional', 0)->latest()->get();
+        $gameFiles = GameFile::where('patchline', $patchline->value)
+                        ->where('is_additional', 0)
+                        ->withFileHistory()
+                        ->map(function ($latestFile) {
+                            $processedHashes = [];
+                            $history = collect();
+        
+                            foreach ($latestFile->children as $historyFile) {
+                                if (in_array($historyFile->hash, $processedHashes)) {
+                                    continue;
+                                }
+                                
+                                $processedHashes[] = $historyFile->hash;
+                                $history->push($historyFile->only(['hash']));
+                            }
+                            
+                            $selectedFile = $latestFile->only(['filename', 'hash', 'game_path', 'action']);
+                            $selectedFile['history'] = $history;
+                            
+                            return $selectedFile;
+                        });
 
         if (count($gameFiles) <= 0)
             return response()->json(['error' => 'No files found'], 404);
 
         return response()->json($gameFiles, 200);
     }
-
-    public function getGameModFileList(string $patchlineName = null) : JsonResponse
+    
+    public function getGameModFileList(?string $patchlineName = null) : JsonResponse
     {
         $patchline = Patchline::tryFromName(str($patchlineName)->upper()) ?? Patchline::LIVE;
 

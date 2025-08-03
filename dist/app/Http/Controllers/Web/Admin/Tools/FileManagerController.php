@@ -46,7 +46,7 @@ class FileManagerController extends AdminToolController
             $filename = $file->getClientOriginalName();
             $filehash = str(hash_file('sha256', $file->getRealPath()))->upper();
 
-            $gameFile = GameFile::where('filename', $filename)->where('patchline', $request->input('patchline'))->first() ?? new GameFile;
+            $gameFile = GameFile::where('filename', $filename)->where('patchline', $request->input('patchline'))->latest()->first() ?? new GameFile;
 
             if ($gameFile->hash == $filehash) {
                 $duplicateFiles[] = $gameFile->filename;
@@ -54,6 +54,11 @@ class FileManagerController extends AdminToolController
             }
 
             if (isset($gameFile->id)) {
+                $gameFile->action = 0;
+                $gameFile->save();
+                
+                $gameFile->child_id = $gameFile->id;
+                $gameFile = $gameFile->replicate();
                 $overwrittenFiles[] = $gameFile->filename;
             }
 
@@ -90,7 +95,7 @@ class FileManagerController extends AdminToolController
         }
 
         if (count($duplicateFiles) > 0) {
-            Session::flash('alert-warning', 'The following files already exist: <br>' . implode('<br>', $duplicateFiles));
+            Session::flash('alert-warning', 'The following files with the same hash already exist: <br>' . implode('<br>', $duplicateFiles));
             //return response()->json(['message' => 'Only some files was uploaded successfully. The following files already exist: ' . implode(', ', $duplicateFiles)]);
         }
 
@@ -106,12 +111,14 @@ class FileManagerController extends AdminToolController
     public function index(Request $request) : View {
         $patchline = Patchline::tryFrom($request->input('patchline')) ?? Patchline::LIVE;
 
-        $files = GameFile::latest()->where('patchline', $patchline)->where('is_additional', (bool)$request->input('additional_files'))->get();
+        $allFiles = GameFile::where('patchline', $patchline)
+                            ->where('is_additional', (bool)$request->input('additional_files'))
+                            ->withFileHistory();
 
         return view('admin.tools.file-manager', [
             'patchline' => $patchline,
             'showAdditionalFiles' => (bool)$request->input('additional_files'),
-            'files' => $files,
+            'files' => $allFiles,
         ]);
     }
 

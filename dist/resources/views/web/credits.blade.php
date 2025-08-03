@@ -2,34 +2,41 @@
     <x-web.headline>
         Credits
     </x-web.headline>
-    <x-web.credits-user :userSteamId="76561198241289194" headline="Lead Backend & Frontend Programmer" class="my-4">
+    <x-web.credits-user :userSteamId="76561198241289194" headline="Backend & Frontend Programmer" class="my-4">
         <x-web.text>
-            Programmed the Backend and the Website.
+            Lead Programmer of Backend & Website
         </x-web.text>
     </x-web.credits-user>
-    <x-web.credits-user :userSteamId="76561198099304757" headline="Launcher Programmer & DevOps" class="my-4">
+    <x-web.credits-user :userSteamId="76561198099304757" headline="Backend & Launcher Programmer" class="my-4">
         <x-web.text>
-            Programmed the launcher and DevOps.
+            Launcher Programmer and Dev Ops
         </x-web.text>
     </x-web.credits-user>
-    <x-web.credits-user :userSteamId="76561198197425749" headline="Lead Manager & Game Designer" class="my-4">
+    <x-web.credits-user :userSteamId="76561198197425749" headline="Project Director" class="my-4">
         <x-web.text>
-            Leads the Deathgarden: Rebirth team and manages balance changes.
+            Responsible for the overall creative vision, team leadership, and project management
         </x-web.text>
     </x-web.credits-user>
-
-    <x-web.credits-user :userSteamId="0" usernameOverride="ZKWolf" headline="Project Rebirth Founder" class="my-4" :avatarOverride="asset('img/avatars/ZKWolf.webp')">
-        <x-web.text>
-            Project Rebirth is not affiliated with Deathgarden: Rebirth.<br>
-            Project Rebirth’s base code helped during the development of Deathgarden: Rebirth.
-        </x-web.text>
-    </x-web.credits-user>
-
-    <x-web.credits-user :userSteamId="76561198129051713" headline="Community Lead & Game Designer" class="my-4">
-        <x-web.text>
-            Manages community communication and designs balance changes.
-        </x-web.text>
-    </x-web.credits-user>
+    <x-web.credits-user :userSteamId="76561198808246076" headline="Game Design" class="my-4">
+            <x-web.text>
+                Focused on gameplay systems, mechanics, and game balancing
+            </x-web.text>
+        </x-web.credits-user>
+    <x-web.credits-user :userSteamId="76561198033792162" headline="Game Analytics & Narrative" class="my-4">
+            <x-web.text>
+                Focused on narrative content and designed analytics pipelines to support design decisions
+            </x-web.text>
+        </x-web.credits-user>
+     <x-web.credits-user :userSteamId="76561198198583022" headline="Code Insights Contributor" class="my-4">
+            <x-web.text>
+                Provided key observations on system behavior and architecture.
+            </x-web.text>
+        </x-web.credits-user>
+    <x-web.credits-user :userSteamId="76561198177325294" headline="Social Media Manager" class="my-4">
+            <x-web.text>
+                Manages community engagement and shares the game’s journey across social platforms
+            </x-web.text>
+            </x-web.credits-user>
     <x-web.credits-user :userSteamId="76561198055429489" headline="Graphic Designer & Moderator" class="my-4">
         <x-web.text>
             Creates and designs graphics. Moderates the Discord and game.
@@ -51,9 +58,9 @@
             Moderates the Discord and game.
         </x-web.text>
     </x-web.credits-user>
-    <x-web.credits-user :userSteamId="76561198808246076" headline="Moderator" class="my-4">
+	<x-web.credits-user :userSteamId="76561198247538620" headline="French Localization Support" class="my-4">
         <x-web.text>
-            Moderates the Discord and game.
+            Improved and refined the French translation for Deathgarden: Rebirth.
         </x-web.text>
     </x-web.credits-user>
 

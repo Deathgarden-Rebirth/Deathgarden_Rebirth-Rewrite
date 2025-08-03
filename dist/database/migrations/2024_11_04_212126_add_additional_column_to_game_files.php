@@ -14,11 +14,11 @@ return new class extends Migration
         //Schema doesn't support tinyint
         DB::statement("ALTER TABLE `game_files` ADD COLUMN `is_additional` TINYINT UNSIGNED NOT NULL DEFAULT '0' AFTER `action`;");
 
-        if (Schema::hasIndex('game_files', ['name', 'hash', 'version'])) {
+        if (Schema::hasIndex('game_files', ['name', 'hash', 'patchline'])) {
             Schema::table('game_files', function (Blueprint $table) {
-                $table->dropUnique(['name', 'hash', 'version']);
+                $table->dropUnique(['name', 'hash', 'patchline']);
             });
-        }
+        }   
 
         Schema::table('game_files', function (Blueprint $table) {
             $table->renameColumn('name', 'filename');

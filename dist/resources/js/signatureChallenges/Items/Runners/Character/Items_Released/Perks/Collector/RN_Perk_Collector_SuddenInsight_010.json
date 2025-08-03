@@ -49,7 +49,7 @@
       "RequiredChallengesToComplete": [
         {
           "ChallengeId": "CF611386-4077974B-00CD37B5-1736426B",
-          "ChallengeCompletionValue": 150.0,
+          "ChallengeCompletionValue": 20.0,
           "ChallengeAsset": {
             "AssetPathName": "/Game/Challenges/Progression/Challenge_SuddenInsight_Runner.Challenge_SuddenInsight_Runner",
             "SubPathString": ""

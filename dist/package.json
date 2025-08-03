@@ -17,8 +17,6 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
-        "@inertiajs/vue3": "^1.0.14",
-        "@vitejs/plugin-vue": "^5.0.3",
         "alpinejs": "^3.13.7",
         "dotenv": "^16.4.2",
         "jquery": "^3.7.1",

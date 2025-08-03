@@ -131,49 +131,61 @@ class CatalogPriceConfig
 
     const PERKS_COST = [
         1 => [
+            'CurrencyA' => 500,
             'CurrencyB' => 500,
         ],
         2 => [
-            'CurrencyB' => 750,
+            'CurrencyA' => 700,
+            'CurrencyB' => 800,
         ],
         3 => [
-            'CurrencyB' => 1000,
+            'CurrencyA' => 900,
+            'CurrencyB' => 1200,
         ],
         4 => [
-            'CurrencyB' => 1250,
+            'CurrencyA' => 1100,
+            'CurrencyB' => 1600,
+            'CurrencyC' => 400,
         ],
         5 => [
-            'CurrencyB' => 1500,
+            'CurrencyA' => 1300,
+            'CurrencyB' => 2000,
+            'CurrencyC' => 1100,
         ],
         6 => [
-            'CurrencyA' => 425,
-            'CurrencyB' => 1300,
+            'CurrencyA' => 1500,
+            'CurrencyB' => 2400,
+            'CurrencyC' => 1700,
         ],
         7 => [
-            'CurrencyA' => 525,
-            'CurrencyB' => 1400,
+            'CurrencyA' => 1700,
+            'CurrencyB' => 2900,
+            'CurrencyC' => 2400,
         ],
         8 => [
-            'CurrencyA' => 625,
-            'CurrencyB' => 1500,
+            'CurrencyA' => 1900,
+            'CurrencyB' => 3400,
+            'CurrencyC' => 3100,
         ],
         9 => [
-            'CurrencyA' => 725,
-            'CurrencyB' => 1600,
+            'CurrencyA' => 2100,
+            'CurrencyB' => 4000,
+            'CurrencyC' => 3900,
         ],
         10 => [
-            'CurrencyA' => 825,
-            'CurrencyB' => 1700,
+            'CurrencyA' => 2300,
+            'CurrencyB' => 4600,
+            'CurrencyC' => 4700,
         ],
     ];
 
     const SKINS_COST = [
-        ItemQuality::Basic->value => ['CurrencyC' => 2500],
-        ItemQuality::Specialized->value => ['CurrencyC' => 3500],
-        ItemQuality::Rare->value => ['CurrencyC' => 4500],
-        ItemQuality::Superior->value => ['CurrencyC' => 5500],
-        ItemQuality::Epic->value => ['CurrencyC' => 6250],
-        ItemQuality::Ultra->value => ['CurrencyC' => 7500],
+        ItemQuality::Basic->value => ['CurrencyA' => 800, 'CurrencyC'=> 1200],
+        ItemQuality::Specialized->value => ['CurrencyA' => 1600, 'CurrencyC' => 1900],
+        ItemQuality::Rare->value => ['CurrencyA' => 2400, 'CurrencyC' => 2600],
+        ItemQuality::Superior->value => ['CurrencyA' => 3200, 'CurrencyC' => 3000],
+        ItemQuality::Epic->value => ['CurrencyA' => 4000, 'CurrencyC' => 5400],
+        ItemQuality::Ultra->value => ['CurrencyA' => 6000, 'CurrencyC' => 8500],
     ];
 
     public static function GetCategoryPriceForLevel(CatalogPriceCategory $category, int|string $level): array

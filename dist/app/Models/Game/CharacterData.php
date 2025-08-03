@@ -49,11 +49,6 @@ class CharacterData extends Model
         return $this->belongsToMany(CatalogItem::class,'character_data_equipment');
     }
 
-    public function equippedBonuses(): BelongsToMany
-    {
-        return $this->belongsToMany(CatalogItem::class,'character_data_equipped_bonuses');
-    }
-
     public function equippedPerks(): BelongsToMany
     {
         return $this->belongsToMany(CatalogItem::class,'character_data_equipped_perks');
@@ -133,10 +128,6 @@ class CharacterData extends Model
         $equippedEquipment = $this->equipment()->allRelatedIds();
         if($equippedEquipment->count() === 0)
             $this->resetEquipment($itemConfigClass);
-
-        $equippedBonuses = $this->equippedBonuses()->allRelatedIds();
-        if($equippedBonuses->count() === 0)
-            $this->resetEquippedBonuses($itemConfigClass);
     }
 
     protected function resetEquippedPerks(string|CharacterItemConfig $itemConfigClass): void
@@ -170,17 +161,6 @@ class CharacterData extends Model
 
         $user = Auth::user();
         static::getResetItemsLogger()->warning(sprintf('User %s(%s) had unallowed Equipment Equipped', $user->id, $user->last_known_username));
-    }
-
-    protected function resetEquippedBonuses(string|CharacterItemConfig $itemConfigClass): void
-    {
-        // Remove all equipped Weapons and reset to default config
-        $this->equippedBonuses()->detach();
-        $defaultBonusIds = UuidHelper::convertFromHexToUuidCollecton($itemConfigClass::getDefaultEquippedBonuses());
-        $this->equippedBonuses()->attach($defaultBonusIds);
-
-        $user = Auth::user();
-        static::getResetItemsLogger()->warning(sprintf('User %s(%s) had unallowed Bonuses Equipped', $user->id, $user->last_known_username));
     }
 
     protected static function getResetItemsLogger(): LoggerInterface

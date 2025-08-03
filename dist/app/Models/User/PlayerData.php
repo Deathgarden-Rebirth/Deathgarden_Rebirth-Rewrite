@@ -12,6 +12,8 @@ use App\Models\Game\CatalogItem;
 use App\Models\Game\Challenge;
 use App\Models\Game\CharacterData;
 use App\Models\Game\QuitterState;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use App\Models\Game\TimedChallenge;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -36,7 +38,7 @@ class PlayerData extends Model
         'currency_b' => 500,
         'currency_c' => 500,
         'last_faction' => Faction::Runner,
-        'last_hunter' => Hunter::Inquisitor,
+        'last_hunter' => Hunter::Mass,
         'last_runner' => Runner::Smoke,
         'readout_version' => 1,
         'runner_faction_level' => 1,
@@ -53,6 +55,8 @@ class PlayerData extends Model
         'has_played_dg_1' => 'boolean',
     ];
 
+    const CURRENCY_CAP = 50000;
+
     protected static function booted(): void
     {
         static::created(function (PlayerData $playerData) {
@@ -66,6 +70,7 @@ class PlayerData extends Model
                     ...$configClass::getDefaultEquippedWeapons(),
                     ...$configClass::getDefaultEquipment(),
                     ...$configClass::getDefaultPowers(),
+                    ...$configClass::getDefaultWeapons(),
                     ...$configClass::getDefaultEquippedPerks(),
                 ];
 
@@ -88,6 +93,7 @@ class PlayerData extends Model
                     ...$configClass::getDefaultEquippedWeapons(),
                     ...$configClass::getDefaultEquipment(),
                     ...$configClass::getDefaultPowers(),
+                    ...$configClass::getDefaultWeapons(),
                     ...$configClass::getDefaultEquippedPerks(),
                 ];
 
@@ -108,7 +114,7 @@ class PlayerData extends Model
                     Characters::Smoke->value,
                     Characters::Ghost->value,
                     Characters::Sawbones->value,
-                    Characters::Inquisitor->value,
+                    Characters::Mass->value,
                 ]
             ]);
         });
@@ -141,6 +147,10 @@ class PlayerData extends Model
     public function challenges(): BelongsToMany
     {
         return $this->belongsToMany(Challenge::class)->withPivot(['progress']);
+    }
+
+    public function timedChallenges(): BelongsToMany {
+        return $this->belongsToMany(TimedChallenge::class)->withPivot(['progress', 'claimed']);
     }
 
     public function quitterState(): HasOne
@@ -191,5 +201,23 @@ class PlayerData extends Model
         if ($level < 50)
             return 4;
         return 5;
+    }
+
+    public function currencyA(): Attribute {
+        return Attribute::make(
+            set: fn (int $value) => min($value, static::CURRENCY_CAP),
+        );
+    }
+
+    public function currencyB(): Attribute {
+        return Attribute::make(
+            set: fn (int $value) => min($value, static::CURRENCY_CAP),
+        );
+    }
+
+    public function currencyC(): Attribute {
+        return Attribute::make(
+            set: fn (int $value) => min($value, static::CURRENCY_CAP),
+        );
     }
 }

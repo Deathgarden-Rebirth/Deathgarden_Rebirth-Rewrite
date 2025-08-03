@@ -56,7 +56,11 @@
             <span class="font-bold">Download</span>
         </x-web.sidebar.button>
 
-        <x-web.sidebar.button routeName="how-to-play">
+        <x-web.sidebar.button routeName="patch-notes">
+                <span class="font-bold">Patch Notes</span>
+        </x-web.sidebar.button>
+		
+		<x-web.sidebar.button routeName="how-to-play">
                 <span class="font-bold">How to Play</span>
         </x-web.sidebar.button>
 

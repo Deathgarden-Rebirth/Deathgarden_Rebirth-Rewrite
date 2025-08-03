@@ -49,7 +49,10 @@ enum Runner: string
         };
     }
 
-    public function getItemConfigClass(): string|CharacterItemConfig
+    /**
+     * @return class-string<CharacterItemConfig>
+     */
+    public function getItemConfigClass(): string
     {
         return match ($this) {
             self::Smoke => FogItemConfig::class,

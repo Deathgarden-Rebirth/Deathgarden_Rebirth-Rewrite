@@ -59,7 +59,7 @@ return [
         ],
 
         'single' => [
-            'driver' => 'single',
+            'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
             'level' => env('LOG_LEVEL', 'debug'),
             'replace_placeholders' => true,
@@ -131,6 +131,13 @@ return [
         'matchmaking_cleanup' => [
             'driver' => 'daily',
             'path' => storage_path('logs/matchmaking_cleanup/cleanup.log'),
+            'level' => 'info',
+            'replace_placeholders' => true,
+        ],
+
+        'challengeCreation' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/challengeCreation.log'),
             'level' => 'info',
             'replace_placeholders' => true,
         ],

@@ -21,6 +21,48 @@ use Ramsey\Uuid\Uuid;
 
 class MetadataController extends Controller
 {
+
+    /**
+     * Mapping from
+     */
+    const PICKED_CHALLENGE_REDUCTION_MAPPING = [
+        '/Game/Challenges/Progression/General/Challenge_Downing_Hunter.Challenge_Downing_Hunter' => 74.49,
+        '/Game/Challenges/Progression/General/Challenge_Execution_Hunter.Challenge_Execution_Hunter' => 76.19,
+        '/Game/Challenges/Progression/General/Challenge_Ressources_Runner.Challenge_Ressources_Runner' => 58.05,
+        '/Game/Challenges/Progression/General/Challenge_Travel_Hunter.Challenge_Travel_Hunter' => 52.38,
+        '/Game/Challenges/Progression/General/Challenge_Travel_Runner.Challenge_Travel_Runner' => 50.00,
+        '/Game/Challenges/Progression/General/Challenge_Hacking_Hunter.Challenge_Hacking_Hunter' => 85.71,
+        '/Game/Challenges/Progression/General/Challenge_Drones_Hunter.Challenge_Drones_Hunter' => 95.24,
+        '/Game/Challenges/Progression/General/Challenge_TeamActions_Runner.Challenge_TeamActions_Runner' => 47.09,
+        '/Game/Challenges/Progression/General/Challenge_HunterClose_Runner.Challenge_HunterClose_Runner' => 76.19,
+        '/Game/Challenges/Progression/General/Challenge_Damage_Hunter.Challenge_Damage_Hunter' => 40.48,
+        '/Game/Challenges/Progression/General/Challenge_ConstructDefeats_Runner.Challenge_ConstructDefeats_Runner' => 73.54,
+        '/Game/Challenges/Progression/General/Challenge_Heal_Runner.Challenge_Heal_Runner' => 52.38,
+        '/Game/Challenges/Progression/General/Challenge_RingOut_Hunter.Challenge_RingOut_Hunter' => 58.33,
+        '/Game/Challenges/Progression/General/Challenge_Supercharge_Hunter.Challenge_Supercharge_Hunter' => 78.57,
+        '/Game/Challenges/Progression/General/Challenge_TakeDamage_Runner.Challenge_TakeDamage_Runner' => 57.14,
+        '/Game/Challenges/Progression/General/Challenge_Evade_Runner.Challenge_Evade_Runner' => 70.24,
+        '/Game/Challenges/Progression/General/Challenge_Climb_Runner.Challenge_Climb_Runner' => 86.11,
+        '/Game/Challenges/Challenge_Deliver_Runner.Challenge_Deliver_Runner' => 57.14,
+        '/Game/Challenges/Progression/General/Challenge_Mark_Runner.Challenge_Mark_Runner' => 71.43,
+        '/Game/Challenges/Progression/General/Challenge_Reveal_Hunter.Challenge_Reveal_Hunter' => 94.29,
+        '/Game/Challenges/Progression/General/Challenge_HackCrates_Hunter.Challenge_HackCrates_Hunter' => 42.86,
+        '/Game/Challenges/Progression/General/Challenge_SpendNPI_Runner.Challenge_SpendNPI_Runner' => 42.86,
+        '/Game/Challenges/Progression/General/Challenge_CollectAmmo.Challenge_CollectAmmo' => 52.38,
+        '/Game/Challenges/Progression/General/Challenge_CollectWeaponUpgrades_Runner.Challenge_CollectWeaponUpgrades_Runner' => 52.38,
+        '/Game/Challenges/Progression/General/Challenge_CollectHealthCrates.Challenge_CollectHealthCrates' => 90.48,
+        '/Game/Challenges/Progression/General/Challenge_DisableDrones_Runner.Challenge_DisableDrones_Runner' => 61.90,
+        '/Game/Challenges/Challenge_DroneCharger_Hunter.Challenge_DroneCharger_Hunter' => 66.67,
+        '/Game/Challenges/Progression/General/Challenge_Stomp_Hunter.Challenge_Stomp_Hunter' => 50.00,
+        '/Game/Challenges/Progression/General/Challenge_Aim_Hunter.Challenge_Aim_Hunter' => 42.86,
+        '/Game/Challenges/Progression/General/Challenge_DangerClose_Runner.Challenge_DangerClose_Runner' => 76.19,
+        '/Game/Challenges/Progression/General/Challenge_SurviveAChase_Runner.Challenge_SurviveAChase_Runner' => 64.29,
+        '/Game/Challenges/Progression/General/Challenge_AssistAChase_Runner.Challenge_AssistAChase_Runner' => 28.57,
+        '/Game/Challenges/Progression/General/Challenge_Exit_Runner.Challenge_Exit_Runner' => 42.86,
+        '/Game/Challenges/Progression/General/Challenge_BloodMode_Runner.Challenge_BloodMode_Runner' => 42.86,
+        '/Game/Challenges/Progression/General/Challenge_LastMAnStanding_Hunter.Challenge_LastManStanding_Hunter' => 42.86,
+    ];
+
     public function initOrGetGroups(InitOrGetGroupsRequest $request)
     {
         $response = new InitOrGetGroupsResponse();
@@ -55,6 +97,8 @@ class MetadataController extends Controller
 
         return json_encode($response);
     }
+
+
 
     public function updateMetadataGroup(UpdateMetadataGroupRequest $request)
     {
@@ -96,8 +140,17 @@ class MetadataController extends Controller
         $convertedIds = UuidHelper::convertFromHexToUuidCollecton($request->metadata['equippedWeapons'], true);
         $characterData->equippedWeapons()->sync($convertedIds);
 
-        $convertedIds = UuidHelper::convertFromHexToUuidCollecton($request->metadata['equippedBonuses'], true);
-        $characterData->equippedBonuses()->sync($convertedIds);
+        $characterConfig = $characterData->character->getCharacter()->getItemConfigClass();
+        $defaultCompletedIds = [
+            ...$characterConfig::getDefaultEquippedBonuses(),
+            ...$characterConfig::getDefaultEquippedWeapons(),
+            ...$characterConfig::getDefaultEquipment(),
+            ...$characterConfig::getDefaultPowers(),
+            ...$characterConfig::getDefaultWeapons(),
+            ...$characterConfig::getDefaultEquippedPerks(),
+        ];
+
+        $defaultCompletedIds = UuidHelper::convertFromHexToUuidCollecton($defaultCompletedIds, true);
 
         foreach ($request->metadata['pickedChallenges'] as $picked) {
             $itemId = Uuid::fromHexadecimal(new Hexadecimal($picked['itemId']));
@@ -109,14 +162,19 @@ class MetadataController extends Controller
 
             foreach ($picked['list'] as $challenge) {
                 $challengeId = Uuid::fromHexadecimal(new Hexadecimal($challenge['challengeId']));
-                $completionValue = $challenge['challengeCompletionValue'];
                 $assetPath = $challenge['challengeAsset'];
+                $completionValue = $challenge['challengeCompletionValue'];
 
-                $newPicked = new PickedChallenge([
+                $attributes = [
                     'id' => $challengeId->toString(),
                     'completion_value' => $completionValue,
                     'asset_path' => $assetPath,
-                ]);
+                ];
+
+                if($defaultCompletedIds->has($itemId->toString()))
+                    $attributes['progress'] = $completionValue;
+
+                $newPicked = new PickedChallenge($attributes);
 
                 $newPicked->characterData()->associate($characterData);
                 $newPicked->catalogItem()->associate($itemId->toString());
@@ -171,5 +229,21 @@ class MetadataController extends Controller
     {
         throw new \Exception('Handle Update Faction Metadata not implemented yet');
         return false;
+    }
+
+    /**
+     * Reduces the Completion value of the given challenge.
+     *
+     * @param string $challengeBlueprint
+     * @param string $originalAmount
+     * @return int
+     */
+    public static function reducePickedChallengeCompletionValue(
+        string $challengeBlueprint,
+        string $originalAmount,
+    ): int {
+        if(isset(static::PICKED_CHALLENGE_REDUCTION_MAPPING[$challengeBlueprint]))
+            return $originalAmount - (static::PICKED_CHALLENGE_REDUCTION_MAPPING[$challengeBlueprint] / 100 * $originalAmount);
+        return $originalAmount;
     }
 }

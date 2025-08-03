@@ -49,7 +49,7 @@
       "RequiredChallengesToComplete": [
         {
           "ChallengeId": "950524C1-44BE794A-ABFFED81-42C119B4",
-          "ChallengeCompletionValue": 600.0,
+          "ChallengeCompletionValue": 100.0,
           "ChallengeAsset": {
             "AssetPathName": "/Game/Challenges/Progression/Challenge_AmmoOpportunist_Runner.Challenge_AmmoOpportunist_Runner",
             "SubPathString": ""

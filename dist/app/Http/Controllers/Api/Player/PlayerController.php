@@ -179,6 +179,7 @@ class PlayerController extends Controller
             ...$config::getDefaultEquippedPerks(),
             ...$config::getDefaultPowers(),
             ...$config::getDefaultEquippedWeapons(),
+            ...$config::getDefaultWeapons(),
             ...$config::getDefaultEquippedBonuses(),
         ], true);
         $inventory = $characterData->playerData->inventory();
@@ -186,7 +187,7 @@ class PlayerController extends Controller
         // first detach all character items
         $inventory->detach($allItemsToRemove);
         //then attach the defaults again
-        $inventory->attach([...$defaultItems, $config::getCharacterId()->toString()]);
+        $inventory->syncWithoutDetaching([...$defaultItems, $config::getCharacterId()->toString()]);
 
         // Remove signature challenges
         foreach ($allItemsToRemove as $item) {

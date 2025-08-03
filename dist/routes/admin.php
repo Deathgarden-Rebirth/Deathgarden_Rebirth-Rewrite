@@ -56,6 +56,7 @@ Route::post('versioning', [VersioningController::class, 'save'])->name('versioni
 Route::get('match-configuration', [MatchConfigurationController::class, 'index'])->name(MatchConfigurationController::class);
 Route::post('match-configuration/experience', [MatchConfigurationController::class, 'saveExperience'])->name('match-configuration.save.experience');
 Route::post('match-configuration/currency', [MatchConfigurationController::class, 'saveCurrency'])->name('match-configuration.save.currency');
+Route::post('match-configuration/matchmaking', [MatchConfigurationController::class, 'saveMatchmaking'])->name('match-configuration.save.matchmaking');
 
 Route::fallback(function () {
     return redirect(route('admin.dashboard'));

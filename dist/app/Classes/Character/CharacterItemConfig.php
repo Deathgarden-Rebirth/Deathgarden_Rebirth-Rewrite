@@ -40,36 +40,55 @@ abstract class CharacterItemConfig
 
     protected static array $additionalPowers = [];
 
-    public static function getCharacterId(): UuidInterface {
+    public static function getCharacterId(): UuidInterface
+    {
         return Uuid::fromHexadecimal(new Hexadecimal(static::$characterId));
     }
 
-    public static function getDefaultEquippedPerks(): array {
+    public static function getDefaultEquippedPerks(): array
+    {
         return static::$defaultEquippedPerks;
     }
 
-    public static function getDefaultEquippedWeapons(): array {
-        return static::$defaultEquippedWeapons;
+    public static function getDefaultEquippedWeapons(): array
+    {
+        return [
+            ...static::$defaultEquippedWeapons,
+        ];
     }
 
-    public static function getDefaultEquipment(): array {
+    public static function getDefaultEquipment(): array
+    {
         return static::$defaultEquipment;
     }
 
-    public static function getDefaultEquippedBonuses(): array {
+    public static function getDefaultEquippedBonuses(): array
+    {
         return static::$defaultEquippedBonuses;
     }
 
-    public static function getDefaultPowers()
+    public static function getDefaultPowers(): array
     {
-        return static::$defaultEquippedPowers;
+        return [
+            ...static::$defaultEquippedPowers,
+            ...static::$additionalPowers,
+        ];
     }
 
-    public static function getAllowedPerks(): array {
+    public static function getDefaultWeapons(): array {
+        return [
+            ...static::$defaultEquippedWeapons,
+            ...static::$additionalWeapons,
+        ];
+    }
+
+    public static function getAllowedPerks(): array
+    {
         return [...static::$additionalPerks, ...static::$defaultEquippedPerks];
     }
 
-    public static function getAllowedWeapons(): array {
+    public static function getAllowedWeapons(): array
+    {
         return [...static::$additionalWeapons, ...static::$defaultEquippedWeapons];
     }
 

@@ -8,6 +8,7 @@ use App\Enums\Game\CharacterState;
 use App\Enums\Game\Faction;
 use App\Enums\Game\Matchmaking\MatchmakingSide;
 use App\Enums\Game\Matchmaking\MatchStatus;
+use App\Http\Controllers\Api\ModerationController;
 use App\Http\Requests\Api\Matchmaking\PlayerEndOfMatchRequest;
 use App\Models\Admin\Archive\ArchivedGame;
 use App\Models\Admin\Archive\ArchivedPlayerProgression;
@@ -107,6 +108,9 @@ class Game extends Model
         $archived = new ArchivedGame();
         $archived->id = $this->id;
         $archived->dominant_faction = $dominantFaction;
+
+        $archived->chat_messages = Cache::get(ModerationController::CHAT_CACHE_KEY . $this->id, []);
+
         $archived->save();
     }
 }

@@ -26,7 +26,7 @@ class FogItemConfig extends CharacterItemConfig
 
     protected static array $defaultEquippedBonuses = [
         '1E08AFFA485E92BAFF2C1BB85CEFB81E',
-        '1F5CD9004224C56746D81991AA40448A',
+        'D8305B60C8455B51368681BFD337525A',
     ];
 
     protected static array $additionalPerks = [

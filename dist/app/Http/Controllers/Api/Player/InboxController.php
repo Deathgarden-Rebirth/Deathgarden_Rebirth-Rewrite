@@ -81,7 +81,7 @@ class InboxController extends Controller
         $timestampsToDelete = [];
         foreach($messages as $message) {
             try {
-                $timestampsToDelete[] = Carbon::createFromTimestampMs($message['received'])->toDateTimeString();
+                $timestampsToDelete[] = Carbon::createFromTimestampMs($message['received'], config('app.timezone'))->toDateTimeString();
             } catch(\Exception $e) {
                 $logger = AccessLogger::getSessionLogConfig();
                 $logger->warning($request->method().' '.$request->getUri().': Something Went Wrong, Messagelist: '.json_encode($messages, JSON_PRETTY_PRINT));
@@ -112,7 +112,7 @@ class InboxController extends Controller
 
         foreach($messages as $message) {
             try {
-                $timestampsToSet[] = Carbon::createFromTimestampMs($message['received'])->toDateTimeString();
+                $timestampsToSet[] = Carbon::createFromTimestampMs($message['received'], config('app.timezone'))->toDateTimeString();
                 $resultList[] = [
                     'received' => $message['received'],
                     'success' => true,
@@ -141,7 +141,7 @@ class InboxController extends Controller
         /** @var InboxMessage $message */
         $message = $user->inboxMessages()
             ->where('user_id', '=', $user->id)
-            ->where('received', '=', Carbon::createFromTimestampMs($request->receivedTimestamp))
+            ->where('received', '=', Carbon::createFromTimestampMs($request->receivedTimestamp, config('app.timezone')))
             ->first();
 
         if($message === null)

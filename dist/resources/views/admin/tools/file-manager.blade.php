@@ -197,7 +197,7 @@
                 }
             }
 
-            @if(!$showAdditionalFiles)
+				@if(!$showAdditionalFiles)
             document.getElementById('addFileInput').addEventListener('click', function() {
                 let container = document.getElementById('fileInputsContainer');
                 let newInput = document.createElement('div');
@@ -219,11 +219,13 @@
                 // Add event listener to file input of the newly created input group
                 var fileInput = newInput.querySelector('input[name="files[]"]');
                 addFileInputEventListener(fileInput);
-            });
-            @endif
 
-            // Add event listener to file input of the initial input group
-            var initialFileInput = document.querySelector('input[name="files[]"]');
-            addFileInputEventListener(initialFileInput);
-        </script>
-    </x-layouts.admin>
+                window.scrollTo(0, document.body.scrollHeight);
+            });
+        @endif
+
+        // Add event listener to file input of the initial input group
+        var initialFileInput = document.querySelector('input[name="files[]"]');
+        addFileInputEventListener(initialFileInput);
+    </script>
+</x-layouts.admin>

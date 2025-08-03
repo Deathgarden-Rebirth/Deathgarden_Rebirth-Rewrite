@@ -194,7 +194,6 @@
                                 <x-inputs.file-input name="files[]" />
                             </div>
                         </div>
-                    </div>
 
                     <div class="flex justify-end mt-4">
                         @if (!$showAdditionalFiles)
@@ -209,12 +208,11 @@
                                 Submit
                             </x-inputs.button>
                         </div>
-                    </div>
-                </form>
+                    </form>
 
+                </div>
             </div>
         </div>
-    </div>
 
     <script>
         function toggleRow(id) {
@@ -245,30 +243,29 @@
                     } else {
                         textInput.value = '';
                     }
+                });
+            }
+
+            function examineFilePaths(fileName) {
+                switch (fileName) {
+                    case 'TheExit_BE.exe':
+                        return './TheExit/Binaries/Win64/' + fileName;
+                    case 'BEClient_x64.dll':
+                        return './TheExit/Binaries/Win64/BattlEye/' + fileName;
+                    default:
+                        break;
                 }
-            });
-        }
 
-        function examineFilePaths(fileName) {
-            switch (fileName) {
-                case 'TheExit_BE.exe':
-                    return './TheExit/Binaries/Win64/' + fileName;
-                case 'BEClient_x64.dll':
-                    return './TheExit/Binaries/Win64/BattlEye/' + fileName;
-                default:
-                    break;
+                var extension = fileName.split('.').pop();
+                switch (extension) {
+                    case 'pak':
+                        return './TheExit/Content/Paks/' + fileName;
+                    case 'sig':
+                        return './TheExit/Content/Paks/' + fileName;
+                    default:
+                        return './' + fileName;
+                }
             }
-
-            var extension = fileName.split('.').pop();
-            switch (extension) {
-                case 'pak':
-                    return './TheExit/Content/Paks/' + fileName;
-                case 'sig':
-                    return './TheExit/Content/Paks/' + fileName;
-                default:
-                    return './' + fileName;
-            }
-        }
 
         @if (!$showAdditionalFiles)
             document.getElementById('addFileInput').addEventListener('click', function() {

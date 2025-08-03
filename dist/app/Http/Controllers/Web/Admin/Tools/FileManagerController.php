@@ -79,6 +79,7 @@ class FileManagerController extends AdminToolController
             GameFile::getDisk()->putFileAs(strtolower($gameFile->patchline->name), $file, $gameFile->filename);
             $uploadedFiles[] = $gameFile->filename;
 
+
             $gameFile->game_path = $request->game_path[$i];
             $gameFile->action = $request->file_action[$i];
             $gameFile->save();
@@ -114,6 +115,7 @@ class FileManagerController extends AdminToolController
         $allFiles = GameFile::where('patchline', $patchline)
                             ->where('is_additional', (bool)$request->input('additional_files'))
                             ->withFileHistory();
+
 
         return view('admin.tools.file-manager', [
             'patchline' => $patchline,

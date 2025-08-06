@@ -4,13 +4,28 @@
             Patch Notes History
         </x-web.headline>
         <x-web.text>
-            Last Updated: 06/20/2025
+            Last Updated: 08/07/2025
         </x-web.text>
 
 		<x-web.text>
 		Stay up to date with all the changes, improvements, and updates in Deathgarden: Rebirth.
 		Below is a complete archive of every patch since the mod's release. Click the links to view the full patch notes.
         </x-web.text>
+		
+		<x-web.accordeon class="w-full mt-4" headline="Patch 1.2.1 | End of Year 1">
+                    <x-web.text>
+        				<span class="font-bold mb-4 block">
+        					Release Date: August 07, 2025
+        				</span>
+                        Patch 1.2.1 adds new reveal effects: direct hits with the Clone bolt reveal the Hunter, delivering blood briefly reveals the Scavenger. Shock now staggers Scavengers, its damage falls off with distance and it now costs stamina to use. Health crates recover stamina for all Hunters. New unique bonuses given to Sawbones and The Inquisitor.
+                    </x-web.text>
+                    <x-web.text class="font-semibold mt-4">
+                        <a href="https://docs.google.com/document/d/1UvVTnX3c_LXURyaK2jAng5HkeiVtUQKubdC9qoFshsY/edit?usp=sharing"
+                           class="weblink" target="_blank" rel="noopener noreferrer">
+                            View Full Patch Notes
+                        </a>
+                    </x-web.text>
+                </x-web.accordeon>
 
         <x-web.accordeon class="w-full mt-4" headline="Patch 1.2.0.5 - Dark Instinct Hotfix #5">
                     <x-web.text>

@@ -12,7 +12,7 @@
 		Below is a complete archive of every patch since the mod's release. Click the links to view the full patch notes.
         </x-web.text>
 		
-		<x-web.accordeon class="w-full mt-4" headline="Patch 1.2.1 | End of Year 1">
+		<x-web.accordeon class="w-full mt-4" headline="Patch 1.2.1 - Dark Instinct | End of Year 1">
                     <x-web.text>
         				<span class="font-bold mb-4 block">
         					Release Date: August 07, 2025

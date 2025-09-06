@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: Shutdown the application
-        run: cd /home/gh-action/dev/ && docker compose down
+        run: cd /home/gh-action/live/ && docker compose down
 
       - name: Synchronize to app directory
         run: |
@@ -29,8 +29,8 @@ jobs:
             --exclude "storage/" \
             --exclude "node_modules/" \
             --exclude "vendor/" \
-            ./ /home/gh-action/dev/app/
+            ./ /home/gh-action/live/app/
 
       - name: Build and run docker container
-        run: cd /home/gh-action/dev/ && docker compose up --build -d
+        run: cd /home/gh-action/live/ && docker compose up --build -d
         

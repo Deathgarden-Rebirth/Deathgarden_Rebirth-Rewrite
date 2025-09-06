@@ -6,16 +6,10 @@ use App\Models\User\User;
 
 class LeaderboardEntry implements \JsonSerializable
 {
-    public User $user;
-
-    public int $score;
-
-    public int $rank;
-
     public function __construct(
-        User $user,
-        int $score,
-        int $rank
+        public User $user,
+        public int $score,
+        public int $rank,
     )
     {}
 

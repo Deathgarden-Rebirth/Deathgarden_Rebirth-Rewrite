@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Enums\Game\Faction;
-use App\Enums\Game\Hunter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Leaderboard\GetScoresRequest;
 use App\Http\Responses\Api\Leaderboard\GetScoresResponse;
@@ -13,7 +12,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class LeaderboardController extends Controller
 {
@@ -126,9 +124,10 @@ class LeaderboardController extends Controller
         $query->whereDate('created_at', '>=', $startDate);
         $query->whereDate('created_at', '<=', $endDate);
         $query->whereIn('played_character', $faction->getCharacterList());
-        $query->groupBy('user_id');
+        $query->distinct('user_id');
+        $query->selectRaw('user_id');
 
-        return $query->count();
+        return $query->count('user_id');
     }
 
     protected static function getBaseSelectQuery(Faction $faction, Carbon $startDate, Carbon $endDate): Builder
@@ -136,7 +135,7 @@ class LeaderboardController extends Controller
         $subSubQuery = ArchivedPlayerProgression::query();
         $subSubQuery->select(['user_id'])->addSelect(DB::raw('MAX(gained_experience) as gained_experience'));
         $subSubQuery->whereDate('created_at', '>=', $startDate);
-        $subSubQuery->whereDate('created_at', '>=', $endDate);
+        $subSubQuery->whereDate('created_at', '<=', $endDate);
         $subSubQuery->whereIn('played_character', $faction->getCharacterList());
         $subSubQuery->groupBy('user_id');
         $subSubQuery->orderByDesc('gained_experience');

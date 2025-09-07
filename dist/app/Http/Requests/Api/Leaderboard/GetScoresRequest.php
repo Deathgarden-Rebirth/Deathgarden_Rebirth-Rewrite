@@ -36,19 +36,19 @@ class GetScoresRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'playerIds' => ['required', 'array'],
-            'playerIds.*' => 'string',
-            'faction' => ['required', new Enum(Faction::class)],
-            'top' => ['required', 'integer',],
-            'window' => ['required', new Enum(Window::class)],
+            'data.playerIds' => ['required', 'array'],
+            'data.playerIds.*' => 'string',
+            'data.faction' => ['required', new Enum(Faction::class)],
+            'data.top' => ['required', 'integer',],
+            'data.window' => ['required', new Enum(Window::class)],
         ];
     }
 
     public function passedValidation(): void
     {
-        $this->playerIds = $this->input('playerIds');
-        $this->faction = Faction::tryFrom($this->input('faction'));
-        $this->top = (int)$this->input('top');
-        $this->window = Window::tryFrom($this->input('window'));
+        $this->playerIds = $this->input('data.playerIds');
+        $this->faction = Faction::tryFrom($this->input('data.faction'));
+        $this->top = (int)$this->input('data.top');
+        $this->window = Window::tryFrom($this->input('data.window'));
     }
 }

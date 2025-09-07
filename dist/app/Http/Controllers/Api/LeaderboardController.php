@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Enums\Game\Faction;
+use App\Enums\Game\Leaderboard\Window;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Leaderboard\GetScoresRequest;
 use App\Http\Responses\Api\Leaderboard\GetScoresResponse;
@@ -16,6 +17,14 @@ use Illuminate\Support\Facades\DB;
 class LeaderboardController extends Controller
 {
     public function getScores(GetScoresRequest $request)
+    {
+        return match ($request->window) {
+            Window::PersonalBest => static::handlePersonalBestWindow($request),
+            Window::Lobby => static::handleLobbyWindow($request),
+        };
+    }
+
+    public static function handlePersonalBestWindow(GetScoresRequest $request)
     {
         $response = new GetScoresResponse();
 
@@ -35,7 +44,7 @@ class LeaderboardController extends Controller
             $entries = static::getLeaderboardEntriesForPlayer($playerId, $request->faction, $startDate);
             $response->playerScores[$playerId] = [];
 
-            $entries->each(function (ArchivedPlayerProgression $item, int $key) use (&$response, $playerId) {
+            $entries->each(function (ArchivedPlayerProgression $item) use (&$response, $playerId) {
                 $response->playerScores[$playerId][] = new LeaderboardEntry(
                     $item->user,
                     $item->gained_experience,
@@ -51,14 +60,35 @@ class LeaderboardController extends Controller
         return $response;
     }
 
+    public static function handleLobbyWindow(GetScoresRequest $request)
+    {
+        $response = new GetScoresResponse();
+
+        $startDate = static::getCurrentLeaderboardStartDate();
+
+        static::getLeaderboardEntriesForPlayer($request->playerIds, $request->faction, $startDate)
+            ->each(function (ArchivedPlayerProgression $item) use (&$response, &$lobbyScores) {
+                $response->playerScores[$item->user_id][] = new LeaderboardEntry(
+                    $item->user,
+                    $item->gained_experience,
+                    $item->rank,
+                );
+            });
+
+        $response->leaderboardSize = static::getLeaderboardSize($request->faction, $startDate);
+        $response->leaderboardReset = $startDate->addMonth()->firstOfMonth();
+
+        return $response;
+    }
+
     /**
-     * @param string $userId
+     * @param string|array $userId Select the given user id. if its an array it only selects them and no one around.
      * @param Faction $faction
      * @param Carbon $startDate Player scores before this Time won't get selected.
      * @param ?Carbon $endDate scores after this time won't be selected, defaults to now when null.
      * @return Collection<int, ArchivedPlayerProgression>
      */
-    public static function getLeaderboardEntriesForPlayer(string $userId, Faction $faction, Carbon $startDate, ?Carbon $endDate = null): Collection
+    public static function getLeaderboardEntriesForPlayer(string|array $userId, Faction $faction, Carbon $startDate, ?Carbon $endDate = null): Collection
     {
         $endDate ??= Carbon::now();
 
@@ -70,20 +100,21 @@ class LeaderboardController extends Controller
             ->addSelect(DB::raw('ROW_NUMBER() OVER (ORDER BY gained_experience DESC) AS "rank"'));
         $query->fromSub($subSubQuery, 'a');
 
-        $whereQuery = DB::query();
-        $whereQuery->where('user_id', $userId);
-        $whereQuery->fromSub($query, 'c');
-        $whereQuery->selectRaw('c.rank + 1 AS "user_rank"');
-
         $mainQuery = ArchivedPlayerProgression::query();
         $mainQuery->fromSub($query, 'b');
-        $mainQuery->where('rank', '<=', function (\Illuminate\Database\Query\Builder $whereQuery) use ($userId, $query) {
-            $whereQuery->where('user_id', $userId);
-            $whereQuery->fromSub($query, 'c');
-            $whereQuery->selectRaw('(c.rank + 1)');
-        });
+
+        if (is_array($userId)) {
+            $mainQuery->whereIn('user_id', $userId);
+        } else {
+            $mainQuery->where('rank', '<=', function (\Illuminate\Database\Query\Builder $whereQuery) use ($userId, $query) {
+                $whereQuery->where('user_id', $userId);
+                $whereQuery->fromSub($query, 'c');
+                $whereQuery->selectRaw('(c.rank + 1)');
+
+            });
+        }
         $mainQuery->orderByDesc('rank');
-        $mainQuery->limit(5);
+        $mainQuery->limit(is_array($userId) ? count($userId) : 5);
 
         return $mainQuery->get();
     }
@@ -107,7 +138,7 @@ class LeaderboardController extends Controller
 
     public static function getCurrentLeaderboardStartDate(): Carbon
     {
-        return Carbon::today()->firstOfMonth();
+        return Carbon::today()->firstOfMonth()->addHours(21);
     }
 
     /**

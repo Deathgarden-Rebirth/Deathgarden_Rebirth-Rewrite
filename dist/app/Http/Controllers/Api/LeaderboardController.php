@@ -55,7 +55,7 @@ class LeaderboardController extends Controller
 
         $response->topScores = $topScores;
         $response->leaderboardSize = static::getLeaderboardSize($request->faction, $startDate);
-        $response->leaderboardReset = $startDate->addMonth()->firstOfMonth();
+        $response->leaderboardReset = static::getCurrentLeaderboardEndDate();
 
         return $response;
     }
@@ -76,7 +76,7 @@ class LeaderboardController extends Controller
             });
 
         $response->leaderboardSize = static::getLeaderboardSize($request->faction, $startDate);
-        $response->leaderboardReset = $startDate->addMonth()->firstOfMonth();
+        $response->leaderboardReset = static::getCurrentLeaderboardEndDate();
 
         return $response;
     }
@@ -138,7 +138,11 @@ class LeaderboardController extends Controller
 
     public static function getCurrentLeaderboardStartDate(): Carbon
     {
-        return Carbon::today()->firstOfMonth()->addHours(21);
+        return Carbon::today()->firstOfMonth()->addHours(20);
+    }
+
+    public static function getCurrentLeaderboardEndDate(): Carbon {
+        return Carbon::today()->addMonth()->firstOfMonth()->addHours(20);
     }
 
     /**

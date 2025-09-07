@@ -1,0 +1,24 @@
+meta {
+  name: GetScores (Lobby Window)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/api/v1/extensions/leaderboard/getScores
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "data": {
+      "playerIds": [
+        "9ce8c405-eead-4622-b178-dfd6b3a538a5"
+      ],
+      "faction": "Hunter",
+      "top": 5,
+      "window": 4
+    }
+  }
+}

@@ -109,8 +109,7 @@ class LeaderboardController extends Controller
             $mainQuery->where('rank', '<=', function (\Illuminate\Database\Query\Builder $whereQuery) use ($userId, $query) {
                 $whereQuery->where('user_id', $userId);
                 $whereQuery->fromSub($query, 'c');
-                $whereQuery->selectRaw('(c.rank + 1)');
-
+                $whereQuery->selectRaw('(c.rank + (CASE c.rank WHEN 1 THEN 4 WHEN 2 THEN 3 WHEN 3 THEN 2 ELSE 1 END))');
             });
         }
         $mainQuery->orderByDesc('rank');

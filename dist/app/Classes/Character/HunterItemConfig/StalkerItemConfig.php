@@ -30,6 +30,7 @@ class StalkerItemConfig extends CharacterItemConfig
     protected static array $defaultEquippedBonuses = [
         '8A5BF2274640C2F23EF3C996A6F6404D',
         '545F88D24EAD402513C4948DE31DD6AE',
+        '1098BEE241B1515B44013A87EDB16BDC',
     ];
 
     protected static array $defaultEquippedPowers = [

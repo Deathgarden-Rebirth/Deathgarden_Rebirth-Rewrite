@@ -30,6 +30,7 @@ class PoacherItemConfig extends CharacterItemConfig
     protected static array $defaultEquippedBonuses = [
         '0FBE5C46F94E906875E84BA3C115B9B5',
         '6BE28177483A89CF00B2FD839726ACE1',
+        '1098BEE241B1515B44013A87EDB16BDC',
     ];
 
     protected static array $defaultEquippedPowers = [

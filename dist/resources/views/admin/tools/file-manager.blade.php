@@ -4,6 +4,7 @@
 
     /** @var \Illuminate\Database\Eloquent\Collection<\App\Models\GameFile> $files */
     /** @var Patchline $patchline */
+
 @endphp
 
 <x-layouts.admin>
@@ -15,26 +16,16 @@
                     <label for="patchlines" class="mr-4 font-medium text-gray-900 dark:text-white">
                         Select a patchline:
                     </label>
-                    <x-inputs.dropdown 
-												id="patchlines"
-												name="patchline"
-												:cases="Patchline::cases()"
-												:selected="$patchline"
-                        onchange="this.form.submit()"
-												required />
+                    <x-inputs.dropdown id="patchlines" name="patchline" :cases="Patchline::cases()" :selected="$patchline"
+                        onchange="this.form.submit()" required />
                 </div>
-								
+
                 <div class="flex flex-auto">
                     <label for="additional_files">
                         Show additional mods:
                     </label>
-                    <x-inputs.checkbox
-												class="w-6 h-6 ml-4"
-												id="additional_files"
-												name="additional_files"
-                        :checked="$showAdditionalFiles"
-												value="1"
-												onchange="this.form.submit()" />
+                    <x-inputs.checkbox class="w-6 h-6 ml-4" id="additional_files" name="additional_files"
+                        :checked="$showAdditionalFiles" value="1" onchange="this.form.submit()" />
                 </div>
             </div>
         </form>
@@ -195,24 +186,24 @@
                             </div>
                         </div>
 
-                    <div class="flex justify-end mt-4">
-                        @if (!$showAdditionalFiles)
+                        <div class="flex justify-end mt-4">
+                            @if (!$showAdditionalFiles)
+                                <div class="w-auto mx-2">
+                                    <x-inputs.button type="button" id="addFileInput">
+                                        Add More Files
+                                    </x-inputs.button>
+                                </div>
+                            @endif
                             <div class="w-auto mx-2">
-                                <x-inputs.button type="button" id="addFileInput">
-                                    Add More Files
+                                <x-inputs.button>
+                                    Submit
                                 </x-inputs.button>
                             </div>
-                        @endif
-                        <div class="w-auto mx-2">
-                            <x-inputs.button>
-                                Submit
-                            </x-inputs.button>
-                        </div>
-                    </form>
+                </form>
 
-                </div>
             </div>
         </div>
+    </div>
 
     <script>
         function toggleRow(id) {
@@ -243,29 +234,30 @@
                     } else {
                         textInput.value = '';
                     }
-                });
+                }
+            });
+        }
+
+        function examineFilePaths(fileName) {
+            switch (fileName) {
+                case 'TheExit_BE.exe':
+                    return './TheExit/Binaries/Win64/' + fileName;
+                case 'BEClient_x64.dll':
+                    return './TheExit/Binaries/Win64/BattlEye/' + fileName;
+                default:
+                    break;
             }
 
-            function examineFilePaths(fileName) {
-                switch (fileName) {
-                    case 'TheExit_BE.exe':
-                        return './TheExit/Binaries/Win64/' + fileName;
-                    case 'BEClient_x64.dll':
-                        return './TheExit/Binaries/Win64/BattlEye/' + fileName;
-                    default:
-                        break;
-                }
-
-                var extension = fileName.split('.').pop();
-                switch (extension) {
-                    case 'pak':
-                        return './TheExit/Content/Paks/' + fileName;
-                    case 'sig':
-                        return './TheExit/Content/Paks/' + fileName;
-                    default:
-                        return './' + fileName;
-                }
+            var extension = fileName.split('.').pop();
+            switch (extension) {
+                case 'pak':
+                    return './TheExit/Content/Paks/' + fileName;
+                case 'sig':
+                    return './TheExit/Content/Paks/' + fileName;
+                default:
+                    return './' + fileName;
             }
+        }
 
         @if (!$showAdditionalFiles)
             document.getElementById('addFileInput').addEventListener('click', function() {

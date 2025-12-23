@@ -18,6 +18,7 @@
         					Release Date: December 23, 2025
         				</span>
                         Patch 1.2.5 adds the Winter Solstice 2025 event, introduced the Turret Live Beta for the Inquisitor, and includes small adjustments to Hunter Shock.
+                    </x-web.text>
                     <x-web.text class="font-semibold mt-4">
                         <a href="https://docs.google.com/document/d/e/2PACX-1vS1OjOzQV2RCumwdtQiNxph2yiP4GasgCBzJnHg6UEGAOY3TaJ-4TtpUQZ9ZNxFTqwgY3U83A6ncozy/pub"
                            class="weblink" target="_blank" rel="noopener noreferrer">

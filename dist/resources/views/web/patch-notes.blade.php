@@ -4,13 +4,28 @@
             Patch Notes History
         </x-web.headline>
         <x-web.text>
-            Last Updated: 08/07/2025
+            Last Updated: 12/23/2025
         </x-web.text>
 
 		<x-web.text>
 		Stay up to date with all the changes, improvements, and updates in Deathgarden: Rebirth.
 		Below is a complete archive of every patch since the mod's release. Click the links to view the full patch notes.
         </x-web.text>
+
+        <x-web.accordeon class="w-full mt-4" headline="Patch 1.2.5 - Dark Instinct | Winter Solstice 2025">
+                    <x-web.text>
+        				<span class="font-bold mb-4 block">
+        					Release Date: December 23, 2025
+        				</span>
+                        Patch 1.2.5 adds the Winter Solstice 2025 event, introduced the Turret Live Beta for the Inquisitor, and includes small adjustments to Hunter Shock.
+                    </x-web.text>
+                    <x-web.text class="font-semibold mt-4">
+                        <a href="https://docs.google.com/document/d/e/2PACX-1vS1OjOzQV2RCumwdtQiNxph2yiP4GasgCBzJnHg6UEGAOY3TaJ-4TtpUQZ9ZNxFTqwgY3U83A6ncozy/pub"
+                           class="weblink" target="_blank" rel="noopener noreferrer">
+                            View Full Patch Notes
+                        </a>
+                    </x-web.text>
+                </x-web.accordeon>
 		
 		<x-web.accordeon class="w-full mt-4" headline="Patch 1.2.1 - Dark Instinct | End of Year 1">
                     <x-web.text>

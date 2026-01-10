@@ -26,7 +26,7 @@ class SawbonesItemConfig extends CharacterItemConfig
 
     protected static array $defaultEquippedBonuses = [
         '109BC5904DC1272D70822EBA79CC85B1',
-        '54B3EF794FCB0643C4644FA15BEF31D5',
+        'CEE62C37472E49AF36BC2A9809EEF2AD',
     ];
 
     protected static array $additionalPerks = [

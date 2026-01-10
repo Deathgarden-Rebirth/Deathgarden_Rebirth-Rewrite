@@ -26,7 +26,7 @@ class DashItemConfig extends CharacterItemConfig
 
     protected static array $defaultEquippedBonuses = [
         'CEE62C37472E49AF36BC2A9809EEF2AD',
-        '8EFCD5CC464EBFE1B7B03A984563710A',
+        '54B3EF794FCB0643C4644FA15BEF31D5',
     ];
 
     protected static array $additionalPerks = [

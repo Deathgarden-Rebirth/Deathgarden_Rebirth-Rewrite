@@ -17,7 +17,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('matchmaking:cleanup')->everyThirtySeconds();
         $schedule->command('app:generate-timed-challenges')->daily();
         $schedule->command('app:cleanup-logs')->daily();
-        $schedule->command('app:set-currency-modifiers')->hourlyAt(1);
+        // $schedule->command('app:set-currency-modifiers')->hourlyAt(1);
     }
 
     /**

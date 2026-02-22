@@ -18,7 +18,8 @@ enum Faction: string
                 Hunter::Inquisitor,
                 Hunter::Stalker,
                 Hunter::Poacher,
-                Hunter::Mass
+                Hunter::Mass,
+                Hunter::CircuitBreaker
             ],
             self::Runner => [
                 Runner::Smoke,

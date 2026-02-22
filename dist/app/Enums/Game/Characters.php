@@ -11,6 +11,7 @@ enum Characters: string
     case Poacher = 'Poacher';
     case Inquisitor = 'Inquisitor';
     case Mass = 'Mass';
+    case CircuitBreaker = 'CircuitBreaker';
 
     // Runners
     case Smoke = 'Smoke';
@@ -67,6 +68,7 @@ enum Characters: string
             'c300e3a8-4e57-1d54-9e01-4b9051a18be8' => Characters::Ink,
             '755d4dfe-40da-1512-b01e-3d8cff3c8d4d' => Characters::Sawbones,
             '38a4ef81-4082-2e49-8b2f-d196b757f7ad' => Characters::Switch,
+            'b6328b45-c9aa-4832-9368-df84ec5f6102' => Characters::CircuitBreaker,
             default => null,
         };
     }

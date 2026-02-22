@@ -15,6 +15,7 @@ enum MetadataGroup: string
     case Inquisitor = 'HunterGroupB';
     case Poacher = 'HunterGroupC';
     case Veteran = 'HunterGroupD';
+    case CircuitBreaker = 'HunterGroupE';
 
     case Profile = 'ProfileMetadata';
 

@@ -133,7 +133,7 @@ class CircuitBreakerItemConfig extends CharacterItemConfig
         'FF5ADA454579CD95C8536DB944C75F24',
         '22C48CEE49DC29EED48A82A7423DCCE6',
         '0606F8464D4C7EB70601CC84C50BCAC6',
-
+        '77CAA07E83354919B7EBC1CF227D20B5',
     ];
 
     protected static array $additionalPowers = [

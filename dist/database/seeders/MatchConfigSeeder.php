@@ -15,37 +15,32 @@ class MatchConfigSeeder extends Seeder
     {
         DB::table('match_configurations')->delete();
         MatchConfiguration::Create([
-            'name' => 'Matchconfig_Dev - 1v1',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
+            'name' => 'MatchConfig_Dev - 1v1',
+            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Rebirth_1v5.MatchConfig_Rebirth_1v5',
             'hunters' => 1,
             'runners' => 1,
             'enabled' => false,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Matchconfig - 1v5',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit_1v5.MatchConfig_Demo_HarvestYourExit_1v5',
+            'name' => 'MatchConfig - 1v5',
+            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Rebirth_1v5.MatchConfig_Rebirth_1v5',
             'enabled' => false,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Matchconfig - 1v4',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_2v10_4Needles.MatchConfig_Demo_2v10_4Needles',
+            'name' => 'MatchConfig - 1v4',
+            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Rebirth_1v4.MatchConfig_Rebirth_1v4',
             'enabled' => true,
             'weight' => 40,
             'hunters' => 1,
             'runners' => 4,
         ]);
         MatchConfiguration::Create([
-            'name' => 'Matchconfig - 1v6',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_2v8_4Needles.MatchConfig_Demo_2v8_4Needles',
+            'name' => 'MatchConfig - 1v6',
+            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Rebirth_1v6.MatchConfig_Rebirth_1v6',
             'hunters' => 1,
             'runners' => 6,
             'enabled' => true,
             'weight' => 500,
-        ]);
-        MatchConfiguration::Create([
-            'name' => 'Halloween Mode - Survival',
-            'asset_path' => '/Game/Configuration/MatchConfig/MatchConfig_Demo_HarvestYourExit.MatchConfig_Demo_HarvestYourExit',
-            'enabled' => false,
         ]);
         MatchConfiguration::Create([
             'name' => 'Curefew 1v5 - Slums',

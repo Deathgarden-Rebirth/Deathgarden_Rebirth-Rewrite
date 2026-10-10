@@ -1,3 +1,7 @@
+@pushonce('head')
+    @vite(['resources/js/admin/app.js'])
+@endpushonce
+
 <x-layouts.app>
     <div class="h-screen flex flex-col bg-inherit">
         <x-admin.navbar class="row-span-1"/>

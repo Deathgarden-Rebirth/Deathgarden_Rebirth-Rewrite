@@ -50,8 +50,8 @@
                     @foreach ($files as $file)
                         <tr @class([
                             'text-center',
-                            '!bg-green-600 hover:!bg-green-500' => $file->action === FileAction::ADD,
-                            '!bg-red-600 hover:!bg-red-500' => $file->action === FileAction::DELETE,
+                            'bg-green-600! hover:bg-green-500!' => $file->action === FileAction::ADD,
+                            'bg-red-600! hover:bg-red-500!' => $file->action === FileAction::DELETE,
                         ])>
                             <td>
                                 @if ($file->children && $file->children->count() > 0)
@@ -113,7 +113,7 @@
                         </tr>
 
                         @if ($file->children && $file->children->count() > 0)
-                            <tr class="expandable-content hidden hover:bg-opacity-60" id="content-{{ $file->id }}">
+                            <tr class="expandable-content hidden" id="content-{{ $file->id }}">
                                 <td></td>
                                 <td class="p-0" colspan="{{ $showAdditionalFiles ? '7' : '5' }}">
                                     <table class="w-full text-center">
@@ -132,7 +132,7 @@
                                             @foreach ($file->children as $child)
                                                 <tr @class([
                                                     'text-center',
-                                                    '!bg-red-600 hover:!bg-red-500' => $child->action === FileAction::ADD,
+                                                    'bg-red-600! hover:bg-red-500!' => $child->action === FileAction::ADD,
                                                     '' => $child->action === FileAction::DELETE,
                                                 ])>
                                                     <td class="p-2">

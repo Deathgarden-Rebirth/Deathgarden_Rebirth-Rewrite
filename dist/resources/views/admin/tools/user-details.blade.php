@@ -3,7 +3,7 @@
 ])
 
 @pushonce('head')
-    @vite(['resources/css/components/admin/tools/user-details.scss'])
+    @vite(['resources/css/components/admin/tools/user-details.css'])
 @endpushonce
 
 @php
@@ -57,7 +57,7 @@
                     </div>
                 </div>
 
-                <div class="section flex gap-2 justify-center !p-4">
+                <div class="section flex gap-2 justify-center p-4!">
                     <a href="{{ route('user.inbox', ['user' => $user->id]) }}">
                         <x-inputs.button type="button" title="Not yet Implemented">
                         <span class="flex items-center gap-2 text-xl align-middle">
@@ -180,7 +180,7 @@
                 </div>
                 <div class="section md:grid md:grid-cols-2 md:gap-4">
                     <h1 class="col-span-full">Progression</h1>
-                    <div class="bg-green-400 dark:bg-green-800 p-2 rounded-md shadow-glow shadow-green-400/15 outline outline-green-700">
+                    <div class="bg-green-400 dark:bg-green-800 p-2 rounded-md shadow-glow shadow-green-400/15 outline-3 outline-green-700">
                         <div class="flex justify-between p-2 text-2xl font-bold ">
                             <label>Runner</label>
                             @if($allowEdit)
@@ -207,7 +207,7 @@
                                     :character="$user->playerData()->characterDataForCharacter(\App\Enums\Game\Characters::from($character->value))"/>
                         @endforeach
                     </div>
-                    <div class="bg-red-400 dark:bg-rose-800 p-2 rounded-md col-start-2 shadow-glow shadow-red-400/15 outline outline-red-900 mt-4 md:mt-0">
+                    <div class="bg-red-400 dark:bg-rose-800 p-2 rounded-md col-start-2 shadow-glow shadow-red-400/15 outline-3 outline-red-900 mt-4 md:mt-0">
                         <div class="flex justify-between p-2 text-2xl font-bold ">
                             <label>Hunter</label>
                             @if($allowEdit)

@@ -2,7 +2,6 @@
 
 namespace App\APIClients;
 
-
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
@@ -31,10 +30,11 @@ abstract class BaseApiClient
 
     protected function dispatch(): Response
     {
-        $this->request = Http::withBody($this->body)->asJson()->withQueryParameters($this->queryParams)->withHeaders($this->headers);
+        $this->request = Http::asJson()->withQueryParameters($this->queryParams)->withHeaders($this->headers);
 
-        if($this->debug)
+        if ($this->debug) {
             $this->request->dump();
+        }
 
         return $this->request->{$this->method->value}($this->url);
     }

@@ -1,0 +1,317 @@
+/* Source: https://github.com/Xibel/select2-tailwindcss */
+
+.select2-container {
+    /* The container where the selectbox is housing*/
+    @apply relative m-0 box-border inline-block align-middle;
+}
+
+.select2-container .select2-selection--single {
+    /* Selection box itself */
+    @apply box-border block cursor-pointer rounded-md border shadow-sm select-none;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    /* DIV inside Selection box with text, clear button and arrow down*/
+    @apply block h-6 truncate pr-6 pl-1;
+}
+
+.select2-container .select2-selection--single .select2-selection__clear {
+    /* The DIV where the X is housing to clear the chosen option */
+    @apply relative -m-1;
+}
+
+.select2-container .select2-selection--multiple {
+    @apply box-border block h-4 cursor-pointer overflow-hidden select-none;
+}
+
+.select2-container .select2-selection--multiple .select2-selection__rendered {
+    @apply inline-block truncate pl-2 whitespace-nowrap;
+}
+
+.select2-container .select2-search--inline {
+    /* Search box*/
+    @apply float-left;
+}
+
+.select2-container .select2-search--inline .select2-search__field {
+    @apply my-1 box-border w-full border pl-1 text-base dark:border-gray-600;
+}
+
+.select2-container .select2-search--inline .select2-search__field::-webkit-search-cancel-button {
+    @apply appearance-none;
+}
+
+.select2-dropdown {
+    /* Dropdown area after the arrow down is clicked */
+    @apply absolute z-50 float-left box-border block w-auto border border-solid border-gray-500 bg-slate-200 dark:bg-gray-800;
+}
+
+.select2-results {
+    @apply block text-black dark:text-gray-300;
+}
+
+.select2-results__options {
+    @apply m-0 list-none p-0;
+}
+
+.select2-results__option {
+    /* The rows with results that you see after dropdown.
+    Increase p-1 to p-2 to have more space between results */
+    @apply p-2 select-none;
+}
+
+.select2-results__option[aria-selected] {
+    @apply cursor-pointer;
+}
+
+.select2-container--open .select2-dropdown {
+    /* Dropdown container opened and results are shown*/
+    @apply left-0 mt-3;
+}
+
+.select2-container--open .select2-dropdown--above,
+.select2-container--open .select2-dropdown--below {
+    /* The left and right borders of the option rows */
+    @apply rounded-sm border-gray-400 shadow-sm dark:border-gray-700;
+}
+
+.select2-search--dropdown {
+    /* Search dropdown element*/
+    @apply block p-2;
+}
+
+.select2-search--dropdown .select2-search__field {
+    /* Search box itself where you can enter text*/
+    @apply box-border h-10 w-full rounded-sm border-2 border-blue-300 bg-slate-100 p-1 outline-hidden dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200;
+
+    &:focus-within {
+        @apply border-indigo-700 dark:bg-gray-600;
+    }
+}
+
+.select2-search--dropdown .select2-search__field::-webkit-search-cancel-button {
+    @apply appearance-none;
+}
+
+.select2-search--dropdown.select2-search--hide {
+    @apply hidden;
+}
+
+.select2-close-mask {
+    @apply m-0 block min-w-full p-0;
+    border: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+    opacity: 0;
+    z-index: 99;
+    background-color: #fff;
+}
+
+.select2-hidden-accessible {
+    border: 0 !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+/*
+    Default template settings:
+*/
+
+.select2-container--default .select2-selection--single {
+    /* Selection bar - Self */
+    @apply h-10 border border-solid bg-slate-200 p-2 dark:border-gray-500 dark:bg-gray-800;
+
+    &[aria-expanded='true'] {
+        @apply border-indigo-700;
+    }
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    /* Selection bar - Text color of the item you selected from the results */
+    @apply text-gray-700 dark:text-gray-200;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__clear {
+    /* Selection bar - Clear button - If this property is enabled*/
+    @apply float-right cursor-pointer text-red-700;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    /* Selection bar - Color of the placeholder text before selection - If this property is enabled */
+    @apply text-gray-600 dark:text-gray-300;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    /* Selection bar - DIV where the arrow pointing down is living*/
+    @apply absolute top-0 right-0 h-10 w-8;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    /* Arrow is a CSS triangle that does not exists in Tailwind without a package */
+    @apply absolute h-0 w-0 border-t-4 border-r-4 border-b-0 border-l-4 border-solid;
+    border-color: #000 transparent transparent transparent;
+    left: 50%;
+    margin-left: -4px;
+    margin-top: -2px;
+    top: 50%;
+}
+
+.select2-container--default[dir='rtl'] .select2-selection--single .select2-selection__clear {
+    /* Selection bar - Clear button - If this property is enabled from right to left*/
+    @apply float-left ml-4;
+}
+
+.select2-container--default[dir='rtl'] .select2-selection--single .select2-selection__arrow {
+    /* Placement of the dropdown arrow when in rtl mode */
+    @apply right-auto left-0;
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--single {
+    /* Selection by property disabled*/
+    @apply cursor-default bg-gray-300 text-white/15 dark:bg-slate-900;
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--multiple {
+    /* Selection by property disabled*/
+    @apply cursor-default border-gray-900;
+    background-color: inherit;
+
+    .select2-selection__choice {
+        @apply cursor-default! border-gray-800/50! text-white/15!;
+    }
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--single .select2-selection__clear {
+    /* Selection bar - Hide the clear cross when selection bar is disabled*/
+    @apply hidden;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent #888 transparent;
+    border-width: 0 4px 5px 4px;
+}
+
+.select2-container--default .select2-selection--multiple {
+    @apply h-full min-h-full rounded-sm border border-solid bg-white p-1 shadow-sm dark:border-gray-700 dark:bg-slate-700;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+    @apply m-0 box-border min-w-full list-none px-1;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+    @apply list-none;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__clear {
+    @apply float-right mt-1 mr-2 cursor-pointer p-1;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    @apply float-left my-1 mr-1 cursor-default rounded-sm border bg-white px-0 text-gray-700 dark:bg-slate-700 dark:text-gray-200;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    @apply relative mr-1 inline-block cursor-pointer text-gray-700 dark:text-gray-200;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+    @apply text-gray-700 dark:text-gray-200;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    @apply border-2 border-indigo-700 outline-hidden dark:bg-gray-600;
+}
+
+.select2-container--default.select2-container--disabled .select2-selection__choice__remove {
+    @apply hidden;
+}
+
+.select2-container--classic .select2-selection--multiple .select2-selection__choice {
+    @apply float-left mt-1 mr-1 cursor-default rounded-sm border-2 bg-slate-200 px-1 shadow-sm dark:border-gray-800;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    /* The border of the search textbox */
+    @apply border-solid;
+}
+
+.select2-container--default .select2-search--inline .select2-search__field {
+    /* Search textbox */
+    @apply border-none bg-transparent shadow-none outline-hidden select-text;
+}
+
+.select2-container--default .select2-results > .select2-results__options {
+    /* Height of the dropdown zone where the options or results are visible */
+    @apply h-full max-h-32 overflow-y-auto;
+}
+
+.select2-container--default .select2-results__option[role='group'] {
+    @apply p-0;
+}
+
+.select2-container--default .select2-results__option[aria-disabled='true'] {
+    @apply text-gray-700;
+}
+
+.select2-container--default .select2-results__option[aria-selected='true'] {
+    /* The already selected option row color */
+    @apply bg-gray-300 dark:text-gray-700;
+}
+
+.select2-results__option--selected {
+    @apply hidden;
+}
+
+/* Indentation of nested option groups */
+.select2-container--default .select2-results__option .select2-results__option {
+    padding-left: 1em;
+
+    .select2-results__group {
+        padding-left: 0;
+    }
+
+    .select2-results__option {
+        margin-left: -1em;
+        padding-left: 2em;
+
+        .select2-results__option {
+            margin-left: -2em;
+            padding-left: 3em;
+
+            .select2-results__option {
+                margin-left: -3em;
+                padding-left: 4em;
+
+                .select2-results__option {
+                    margin-left: -4em;
+                    padding-left: 5em;
+
+                    .select2-results__option {
+                        margin-left: -5em;
+                        padding-left: 6em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    /* Background color and text color of the options rows when select is open */
+    @apply bg-gray-100 text-gray-700 dark:bg-gray-500 dark:text-gray-200;
+}
+
+.select2-container--default .select2-results__group {
+    @apply block cursor-default;
+    padding: 6px;
+}

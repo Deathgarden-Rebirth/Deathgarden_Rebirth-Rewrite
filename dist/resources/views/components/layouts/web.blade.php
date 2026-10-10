@@ -10,7 +10,7 @@
                 {{ $slot }}
             </div>
 
-            <div class="w-full [background:linear-gradient(to_right,transparent,theme(colors.gray.900)_40%,theme(colors.gray.900)_60%,transparent)] border-t-2 border-web-main">
+            <div class="w-full [background:linear-gradient(to_right,transparent,var(--color-gray-900)_40%,var(--color-gray-900)_60%,transparent)] border-t-2 border-web-main">
                 <x-web.footer />
             </div>
         </div>

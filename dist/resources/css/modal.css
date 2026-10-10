@@ -1,0 +1,7 @@
+.modal {
+    @apply z-50 bg-slate-300 shadow-glow shadow-gray-800/50 dark:bg-slate-800;
+
+    .close-modal {
+        @apply rounded-full border-2 border-slate-300 dark:border-slate-800;
+    }
+}

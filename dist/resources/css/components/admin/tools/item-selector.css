@@ -1,0 +1,13 @@
+@reference '../../../app.css';
+
+.reward-item {
+    @apply rounded-md border border-gray-500 bg-slate-700 p-4;
+
+    > div {
+        @apply flex justify-start gap-4 p-0;
+    }
+
+    > div > span {
+        @apply rounded-md border border-gray-500 bg-slate-800 p-2;
+    }
+}

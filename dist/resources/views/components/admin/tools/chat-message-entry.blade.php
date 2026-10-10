@@ -68,7 +68,7 @@
                             match chat
                         @endif
                     </x-inputs.button>
-                    <div id="{{ $match->id }}-chat" class="modal !max-w-full w-[calc(min-content_+_50%]">
+                    <div id="{{ $match->id }}-chat" class="modal max-w-full!">
                         <div class="flex flex-col items-center gap-5 ">
                             <x-admin.match-info :game="$match"/>
                         </div>
@@ -104,12 +104,12 @@
                         </span>
                     </x-inputs.button>
                     <a href="{{ route('user.bans', ['user' => $message->user->id]) }}" target="_blank">
-                        <x-inputs.button type="button" class="px-2 py-1 !text-sm delete" title="Bans">
+                        <x-inputs.button type="button" class="px-2 py-1 text-sm! delete" title="Bans">
                             <x-icons.hammer class="size-6"/>
                         </x-inputs.button>
                     </a>
                     <a href="{{ route('user.inbox', ['user' => $message->user->id]) }}" target="_blank">
-                        <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="Inbox">
+                        <x-inputs.button type="button" class="px-2 py-1 text-sm!" title="Inbox">
                             <x-icons.mail class="size-6"/>
                         </x-inputs.button>
                     </a>
@@ -126,7 +126,7 @@
                                 match chat
                             @endif
                         </x-inputs.button>
-                        <div id="{{ $match->id }}-chat" class="modal !max-w-full w-[calc(min-content_+_50%]">
+                        <div id="{{ $match->id }}-chat" class="modal max-w-full!">
                             <div class="flex flex-col items-center gap-5 ">
                                 <x-admin.match-info :game="$match"/>
                             </div>
@@ -142,7 +142,7 @@
                         <x-inputs.text-area
                                 form="{{ $message->id }}form"
                                 id="{{ $message->id }}consequences"
-                                class="!w-full"
+                                class="w-full!"
                                 name="consequences"
                         />
 

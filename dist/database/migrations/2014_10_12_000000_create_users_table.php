@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->bigInteger('steam_id', unsigned: true)->index('steam_id');
+            $table->bigInteger('steam_id')->unsigned()->index('steam_id');
             $table->boolean('is_banned')->default(false);
             $table->boolean('eula_consent')->default(false);
             $table->rememberToken();

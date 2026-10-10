@@ -122,12 +122,12 @@
                         </span>
                     </x-inputs.button>
                     <a href="{{ route('user.bans', ['user' => $report->reportedUser->id]) }}" target="_blank">
-                        <x-inputs.button type="button" class="px-2 py-1 !text-sm delete" title="Bans">
+                        <x-inputs.button type="button" class="px-2 py-1 text-sm! delete" title="Bans">
                             <x-icons.hammer class="size-6"/>
                         </x-inputs.button>
                     </a>
                     <a href="{{ route('user.inbox', ['user' => $report->reportedUser->id]) }}" target="_blank">
-                        <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="Inbox">
+                        <x-inputs.button type="button" class="px-2 py-1 text-sm!" title="Inbox">
                             <x-icons.mail class="size-6"/>
                         </x-inputs.button>
                     </a>
@@ -141,7 +141,7 @@
                         <x-inputs.text-area
                                 form="{{ $report->id }}form"
                                 id="{{ $report->id }}consequences"
-                                class="!w-full"
+                                class="w-full!"
                                 name="consequences"
                         />
 

@@ -27,7 +27,7 @@
 
         <a href="{{ route('download.launcher') }}" target="_blank">
             <x-inputs.button type="button"
-                             class="my-12 !px-8 !py-6 !bg-web-main hover:scale-110 !transition-transform !border-web-main">
+                             class="my-12 px-8! py-6! bg-web-main! hover:scale-110 transition-transform! border-web-main!">
             <span class="text-3xl font-semibold">
                 Download for Windows
             </span>
@@ -45,7 +45,7 @@
                 </x-web.text>
 
                 <table class="mt-4">
-                    <thead class="!bg-slate-950">
+                    <thead class="bg-slate-950!">
                     <tr>
                         <th>File</th>
                         <th>Game Path</th>
@@ -200,7 +200,7 @@
             @endif
         </x-web.accordeon>
 
-        <x-web.headline class="w-full mt-12 !text-4xl" id="faq">
+        <x-web.headline class="w-full mt-12 text-4xl!" id="faq">
             Frequently Asked Questions
         </x-web.headline>
 

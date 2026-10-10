@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $ from './app.js';
 
 class UserSelector {
     static getSelect2Options(element) {

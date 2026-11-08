@@ -186,6 +186,68 @@ class MatchmakingController extends Controller
 
     public function playerEndOfMatch(PlayerEndOfMatchRequest $request)
     {
+        return '{
+  "player": {
+    "InitialExperienceProgressions": [
+      { "ObjectId": "PlayerProgression", "Level": 47, "CurrentExperience": 5000, "ExperienceToReach": 10000 },
+      { "ObjectId": "RunnerProgression", "Level": 22, "CurrentExperience": 3, "ExperienceToReach": 4 }
+    ],
+    "NewExperienceProgressions": [
+      { "ObjectId": "PlayerProgression", "Level": 48, "CurrentExperience": 1500, "ExperienceToReach": 12000 },
+      { "ObjectId": "RunnerProgression", "Level": 23, "CurrentExperience": 1, "ExperienceToReach": 4 }
+    ],
+    "TotalEarnedCurrency": [
+      { "Currency": "CurrencyA", "Amount": 2500 },
+      { "Currency": "CurrencyB", "Amount": 1200 },
+      { "Currency": "CurrencyC", "Amount": 300 }
+    ],
+    "Wallet": [
+        {
+          "balance": 1234,
+          "currency": "CurrencyA",
+          "currencyGroup": "SoftCurrencyGroup"
+        },
+        {
+          "balance": 1234,
+          "currency": "CurrencyB",
+          "currencyGroup": "SoftCurrencyGroup"
+        },
+        {
+          "balance": 1234,
+          "currency": "CurrencyC",
+          "currencyGroup": "SoftCurrencyGroup"
+        }
+    ],
+    "Events": [
+        {
+          "type": "ConstructDefeats",
+          "amount": 500,
+          "NewExperienceProgression": { "ObjectId": "PlayerProgression", "Level": 47, "CurrentExperience": 5500, "ExperienceToReach": 10000 }
+        },
+        {
+          "type": "TeamActions",
+          "amount": 0,
+          "NewExperienceProgression": { "ObjectId": "PlayerProgression", "Level": 47, "CurrentExperience": 5500, "ExperienceToReach": 10000 }
+        },
+        {
+          "type": "Resources",
+          "amount": 5000,
+          "NewExperienceProgression": { "ObjectId": "PlayerProgression", "Level": 48, "CurrentExperience": 500, "ExperienceToReach": 12000 }
+        },
+        {
+          "type": "HunterClose",
+          "amount": 500,
+          "NewExperienceProgression": { "ObjectId": "PlayerProgression", "Level": 48, "CurrentExperience": 1000, "ExperienceToReach": 12000 }
+        },
+        {
+          "type": "GardenFinale",
+          "amount": 500,
+          "NewExperienceProgression": { "ObjectId": "PlayerProgression", "Level": 48, "CurrentExperience": 1500, "ExperienceToReach": 12000 }
+        }
+    ]
+  }
+}';
+
         $user = Auth::user();
         $game = Game::find($request->matchId);
 

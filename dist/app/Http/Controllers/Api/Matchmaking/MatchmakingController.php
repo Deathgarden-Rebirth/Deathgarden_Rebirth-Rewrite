@@ -29,6 +29,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Response;
 
 class MatchmakingController extends Controller
 {
@@ -270,7 +271,35 @@ class MatchmakingController extends Controller
         }
 
         // We dont really know what the game wants except for a json object called "player".
-        return json_encode(['player' => []], JSON_FORCE_OBJECT);
+        return '{
+  "root": {
+    "player": {
+      "InitialExperienceProgressions": [
+        { "ObjectId": "PlayerProgression", "Level": 4, "CurrentExperience": 1500, "ExperienceToReach": 2000 },
+        { "ObjectId": "RunnerProgression", "Level": 2, "CurrentExperience": 300,  "ExperienceToReach": 1000 },
+        { "ObjectId": "RunnerGroupB",      "Level": 1, "CurrentExperience": 0,    "ExperienceToReach": 500 }
+      ],
+      "NewExperienceProgressions": [
+        { "ObjectId": "PlayerProgression", "Level": 5, "CurrentExperience": 100,  "ExperienceToReach": 2500 },
+        { "ObjectId": "RunnerProgression", "Level": 2, "CurrentExperience": 900,  "ExperienceToReach": 1000 },
+        { "ObjectId": "RunnerGroupB",      "Level": 2, "CurrentExperience": 50,   "ExperienceToReach": 750 }
+      ],
+      "TotalEarnedCurrency": [],
+      "Wallet": [
+        { "Currency": "CurrencyA", "Amount": 1250 }
+      ],
+      "Events": [
+        {
+          "Type": "Downing",
+          "EarnedExperience": 150,
+          "NewExperienceProgression": { "ObjectId": "RunnerGroupB", "Level": 1, "CurrentExperience": 150, "ExperienceToReach": 500 },
+          "Rewards": [ { "Type": "Currency", "Id": "CurrencyA", "Amount": 50 } ],
+          "Metadata": { "Id": "", "DisplayName": "" }
+        }
+      ]
+    }
+  }
+}';
     }
 
     protected function checkQueueStatus(QueueRequest $request): QueueResponse

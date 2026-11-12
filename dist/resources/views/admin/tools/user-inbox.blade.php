@@ -8,7 +8,7 @@
 ])
 
 @pushonce('head')
-    @vite('resources/css/components/admin/tools/inbox-message.scss')
+    @vite('resources/css/components/admin/tools/inbox-message.css')
 @endpushonce
 
 @php

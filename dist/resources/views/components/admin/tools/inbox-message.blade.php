@@ -142,7 +142,7 @@
             <div class="flex flex-col items-center gap-5">
                     <span>
                         Are you sure you want to delete the inbox message
-                    <span class="italic m-1 inline dark:bg-slate-700 bg-slate-400 w-fit px-2 rounded">
+                    <span class="italic m-1 inline dark:bg-slate-700 bg-slate-400 w-fit px-2 rounded-sm">
                         {{ $message->title }}
                     </span>
                         ?

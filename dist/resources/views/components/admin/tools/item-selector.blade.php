@@ -1,5 +1,5 @@
 @pushonce('head')
-    @vite(['resources/js/admin/tools/item-selector.js','resources/css/components/admin/tools/item-selector.scss'])
+    @vite(['resources/js/admin/tools/item-selector.js','resources/css/components/admin/tools/item-selector.css'])
 @endpushonce
 
 @php
@@ -16,11 +16,11 @@
                         <input type="hidden" name="rewards[id][]" value="{{ $reward->id }}">
                         <input type="hidden" name="rewards[amount][]" value="{{ $reward->amount }}">
                         <div>
-                            <label class="!w-16">Item</label>
-                            <span class="!overflow-auto text-nowrap">{{ $reward->getRewardName() }}</span>
+                            <label class="w-16!">Item</label>
+                            <span class="overflow-auto! text-nowrap">{{ $reward->getRewardName() }}</span>
                         </div>
                         <div class="mt-2">
-                            <label class="!w-16">Amount</label>
+                            <label class="w-16!">Amount</label>
                             <span class="mr-auto">{{ $reward->amount }}</span>
                             @if($allowEdit)
                                 <button type="button"

@@ -1,55 +1,88 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Create The Application
-|--------------------------------------------------------------------------
-|
-| The first thing we will do is create a new Laravel application instance
-| which serves as the "glue" for all the components of Laravel, and is
-| the IoC container for the system binding all of the various parts.
-|
-*/
+use App\Http\Middleware\AccessLogger;
+use App\Http\Middleware\AdminPermissionCheck;
+use App\Http\Middleware\VerifyMigrationKey;
+use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Illuminate\Cookie\Middleware\EncryptCookies;
+use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Configuration\Exceptions;
+use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Middleware\SubstituteBindings;
+use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Route;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
-$app = new Illuminate\Foundation\Application(
-    $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
-);
+return Application::configure(basePath: dirname(__DIR__))
+    ->withRouting(
+        commands: __DIR__.'/../routes/console.php',
+        health: '/up',
+        then: function () {
+            Route::middleware('api')->prefix('api')->group(base_path('routes/api.php'));
+            Route::middleware(['api', 'api.session'])->prefix('moderation')->group(base_path('routes/moderation.php'));
+            Route::middleware('web')->group(base_path('routes/web.php'));
+            Route::middleware(['api', 'api.session'])->prefix('api')->group(base_path('routes/deathgardenApi.php'));
+            Route::middleware(['api', 'api.session'])->prefix('metrics')->group(base_path('routes/metrics.php'));
+            Route::middleware(['api', 'api.session'])->group(base_path('routes/messages.php'));
+            Route::middleware(['web', 'auth', AdminPermissionCheck::class])->prefix('admin')->group(base_path('routes/admin.php'));
+        },
+    )
+    ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->group('web', [
+            EncryptCookies::class,
+            AddQueuedCookiesToResponse::class,
+            StartSession::class,
+            AccessLogger::class,
+            ShareErrorsFromSession::class,
+            PreventRequestForgery::class,
+            SubstituteBindings::class,
+        ]);
 
-/*
-|--------------------------------------------------------------------------
-| Bind Important Interfaces
-|--------------------------------------------------------------------------
-|
-| Next, we need to bind some important interfaces into the container so
-| we will be able to resolve them when needed. The kernels serve the
-| incoming requests to this application from both the web and CLI.
-|
-*/
+        $middleware->api(append: AccessLogger::class);
 
-$app->singleton(
-    Illuminate\Contracts\Http\Kernel::class,
-    App\Http\Kernel::class
-);
+        $middleware->group('api.session', [
+            EncryptCookies::class,
+            AddQueuedCookiesToResponse::class,
+            StartSession::class,
+            AccessLogger::class,
+        ]);
 
-$app->singleton(
-    Illuminate\Contracts\Console\Kernel::class,
-    App\Console\Kernel::class
-);
+        $middleware->group('api.auth', [
+            'auth',
+            'auth.session',
+        ]);
 
-$app->singleton(
-    Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Exceptions\Handler::class
-);
+        $middleware->alias([
+            'verify_migration_key' => VerifyMigrationKey::class,
+        ]);
+    })
+    ->withExceptions(function (Exceptions $exceptions): void {
+        // TODO: New error responses by Laravel for API - not tested yet
+        // $exceptions->shouldRenderJsonWhen(
+        //     fn (Request $request) => $request->is('api/*') || $request->expectsJson(),
+        // );
 
-/*
-|--------------------------------------------------------------------------
-| Return The Application
-|--------------------------------------------------------------------------
-|
-| This script returns the application instance. The instance is given to
-| the calling script so we can separate the building of the instances
-| from the actual running of the application and sending responses.
-|
-*/
+        $exceptions->stopIgnoring([HttpException::class, HttpResponseException::class]);
 
-return $app;
+        $exceptions->report(function (Throwable $e) {
+            $request = request();
+            $log = new stdClass;
+            $log->method = $request->method();
+            $log->url = $request->fullUrl();
+            $log->headers = $request->headers->all();
+            $log->queryParams = $request->getQueryString();
+            $log->body = $request->all();
+            $log->error = new stdClass;
+            $log->error->message = $e->getMessage();
+            $log->error->file = $e->getFile();
+            $log->error->line = $e->getLine();
+            $log->error->trace = $e->getTrace();
+
+            Log::stack(['dg_requests_errors'])->error($log->method.' '.$log->url."\n".json_encode($log, JSON_PRETTY_PRINT));
+        });
+    })->create();

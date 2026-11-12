@@ -45,18 +45,18 @@
                         </td>
                         <td>
                             <a href="{{ route('user.details', ['user' => $user->id]) }}">
-                                <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="User Details">
+                                <x-inputs.button type="button" class="px-2 py-1 text-sm!" title="User Details">
                                     <x-icons.user-details class="size-4"/>
                                 </x-inputs.button>
                             </a>
                             <a href="{{ route('user.inbox', ['user' => $user->id]) }}">
-                                <x-inputs.button type="button" class="px-2 py-1 !text-sm" title="Inbox">
+                                <x-inputs.button type="button" class="px-2 py-1 text-sm!" title="Inbox">
                                     <x-icons.mail class="size-4"/>
                                 </x-inputs.button>
                             </a>
                             @can(\App\Enums\Auth\Permissions::USER_BANS->value)
                             <a href="{{ route('user.bans', ['user' => $user->id]) }}">
-                                <x-inputs.button type="button" class="px-2 py-1 !text-sm delete" title="Bans">
+                                <x-inputs.button type="button" class="px-2 py-1 text-sm! delete" title="Bans">
                                     <x-icons.hammer class="size-4"/>
                                 </x-inputs.button>
                             </a>

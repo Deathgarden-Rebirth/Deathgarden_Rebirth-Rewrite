@@ -1,4 +1,4 @@
-import $ from "jquery";
+import $ from "../app.js";
 
 class ItemSelector {
     rewardItemContainer;
@@ -15,20 +15,30 @@ class ItemSelector {
     }
 
     static createRewardItemElement(type, id, name, amount) {
-        return $(`<div class="reward-item">
-                        <input type="hidden" name="rewards[type][]" value="${type}">
-                        <input type="hidden" name="rewards[id][]" value="${id}">
-                        <input type="hidden" name="rewards[amount][]" value="${amount}">
+        let element = $(`<div class="reward-item">
+                        <input type="hidden" name="rewards[type][]">
+                        <input type="hidden" name="rewards[id][]">
+                        <input type="hidden" name="rewards[amount][]">
                         <div>
-                            <label class="!w-16">Item</label>
-                            <span class="!overflow-auto text-nowrap">${name}</span>
+                            <label class="w-16!">Item</label>
+                            <span class="reward-name overflow-auto! text-nowrap"></span>
                         </div>
                         <div class="mt-2">
-                            <label class="!w-16">Amount</label>
-                            <span class="mr-auto">${amount}</span>
+                            <label class="w-16!">Amount</label>
+                            <span class="reward-amount mr-auto"></span>
                             <button type="button" class="border rounded-md bg-red-800 border-red-600 px-2 hover:bg-red-600">Delete</button>
                         </div>
                   </div>`);
+
+        // Values are set through jQuery so they are escaped. attr() instead of val() keeps the
+        // value attribute in sync, which the duplicate checks below select on.
+        element.find('input[name="rewards[type][]"]').attr('value', type);
+        element.find('input[name="rewards[id][]"]').attr('value', id);
+        element.find('input[name="rewards[amount][]"]').attr('value', amount);
+        element.find('.reward-name').text(name);
+        element.find('.reward-amount').text(amount);
+
+        return element;
     }
 
     static initCatalogDropdowns(){

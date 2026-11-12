@@ -1,5 +1,11 @@
 <?php
 
+use Opcodes\LogViewer\Enums\SortingMethod;
+use Opcodes\LogViewer\Enums\SortingOrder;
+use Opcodes\LogViewer\Enums\Theme;
+use Opcodes\LogViewer\Http\Middleware\AuthorizeLogViewer;
+use Opcodes\LogViewer\Http\Middleware\EnsureFrontendRequestsAreStateful;
+
 return [
 
     /*
@@ -11,6 +17,10 @@ return [
     */
 
     'enabled' => env('LOG_VIEWER_ENABLED', true),
+
+    'api_only' => env('LOG_VIEWER_API_ONLY', false),
+
+    'require_auth_in_production' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -35,6 +45,21 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Log Viewer Assets Path (Deprecated)
+    |--------------------------------------------------------------------------
+    | The path to the published Log Viewer assets.
+    |
+    | Note: Publishing assets is no longer required. Assets are now served
+    | directly from the vendor directory. This option only applies if you
+    | have published assets using `php artisan log-viewer:publish`.
+    | This option will be removed in the next major version.
+    |
+    */
+
+    'assets_path' => 'vendor/log-viewer',
+
+    /*
+    |--------------------------------------------------------------------------
     | Back to system URL
     |--------------------------------------------------------------------------
     | When set, displays a link to easily get back to this URL.
@@ -44,7 +69,7 @@ return [
     |
     */
 
-    'back_to_system_url' => 'admin',
+    'back_to_system_url' => '/admin',
 
     'back_to_system_label' => 'Dashboard', // Displayed by default: "Back to {{ app.name }}"
 
@@ -61,6 +86,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Log Viewer datetime format.
+    |--------------------------------------------------------------------------
+    | The format used to display timestamps in the UI.
+    |
+    */
+
+    'datetime_format' => 'Y-m-d H:i:s',
+
+    /*
+    |--------------------------------------------------------------------------
     | Log Viewer route middleware.
     |--------------------------------------------------------------------------
     | Optional middleware to use when loading the initial Log Viewer page.
@@ -71,7 +106,7 @@ return [
         'web',
         'auth',
         'can:view-log',
-        \Opcodes\LogViewer\Http\Middleware\AuthorizeLogViewer::class,
+        AuthorizeLogViewer::class,
     ],
 
     /*
@@ -84,9 +119,11 @@ return [
     */
 
     'api_middleware' => [
-        \Opcodes\LogViewer\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-        \Opcodes\LogViewer\Http\Middleware\AuthorizeLogViewer::class,
+        EnsureFrontendRequestsAreStateful::class,
+        AuthorizeLogViewer::class,
     ],
+
+    'api_stateful_domains' => env('LOG_VIEWER_API_STATEFUL_DOMAINS') ? explode(',', env('LOG_VIEWER_API_STATEFUL_DOMAINS')) : null,
 
     /*
     |--------------------------------------------------------------------------
@@ -110,6 +147,7 @@ return [
         //         'username' => 'username',
         //         'password' => 'password',
         //     ],
+        //     'verify_server_certificate' => true,
         // ],
         //
         // 'production' => [
@@ -121,6 +159,7 @@ return [
         //     'headers' => [
         //         'X-Foo' => 'Bar',
         //     ],
+        //     'verify_server_certificate' => true,
         // ],
     ],
 
@@ -136,8 +175,9 @@ return [
         '**/*.log',
 
         // You can include paths to other log types as well, such as apache, nginx, and more.
-        '/var/log/httpd/*',
-        '/var/log/nginx/*',
+        // This key => value pair can be used to rename and group multiple paths into one folder in the UI.
+        '/var/log/httpd/*' => 'Apache',
+        '/var/log/nginx/*' => 'Nginx',
 
         // MacOS Apple Silicon logs
         '/opt/homebrew/var/log/nginx/*',
@@ -202,6 +242,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Cache key prefix
+    |--------------------------------------------------------------------------
+    | Log Viewer prefixes all the cache keys created with this value. If for
+    | some reason you would like to change this prefix, you can do so here.
+    | The format of Log Viewer cache keys is:
+    | {prefix}:{version}:{rest-of-the-key}
+    |
+    */
+
+    'cache_key_prefix' => 'lv',
+
+    /*
+    |--------------------------------------------------------------------------
     | Chunk size when scanning log files lazily
     |--------------------------------------------------------------------------
     | The size in MB of files to scan before updating the progress bar when searching across all files.
@@ -211,4 +264,78 @@ return [
     'lazy_scan_chunk_size_in_mb' => 50,
 
     'strip_extracted_context' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Per page options
+    |--------------------------------------------------------------------------
+    | Define the available options for number of results per page
+    |
+    */
+
+    'per_page_options' => [10, 25, 50, 100, 250, 500],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default settings for Log Viewer
+    |--------------------------------------------------------------------------
+    | These settings determine the default behaviour of Log Viewer. Many of
+    | these can be persisted for the user in their browser's localStorage,
+    | if the `use_local_storage` option is set to true.
+    |
+    */
+
+    'defaults' => [
+
+        // Whether to use browser's localStorage to store user preferences.
+        // If true, user preferences saved in the browser will take precedence over the defaults below.
+        'use_local_storage' => true,
+
+        // Method to sort the folders. Other options: `Alphabetical`, `ModifiedTime`
+        'folder_sorting_method' => SortingMethod::ModifiedTime,
+
+        // Order to sort the folders. Other options: `Ascending`, `Descending`
+        'folder_sorting_order' => SortingOrder::Descending,
+
+        // Method for sorting log-files into directories. Other options: `Alphabetical`, `ModifiedTime`
+        'file_sorting_method' => SortingMethod::ModifiedTime,
+
+        // Order to sort the logs. Other options: `Ascending`, `Descending`
+        'log_sorting_order' => SortingOrder::Descending,
+
+        // Number of results per page. Must be one of the above `per_page_options` values
+        'per_page' => 25,
+
+        // Color scheme for the Log Viewer. Other options: `System`, `Light`, `Dark`
+        'theme' => Theme::System,
+
+        // Whether to enable `Shorter Stack Traces` option by default
+        'shorter_stack_traces' => false,
+
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Exclude IP from identifiers
+    |--------------------------------------------------------------------------
+    | By default, file and folder identifiers include the server's IP address
+    | to ensure uniqueness. In load-balanced environments with shared storage,
+    | this can cause "No results" errors. Set to true to exclude IP addresses
+    | from identifier generation for consistent results across servers.
+    |
+    */
+
+    'exclude_ip_from_identifiers' => env('LOG_VIEWER_EXCLUDE_IP_FROM_IDENTIFIERS', false),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Root folder prefix
+    |--------------------------------------------------------------------------
+    | The prefix for log files inside Laravel's `storage/logs` folder.
+    | Log Viewer does not show the full path to these files in the UI,
+    | but only the filename prefixed with this value.
+    |
+    */
+
+    'root_folder_prefix' => 'root',
 ];

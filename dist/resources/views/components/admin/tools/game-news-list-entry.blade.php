@@ -9,7 +9,7 @@
 @endphp
 
 @pushonce('head')
-    @vite(['resources/css/components/admin/tools/game-news-list-entry.scss'])
+    @vite(['resources/css/components/admin/tools/game-news-list-entry.css'])
 @endpushonce
 
 <div class="container mx-auto bg-slate-300 dark:bg-slate-800 border dark:border-slate-500 rounded-xl my-6 py-2 px-4 shadow-xl dark:shadow-glow dark:shadow-gray-400/30"
@@ -219,7 +219,7 @@
                 <div class="flex flex-col items-center gap-5">
                     <span>
                         Are you sure you want to delete the news
-                    <span class="italic m-1 inline dark:bg-slate-700 bg-slate-400 w-fit px-2 rounded">
+                    <span class="italic m-1 inline dark:bg-slate-700 bg-slate-400 w-fit px-2 rounded-sm">
                         {{ $news->title }}
                     </span>
                         ?

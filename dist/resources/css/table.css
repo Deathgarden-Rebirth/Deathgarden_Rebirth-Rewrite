@@ -1,0 +1,27 @@
+table {
+    @apply w-full rounded-xl;
+
+    thead {
+        @apply sticky top-0 rounded-xl bg-slate-400 text-gray-900 dark:bg-gray-900 dark:text-gray-500;
+
+        th {
+            @apply px-1 py-2 text-sm uppercase first:pl-3 last:pr-3 sm:px-3;
+        }
+    }
+
+    tbody tr {
+        @apply border-gray-400 bg-gray-50 text-gray-950 dark:border-gray-700 dark:bg-slate-800 dark:text-white;
+
+        &:hover {
+            @apply bg-slate-300 dark:bg-slate-700;
+        }
+    }
+
+    td {
+        @apply border border-inherit px-1 py-3 first:border-l-0 last:border-r-0 sm:px-3;
+
+        &[data-numeric] {
+            @apply text-right whitespace-nowrap tabular-nums;
+        }
+    }
+}

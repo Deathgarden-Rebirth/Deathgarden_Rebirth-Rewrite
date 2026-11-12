@@ -1,7 +1,6 @@
-import dotenv from 'dotenv'
 import SteamUser from "steam-user";
 
-dotenv.config();
+process.loadEnvFile();
 
 if (process.env.DEV_STEAM_ACCOUNT_NAME === '') {
     console.log('Environment key "DEV_STEAM_ACCOUNT_NAME" is empty. Aborting');

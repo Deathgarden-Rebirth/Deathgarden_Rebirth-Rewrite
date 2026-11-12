@@ -1,0 +1,78 @@
+[class^='input-global-'] {
+    @apply rounded-md border border-gray-500 bg-slate-200 transition-colors placeholder:text-black dark:bg-gray-800 dark:placeholder:text-white;
+
+    &:disabled {
+        @apply border-gray-900 text-white/15;
+    }
+
+    &:has(> input:disabled) {
+        @apply border-slate-400 text-white/15 dark:border-gray-900;
+    }
+}
+
+.input-global-text {
+    @apply grow px-4 py-2 text-base whitespace-nowrap outline-indigo-600 focus-within:border-indigo-600 focus-within:outline-1 dark:outline-hidden;
+
+    input {
+        @apply w-full bg-inherit text-inherit placeholder:text-black focus:outline-hidden dark:placeholder:text-white;
+
+        &:invalid {
+            @apply border-red-600;
+        }
+    }
+
+    &:has(> input[data-show-error='1']) {
+        input {
+            width: calc(100% - 1rem);
+        }
+
+        &::after {
+            display: inline-block;
+            content: '⚠';
+        }
+    }
+
+    span {
+        @apply inline-block;
+    }
+}
+
+.input-global-textarea {
+    @apply w-auto grow resize-y px-4 py-2 text-nowrap outline-indigo-600 focus-within:border-indigo-600 focus-within:outline-1 dark:outline-hidden;
+}
+
+.input-global-checkbox {
+    @apply accent-indigo-800 outline-indigo-600 focus-within:outline-1 dark:outline-hidden;
+}
+
+.input-global-dropdown {
+    @apply px-4 py-2 text-base outline-indigo-600 focus-within:outline-1 dark:outline-hidden dark:focus:border-indigo-600;
+
+    option {
+        @apply rounded-xs px-4 py-2;
+    }
+}
+
+.input-global-date {
+    @apply px-4 py-2 text-base outline-indigo-600 focus:border-indigo-600 focus:outline-1 dark:outline-hidden;
+}
+
+.input-global-number {
+    @apply px-4 py-2 text-base outline-indigo-600 focus:border-indigo-600 focus-within:outline-1 dark:outline-hidden;
+}
+
+.input-global-submit {
+    @apply px-4 py-2 text-base outline-hidden hover:bg-gray-600 hover:text-white focus:border-indigo-600;
+
+    &.save {
+        @apply border-blue-600 bg-blue-400 hover:bg-blue-600 hover:text-white dark:bg-blue-800;
+    }
+
+    &.delete {
+        @apply border-rose-600 bg-rose-400 hover:bg-rose-600 hover:text-white dark:bg-rose-800;
+    }
+
+    &.create {
+        @apply border-green-600 bg-green-400 hover:bg-green-600 hover:text-white dark:bg-green-800;
+    }
+}

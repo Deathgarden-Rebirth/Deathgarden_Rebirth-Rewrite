@@ -16,7 +16,7 @@ abstract class TimedChallengeFactory
         '/Game/Challenges/Weekly/Challenge_BleedOut_RunnerWeekly.Challenge_BleedOut_RunnerWeekly' => 1,
         '/Game/Challenges/Challenge_JustPlay.Challenge_JustPlay' => 1,
         '/Game/Challenges/Challenge_Deliver_Runner.Challenge_Deliver_Runner' => 15,
-        '/Game/Challenges/Weekly/Challenge_Shields_RunnerWeekly.Challenge_Shields_RunnerWeekly' => 10,
+        '/Game/Challenges/Weekly/Challenge_Shields_RunnerWeekly.Challenge_Shields_RunnerWeekly' => 5,
         '/Game/Challenges/Progression/General/Challenge_Heal_Runner.Challenge_Heal_Runner.' => 100,
         '/Game/Challenges/Progression/General/Challenge_Evade_Runner.Challenge_Evade_Runner' => 25,
     ] ;
@@ -24,7 +24,6 @@ abstract class TimedChallengeFactory
     const AVAILABLE_DAILY_HUNTER = [
         '/Game/Challenges/Challenge_JustPlay.Challenge_JustPlay' => 1,
         '/Game/Challenges/Weekly/Challenge_DroneActivation_HunterWeekly.Challenge_DroneActivation_HunterWeekly' => 5,
-        '/Game/Challenges/Weekly/Challenge_Headshot_HunterWeekly.Challenge_Headshot_HunterWeekly' => 1,
         '/Game/Challenges/Challenge_Down_Hunter.Challenge_Down_Hunter' => 3,
         '/Game/Challenges/Weekly/Challenge_InDenial_HunterWeekly.Challenge_InDenial_HunterWeekly' => 3,
     ];
@@ -32,7 +31,7 @@ abstract class TimedChallengeFactory
     const AVAILABLE_WEEKLY_RUNNER = [
         '/Game/Challenges/Weekly/Challenge_BleedOut_RunnerWeekly.Challenge_BleedOut_RunnerWeekly' => 5,
         '/Game/Challenges/Weekly/Challenge_Greed_RunnerWeekly.Challenge_Greed_RunnerWeekly' => 50,
-        '/Game/Challenges/Weekly/Challenge_Shields_RunnerWeekly.Challenge_Shields_RunnerWeekly' => 100,
+        '/Game/Challenges/Weekly/Challenge_Shields_RunnerWeekly.Challenge_Shields_RunnerWeekly' => 20,
         '/Game/Challenges/Challenge_Deliver_Runner.Challenge_Deliver_Runner' => 150,
         '/Game/Challenges/Weekly/Challenge_SpeedCapture_RunnerWeekly.Challenge_SpeedCapture_RunnerWeekly' => 15,
         '/Game/Challenges/Weekly/Challenge_UPs_RunnerWeekly.Challenge_UPs_RunnerWeekly' => 5,
@@ -66,27 +65,27 @@ abstract class TimedChallengeFactory
             'max' => 2500,
         ],
         'CurrencyB' => [
-            'min' => 250,
-            'max' => 500,
+            'min' => 1000,
+            'max' => 2500,
         ],
         'CurrencyC' => [
-            'min' => 500,
-            'max' => 750,
+            'min' => 1000,
+            'max' => 2500,
         ],
     ];
 
     const WEEKLY_REWARDS = [
         'CurrencyA' => [
-            'min' => 3000,
+            'min' => 2500,
             'max' => 5000,
         ],
         'CurrencyB' => [
-            'min' => 250,
-            'max' => 350,
+            'min' => 3500,
+            'max' => 5500,
         ],
         'CurrencyC' => [
-            'min' => 600,
-            'max' => 900,
+            'min' => 2500,
+            'max' => 5000,
         ],
     ];
 

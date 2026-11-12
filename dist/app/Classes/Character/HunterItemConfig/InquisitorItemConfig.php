@@ -36,7 +36,7 @@ class InquisitorItemConfig extends CharacterItemConfig
     protected static array $defaultEquippedPowers = [
         '7902D836470BBB49DE9B9D97F17C9DB5',
         '08DC38B6470A7A5B0BA025B96279DAA8',
-        '5159591743CBF0B57EC6FEB3341960D6',
+        '0703E3634B0E4409623E2D8C06B14C79',
     ];
 
     protected static array $additionalPerks = [

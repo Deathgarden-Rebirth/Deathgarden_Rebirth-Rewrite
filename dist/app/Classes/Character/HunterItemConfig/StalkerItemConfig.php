@@ -36,7 +36,7 @@ class StalkerItemConfig extends CharacterItemConfig
     protected static array $defaultEquippedPowers = [
         '10A8C667458016646E2EFA9452E3141A',
         '08DC38B6470A7A5B0BA025B96279DAA8',
-        '5159591743CBF0B57EC6FEB3341960D6',
+        '0703E3634B0E4409623E2D8C06B14C79',
     ];
 
     protected static array $additionalPerks = [

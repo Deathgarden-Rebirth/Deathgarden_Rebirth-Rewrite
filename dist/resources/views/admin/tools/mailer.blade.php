@@ -9,7 +9,7 @@
 <x-layouts.admin>
     <div class="w-full p-2 md:px-16 bg-inherit">
         <div class="container mx-auto bg-slate-300 dark:bg-slate-800 border dark:border-slate-500 rounded-xl my-6 py-2 px-4 shadow-xl dark:shadow-glow dark:shadow-gray-400/30">
-            <form action="{{ route('mailer.send') }}" method="post" onsubmit="return validateForm()">
+            <form action="{{ route('mailer.send') }}" method="post" id="mailer-form">
                 @csrf
                 <div class="flex flex-col gap-4">
                     <label for="users" class="headline">

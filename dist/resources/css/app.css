@@ -1,0 +1,61 @@
+@import 'tailwindcss';
+
+@import 'select2/dist/css/select2.css';
+@import 'jquery-modal/jquery.modal.css';
+@import './select2-tailwind.css';
+@import './inputs-global.css';
+@import './modal.css';
+@import './table.css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+/* Dark mode is toggled by the "dark" class (previously darkMode: 'selector') */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: var(--font-exo-2), ui-sans-serif, system-ui, sans-serif;
+
+    --color-web-main: #b10101;
+
+    --shadow-glow: 0 0 20px 0 rgba(1, 1, 1, 0.3);
+}
+
+/*
+ * Tailwind v4 compatibility: v3 defaulted borders to gray-200, placeholders to gray-400 and buttons
+ * to a pointer cursor. Kept so existing views render the same.
+ */
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: var(--color-gray-400);
+    }
+
+    button:not(:disabled),
+    [role='button']:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+.headline {
+    @apply text-2xl font-semibold;
+
+    &::after {
+        @apply mt-2 block w-full;
+        content: '';
+        border-top: 0.1rem solid;
+        border-image: linear-gradient(to right, var(--color-indigo-600) 10%, transparent) 1;
+    }
+}
+
+.weblink {
+    @apply font-semibold text-web-main brightness-120;
+}

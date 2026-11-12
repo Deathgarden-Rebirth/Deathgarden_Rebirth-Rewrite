@@ -10,7 +10,7 @@
 
         <a href="{{ route('download') }}">
             <x-inputs.button type="button"
-                             class="my-4 !px-10 !py-8 !bg-web-main hover:scale-110 !transition-transform !border-web-main">
+                             class="my-4 px-10! py-8! bg-web-main! hover:scale-110 transition-transform! border-web-main!">
             <span class="text-3xl font-bold">
                 PLAY NOW
             </span>
@@ -39,7 +39,7 @@
             </a> page!
         </x-web.text>
 
-        <x-web.headline class="w-full mt-12 !text-5xl" id="faq">
+        <x-web.headline class="w-full mt-12 text-5xl!" id="faq">
             Frequently Asked Questions
         </x-web.headline>
 

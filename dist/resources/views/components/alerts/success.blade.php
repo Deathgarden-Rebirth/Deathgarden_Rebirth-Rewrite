@@ -1,6 +1,6 @@
 @props(['heading'])
 <div id="alert"
-     class="w-9/12 mx-auto mt-2 bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
+     class="w-9/12 mx-auto mt-2 bg-teal-100 border-t-4 border-teal-500 rounded-b-sm text-teal-900 px-4 py-3 shadow-md"
      role="alert"
      x-data="{show: true, closeAlert() {this.show = false;}}"
      x-init="setTimeout(() => {closeAlert()}, 10000);"
@@ -20,7 +20,7 @@
             <p class="text-sm">{{ $slot }}</p>
         </div>
         <div class="ml-auto">
-            <button type="button" class="text-gray-500 hover:text-gray-700 focus:outline-none"
+            <button type="button" class="text-gray-500 hover:text-gray-700 focus:outline-hidden"
                     x-on:click="closeAlert()">
                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                     <path fill-rule="evenodd"

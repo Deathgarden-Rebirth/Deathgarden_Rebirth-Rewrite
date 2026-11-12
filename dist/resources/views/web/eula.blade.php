@@ -44,7 +44,7 @@
         <x-web.text class="">
             You agree not to engage in the following activities while using the Game:
 
-            <x-web.text class="mt-4 !text-2xl">
+            <x-web.text class="mt-4 text-2xl!">
                 4.1 Hacking and Cheating
             </x-web.text>
             <x-web.text class="mt-1">
@@ -52,7 +52,7 @@
                 designed to modify the Game or gain an unfair advantage is strictly prohibited.
             </x-web.text>
 
-            <x-web.text class="mt-4 !text-2xl">
+            <x-web.text class="mt-4 text-2xl!">
                 4.2 Unauthorized Modifications
             </x-web.text>
             <x-web.text class="mt-1">
@@ -61,7 +61,7 @@
                 included in the Game.
             </x-web.text>
 
-            <x-web.text class="mt-4 !text-2xl">
+            <x-web.text class="mt-4 text-2xl!">
                 4.3 Harassment and Threatening Behavior
             </x-web.text>
             <x-web.text class="mt-1">
@@ -70,7 +70,7 @@
                 includes, but is not limited to, hate speech, discriminatory remarks, or any form of harassment.
             </x-web.text>
 
-            <x-web.text class="mt-4 !text-2xl">
+            <x-web.text class="mt-4 text-2xl!">
                 4.4 Impersonation of Rebirth Developers
             </x-web.text>
             <x-web.text class="mt-1">
@@ -78,7 +78,7 @@
                 forbidden. Impersonation can lead to severe penalties, including permanent bans.
             </x-web.text>
 
-            <x-web.text class="mt-4 !text-2xl">
+            <x-web.text class="mt-4 text-2xl!">
                 4.5 Match Abandonment
             </x-web.text>
             <x-web.text class="mt-1">
@@ -86,7 +86,7 @@
                 other players from receiving their progression is prohibited. Such behavior may result in
                 temporary or permanent game bans.
             </x-web.text>
-			<x-web.text class="mt-4 !text-2xl">
+			<x-web.text class="mt-4 text-2xl!">
                 4.6 Intentional Self-Elimination
             </x-web.text>
             <x-web.text class="mt-1">

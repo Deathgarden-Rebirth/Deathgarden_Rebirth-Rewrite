@@ -1,9 +1,5 @@
 <?php
 
-use App\Enums\Game\Characters;
-use App\Enums\Game\Hunter;
-use App\Enums\Game\ItemGroupType;
-use App\Enums\Game\Runner;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -11,58 +7,61 @@ use Illuminate\Support\Facades\Schema;
 
 /**
  * Adds The Bounty Hunter (Hunter.BountyHunter, HunterGroupE) and Runner (Runner.Runner, RunnerGroupG).
+ *
  * The enum columns were created from the PHP enum cases, so existing databases need them widened.
+ * The new values are ADDED to whatever the column currently allows: a database can hold values from
+ * other branches (e.g. CircuitBreaker) that this branch's enums don't know, and those must survive.
+ * Safe to re-run after a partial failure (MySQL ALTERs are not transactional).
  */
 return new class extends Migration
 {
-    private const NEW_GROUPS = ['HunterGroupE', 'RunnerGroupG'];
+    private const COLUMNS = [
+        ['catalog_items', 'meta_group_type', ['HunterGroupE', 'RunnerGroupG']],
+        ['character_data', 'character', ['BountyHunter', 'Runner']],
+        ['player_data', 'last_hunter', ['BountyHunter']],
+        ['player_data', 'last_runner', ['Runner']],
+        ['archived_player_progressions', 'played_character', ['BountyHunter', 'Runner']],
+    ];
 
-    private const NEW_HUNTERS = ['BountyHunter'];
-
-    private const NEW_RUNNERS = ['Runner'];
-
-    private function values(array $cases, array $exclude = []): array
+    private function currentValues(string $table, string $column): array
     {
-        return array_values(array_diff(array_column($cases, 'value'), $exclude));
+        $type = DB::selectOne(
+            'SELECT COLUMN_TYPE AS t FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ? AND COLUMN_NAME = ?',
+            [$table, $column]
+        )->t;
+        preg_match_all("/'((?:[^'\\\\]|''|\\\\.)*)'/", $type, $m);
+
+        return array_map(fn ($v) => str_replace("''", "'", $v), $m[1]);
     }
 
-    private function apply(bool $withNew): void
+    private function setValues(string $table, string $column, array $values): void
     {
-        $ex = fn (array $new) => $withNew ? [] : $new;
-        $characterExclude = $ex([...self::NEW_HUNTERS, ...self::NEW_RUNNERS]);
-
-        Schema::table('catalog_items', function (Blueprint $table) use ($ex) {
-            $table->enum('meta_group_type', $this->values(ItemGroupType::cases(), $ex(self::NEW_GROUPS)))->change();
-        });
-
-        Schema::table('character_data', function (Blueprint $table) use ($characterExclude) {
-            $table->enum('character', $this->values([...Hunter::cases(), ...Runner::cases()], $characterExclude))->change();
-        });
-
-        Schema::table('player_data', function (Blueprint $table) use ($ex) {
-            $table->enum('last_hunter', $this->values(Hunter::cases(), $ex(self::NEW_HUNTERS)))->change();
-            $table->enum('last_runner', $this->values(Runner::cases(), $ex(self::NEW_RUNNERS)))->change();
-        });
-
-        Schema::table('archived_player_progressions', function (Blueprint $table) use ($characterExclude) {
-            $table->enum('played_character', $this->values(Characters::cases(), $characterExclude))->change();
+        Schema::table($table, function (Blueprint $t) use ($column, $values) {
+            $t->enum($column, array_values(array_unique($values)))->change();
         });
     }
 
     public function up(): void
     {
-        $this->apply(true);
+        foreach (self::COLUMNS as [$table, $column, $new]) {
+            $this->setValues($table, $column, [...$this->currentValues($table, $column), ...$new]);
+        }
     }
 
     public function down(): void
     {
         // rows using the new values have to go before the columns can be narrowed again
-        DB::table('catalog_items')->whereIn('meta_group_type', self::NEW_GROUPS)->delete();
-        DB::table('character_data')->whereIn('character', [...self::NEW_HUNTERS, ...self::NEW_RUNNERS])->delete();
-        DB::table('archived_player_progressions')->whereIn('played_character', [...self::NEW_HUNTERS, ...self::NEW_RUNNERS])->delete();
-        DB::table('player_data')->whereIn('last_hunter', self::NEW_HUNTERS)->update(['last_hunter' => Hunter::Mass->value]);
-        DB::table('player_data')->whereIn('last_runner', self::NEW_RUNNERS)->update(['last_runner' => Runner::Smoke->value]);
+        DB::table('catalog_items')->whereIn('meta_group_type', ['HunterGroupE', 'RunnerGroupG'])
+            ->whereIn('id', ['fb72b18a-6cf2-23a3-3094-053789f4d0ae', '887d5078-e5f6-3a03-3ca4-61e2576436bc'])->delete();
+        DB::table('character_data')->whereIn('character', ['BountyHunter', 'Runner'])->delete();
+        DB::table('archived_player_progressions')->whereIn('played_character', ['BountyHunter', 'Runner'])->delete();
+        DB::table('player_data')->where('last_hunter', 'BountyHunter')->update(['last_hunter' => 'Mass']);
+        DB::table('player_data')->where('last_runner', 'Runner')->update(['last_runner' => 'Smoke']);
 
-        $this->apply(false);
+        foreach (self::COLUMNS as [$table, $column, $new]) {
+            // HunterGroupE may be in use by another character (CircuitBreaker) - only drop it if nothing uses it
+            $new = array_filter($new, fn ($v) => !DB::table($table)->where($column, $v)->exists());
+            $this->setValues($table, $column, array_diff($this->currentValues($table, $column), $new));
+        }
     }
 };

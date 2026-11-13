@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Classes\Character\HunterItemConfig\BountyHunterItemConfig;
 use App\Classes\Character\HunterItemConfig\InquisitorItemConfig;
 use App\Classes\Character\HunterItemConfig\PoacherItemConfig;
 use App\Classes\Character\HunterItemConfig\StalkerItemConfig;
@@ -10,6 +11,7 @@ use App\Classes\Character\RunnerItemConfig\DashItemConfig;
 use App\Classes\Character\RunnerItemConfig\FogItemConfig;
 use App\Classes\Character\RunnerItemConfig\GhostItemConfig;
 use App\Classes\Character\RunnerItemConfig\InkedItemConfig;
+use App\Classes\Character\RunnerItemConfig\RunnerCharacterItemConfig;
 use App\Classes\Character\RunnerItemConfig\SawbonesItemConfig;
 use App\Classes\Character\RunnerItemConfig\SwitchItemConfig;
 use App\Helper\Uuid\UuidHelper;
@@ -25,12 +27,14 @@ class AddAllGameplayItems extends Command
         PoacherItemConfig::class,
         StalkerItemConfig::class,
         VeteranItemConfig::class,
+        BountyHunterItemConfig::class,
         DashItemConfig::class,
         FogItemConfig::class,
         GhostItemConfig::class,
         InkedItemConfig::class,
         SawbonesItemConfig::class,
         SwitchItemConfig::class,
+        RunnerCharacterItemConfig::class,
     ];
 
     /**

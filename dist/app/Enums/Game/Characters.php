@@ -11,6 +11,7 @@ enum Characters: string
     case Poacher = 'Poacher';
     case Inquisitor = 'Inquisitor';
     case Mass = 'Mass';
+    case BountyHunter = 'BountyHunter';
 
     // Runners
     case Smoke = 'Smoke';
@@ -19,6 +20,7 @@ enum Characters: string
     case Sawbones = 'Sawbones';
     case Switch = 'Switch';
     case Dash = 'Dash';
+    case Runner = 'Runner';
 
     public function getTag(): string
     {
@@ -61,12 +63,14 @@ enum Characters: string
             'c50fffbf-4686-6131-82f4-5890651797ce' => Characters::Stalker,
             'ef96a202-4988-4d43-7b87-a6a4bde81b7f' => Characters::Poacher,
             '606129dc-45ab-9d16-b69e-2fa5c99a9835' => Characters::Mass,
+            'fb72b18a-6cf2-23a3-3094-053789f4d0ae' => Characters::BountyHunter,
             '759e44dd-469c-2841-75c2-d6a1ab0b0fa7' => Characters::Dash,
             '56b7b6f6-4737-12d0-b7a2-f992bb2c16cd' => Characters::Smoke,
             '234ffd46-4c55-514b-6c1e-738645993caa' => Characters::Ghost,
             'c300e3a8-4e57-1d54-9e01-4b9051a18be8' => Characters::Ink,
             '755d4dfe-40da-1512-b01e-3d8cff3c8d4d' => Characters::Sawbones,
             '38a4ef81-4082-2e49-8b2f-d196b757f7ad' => Characters::Switch,
+            '887d5078-e5f6-3a03-3ca4-61e2576436bc' => Characters::Runner,
             default => null,
         };
     }

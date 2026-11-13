@@ -27,10 +27,12 @@ class EditUserRequest extends FormRequest
     public int $levelSawbones;
     public int $levelSwitch;
     public int $levelDash;
+    public int $levelRunner;
     public int $levelStalker;
     public int $levelPoacher;
     public int $levelInquisitor;
     public int $levelMass;
+    public int $levelBountyHunter;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -64,11 +66,13 @@ class EditUserRequest extends FormRequest
             'SawbonesLevel' => 'int|min:1',
             'SwitchLevel' => 'int|min:1',
             'DashLevel' => 'int|min:1',
+            'RunnerLevel' => 'int|min:1',
             'hunterFactionLevel' => 'int|min:1',
             'StalkerFactionLevel' => 'int|min:1',
             'PoacherFactionLevel' => 'int|min:1',
             'InquisitorFactionLevel' => 'int|min:1',
             'MassLevel' => 'int|min:1',
+            'BountyHunterLevel' => 'int|min:1',
         ];
     }
 

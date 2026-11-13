@@ -11,10 +11,12 @@ enum MetadataGroup: string
     case Fog = 'RunnerGroupE';
 
     case Dash = 'RunnerGroupF';
+    case RunnerCharacter = 'RunnerGroupG';
     case Stalker = 'HunterGroupA';
     case Inquisitor = 'HunterGroupB';
     case Poacher = 'HunterGroupC';
     case Veteran = 'HunterGroupD';
+    case BountyHunter = 'HunterGroupE';
 
     case Profile = 'ProfileMetadata';
 

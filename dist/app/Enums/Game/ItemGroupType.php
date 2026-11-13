@@ -12,12 +12,14 @@ enum ItemGroupType: string
     case RunnerSwitch = 'RunnerGroupD';
     case RunnerFog = 'RunnerGroupE';
     case RunnerDash = 'RunnerGroupF';
+    case RunnerRunner = 'RunnerGroupG';
 
     case HunterProgression = 'HunterProgression';
     case HunterStalker = 'HunterGroupA';
     case HunterInquisitor = 'HunterGroupB';
     case HunterPoacher = 'HunterGroupC';
     case HunterVeteran = 'HunterGroupD';
+    case HunterBountyHunter = 'HunterGroupE';
 
     // Not used by game but needed for InitOrGetGroups
     case PlayerProgression = 'PlayerProgression';
@@ -31,11 +33,13 @@ enum ItemGroupType: string
             ItemGroupType::RunnerSwitch => Characters::Switch,
             ItemGroupType::RunnerFog => Characters::Smoke,
             ItemGroupType::RunnerDash => Characters::Dash,
+            ItemGroupType::RunnerRunner => Characters::Runner,
 
             ItemGroupType::HunterStalker => Characters::Stalker,
             ItemGroupType::HunterInquisitor => Characters::Inquisitor,
             ItemGroupType::HunterPoacher => Characters::Poacher,
             ItemGroupType::HunterVeteran => Characters::Mass,
+            ItemGroupType::HunterBountyHunter => Characters::BountyHunter,
             default => false,
         };
     }

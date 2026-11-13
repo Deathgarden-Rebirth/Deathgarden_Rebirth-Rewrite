@@ -3,6 +3,7 @@
 namespace App\Enums\Game;
 
 use App\Classes\Character\CharacterItemConfig;
+use App\Classes\Character\HunterItemConfig\BountyHunterItemConfig;
 use App\Classes\Character\HunterItemConfig\InquisitorItemConfig;
 use App\Classes\Character\HunterItemConfig\PoacherItemConfig;
 use App\Classes\Character\HunterItemConfig\StalkerItemConfig;
@@ -14,6 +15,7 @@ enum Hunter: string
     case Poacher = 'Poacher';
     case Inquisitor = 'Inquisitor';
     case Mass = 'Mass';
+    case BountyHunter = 'BountyHunter';
 
     public function getTag()
     {
@@ -27,6 +29,7 @@ enum Hunter: string
             'Hunter.Poacher' => Hunter::Poacher,
             'Hunter.Inquisitor' => Hunter::Inquisitor,
             'Hunter.Mass' => Hunter::Mass,
+            'Hunter.BountyHunter' => Hunter::BountyHunter,
             default => null,
         };
     }
@@ -38,6 +41,7 @@ enum Hunter: string
             Hunter::Poacher => ItemGroupType::HunterPoacher,
             Hunter::Inquisitor => ItemGroupType::HunterInquisitor,
             Hunter::Mass => ItemGroupType::HunterVeteran,
+            Hunter::BountyHunter => ItemGroupType::HunterBountyHunter,
         };
     }
 
@@ -51,6 +55,7 @@ enum Hunter: string
             Hunter::Poacher => PoacherItemConfig::class,
             Hunter::Inquisitor => InquisitorItemConfig::class,
             Hunter::Mass => VeteranItemConfig::class,
+            Hunter::BountyHunter => BountyHunterItemConfig::class,
         };
     }
 }

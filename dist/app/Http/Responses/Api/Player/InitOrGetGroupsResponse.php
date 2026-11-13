@@ -128,7 +128,7 @@ class InitOrGetGroupsResponse
     public function addCharacterProgressionGroup(Characters $character, User $user): void
     {
         /** @var CharacterData $characterData */
-        $characterData = $user->playerData()->characterData()->firstWhere('character', $character->value);
+        $characterData = $user->playerData()->characterDataForCharacter($character);
         $group = new ProgressionGroup();
 
         $group->version = $characterData->readout_version;

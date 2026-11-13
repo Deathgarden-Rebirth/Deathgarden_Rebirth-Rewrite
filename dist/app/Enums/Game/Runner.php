@@ -7,6 +7,7 @@ use App\Classes\Character\RunnerItemConfig\DashItemConfig;
 use App\Classes\Character\RunnerItemConfig\FogItemConfig;
 use App\Classes\Character\RunnerItemConfig\GhostItemConfig;
 use App\Classes\Character\RunnerItemConfig\InkedItemConfig;
+use App\Classes\Character\RunnerItemConfig\RunnerCharacterItemConfig;
 use App\Classes\Character\RunnerItemConfig\SawbonesItemConfig;
 use App\Classes\Character\RunnerItemConfig\SwitchItemConfig;
 
@@ -18,6 +19,7 @@ enum Runner: string
     case Sawbones = 'Sawbones';
     case Switch = 'Switch';
     case Dash = 'Dash';
+    case Runner = 'Runner';
 
     public function getTag(): string
     {
@@ -33,6 +35,7 @@ enum Runner: string
             'Runner.Sawbones' => Runner::Sawbones,
             'Runner.Switch' => Runner::Switch,
             'Runner.Dash' => Runner::Dash,
+            'Runner.Runner' => Runner::Runner,
             default => null,
         };
     }
@@ -46,6 +49,7 @@ enum Runner: string
             Runner::Sawbones => ItemGroupType::RunnerSawbones,
             Runner::Switch => ItemGroupType::RunnerSwitch,
             Runner::Dash => ItemGroupType::RunnerDash,
+            Runner::Runner => ItemGroupType::RunnerRunner,
         };
     }
 
@@ -61,6 +65,7 @@ enum Runner: string
             self::Sawbones => SawbonesItemConfig::class,
             self::Switch => SwitchItemConfig::class,
             self::Dash => DashItemConfig::class,
+            self::Runner => RunnerCharacterItemConfig::class,
         };
     }
 }

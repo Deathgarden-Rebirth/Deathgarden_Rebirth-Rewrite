@@ -131,7 +131,9 @@ class PlayerData extends Model
     }
 
     public function characterDataForCharacter(Characters $character): CharacterData|Model|null {
-        return $this->characterData()->firstWhere('character', $character->value);
+        // firstOrCreate: players created before a character was added have no row for it yet
+        $attributeValue = ['character' => $character->value];
+        return $this->characterData()->firstOrCreate($attributeValue, $attributeValue);
     }
 
     public function lastHunterCharacterData(): CharacterData|Model  {

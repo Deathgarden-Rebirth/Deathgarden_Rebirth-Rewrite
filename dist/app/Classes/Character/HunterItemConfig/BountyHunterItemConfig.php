@@ -5,7 +5,7 @@ namespace App\Classes\Character\HunterItemConfig;
 use App\Classes\Character\CharacterItemConfig;
 
 /**
- * The Bounty Hunter (prototype): Inquisitor model and perks, Auto Sniper / Assault Rifle / Bolt Action Sniper,
+ * The Bounty Hunter (prototype): OG "Swift Hunt" outfit on the Inquisitor rig, Inquisitor perks, Auto Sniper / Assault Rifle / Bolt Action Sniper,
  * I See You + Supercharge + Reveal Shock, Fast Reload + Target Lock passives.
  */
 class BountyHunterItemConfig extends CharacterItemConfig
@@ -24,11 +24,12 @@ class BountyHunterItemConfig extends CharacterItemConfig
         '50D3005B437066E4C4D99F9397CF1B0B',
     ];
 
-    // Inquisitor Prog001 head/upper/lower, HT_STALKER_SRA_Prog001a, HT_INQUISITOR_ARD_Prog001, HT_HUNTER_SRB_Default
+    // Swift Hunt (OG Deathgarden outfit) lower body/upper body/head, HT_STALKER_SRA_Prog001a, HT_INQUISITOR_ARD_Prog001,
+    // HT_HUNTER_SRB_Default
     protected static array $defaultEquipment = [
-        '5C4F9FC84B0CAE9CF00423A6768AEA23',
-        '54526C4A4FF83835E02711B308AA80F5',
-        '6B1B9949479BFD2B75E137AFFF3DBBD4',
+        '0724B2F9EB408535C3F10DB57E4F6BDC',
+        'E5D7A022D148A8CF0598CC0CC925A1F3',
+        '1BB39EDA8E39BEA5AA17973942C13442',
         'B95774E641C37130DAE2F0A6C5E82C38',
         '3B3BC3704395FAF545A97CBF8F601901',
         '1C3191D1264F746394BC3D110E238B00',

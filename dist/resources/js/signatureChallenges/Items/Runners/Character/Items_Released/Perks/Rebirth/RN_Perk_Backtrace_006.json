@@ -1,0 +1,118 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "RN_Perk_Backtrace_006",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "GameplayEffectMetadata'RN_Perk_Backtrace_006:CompositeItemMetadata_0.GameplayEffectMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Rebirth/RN_Perk_Backtrace_006.1"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameplayEffectMetadata",
+    "Name": "GameplayEffectMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'GameplayEffectMetadata'",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'PerkMod_Backtrace_C'",
+        "ObjectPath": "TheExit/Content/Items/GameplayEffects/Runner/PerkMod_Backtrace.0"
+      },
+      "Level": 5.0
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "RN_Perk_Backtrace_006",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Hunter_TheInquisitor_Hacker'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/HunterPerks/TheInquisitor/PerksPowerIcon_Hunter_TheInquisitor_Hacker.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 250
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "LoadoutItemAsset'RN_Perk_Backtrace_007'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Rebirth/RN_Perk_Backtrace_007.2"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "5292FD20-B0D6797F-7A565CFE-BEA4AC84",
+          "ChallengeCompletionValue": 25.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_Backtrace_Runner.Challenge_Backtrace_Runner",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+            "Key": "Rebirth_Runner_Perks_Backtrace_EffectDescTrap"
+          },
+          "Arguments": [
+            30.0
+          ]
+        },
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+            "Key": "Rebirth_Runner_Perks_Backtrace_EffectDesc"
+          },
+          "Arguments": [
+            15.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+        "Key": "Rebirth_Runner_Perks_Backtrace_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+        "Key": "Rebirth_Runner_Perks_Backtrace_Desc"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+        "Key": "Rebirth_Runner_Perks_Backtrace_Lore"
+      },
+      "Guid": "71A8228E-B355C10E-945691E1-ED3331BE",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Runner"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Runner )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'RN_Perk_Backtrace_006:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Rebirth/RN_Perk_Backtrace_006.0"
+      },
+      "Version": 1
+    }
+  }
+]

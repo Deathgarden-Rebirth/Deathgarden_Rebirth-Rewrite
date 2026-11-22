@@ -49229,6 +49229,450 @@
             "purchasable": true
         },
         {
+            "id": "1A9E03720A2138B787971AEADB5894EA",
+            "displayName": "RN_Perk_Backtrace_001_Backtrace",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 500
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 500
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 3,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "67B32669CD3BBE6650D339D6DA66D5F7",
+                "prerequisiteItem": "",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "67B32669CD3BBE6650D339D6DA66D5F7",
+            "displayName": "RN_Perk_Backtrace_002_Backtrace",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 700
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 800
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "27AB84376772B24B210DCB761B3140AB"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "C5E9998D2D311C468BB0DFAC5170B7EF",
+                "prerequisiteItem": "1A9E03720A2138B787971AEADB5894EA",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "C5E9998D2D311C468BB0DFAC5170B7EF",
+            "displayName": "RN_Perk_Backtrace_003_Backtrace",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 900
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 1200
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "1ADB9A53AC8E875A48D6DC2EFE3C6FC2",
+                "prerequisiteItem": "67B32669CD3BBE6650D339D6DA66D5F7",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "1ADB9A53AC8E875A48D6DC2EFE3C6FC2",
+            "displayName": "RN_Perk_Backtrace_004_Backtrace",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1100
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 1600
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 400
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "731F1C36FD406E5D954F5E407C50CCB8",
+                "prerequisiteItem": "C5E9998D2D311C468BB0DFAC5170B7EF",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "731F1C36FD406E5D954F5E407C50CCB8",
+            "displayName": "RN_Perk_Backtrace_005_Backtrace",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1300
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2000
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 1100
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "71A8228EB355C10E945691E1ED3331BE",
+                "prerequisiteItem": "1ADB9A53AC8E875A48D6DC2EFE3C6FC2",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "71A8228EB355C10E945691E1ED3331BE",
+            "displayName": "RN_Perk_Backtrace_006_Backtrace",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1500
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2400
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 1700
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "5292FD20B0D6797F7A565CFEBEA4AC84"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "B30B33B56AF303E9108B3CCF4CB7DDE7",
+                "prerequisiteItem": "731F1C36FD406E5D954F5E407C50CCB8",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "B30B33B56AF303E9108B3CCF4CB7DDE7",
+            "displayName": "RN_Perk_Backtrace_007_Backtrace",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1700
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2900
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 2400
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "FD8538C72A7708C11B47B0922163733C",
+                "prerequisiteItem": "71A8228EB355C10E945691E1ED3331BE",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "FD8538C72A7708C11B47B0922163733C",
+            "displayName": "RN_Perk_Backtrace_008_Backtrace",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1900
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 3400
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 3100
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "B5F63A192602CD3112850879381EFA31",
+                "prerequisiteItem": "B30B33B56AF303E9108B3CCF4CB7DDE7",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "B5F63A192602CD3112850879381EFA31",
+            "displayName": "RN_Perk_Backtrace_009_Backtrace",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 2100
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 4000
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 3900
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "912A2220D6CA46605ACD945FA41C02C6",
+                "prerequisiteItem": "FD8538C72A7708C11B47B0922163733C",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "912A2220D6CA46605ACD945FA41C02C6",
+            "displayName": "RN_Perk_Backtrace_010_Backtrace",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 2300
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 4600
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 4700
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "392D63FBA8E5571E6A0B18AD5689D4A3"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "",
+                "prerequisiteItem": "B5F63A192602CD3112850879381EFA31",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
             "id": "F2768C4541C8262EFF4922B372AB7306",
             "displayName": "RN_Perk_Sawbones_UnderFoot_001_Under_Foot",
             "initialQuantity": 1,

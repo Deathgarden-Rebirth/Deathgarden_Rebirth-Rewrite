@@ -1,0 +1,109 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "RN_Perk_VanishingAct_006",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "GameplayEffectMetadata'RN_Perk_VanishingAct_006:CompositeItemMetadata_0.GameplayEffectMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Rebirth/RN_Perk_VanishingAct_006.1"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameplayEffectMetadata",
+    "Name": "GameplayEffectMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'GameplayEffectMetadata'",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'PerkMod_VanishingAct_C'",
+        "ObjectPath": "TheExit/Content/Items/GameplayEffects/Runner/PerkMod_VanishingAct.0"
+      },
+      "Level": 5.0
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "RN_Perk_VanishingAct_006",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Ghost_Invisbility'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Ghost/PerksPowerIcon_Runner_Ghost_Invisbility.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 250
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "LoadoutItemAsset'RN_Perk_VanishingAct_007'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Rebirth/RN_Perk_VanishingAct_007.2"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "3A8CBF48-FFC90E76-6F89F2D0-9E122199",
+          "ChallengeCompletionValue": 3.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_VanishingAct_Runner.Challenge_VanishingAct_Runner",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+            "Key": "Rebirth_Runner_Perks_VanishingAct_EffectDesc"
+          },
+          "Arguments": [
+            7.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+        "Key": "Rebirth_Runner_Perks_VanishingAct_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+        "Key": "Rebirth_Runner_Perks_VanishingAct_Desc"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+        "Key": "Rebirth_Runner_Perks_VanishingAct_Lore"
+      },
+      "Guid": "DBBBA303-4675B1F5-F5119B61-D046F971",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Runner"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Runner )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'RN_Perk_VanishingAct_006:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Rebirth/RN_Perk_VanishingAct_006.0"
+      },
+      "Version": 1
+    }
+  }
+]

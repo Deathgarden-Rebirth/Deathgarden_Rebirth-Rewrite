@@ -60763,6 +60763,441 @@
             "unique": false,
             "nonSecure": false,
             "purchasable": true
+        },
+        {
+            "id": "EA847D638A3230A542DCD94B248FF8AE",
+            "displayName": "RN_Perk_VanishingAct_001_Vanishing_Act",
+            "initialQuantity": 1,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "126BAB3F0BE206F70EAADE17F471E51A",
+                "prerequisiteItem": "",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "126BAB3F0BE206F70EAADE17F471E51A",
+            "displayName": "RN_Perk_VanishingAct_002_Vanishing_Act",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 700
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 800
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "AD03E744C8B20C9B3A5D08A78B24DDDF"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "40CFB15E00207355875A05BEDE68BF0E",
+                "prerequisiteItem": "EA847D638A3230A542DCD94B248FF8AE",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "40CFB15E00207355875A05BEDE68BF0E",
+            "displayName": "RN_Perk_VanishingAct_003_Vanishing_Act",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 900
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 1200
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "9E1A1B177AF161564471A025D046CA07",
+                "prerequisiteItem": "126BAB3F0BE206F70EAADE17F471E51A",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "9E1A1B177AF161564471A025D046CA07",
+            "displayName": "RN_Perk_VanishingAct_004_Vanishing_Act",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1100
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 1600
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 400
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "4D494C2D13039CCE7FBEA152682B6262",
+                "prerequisiteItem": "40CFB15E00207355875A05BEDE68BF0E",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "4D494C2D13039CCE7FBEA152682B6262",
+            "displayName": "RN_Perk_VanishingAct_005_Vanishing_Act",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1300
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2000
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 1100
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "DBBBA3034675B1F5F5119B61D046F971",
+                "prerequisiteItem": "9E1A1B177AF161564471A025D046CA07",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "DBBBA3034675B1F5F5119B61D046F971",
+            "displayName": "RN_Perk_VanishingAct_006_Vanishing_Act",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1500
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2400
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 1700
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "3A8CBF48FFC90E766F89F2D09E122199"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "881AAD8927E9D6B116103498B83A187C",
+                "prerequisiteItem": "4D494C2D13039CCE7FBEA152682B6262",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "881AAD8927E9D6B116103498B83A187C",
+            "displayName": "RN_Perk_VanishingAct_007_Vanishing_Act",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1700
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2900
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 2400
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "FFCC3478787C935439FFD60BF79A5C6C",
+                "prerequisiteItem": "DBBBA3034675B1F5F5119B61D046F971",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "FFCC3478787C935439FFD60BF79A5C6C",
+            "displayName": "RN_Perk_VanishingAct_008_Vanishing_Act",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1900
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 3400
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 3100
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "EC31E092195422F66DE9A04242481B1A",
+                "prerequisiteItem": "881AAD8927E9D6B116103498B83A187C",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "EC31E092195422F66DE9A04242481B1A",
+            "displayName": "RN_Perk_VanishingAct_009_Vanishing_Act",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 2100
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 4000
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 3900
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "C3B3179F54C9FDDC44B0201797B5150C",
+                "prerequisiteItem": "FFCC3478787C935439FFD60BF79A5C6C",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "C3B3179F54C9FDDC44B0201797B5150C",
+            "displayName": "RN_Perk_VanishingAct_010_Vanishing_Act",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 2300
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 4600
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 4700
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "C85A6B2F7DB9D08D3C156E9522146815"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "",
+                "prerequisiteItem": "EC31E092195422F66DE9A04242481B1A",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
         }
     ]
 }

@@ -61198,6 +61198,450 @@
             "unique": false,
             "nonSecure": false,
             "purchasable": true
+        },
+        {
+            "id": "F5B1C0AADCB833BC8C76E57A048704F1",
+            "displayName": "RN_Perk_Bulwark_001_Bulwark",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 500
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 500
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 5,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "E9D8AB465349317556C25B0549317667",
+                "prerequisiteItem": "",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "E9D8AB465349317556C25B0549317667",
+            "displayName": "RN_Perk_Bulwark_002_Bulwark",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 700
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 800
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "E3166CFAD8CD6ECBD080077C56A216C1"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "9B8E5F349D7FED5D7A9714FCD8895804",
+                "prerequisiteItem": "F5B1C0AADCB833BC8C76E57A048704F1",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "9B8E5F349D7FED5D7A9714FCD8895804",
+            "displayName": "RN_Perk_Bulwark_003_Bulwark",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 900
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 1200
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "444A32FD7E8383EEBB95D3780FC6DA61",
+                "prerequisiteItem": "E9D8AB465349317556C25B0549317667",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "444A32FD7E8383EEBB95D3780FC6DA61",
+            "displayName": "RN_Perk_Bulwark_004_Bulwark",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1100
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 1600
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 400
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "352ADE9E46BAD15DA0AA6F164636C9D6",
+                "prerequisiteItem": "9B8E5F349D7FED5D7A9714FCD8895804",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "352ADE9E46BAD15DA0AA6F164636C9D6",
+            "displayName": "RN_Perk_Bulwark_005_Bulwark",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1300
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2000
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 1100
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "7AE77D2A97545B6F4291CD62ED4BD409",
+                "prerequisiteItem": "444A32FD7E8383EEBB95D3780FC6DA61",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "7AE77D2A97545B6F4291CD62ED4BD409",
+            "displayName": "RN_Perk_Bulwark_006_Bulwark",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1500
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2400
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 1700
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "5F91767DCCDB0EE399A91BFB7726B8CA"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "48B5FE8790D2CE0CAF09905B3498744E",
+                "prerequisiteItem": "352ADE9E46BAD15DA0AA6F164636C9D6",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "48B5FE8790D2CE0CAF09905B3498744E",
+            "displayName": "RN_Perk_Bulwark_007_Bulwark",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1700
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2900
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 2400
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "5DBAC46487B7F633725D377EDC5898A9",
+                "prerequisiteItem": "7AE77D2A97545B6F4291CD62ED4BD409",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "5DBAC46487B7F633725D377EDC5898A9",
+            "displayName": "RN_Perk_Bulwark_008_Bulwark",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1900
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 3400
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 3100
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "42E375BD697EFE7067913CDA5AAA21D8",
+                "prerequisiteItem": "48B5FE8790D2CE0CAF09905B3498744E",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "42E375BD697EFE7067913CDA5AAA21D8",
+            "displayName": "RN_Perk_Bulwark_009_Bulwark",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 2100
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 4000
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 3900
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "277CB15E38394C96BED4EC408D6BC32D",
+                "prerequisiteItem": "5DBAC46487B7F633725D377EDC5898A9",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "277CB15E38394C96BED4EC408D6BC32D",
+            "displayName": "RN_Perk_Bulwark_010_Bulwark",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 2300
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 4600
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 4700
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "EF25BDB7A4F01D4471DC52B62753A7B7"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "",
+                "prerequisiteItem": "42E375BD697EFE7067913CDA5AAA21D8",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
         }
     ]
 }

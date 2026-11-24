@@ -61704,6 +61704,450 @@
             "unique": false,
             "nonSecure": false,
             "purchasable": true
+        },
+        {
+            "id": "2AF0F38E9AA1EEB2251CD3C9B5694B07",
+            "displayName": "RN_Perk_Salvage_001_Salvage",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 500
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 500
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 2,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "2EDE30E9D53F0258A121EB27A06E513F",
+                "prerequisiteItem": "",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "2EDE30E9D53F0258A121EB27A06E513F",
+            "displayName": "RN_Perk_Salvage_002_Salvage",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 700
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 800
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "6FF4619B94A5997934915F528C595F64"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "52DBA495E381B258D4B75F9FF3E9251D",
+                "prerequisiteItem": "2AF0F38E9AA1EEB2251CD3C9B5694B07",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "52DBA495E381B258D4B75F9FF3E9251D",
+            "displayName": "RN_Perk_Salvage_003_Salvage",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 900
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 1200
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "956C47DB296C8DB79331D156129F9CF2",
+                "prerequisiteItem": "2EDE30E9D53F0258A121EB27A06E513F",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "956C47DB296C8DB79331D156129F9CF2",
+            "displayName": "RN_Perk_Salvage_004_Salvage",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1100
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 1600
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 400
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "D57C99B59F53BA0A68BBFF80AFFA05F3",
+                "prerequisiteItem": "52DBA495E381B258D4B75F9FF3E9251D",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "D57C99B59F53BA0A68BBFF80AFFA05F3",
+            "displayName": "RN_Perk_Salvage_005_Salvage",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1300
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2000
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 1100
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "31132E291A4E9CD1C553B73E3AC975EC",
+                "prerequisiteItem": "956C47DB296C8DB79331D156129F9CF2",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "31132E291A4E9CD1C553B73E3AC975EC",
+            "displayName": "RN_Perk_Salvage_006_Salvage",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1500
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2400
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 1700
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "E75A6F32C5BF0E15B44E678A4CBCAEDC"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "B17AE6100529EA4BB14AC511894310EF",
+                "prerequisiteItem": "D57C99B59F53BA0A68BBFF80AFFA05F3",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "B17AE6100529EA4BB14AC511894310EF",
+            "displayName": "RN_Perk_Salvage_007_Salvage",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1700
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2900
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 2400
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "34DEFB82148372F2CEBF948363B05DF0",
+                "prerequisiteItem": "31132E291A4E9CD1C553B73E3AC975EC",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "34DEFB82148372F2CEBF948363B05DF0",
+            "displayName": "RN_Perk_Salvage_008_Salvage",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1900
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 3400
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 3100
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "6A0F216A054440DCFEADF1B313C5F3B2",
+                "prerequisiteItem": "B17AE6100529EA4BB14AC511894310EF",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "6A0F216A054440DCFEADF1B313C5F3B2",
+            "displayName": "RN_Perk_Salvage_009_Salvage",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 2100
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 4000
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 3900
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "1351997E0564DB6B56B78A7FE64A7AC3",
+                "prerequisiteItem": "34DEFB82148372F2CEBF948363B05DF0",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "1351997E0564DB6B56B78A7FE64A7AC3",
+            "displayName": "RN_Perk_Salvage_010_Salvage",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 2300
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 4600
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 4700
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "6B3840306CEA2B7C805A02963BF572BC"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "",
+                "prerequisiteItem": "6A0F216A054440DCFEADF1B313C5F3B2",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
         }
     ]
 }

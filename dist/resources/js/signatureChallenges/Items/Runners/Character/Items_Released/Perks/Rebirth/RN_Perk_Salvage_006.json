@@ -1,0 +1,109 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "RN_Perk_Salvage_006",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "GameplayEffectMetadata'RN_Perk_Salvage_006:CompositeItemMetadata_0.GameplayEffectMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Rebirth/RN_Perk_Salvage_006.1"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameplayEffectMetadata",
+    "Name": "GameplayEffectMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'GameplayEffectMetadata'",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'PerkMod_Salvage_C'",
+        "ObjectPath": "TheExit/Content/Items/GameplayEffects/Runner/PerkMod_Salvage.0"
+      },
+      "Level": 5.0
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "RN_Perk_Salvage_006",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'PerksPowerIcon_Runner_Smoke_AmmoOpportunist'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Smoke/PerksPowerIcon_Runner_Smoke_AmmoOpportunist.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 250
+        }
+      ],
+      "FollowingItem": {
+        "ObjectName": "LoadoutItemAsset'RN_Perk_Salvage_007'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Rebirth/RN_Perk_Salvage_007.2"
+      },
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "E75A6F32-C5BF0E15-B44E678A-4CBCAEDC",
+          "ChallengeCompletionValue": 10.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_Salvage_Runner.Challenge_Salvage_Runner",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+            "Key": "Rebirth_Runner_Perks_Salvage_EffectDesc"
+          },
+          "Arguments": [
+            30.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+        "Key": "Rebirth_Runner_Perks_Salvage_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+        "Key": "Rebirth_Runner_Perks_Salvage_Desc"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+        "Key": "Rebirth_Runner_Perks_Salvage_Lore"
+      },
+      "Guid": "31132E29-1A4E9CD1-C553B73E-3AC975EC",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Runner"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Runner )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'RN_Perk_Salvage_006:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Rebirth/RN_Perk_Salvage_006.0"
+      },
+      "Version": 1
+    }
+  }
+]

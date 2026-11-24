@@ -44,8 +44,9 @@ class RunnerCharacterItemConfig extends CharacterItemConfig
     // Sawbones perks, with Backtrace (RN_Perk_Backtrace_001..010) in place of Splash,
     // Vanishing Act (RN_Perk_VanishingAct_001..010) in place of Treasure Hunter,
     // Bulwark (RN_Perk_Bulwark_001..010) in place of Security Blanket,
-    // Salvage (RN_Perk_Salvage_001..010) in place of Herd Mentality and
-    // Transfusion (RN_Perk_Transfusion_001..010) in place of Underfoot
+    // Salvage (RN_Perk_Salvage_001..010) in place of Herd Mentality,
+    // Transfusion (RN_Perk_Transfusion_001..010) in place of Underfoot and
+    // Pacemaker (RN_Perk_Pacemaker_001..010) in place of Friends For Life
     protected static array $additionalPerks = [
         '2AF0F38E9AA1EEB2251CD3C9B5694B07',
         '2EDE30E9D53F0258A121EB27A06E513F',
@@ -57,16 +58,16 @@ class RunnerCharacterItemConfig extends CharacterItemConfig
         '34DEFB82148372F2CEBF948363B05DF0',
         '6A0F216A054440DCFEADF1B313C5F3B2',
         '1351997E0564DB6B56B78A7FE64A7AC3',
-        '274EB0B34AB39E468BFA878F7E87465B',
-        '4AE4801A440EFF8B54760EBFF92B128C',
-        '42E05FC94E6B09CCBB6208BAF94AE98F',
-        '2F12511B412A1B310A55E09CDE252ED7',
-        'F20F6E2E4F3162124A476BB9FE07E407',
-        'A966101E4DF689887A9B0EBB55CA6F42',
-        '38C5D09A4A0E7175283DA691B6491B6F',
-        '4AA977184CF5BD38555EB5B17C03F058',
-        '3D1CDD6C40CA5955251B54922F016A7E',
-        'ECEBC4314D3A0038B44F0086E436AE58',
+        'F17A128902284F6D8E2DEABF13576C6F',
+        '50FE1B190B254D56B899688134D1C357',
+        '8E4734B3D0334E54957FAE0421639872',
+        '14FE627D710E453AB73A9C1F1F44A914',
+        'EECD6A7620E044A9B14FE9DEBD24A99C',
+        '1EA059533AC149ABB9E88AF353C9DA78',
+        'E686F2FA4AEE4D0AB3FAEDB183C6F11A',
+        'EA923183F3A147F3A1431365CF8D14FC',
+        '2FFF26043875419A9C9B1AD28F7EEE25',
+        'C38B5A57CEEC4EE19F5F1F7C84023CE3',
         'EA847D638A3230A542DCD94B248FF8AE',
         '126BAB3F0BE206F70EAADE17F471E51A',
         '40CFB15E00207355875A05BEDE68BF0E',

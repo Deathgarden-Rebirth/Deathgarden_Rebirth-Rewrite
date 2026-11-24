@@ -5,7 +5,7 @@ namespace App\Classes\Character\RunnerItemConfig;
 use App\Classes\Character\CharacterItemConfig;
 
 /**
- * Runner (prototype Scavenger): OG Rookie (Legacy) model, Slow Bolt / Stamina Buff vambrace, Sawbones passives and perks.
+ * Runner (prototype Scavenger): OG Rookie (Legacy) model, Slow Bolt / Stamina Buff vambrace, Rally / Surveyor bonuses, Sawbones-based perks.
  */
 class RunnerCharacterItemConfig extends CharacterItemConfig
 {
@@ -30,10 +30,10 @@ class RunnerCharacterItemConfig extends CharacterItemConfig
         '99978DEB29FE1B07D7A5451BBD2106CF',
     ];
 
-    // same as Sawbones
+    // RN_Bonus_Rally (in place of Quick Rescue), RN_Bonus_Surveyor (in place of Residual Vitality)
     protected static array $defaultEquippedBonuses = [
-        '109BC5904DC1272D70822EBA79CC85B1',
-        '3F108564E52248FDB49DC77CA8083F56',
+        '025C87CE056D99889EFADA4FE367A79E',
+        '4FCC00267539921E397E361DA42E31DB',
     ];
 
     protected static array $defaultEquippedPowers = [

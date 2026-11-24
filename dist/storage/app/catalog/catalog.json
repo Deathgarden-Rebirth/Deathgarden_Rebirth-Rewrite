@@ -61642,6 +61642,68 @@
             "unique": false,
             "nonSecure": false,
             "purchasable": true
+        },
+        {
+            "id": "025C87CE056D99889EFADA4FE367A79E",
+            "displayName": "RN_Bonus_Rally_Rally",
+            "initialQuantity": 1,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Bonus"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "",
+                "prerequisiteItem": "",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "4FCC00267539921E397E361DA42E31DB",
+            "displayName": "RN_Bonus_Surveyor_Surveyor",
+            "initialQuantity": 1,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Bonus"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "",
+                "prerequisiteItem": "",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
         }
     ]
 }

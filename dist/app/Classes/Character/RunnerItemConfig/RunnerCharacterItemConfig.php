@@ -11,9 +11,10 @@ class RunnerCharacterItemConfig extends CharacterItemConfig
 {
     protected static string $characterId = '887D5078E5F63A033CA461E2576436BC';
 
-    // Sawbones' default perks, with Vanishing Act (RN_Perk_VanishingAct_001) in place of Treasure Hunter
+    // Sawbones' default perks, with Transfusion (RN_Perk_Transfusion_001) in place of Underfoot and
+    // Vanishing Act (RN_Perk_VanishingAct_001) in place of Treasure Hunter
     protected static array $defaultEquippedPerks = [
-        'F2768C4541C8262EFF4922B372AB7306',
+        '3F0F7FEA92EFDB1C19E0AF3B94E69FC8',
         'EA847D638A3230A542DCD94B248FF8AE',
     ];
 
@@ -42,8 +43,9 @@ class RunnerCharacterItemConfig extends CharacterItemConfig
 
     // Sawbones perks, with Backtrace (RN_Perk_Backtrace_001..010) in place of Splash,
     // Vanishing Act (RN_Perk_VanishingAct_001..010) in place of Treasure Hunter,
-    // Bulwark (RN_Perk_Bulwark_001..010) in place of Security Blanket and
-    // Salvage (RN_Perk_Salvage_001..010) in place of Herd Mentality
+    // Bulwark (RN_Perk_Bulwark_001..010) in place of Security Blanket,
+    // Salvage (RN_Perk_Salvage_001..010) in place of Herd Mentality and
+    // Transfusion (RN_Perk_Transfusion_001..010) in place of Underfoot
     protected static array $additionalPerks = [
         '2AF0F38E9AA1EEB2251CD3C9B5694B07',
         '2EDE30E9D53F0258A121EB27A06E513F',
@@ -95,16 +97,16 @@ class RunnerCharacterItemConfig extends CharacterItemConfig
         'FD8538C72A7708C11B47B0922163733C',
         'B5F63A192602CD3112850879381EFA31',
         '912A2220D6CA46605ACD945FA41C02C6',
-        'F2768C4541C8262EFF4922B372AB7306',
-        '0EE6E3C04A608FF0CE64A8813A9EBE26',
-        'D500FB67476AFA419553BF9F384A9CF2',
-        '75CED6B24CCA9FDA4D976990D0A65172',
-        '3D5693D941E0CFF7FB4BB4A346775074',
-        '145C53124968EEC87E2206B1EDDFE74C',
-        'CE215D4B4C691D83842CD395F893B250',
-        'E3139A504D205C06438904B1ECD68D44',
-        'E9564AFF410C3F82BD53B7890DA9DB97',
-        'A1463E12485BA0B2D678EA863BCC8ED9',
+        '3F0F7FEA92EFDB1C19E0AF3B94E69FC8',
+        '0BEC990D4D2D307798E4EA7B3901E97D',
+        '25E3CA5520BF9D0F5B26FDC7FBFAE5B2',
+        '1E421B969A0D3BBAE707D1DF88A79AEC',
+        '02CDD8CC6947CF34697269D67E4693FB',
+        'DA3C8D84BF8955B2BF7CDC0FE09C158D',
+        '9D20B640C87E1B1A45F6861A932E5F99',
+        '51DD3E7831352F9F54FC8D9BDCF6770E',
+        '83DCDBF29744605A3B01AC7FEEAACBE2',
+        '015A52009A685C082B0FFEF98A4CF94B',
     ];
 
     // Slow Bolt, RN_Weapon_StaminaBuff_001

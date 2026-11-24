@@ -62148,6 +62148,441 @@
             "unique": false,
             "nonSecure": false,
             "purchasable": true
+        },
+        {
+            "id": "3F0F7FEA92EFDB1C19E0AF3B94E69FC8",
+            "displayName": "RN_Perk_Transfusion_001_Transfusion",
+            "initialQuantity": 1,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "0BEC990D4D2D307798E4EA7B3901E97D",
+                "prerequisiteItem": "",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "0BEC990D4D2D307798E4EA7B3901E97D",
+            "displayName": "RN_Perk_Transfusion_002_Transfusion",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 700
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 800
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "8A61AD66AD54CCD1A19149C3DF9226E6"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "25E3CA5520BF9D0F5B26FDC7FBFAE5B2",
+                "prerequisiteItem": "3F0F7FEA92EFDB1C19E0AF3B94E69FC8",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "25E3CA5520BF9D0F5B26FDC7FBFAE5B2",
+            "displayName": "RN_Perk_Transfusion_003_Transfusion",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 900
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 1200
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "1E421B969A0D3BBAE707D1DF88A79AEC",
+                "prerequisiteItem": "0BEC990D4D2D307798E4EA7B3901E97D",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "1E421B969A0D3BBAE707D1DF88A79AEC",
+            "displayName": "RN_Perk_Transfusion_004_Transfusion",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1100
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 1600
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 400
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "02CDD8CC6947CF34697269D67E4693FB",
+                "prerequisiteItem": "25E3CA5520BF9D0F5B26FDC7FBFAE5B2",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "02CDD8CC6947CF34697269D67E4693FB",
+            "displayName": "RN_Perk_Transfusion_005_Transfusion",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1300
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2000
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 1100
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "DA3C8D84BF8955B2BF7CDC0FE09C158D",
+                "prerequisiteItem": "1E421B969A0D3BBAE707D1DF88A79AEC",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "DA3C8D84BF8955B2BF7CDC0FE09C158D",
+            "displayName": "RN_Perk_Transfusion_006_Transfusion",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1500
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2400
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 1700
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "FFB5E33AD35E842C7299B3BD0EC7E741"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "9D20B640C87E1B1A45F6861A932E5F99",
+                "prerequisiteItem": "02CDD8CC6947CF34697269D67E4693FB",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "9D20B640C87E1B1A45F6861A932E5F99",
+            "displayName": "RN_Perk_Transfusion_007_Transfusion",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1700
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 2900
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 2400
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "51DD3E7831352F9F54FC8D9BDCF6770E",
+                "prerequisiteItem": "DA3C8D84BF8955B2BF7CDC0FE09C158D",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "51DD3E7831352F9F54FC8D9BDCF6770E",
+            "displayName": "RN_Perk_Transfusion_008_Transfusion",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 1900
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 3400
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 3100
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "83DCDBF29744605A3B01AC7FEEAACBE2",
+                "prerequisiteItem": "9D20B640C87E1B1A45F6861A932E5F99",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "83DCDBF29744605A3B01AC7FEEAACBE2",
+            "displayName": "RN_Perk_Transfusion_009_Transfusion",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 2100
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 4000
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 3900
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "015A52009A685C082B0FFEF98A4CF94B",
+                "prerequisiteItem": "51DD3E7831352F9F54FC8D9BDCF6770E",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
+        },
+        {
+            "id": "015A52009A685C082B0FFEF98A4CF94B",
+            "displayName": "RN_Perk_Transfusion_010_Transfusion",
+            "initialQuantity": 0,
+            "consumable": false,
+            "consumptionReward": [],
+            "defaultCost": [
+                {
+                    "currencyId": "CurrencyA",
+                    "price": 2300
+                },
+                {
+                    "currencyId": "CurrencyB",
+                    "price": 4600
+                },
+                {
+                    "currencyId": "CurrencyC",
+                    "price": 4700
+                }
+            ],
+            "eventCostList": [],
+            "metaData": {
+                "gameplayTags": [
+                    "Accessory.Perk",
+                    "Accessory.Trinket"
+                ],
+                "requiredChallengesToComplete": [
+                    "A5A0AE20C816EE06E37BE868CED75D3D"
+                ],
+                "minPlayerLevel": 0,
+                "minCharacterLevel": 0,
+                "freeForUserCreatedAfter": 0,
+                "freeForUserCreatedBefore": 0,
+                "isUnbreakableFullset": false,
+                "origin": "None",
+                "quality": "Basic",
+                "groupType": "",
+                "followingItem": "",
+                "prerequisiteItem": "83DCDBF29744605A3B01AC7FEEAACBE2",
+                "autoUnlockItemIds": [],
+                "itemAssignments": [],
+                "prestigeLevelRewards": []
+            },
+            "unique": false,
+            "nonSecure": false,
+            "purchasable": true
         }
     ]
 }

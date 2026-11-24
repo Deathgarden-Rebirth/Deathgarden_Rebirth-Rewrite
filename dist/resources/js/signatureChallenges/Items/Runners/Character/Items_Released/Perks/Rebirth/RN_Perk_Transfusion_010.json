@@ -1,0 +1,105 @@
+[
+  {
+    "Type": "CompositeItemMetadata",
+    "Name": "CompositeItemMetadata_0",
+    "Outer": "RN_Perk_Transfusion_010",
+    "Class": "UScriptClass'CompositeItemMetadata'",
+    "Properties": {
+      "Metadata": [
+        {
+          "ObjectName": "GameplayEffectMetadata'RN_Perk_Transfusion_010:CompositeItemMetadata_0.GameplayEffectMetadata_0'",
+          "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Rebirth/RN_Perk_Transfusion_010.1"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameplayEffectMetadata",
+    "Name": "GameplayEffectMetadata_0",
+    "Outer": "CompositeItemMetadata_0",
+    "Class": "UScriptClass'GameplayEffectMetadata'",
+    "Properties": {
+      "GameplayEffect": {
+        "ObjectName": "BlueprintGeneratedClass'PerkMod_Transfusion_C'",
+        "ObjectPath": "TheExit/Content/Items/GameplayEffects/Runner/PerkMod_Transfusion.0"
+      },
+      "Level": 9.0
+    }
+  },
+  {
+    "Type": "LoadoutItemAsset",
+    "Name": "RN_Perk_Transfusion_010",
+    "Class": "UScriptClass'LoadoutItemAsset'",
+    "Properties": {
+      "DeploymentMode": "EDeploymentMode::Released",
+      "ItemImage": {
+        "ObjectName": "Texture2D'UniqueBonusIcon_Runner_Ink_MoreStamina'",
+        "ObjectPath": "TheExit/Content/UI/ImageAssets/GameIcons/RunnerPerks/Ink/UniqueBonusIcon_Runner_Ink_MoreStamina.0"
+      },
+      "DefaultCost": [
+        {
+          "CurrencyId": "EGMCurrency::CurrencyB",
+          "Price": 450
+        }
+      ],
+      "RequiredChallengesToComplete": [
+        {
+          "ChallengeId": "A5A0AE20-C816EE06-E37BE868-CED75D3D",
+          "ChallengeCompletionValue": 100.0,
+          "ChallengeAsset": {
+            "AssetPathName": "/Game/Challenges/Progression/Challenge_Transfusion_Runner.Challenge_Transfusion_Runner",
+            "SubPathString": ""
+          }
+        }
+      ],
+      "ItemEffectDescriptions": [
+        {
+          "FormatedDescription": {
+            "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+            "Key": "Rebirth_Runner_Perks_Transfusion_EffectDesc"
+          },
+          "Arguments": [
+            8.0
+          ]
+        }
+      ],
+      "DisplayName": {
+        "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+        "Key": "Rebirth_Runner_Perks_Transfusion_Name"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+        "Key": "Rebirth_Runner_Perks_Transfusion_Desc"
+      },
+      "LoreText": {
+        "TableId": "/Game/StringTables/Rebirth_Runner_Perks.Rebirth_Runner_Perks",
+        "Key": "Rebirth_Runner_Perks_Transfusion_Lore"
+      },
+      "Guid": "015A5200-9A685C08-2B0FFEF9-8A4CF94B",
+      "TagContainer": [
+        "Accessory.Trinket",
+        "Accessory.Perk"
+      ],
+      "TagQuery": {
+        "TagDictionary": [
+          {
+            "TagName": "Class.Runner"
+          }
+        ],
+        "QueryTokenStream": [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        "AutoDescription": " ALL( Class.Runner )"
+      },
+      "Metadata": {
+        "ObjectName": "CompositeItemMetadata'RN_Perk_Transfusion_010:CompositeItemMetadata_0'",
+        "ObjectPath": "TheExit/Content/Items/Runners/Character/Items_Released/Perks/Rebirth/RN_Perk_Transfusion_010.0"
+      },
+      "Version": 1
+    }
+  }
+]

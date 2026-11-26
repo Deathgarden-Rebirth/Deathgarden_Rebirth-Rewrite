@@ -24,9 +24,10 @@ class SawbonesItemConfig extends CharacterItemConfig
         'AD900FC94C6608A4F88E8B8A87402F0F',
     ];
 
+    // Quick Rescue and Med Relay (RN_Bonus_MedRelay) in place of Disc Defrag
     protected static array $defaultEquippedBonuses = [
         '109BC5904DC1272D70822EBA79CC85B1',
-        'CEE62C37472E49AF36BC2A9809EEF2AD',
+        '03C4D825D20741D98E2595C8B6B65C83',
     ];
 
     protected static array $additionalPerks = [
